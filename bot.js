@@ -28,7 +28,6 @@ client.on('message', message => {
       {
         message.reply("Шот не так, сосать");
       }
-  	}
 });
 
 // THIS  MUST  BE  THIS  WAY
