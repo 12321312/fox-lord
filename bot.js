@@ -18,14 +18,14 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    if (receivedMessage.content === vostkl ) {
+    if (receivedMessage.content(vostkl) == 0) {
     receivedMessage.react(client.emojis.get("554122910584012800"))
     }
 });
 
 
 client.on('message', message => {
-    if (message.content(vostkl) == 0) {
+    if (message.content === vostkl + 'пинг') {
     message.reply("Да нормальный у тебя пинг, успокойся");
   	}
 });
