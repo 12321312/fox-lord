@@ -7,7 +7,7 @@ console.log('Запущен, сэр!');
 client.user.setPresence({
        status: "online",
        game: {
-           name: "-help | crater en directo",
+           name: "В твои нервы",
            url: "https://www.twitch.tv/CraterMaik",
            type: "STREAMING"
        }
