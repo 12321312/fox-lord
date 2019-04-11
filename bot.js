@@ -35,11 +35,9 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
+    if (message.content === '!') {
     receivedMessage.react("👍")
-    receivedMessage.react("🛐")
-    receivedMessage.guild.emojis.forEach(customEmoji => {
-        console.log(`Reacting with custom emoji: ${customEmoji.name} (${customEmoji.id})`)
-        receivedMessage.react(customEmoji)
+    }
     })
 })
 
