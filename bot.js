@@ -19,7 +19,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if(message.content === '!тест') {
+    if (message.content === '!тест') {
     if (message.member.roles.equals("537700464888643595"))
       {      
         message.reply("Ухх, сюка, сработало!");
