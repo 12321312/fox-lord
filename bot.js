@@ -4,13 +4,17 @@ const vostkl = "!";
 
 client.on('ready', () => {
 console.log('Запущен, сэр!');
-client.user.setPresence({
-       status: "online",
-       game: {
-           name: "-help | crater",
-           type: "PLAYING"
-       }
-   })
+});
+
+bot.on('ready', () => {
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'with depression',
+            type: "STREAMING",
+            url: "https://www.twitch.tv/monstercat"
+        }
+    });
 });
 
 client.on('message', message => {
