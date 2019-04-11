@@ -7,8 +7,8 @@ console.log('Запущен, сэр!');
 client.user.setPresence({
        status: "online",
        game: {
-           name: "В твои нервы",
-           url: "https://www.twitch.tv/CraterMaik",
+           name: "твои нервы",
+           url: "https://www.youtube.com/watch?v=qrohU75OdJ8",
            type: "STREAMING"
        }
    })
@@ -38,9 +38,8 @@ client.on('message', (receivedMessage) => {
         return
     }
     if (receivedMessage.content === vostkl) {
-    let customEmoID = receivedMessage.guild.emojis.get(554122910584012800);
-    receivedMessage.guild.emojis.forEach(customEmoID => {
-    receivedMessage.react(customEmoID)
+    receivedMessage.react(client.emojis.get("554122910584012800"))
+     .then(reaction => console.log(typeof reaction));
     })
     }
 });
