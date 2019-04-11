@@ -14,14 +14,24 @@ client.user.setPresence({
    })
 });
 
+client.on('message', (receivedMessage) => {
+    if (receivedMessage.author == client.user) {
+        return
+    }
+    if (receivedMessage.content === vostkl) {
+    receivedMessage.react(client.emojis.get("554122910584012800"))
+    }
+});
+
+
 client.on('message', message => {
-    if (message.content === '!пинг') {
+    if (message.content === vostkl+'пинг') {
     	message.reply('пшёл нахуй, нормальный пинг');
   	}
 });
 
 client.on('message', message => {
-    if (message.content === '!выдать') {
+    if (message.content === vostkl+'выдать') {
     if (message.member.roles.get("537700464888643595"))
       {      
 
@@ -31,15 +41,6 @@ client.on('message', message => {
         message.reply("Вы не можете выдавать роли, сосать");
       }
       }
-});
-
-client.on('message', (receivedMessage) => {
-    if (receivedMessage.author == client.user) {
-        return
-    }
-    if (receivedMessage.content === vostkl) {
-    receivedMessage.react(client.emojis.get("554122910584012800"))
-    }
 });
 
 // THIS  MUST  BE  THIS  WAY
