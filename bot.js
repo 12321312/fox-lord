@@ -8,7 +8,6 @@ client.on('ready', () => {
 client.user('setPresence', setPresence => {
         game: {
           name: `Играет в твои нервы`,
-          status: 'idle',
         }
       });
 
