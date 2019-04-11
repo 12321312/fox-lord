@@ -26,7 +26,8 @@ client.on('message', (receivedMessage) => {
 
 client.on('message', message => {
     if (message.content === vostkl + 'пинг') {
-    	message.reply("пшёл нахуй, нормальный пинг ${createdTimestamp - message.createdTimestamp} м/с");
+       const m = await message.reply("Ща проверим");
+       m.edit(`Мой пинг: ${m.createdTimestamp - message.createdTimestamp} м/c. Ваш: ${Math.round(client.ping)} м/c`);
   	}
 });
 
