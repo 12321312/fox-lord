@@ -26,7 +26,7 @@ client.on('message', (receivedMessage) => {
 client.on('message', message => {
   if (message.content === vostkl + 'лав') {
   message.author.sendMessage("Я люблю тебя ♥");
-  message.author.delete();
+  message.delete(1);
   }
 });
 
