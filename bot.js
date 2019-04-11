@@ -48,11 +48,11 @@ client.on('message', message => {
             console.log('Сообщения успешно удалены, всего удалено: '+messagesDeleted)
           })
        }      
-      }
     }
     else  {
         message.reply("Вы не можете удалять, сосать");
       }
+    }
 });
 
 // THIS  MUST  BE  THIS  WAY
