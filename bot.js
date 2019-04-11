@@ -10,7 +10,7 @@ client.user.setPresence({
           name: `Играет в твои нервы`,
           type: 0  //экспериментируйте доступные значения 0-3, что-то из этого "стримит"
         }
-      })
+      });
 
 client.on('message', message => {
     if (message.content === '!пинг') {
