@@ -23,8 +23,11 @@ client.on('message', (receivedMessage) => {
     }
 });
 
-client.on("sendMessage", sendMessage => {
-  message.author.sendMessage("blah blah");
+client.on("Message", Message => {
+  if (message.content === vostkl + 'лав') {
+  message.delete()
+  message.author.sendMessage("Я люблю тебя ♥");
+  }
 });
 
 client.on('message', message => {
