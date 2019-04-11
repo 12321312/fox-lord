@@ -26,6 +26,7 @@ client.on('message', (receivedMessage) => {
 
 client.on('message', message => {
     if (message.content === vostkl + 'пинг') {
+       const m = await message.channel.send("Ping?");
     	message.reply("пшёл нахуй, нормальный пинг ${m.createdTimestamp - message.createdTimestamp} м/с");
   	}
 });
