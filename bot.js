@@ -18,7 +18,7 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    if (receivedMessage.content(vostkl) == 0) {
+    if (receivedMessage.content.indexOf(vostkl) == 0) {
     receivedMessage.react(client.emojis.get("554122910584012800"))
     }
 });
