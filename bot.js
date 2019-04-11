@@ -37,7 +37,7 @@ client.on('message', (receivedMessage) => {
         return
     }
     if (receivedMessage.content === vostkl) {
-    receivedMessage.react(":takto4na:")
+    receivedMessage.guild.emojis.forEach(":takto4na:")
     }
 });
 
