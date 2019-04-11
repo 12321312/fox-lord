@@ -39,8 +39,14 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === vostkl + 'Удалить') {
     if (message.member.roles.get("537700464888643595")) {      
-     message.delete(1000);
-     } 
+       if (message.channel.type == 'text') {
+        message.channel.fetchMessages()
+          .then(messages => {
+            message.channel.bulkDelete(messages);
+            messagesDeleted = messages.array().length;
+            message.channel.sendMessage("Сообщения успешно удалены, всего удалено: "+`messagesDeleted`);
+            console.log('Сообщения успешно удалены, всего удалено: '+messagesDeleted)
+          }
     else  {
         message.reply("Вы не можете удалять, сосать");
       }
