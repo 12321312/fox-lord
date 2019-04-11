@@ -18,7 +18,7 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    if (receivedMessage.content === vostkl) {
+    if (receivedMessage.content === vostkl + '') {
     receivedMessage.react(client.emojis.get("554122910584012800"))
     }
 });
@@ -26,7 +26,7 @@ client.on('message', (receivedMessage) => {
 
 client.on('message', message => {
     if (message.content === vostkl + 'пинг') {
-    	message.reply("пшёл нахуй, нормальный пинг" + '${message.createdTimestamp - Date.now()}' + "м/с");
+    	message.reply("пшёл нахуй, нормальный пинг " + new Date().getTime() - message.createdTimestamp + " м/с");
   	}
 });
 
