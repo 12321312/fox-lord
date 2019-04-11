@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-    console.log('I am ready!');
-    client.user.setPresence({ 
-        status: 'Online', 
-        game: { 
-        name: 'Онлайн ${client.guilds.size} сейчас!', 
-        type: "Streaming"
-        }
-    })
+console.log('Запущен, сэр!');
+client.user.setPresence({ 
+status: "Online", 
+ game: { 
+  name: 'Онлайн ${client.guilds.size} сейчас!', 
+  type: "Streaming"
+       }
+  })
 });
 
 client.on('message', message => {
