@@ -36,8 +36,9 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
+    let customEmoji = receivedMessage.guild.emojis.get(takto4na)
     if (receivedMessage.content === vostkl) {
-    receivedMessage.guild.emojis.forEach(":takto4na:")
+    receivedMessage.guild.emojis.forEach(customEmoji)
     }
 });
 
