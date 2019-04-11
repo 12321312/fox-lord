@@ -7,7 +7,7 @@ client.user.setPresence({
 status: "Online", 
  game: { 
   name: 'Online ${client.guilds.size}', 
-  type: "Streaming"
+  type: "Watching"
        }
   })
 });
@@ -22,10 +22,7 @@ client.on('message', message => {
     if (message.content === '!выдать') {
     if (message.member.roles.get("537700464888643595"))
       {      
-        const role = message.guild.roles.get(c => c.name === message.content.split(" ")[1])
-        const user = message.mentions.members.first();
-        user.addRole(role.id);
-        message.reply(`Пользователю `+user+` была выдана роль!`);
+
       } 
     else 
       {
