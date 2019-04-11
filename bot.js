@@ -35,7 +35,7 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    if (message.content === '!') {
+    if (receivedMessage.content === '!') {
     receivedMessage.react("👍")
     }
     })
