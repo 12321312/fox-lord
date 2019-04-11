@@ -5,7 +5,7 @@ client.on('ready', () => {
     console.log('I am ready!');
 });
 
-client.user.setPresence({
+client.user('setPresence', setPresence => {
         game: {
           name: `Играет в твои нервы`,
           type: 0  //экспериментируйте доступные значения 0-3, что-то из этого "стримит"
