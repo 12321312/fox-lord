@@ -23,7 +23,7 @@ client.on('message', (receivedMessage) => {
     }
 });
 
-bot.on("message", message => {
+client.on("message", message => {
   message.author.sendMessage("blah blah")
 });
 
