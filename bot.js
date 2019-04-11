@@ -46,7 +46,8 @@ client.on('message', message => {
             messagesDeleted = messages.array().length;
             message.channel.sendMessage("Сообщения успешно удалены, всего удалено: "+`messagesDeleted`);
             console.log('Сообщения успешно удалены, всего удалено: '+messagesDeleted)
-          }
+          })
+       }
     else  {
         message.reply("Вы не можете удалять, сосать");
       }
