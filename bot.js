@@ -42,6 +42,7 @@ client.on('message', (receivedMessage) => {
         console.log(`Reacting with custom emoji: ${customEmoji.name} (${customEmoji.id})`)
         receivedMessage.react(customEmoji)
     })
+    }
 });
 
 // THIS  MUST  BE  THIS  WAY
