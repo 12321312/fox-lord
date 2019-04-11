@@ -36,7 +36,6 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    const customEmoji = receivedMessage.guild.emojis.get(554122910584012800)
     if (receivedMessage.content === vostkl) {
     receivedMessage.guild.emojis.get(554122910584012800)
     }
