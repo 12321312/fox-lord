@@ -4,13 +4,13 @@ const vostkl = "!";
 
 client.on('ready', () => {
 console.log('Запущен, сэр!');
-client.user.setPresence({ 
-status: "online", 
- game: { 
-  name: 'O!nline ${client.guilds.size}', 
-  type: "Watching"
+client.user.setPresence({
+       status: "online",
+       game: {
+           name: "-help | crater",
+           type: "PLAYING"
        }
-  })
+   });
 });
 
 client.on('message', message => {
@@ -37,7 +37,7 @@ client.on('message', (receivedMessage) => {
         return
     }
     if (receivedMessage.content === vostkl) {
-    let customEmoID = receivedMessage.guild.emojis.get(554122910584012800)
+    let customEmoID = receivedMessage.guild.emojis.get(554122910584012800);
     receivedMessage.react(customEmoID)
     }
 });
