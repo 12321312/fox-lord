@@ -3,13 +3,8 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
+    client.user.setPresence({ game: { name: 'В твои нервы' }, status: 'idle' })
 });
-
-client.user('setPresence', setPresence => {
-        game: {
-          name: `Играет в твои нервы`,
-        }
-      });
 
 client.on('message', message => {
     if (message.content === '!пинг') {
