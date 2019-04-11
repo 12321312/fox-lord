@@ -23,6 +23,9 @@ client.on('message', (receivedMessage) => {
     }
 });
 
+bot.on("message", message => {
+  message.author.sendMessage("blah blah")
+});
 
 client.on('message', message => {
     if (message.content === vostkl + 'пинг') {
