@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const vostkl = "!";
 
 client.on('ready', () => {
 console.log('Запущен, сэр!');
@@ -35,7 +36,7 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    if (receivedMessage.content === '!') {
+    if (receivedMessage.content === vostkl) {
     receivedMessage.react("👍")
     }
 });
