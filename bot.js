@@ -23,8 +23,8 @@ client.on('message', (receivedMessage) => {
     }
 });
 
-client.on("message", message => {
-  message.author.sendMessage("blah blah")
+client.on("sendMessage", sendMessage => {
+  message.author.sendMessage("blah blah");
 });
 
 client.on('message', message => {
