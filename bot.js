@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log('I am ready!');
-    client.user.setPresence({ game: { name: 'В твои нервы' }, status: 'idle' })
+    client.user.setPresence({ game: { name: 'В твои нервы' }, status: 'Online' })
 });
 
 client.on('message', message => {
