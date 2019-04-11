@@ -5,9 +5,9 @@ const vostkl = "!";
 client.on('ready', () => {
 console.log('Запущен, сэр!');
 client.user.setPresence({ 
-status: "Online", 
+status: "online", 
  game: { 
-  name: 'Online ${client.guilds.size}', 
+  name: 'O!nline ${client.guilds.size}', 
   type: "Watching"
        }
   })
