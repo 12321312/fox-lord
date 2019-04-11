@@ -39,10 +39,10 @@ client.on('message', message => {
 client.on('message', message => {
     if (message.content === vostkl + 'Удалить') {
     if (message.member.roles.get("537700464888643595")) {      
-    
+     message.delete(1000);
      } 
     else  {
-        message.reply("Вы не можете выдавать роли, сосать");
+        message.reply("Вы не можете удалять, сосать");
       }
       }
 });
