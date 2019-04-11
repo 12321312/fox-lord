@@ -26,7 +26,7 @@ client.on('message', (receivedMessage) => {
 
 client.on('message', message => {
     if (message.content === vostkl + 'пинг') {
-    message.reply("Да нормальный у тебя пинг ${client.ping} м/с, успокойся");
+    message.reply('Да нормальный у тебя пинг`' + `${message.createdTimestamp - Date.now()}` + '`м/с, успокойся');
   	}
 });
 
