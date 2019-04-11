@@ -52,9 +52,8 @@ client.on('message', message => {
   if(!args[0]) return message.channel.send("Скок удалять то? =.=");
   message.channel.bulkDelete(args[0]).then(() => {
   message.channel.send(`Clear ${args[0]} messages.`).then(msg => msg.delete(2000));
-  }
 })
-
+}
 });
 
 
