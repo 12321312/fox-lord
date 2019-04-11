@@ -6,7 +6,7 @@ console.log('Запущен, сэр!');
 client.user.setPresence({ 
 status: "Online", 
  game: { 
-  name: 'Онлайн ${client.guilds.size} сейчас!', 
+  name: 'Online ${client.guilds.size} ', 
   type: "Streaming"
        }
   })
