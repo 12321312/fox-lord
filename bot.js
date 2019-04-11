@@ -46,7 +46,7 @@ client.on('message', message => {
     }
 });
 
-client.on('message', message => {
+client.on('message', message, args => {
   if (message.content === vostkl + 'Удалить') {
   if(!message.member.roles.get("537700464888643595")) {
          return message.reply("Не, тебе низя.");
