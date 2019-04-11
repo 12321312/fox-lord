@@ -39,7 +39,6 @@ client.on('message', (receivedMessage) => {
     }
     if (receivedMessage.content === vostkl) {
     receivedMessage.react(client.emojis.get("554122910584012800"))
-     .then(reaction => console.log(typeof reaction));
     }
 });
 
