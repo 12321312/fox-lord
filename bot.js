@@ -38,7 +38,6 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.content === '!') {
     receivedMessage.react("👍")
     }
-    })
 });
 
 // THIS  MUST  BE  THIS  WAY
