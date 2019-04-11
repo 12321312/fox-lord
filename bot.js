@@ -4,7 +4,14 @@ const vostkl = "!";
 
 client.on('ready', () => {
 console.log('Запущен, сэр!');
-bot.user.setPresence({ game: { name: 'with depression', type: "streaming", url: "https://www.twitch.tv/monstercat"}}); 
+client.user.setPresence({
+       status: "online",
+       game: {
+           name: "-help | crater en directo",
+           url: "https://www.twitch.tv/CraterMaik",
+           type: "STREAMING"
+       }
+   })
 });
 
 client.on('message', message => {
