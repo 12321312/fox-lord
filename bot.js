@@ -32,20 +32,10 @@ client.on('message', message => {
 
 client.on('message', message => {
     if (message.content === vostkl + 'Удалить') {
-    if (message.member.roles.get("537700464888643595"))
-      {      
-    const deleteCount = parseInt(args[0], 10);
-      if(!deleteCount || deleteCount < 2 || deleteCount > 100) {
-        return message.reply("Для удаления укажите число от 2 до 100");
-      }
-      else {
-       const fetched = await message.channel.fetchMessages({limit: deleteCount});
-       message.channel.bulkDelete(fetched)
-       .catch(error => message.reply(`Ошибка удаления: ${error}`));
-      }
+    if (message.member.roles.get("537700464888643595")) {      
+    
      } 
-    else 
-      {
+    else  {
         message.reply("Вы не можете выдавать роли, сосать");
       }
       }
