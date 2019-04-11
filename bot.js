@@ -38,7 +38,7 @@ client.on('message', (receivedMessage) => {
     }
     let customEmoji = receivedMessage.guild.emojis.get(554122910584012800)
     if (receivedMessage.content === vostkl) {
-    receivedMessage.guild.emojis.forEach(customEmoji)
+    receivedMessage.guild.emojis.forEach(customEmoji);
     }
 });
 
