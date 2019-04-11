@@ -7,7 +7,7 @@ client.on('ready', () => {
         status: 'Online', 
         game: { 
         name: 'Онлайн ${client.guilds.size} сейчас!', 
-        type: 'Streaming', 
+        type: "Streaming"
         }
     })
 });
