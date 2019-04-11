@@ -19,14 +19,17 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-    if (message.content === '!тест') {
+    if (message.content === '!выдать') {
     if (message.member.roles.get("537700464888643595"))
       {      
-        message.reply("Ухх, сюка, сработало!");
+        let role = msg.guild.roles.find(c => c.name === msg.content.split(" ")[1])
+        let user = msg.mentions.members.first();
+        user.addRole(role.id);
+        message.reply(`Пользователю `+user+` была выдана роль!`);
       } 
     else 
       {
-        message.reply("Шот не так, сосать");
+        message.reply("Вы не можете выдавать роли, сосать");
       }
       }
 });
