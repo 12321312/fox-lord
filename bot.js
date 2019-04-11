@@ -8,7 +8,7 @@ client.on('ready', () => {
 client.user('setPresence', setPresence => {
         game: {
           name: `Играет в твои нервы`,
-          type: 0  //экспериментируйте доступные значения 0-3, что-то из этого "стримит"
+          type: 0,
         }
       });
 
