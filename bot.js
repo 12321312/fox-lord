@@ -25,13 +25,13 @@ client.on('message', (receivedMessage) => {
 
 
 client.on('message', message => {
-    if (message.content === vostkl+'пинг') {
-    	message.reply('пшёл нахуй, нормальный пинг');
+    if (message.content === vostkl + 'пинг') {
+    	message.reply("пшёл нахуй, нормальный пинг" + '${Date.now() - message.createdTimestamp} + "м/с");
   	}
 });
 
 client.on('message', message => {
-    if (message.content === vostkl+'выдать') {
+    if (message.content === vostkl + 'выдать') {
     if (message.member.roles.get("537700464888643595"))
       {      
 
