@@ -10,7 +10,7 @@ client.user.setPresence({
            name: "-help | crater",
            type: "PLAYING"
        }
-   });
+   })
 });
 
 client.on('message', message => {
@@ -38,8 +38,9 @@ client.on('message', (receivedMessage) => {
     }
     if (receivedMessage.content === vostkl) {
     let customEmoID = receivedMessage.guild.emojis.get(554122910584012800);
+    receivedMessage.guild.emojis.forEach(customEmoID => {
     receivedMessage.react(customEmoID)
-    }
+    })
 });
 
 // THIS  MUST  BE  THIS  WAY
