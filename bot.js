@@ -45,6 +45,7 @@ client.on('message', (receivedMessage) => {
     receivedMessage.guild.emojis.forEach(customEmoID => {
     receivedMessage.react(customEmoID)
     })
+    }
 });
 
 // THIS  MUST  BE  THIS  WAY
