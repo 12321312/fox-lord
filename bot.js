@@ -41,7 +41,7 @@ client.on('message', message => {
     let sender = message.author; 
     let cont = message.content.slice(prefix.length).split(" "); 
     let args = cont.slice(1); 
-if (msg.startsWith(prefix + 'PURGE')) {
+if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
     async function purge() {
        if (!message.member.roles.get("537700464888643595")) {
                 message.reply('Вы не можете удалять сообщения. :с'); 
@@ -49,6 +49,10 @@ if (msg.startsWith(prefix + 'PURGE')) {
        }
        if (isNaN(args[0])) {
                 message.reply('А сколько удалять то? \n Напиши: `' + prefix + 'удалить <число>`');
+                return;
+       }
+       if ((args[0]) >= "100") {
+                message.reply('Больше 100 за раз не могу ;с');
                 return;
        }
      const fetched = await message.channel.fetchMessages({limit: args[0]});
