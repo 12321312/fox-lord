@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const vostkl = "!";
+const prefix = "!";
+const cont = message.content.slice(prefix.length).split(" ");
 const args = cont.slice(1);
 
 client.on('ready', () => {
@@ -19,26 +20,26 @@ client.on('message', (receivedMessage) => {
     if (receivedMessage.author == client.user) {
         return
     }
-    if (receivedMessage.content.indexOf(vostkl) == 0) {
+    if (receivedMessage.content.indexOf(prefix) == 0) {
     receivedMessage.react(client.emojis.get("554122910584012800"))
     }
 });
 
 client.on('message', message => {
-  if (message.content === vostkl + 'лав') {
+  if (message.content === prefix + 'лав') {
   message.author.sendMessage("Я люблю тебя ♥");
   message.delete(1);
   }
 });
 
 client.on('message', message => {
-    if (message.content === vostkl + 'пинг') {
+    if (message.content === prefix + 'пинг') {
     message.reply('да нормальный у тебя пинг `' + `${message.createdTimestamp - Date.now()}` + '` м/с, успокойся');
   	}
 });
 
 client.on('message', message => {
-    if (message.content === vostkl + 'Удалить') {
+    if (message.content === prefix + '123') {
     if (message.member.roles.get("537700464888643595")) {      
     }
     else  {
@@ -46,15 +47,6 @@ client.on('message', message => {
       }
     }
 });
-
- client.on('message', message => {
-  if (message.content === vostkl + '123') {
-  if(!message.member.roles.get("537700464888643595")) {
-  }
-  else {
-  }
-}
- });
 
 module.exports.run = async (client, message, args) => {
   if(!message.member.roles.get("537700464888643595")) return message.reply("No.");
