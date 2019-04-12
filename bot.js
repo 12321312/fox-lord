@@ -77,14 +77,14 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
                 return;
        }
        if ((args[1]) >= 100) {
-                message.reply('Больше 100 за раз не могу ;с');
+                message.reply('Больше 100 за раз не могу ;с'+ member.id );
                 return;
        }
      const fetched = await message.channel.fetchMessages({limit: args[1]});
      console.log(fetched.size + ' сообщения найдены, удаление...'); 
      message.reply('удалено `' + fetched.size + '` сообщений');       
            
-     member.channel.bulkDelete(fetched)
+     message.channel.bulkDelete(fetched)
      .catch(error => message.channel.send(`Error: ${error}`));   
  }
   deleite();
