@@ -67,6 +67,12 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
  }                
 });
 
+client.on('message', message => {
+  if (message.content === prefix + 'наказание') {
+  message.delete(1);
+  message.channel.send(member + " лох")
+  }
+});
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN); 
