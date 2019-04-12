@@ -72,8 +72,13 @@ client.on('message', message => {
     let args = cont.slice(1); 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Д')) {
+  if (!message.author.id("294844223675564034")) {
+  message.reply('Хитрожопых наказываю :lolkek:'); 
+  }
+  else {
   message.delete();
   message.channel.send(member + " " + args[1]);
+  }
   }
 });
 
