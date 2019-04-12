@@ -72,16 +72,22 @@ client.on('message', message => {
     let args = cont.slice(1); 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Д')) {
-         if (!isNaN(args[0])) {
   message.delete();
   message.channel.send(member + " " + args[1]);
-         }
-  else {
-  message.delete();
-  message.channel.send(args[1]);
-  }
   }
 });
+
+client.on('message', message => {
+    let msg = message.content.toUpperCase();
+    let cont = message.content.slice(prefix.length).split(" "); 
+    let args = cont.slice(1); 
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
+  if (msg.startsWith(prefix + 'Л')) {
+  message.delete();
+  client.sendMessage(member, args[1]);
+  }
+});
+
 
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN); 
