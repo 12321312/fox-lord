@@ -86,7 +86,7 @@ client.on('message', message => {
   message.delete();
   member.sendMessage(args[1]);
   }
-});
+}); 
 
  
 // THIS  MUST  BE  THIS  WAY
