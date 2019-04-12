@@ -80,10 +80,6 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
                 message.reply('Больше 100 за раз не могу ;с');
                 return;
        }
-       if (isNaN(args[0])) {
-                message.reply('А у кого удалять то? \n Напиши: `' + prefix + 'очистить <@ник> <число>`');
-                return;
-       }
      const fetched = await message.member.channel.fetchMessages({limit: args[1]});
      console.log(fetched.size + ' сообщения найдены, удаление...'); 
      message.reply('удалено `' + fetched.size + '` сообщений');       
