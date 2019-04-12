@@ -51,7 +51,7 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
                 message.reply('А сколько удалять то? \n Напиши: `' + prefix + 'удалить <число>`');
                 return;
        }
-       if ((args[0]) >= "100") {
+       if ((args[0]) >= 100) {
                 message.reply('Больше 100 за раз не могу ;с');
                 return;
        }
