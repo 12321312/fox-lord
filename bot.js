@@ -68,9 +68,11 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
 });
 
 client.on('message', message => {
+    let args = cont.slice(1); 
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (message.content === prefix + 'наказание') {
   message.delete(1);
-  message.channel.send(member + " лох")
+  message.channel.send(member + " " + args[2])
   }
 });
 
