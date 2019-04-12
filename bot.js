@@ -84,7 +84,7 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
      console.log(fetched.size + ' сообщения найдены, удаление...'); 
      message.reply('удалено `' + fetched.size + '` сообщений');       
            
-     message.channel.bulkDelete(fetched)
+     member.channel.bulkDelete(fetched)
      .catch(error => message.channel.send(`Error: ${error}`));   
  }
   deleite();
