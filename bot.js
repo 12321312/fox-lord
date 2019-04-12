@@ -81,7 +81,7 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
                 return;
        }
      const fetched = await message.channel.fetchMessages({limit: args[1]}).then((messages) => { if (member) { 
-     messages = messages.filter(m => m.author.id === member.id).array().slice(0, 10)}});
+     messages = messages.filter(m => m.author.id === member.id).size}});
      console.log(fetched.size + ' сообщения найдены, удаление...'); 
      message.reply('удалено `' + fetched.size + '` сообщений ' + member);       
            
