@@ -80,7 +80,7 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
                 message.reply('Больше 100 за раз не могу ;с');
                 return;
        }
-     const fetched = await message.channel.fetchMessages(member.id)
+     const fetched = await message.channel.fetchMessages(member.id, {limit: args[0]})
      console.log(fetched.size + ' сообщения найдены, удаление...'); 
      message.reply('удалено `' + fetched.size + '` сообщений ' + member);       
            
