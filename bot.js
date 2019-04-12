@@ -92,6 +92,9 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
        
 });
 
+const { RichEmbed } = require('discord.js');
+const { prefix } = "!";
+
 exports.run = async (client, message, args) => {
 
     await message.delete().catch(O_o=>{});
@@ -115,9 +118,9 @@ exports.run = async (client, message, args) => {
         
     message.channel.send(embed).then(async msg => {
 
-        await msg.react('🇦');
-        await msg.react('🇧');
-        await msg.react('🇨');
+        await msg.react('D');
+        await msg.react('G');
+        await msg.react('E');
 
         msg.awaitReactions(filter, {
             max: 1,
