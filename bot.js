@@ -41,6 +41,7 @@ client.on('message', message => {
     let sender = message.author; 
     let cont = message.content.slice(prefix.length).split(" "); 
     let args = cont.slice(1); 
+    let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
 if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
     async function purge() {
        if (!message.member.roles.get("537700464888643595")) {
@@ -63,17 +64,10 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
      .catch(error => message.channel.send(`Error: ${error}`));   
  }
   purge();
- }      
-});
-
-client.on('message', message => {
-    let msg = message.content.toUpperCase();
-    let sender = message.author; 
-    let cont = message.content.slice(prefix.length).split(" "); 
-    let args = cont.slice(1); 
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+ }  
+       
 if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
-    async function purgee() {
+    async function deleite() {
        if (!message.member.roles.get("537700464888643595")) {
                 message.reply('Вы не можете удалять сообщения. :с'); 
                 return; 
@@ -97,8 +91,9 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
      message.channel.bulkDelete(fetched)
      .catch(error => message.channel.send(`Error: ${error}`));   
  }
-  purgee();
- }      
+  deleite();
+ }             
+       
 });
 
 // THIS  MUST  BE  THIS  WAY
