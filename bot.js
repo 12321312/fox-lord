@@ -93,7 +93,6 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
 });
 
 const { RichEmbed } = require('discord.js');
-const { prefix } = "!";
 
 exports.run = async (client, message, args) => {
 
