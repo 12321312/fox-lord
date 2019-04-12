@@ -73,7 +73,7 @@ client.on('message', message => {
     let args = cont.slice(1); 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
 if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
-    async function purge() {
+    async function purgee() {
        if (!message.member.roles.get("537700464888643595")) {
                 message.reply('Вы не можете удалять сообщения. :с'); 
                 return; 
@@ -97,7 +97,7 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
      message.channel.bulkDelete(fetched)
      .catch(error => message.channel.send(`Error: ${error}`));   
  }
-  purge();
+  purgee();
  }      
 });
 
