@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const vostkl = "!";
+const args = cont.slice(1);
 
 client.on('ready', () => {
 console.log('Запущен, сэр!');
@@ -56,7 +57,6 @@ client.on('message', message => {
  });
 
 module.exports.run = async (client, message, args) => {
-let args = cont.slice(1);
   if(!message.member.roles.get("537700464888643595")) return message.reply("No.");
   if(!args[0]) return message.channel.send("no");
   message.channel.bulkDelete(args[0]).then(() => {
