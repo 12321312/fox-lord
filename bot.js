@@ -68,7 +68,7 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
 
 client.on('message', message => {
     let msg = message.content.toUpperCase();
-    let cont = message.content.slice(prefix.length).split(" "); 
+    let cont = message.content.slice(prefix.length).split(' '); 
     let args = cont.slice(1); 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Д')) {
@@ -77,7 +77,7 @@ client.on('message', message => {
   return;
   }
   message.delete();
-  message.channel.send(member + " " + args[1]);
+  message.channel.send(member + ' ' + args[1]);
   }
 });
 
