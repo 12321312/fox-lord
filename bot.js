@@ -68,7 +68,8 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
 
 client.on('message', message => {
     let msg = message.content.toUpperCase();
-    let args = message.content.slice(config.prefix.length).trim().split(/ +/g);   
+    let cont = message.content.slice(prefix.length).split(" "); 
+    let args = cont.slice(1); 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Д')) {
   if (message.author.id !== "294844223675564034") {
