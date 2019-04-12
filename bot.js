@@ -41,14 +41,14 @@ client.on('message', message => {
     let sender = message.author; 
     let cont = message.content.slice(prefix.length).split(" "); 
     let args = cont.slice(1); 
-if (message.content === prefix + 'удалить') {
+if (msg.startsWith(prefix + 'удалить')) {
     async function purge() {
        if (!message.member.roles.get("537700464888643595")) {
                 message.reply('Вы не можете удалять сообщения. :с'); 
                 return; 
        }
        if (isNaN(args[0])) {
-                message.channel.send('А сколько удалять то?. \n Напиши: ' + prefix + ' удалить <число>');
+                message.reply('А сколько удалять то? \n Напиши: `' + prefix + 'удалить <число>`');
                 return;
        }
      const fetched = await message.channel.fetchMessages({limit: args[0]});
