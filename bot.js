@@ -84,7 +84,7 @@ client.on('message', message => {
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Л')) {
   message.delete();
-  client.sendMessage(member, args[1]);
+  message.sendMessage(member, args[1]);
   }
 });
 
