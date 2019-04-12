@@ -68,17 +68,20 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
 });
 
 
+const { RichEmbed } = require('discord.js');
+
 exports.run = async (client, message, args) => {
 
     await message.delete().catch(O_o=>{});
 
-    const a = message.guild.roles.get('537706487842340865'); // dota
-    const b = message.guild.roles.get('537706608105619457'); // Gmod
-    const c = message.guild.roles.get('537706571015258156'); // Eve
+    const a = message.guild.roles.get('485987998794514442'); // Moderator
+    const b = message.guild.roles.get('485987998165499914'); // Administrator
+    const c = message.guild.roles.get('482192667766423561'); // Developer
 
-    const filter = (reaction, user) => ['d', 'g', 'e'].includes(reaction.emoji.name) && user.id === message.author.id;
-      const embed = new RichEmbed()
-        .setTitle("Выбери ключ")
+    const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
+
+    const embed = new RichEmbed()
+        .setTitle('Avaiilable Roles')
         .setDescription(`
         
         🇦 ${a.toString()}
@@ -88,11 +91,11 @@ exports.run = async (client, message, args) => {
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
         
-    message.channel.send(client).then(async msg => {
+    message.channel.send(embed).then(async msg => {
 
-        await msg.react('D');
-        await msg.react('G');
-        await msg.react('E');
+        await msg.react('🇦');
+        await msg.react('🇧');
+        await msg.react('🇨');
 
         msg.awaitReactions(filter, {
             max: 1,
@@ -106,42 +109,42 @@ exports.run = async (client, message, args) => {
                 case '🇦':
                     if (message.member.roles.has(a.id)) {
                         msg.delete(2000);
-                        return message.channel.send('У вас уже есть ключ!').then(m => m.delete(3000));
+                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
                     }
                     message.member.addRole(a).catch(err => {
                         console.log(err);
                         return message.channel.send(`Error adding you to this role: **${err.message}**.`);
                     });
-                    message.channel.send(`Вам был добавлен ключ: **${a.name}** !`).then(m => m.delete(3000));
+                    message.channel.send(`You have been added to the **${a.name}** role!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
                 case '🇧':
                     if (message.member.roles.has(b.id)) {
                         msg.delete(2000);
-                        return message.channel.send('У вас уже есть ключ!').then(m => m.delete(3000));
+                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
                     }
                     message.member.addRole(b).catch(err => {
                         console.log(err);
                         return message.channel.send(`Error adding you to this role: **${err.message}**.`);
                     });
-                    message.channel.send(`Вам был добавлен ключ **${b.name}** !`).then(m => m.delete(3000));
+                    message.channel.send(`You have been added to the **${b.name}** role!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
                 case '🇨':
                     if (message.member.roles.has(c.id)) {
                         msg.delete(2000);
-                        return message.channel.send('У вас уже есть ключ!').then(m => m.delete(3000));
+                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
                     }
                     message.member.addRole(c).catch(err => {
                         console.log(err);
                         return message.channel.send(`Error adding you to this role: **${err.message}**.`);
                     });
-                    message.channel.send(`Вам был добавлен ключ **${c.name}** !`).then(m => m.delete(3000));
+                    message.channel.send(`You have been added to the **${c.name}** role!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
             }
         }).catch(collected => {
-            return message.channel.send(`Я не смог добавить вам роль`);
+            return message.channel.send(`I couldn't add you to this role!`);
         });
 
     });
@@ -149,7 +152,7 @@ exports.run = async (client, message, args) => {
 };
 
 exports.help = {
-    name: 'ключ'
+    name: 'roles'
 };
 
 // THIS  MUST  BE  THIS  WAY
