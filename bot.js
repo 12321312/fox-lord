@@ -73,7 +73,7 @@ client.on('message', message => {
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (message.content === prefix + 'наказание') {
   message.delete(1);
-  message.channel.send(member + " " + args[2])
+  message.channel.send(member + " " + args[1])
   }
 });
 
