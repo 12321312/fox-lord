@@ -67,7 +67,6 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
  }                
 });
 
-const { RichEmbed } = require('discord.js');
 
 exports.run = async (client, message, args) => {
 
@@ -78,9 +77,8 @@ exports.run = async (client, message, args) => {
     const c = message.guild.roles.get('537706571015258156'); // Eve
 
     const filter = (reaction, user) => ['d', 'g', 'e'].includes(reaction.emoji.name) && user.id === message.author.id;
-
-    const embed = new RichEmbed()
-        .setTitle('Avaiilable Roles')
+       
+        .setTitle('Выбери ключ')
         .setDescription(`
         
         🇦 ${a.toString()}
@@ -90,7 +88,7 @@ exports.run = async (client, message, args) => {
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
         
-    message.channel.send(embed).then(async msg => {
+    message.channel.send(client).then(async msg => {
 
         await msg.react('D');
         await msg.react('G');
@@ -151,7 +149,7 @@ exports.run = async (client, message, args) => {
 };
 
 exports.help = {
-    name: 'роль'
+    name: 'ключ'
 };
 
 // THIS  MUST  BE  THIS  WAY
