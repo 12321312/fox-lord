@@ -73,7 +73,7 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
                 return; 
        }
        if (isNaN(args[1])) {
-                message.reply('А сколько удалять то? \n Напиши: `' + prefix + 'удалить <число>`');
+                message.reply('А сколько удалять то? \n Напиши: `' + prefix + 'очистить <@ник> <число>`');
                 return;
        }
        if ((args[1]) >= 100) {
