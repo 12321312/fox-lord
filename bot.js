@@ -102,7 +102,7 @@ exports.run = async (client, message, args) => {
     const b = message.guild.roles.get('537706608105619457'); // Gmod
     const c = message.guild.roles.get('537706571015258156'); // Eve
 
-    const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['d', 'g', 'e'].includes(reaction.emoji.name) && user.id === message.author.id;
 
     const embed = new RichEmbed()
         .setTitle('Avaiilable Roles')
