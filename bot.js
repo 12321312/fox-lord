@@ -68,6 +68,7 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
 });
 
 client.on('message', message => {
+    let cont = message.content.slice(prefix.length).split(" "); 
     let args = cont.slice(1); 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (message.content === prefix + 'наказание') {
