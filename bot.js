@@ -62,11 +62,5 @@ if (msg.startsWith(prefix + 'удалить')) {
  }      
 });
 
-
-  let cont = message.content.slice(prefix.length).split(" ");
-  let args = cont.slice(1);
-
-
-
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN); 
