@@ -57,7 +57,9 @@ if (msg.startsWith(prefix + 'удалить')) {
            
      message.channel.bulkDelete(fetched)
      .catch(error => message.channel.send(`Error: ${error}`));   
-
+ }
+  purge();
+ }      
 });
 
 
