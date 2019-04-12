@@ -77,7 +77,7 @@ exports.run = async (client, message, args) => {
     const c = message.guild.roles.get('537706571015258156'); // Eve
 
     const filter = (reaction, user) => ['d', 'g', 'e'].includes(reaction.emoji.name) && user.id === message.author.id;
-       const client = new Discord()
+      const embed = new RichEmbed()
         .setTitle("Выбери ключ")
         .setDescription(`
         
