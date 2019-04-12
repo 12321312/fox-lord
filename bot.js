@@ -41,7 +41,6 @@ client.on('message', message => {
     let sender = message.author; 
     let cont = message.content.slice(prefix.length).split(" "); 
     let args = cont.slice(1); 
-    let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
 if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
     async function purge() {
        if (!message.member.roles.get("537700464888643595")) {
@@ -73,7 +72,7 @@ client.on('message', message => {
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (message.content === prefix + 'наказание') {
   message.delete(1);
-  message.channel.send(member + " " + args[1])
+  message.channel.send(member + " " + args[1]);
   }
 });
 
