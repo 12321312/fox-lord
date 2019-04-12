@@ -82,7 +82,7 @@ if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
        }
      const fetched = await message.channel.fetchMessages({limit: args[1]}).then((messages) => { if (member.id) {  messages = messages.filter(m => m.author.id === member.id).array().slice(1)}});
      console.log(fetched.size + ' сообщения найдены, удаление...'); 
-     message.reply('удалено `' + fetched.size + '` сообщений');       
+     message.reply('удалено `' + fetched.size + '` сообщений ' + member);       
            
      message.channel.bulkDelete(fetched)
      .catch(error => message.channel.send(`Error: ${error}`));   
