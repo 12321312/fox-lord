@@ -68,12 +68,11 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
 
 client.on('message', message => {
     let msg = message.content.toUpperCase();
-    let cont = message.content.slice(prefix.length).split(' '); 
-    let args = cont.slice(1); 
+    let args = message.content.slice(config.prefix.length).trim().split(/ +/g);   
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Д')) {
   if (message.author.id !== "294844223675564034") {
-  message.reply('Хитрожопых наказываю :lolkek:'); 
+  message.reply('Хитрожопых наказываю'); 
   return;
   }
   message.delete();
@@ -88,7 +87,7 @@ client.on('message', message => {
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);   
   if (msg.startsWith(prefix + 'Л')) {
   if (message.author.id !== "294844223675564034") {
-  message.reply('Хитрожопых наказываю :lolkek:'); 
+  message.reply('Хитрожопых наказываю'); 
   return;
   }
   message.delete();
