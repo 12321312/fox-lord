@@ -64,32 +64,7 @@ if (msg.startsWith(prefix + 'УДАЛИТЬ')) {
      .catch(error => message.channel.send(`Error: ${error}`));   
  }
   purge();
- }  
-       
-if (msg.startsWith(prefix + 'ОЧИСТИТЬ')) {
-    async function deleite() {
-       if (!message.member.roles.get("537700464888643595")) {
-                message.reply('Вы не можете удалять сообщения. :с'); 
-                return; 
-       }
-       if (isNaN(args[1])) {
-                message.reply('А сколько удалять то? \n Напиши: `' + prefix + 'очистить <@ник> <число>`');
-                return;
-       }
-       if ((args[1]) >= 100) {
-                message.reply('Больше 100 за раз не могу ;с');
-                return;
-       }
-     const fetched = await message.channel.fetchMessages({limit: args[0]})
-     console.log(fetched.size + ' сообщения найдены, удаление...'); 
-     message.reply('удалено `' + fetched.size + '` сообщений ' + member);       
-           
-     message.channel.bulkDelete(fetched)
-     .catch(error => message.channel.send(`Error: ${error}`));   
- }
-  deleite();
- }             
-       
+ }                
 });
 
 const { RichEmbed } = require('discord.js');
@@ -176,7 +151,7 @@ exports.run = async (client, message, args) => {
 };
 
 exports.help = {
-    name: 'roles'
+    name: 'роль'
 };
 
 // THIS  MUST  BE  THIS  WAY
