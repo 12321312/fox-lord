@@ -1,10 +1,6 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 
-client.on('ready', () => {
-console.log('модуль подключен!');
-});
-
 module.exports.run = async (bot, message, args) => {
 
   //!tempmute @user 1s/m/h/d
