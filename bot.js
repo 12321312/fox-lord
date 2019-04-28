@@ -96,6 +96,13 @@ client.on('message', message => {
   }
 }); 
 
+client.on('guildMemberAdd', member => {
+  console.log('User' + member.user.tag + 'зашёл на сервер!');
+
+  var role = member.guild.roles.find('Прозелит', 'user');
+  member.addRole(role);
+}
+
  
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN); 
