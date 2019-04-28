@@ -105,6 +105,14 @@ client.on('guildMemberAdd', member => {
   member.addRole(role);
 });
 
+client.on('guildMemberRemove', member => {
+  console.log('User ' + member.user.tag + ' вышел с сервера!');
+  let channel = client.channels.get("537720268446236682");
+  let nsyy = client.emojis.get("554122783165251585");
+  channel.send("**"+member.user.tag+"** вышел с сервера! "+`${nsyy}`);
+  member.addRole(role);
+});
+
  
 // THIS  MUST  BE  THIS  WAY
 client.login(process.env.BOT_TOKEN); 
