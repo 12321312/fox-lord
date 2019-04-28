@@ -101,7 +101,7 @@ client.on('guildMemberAdd', member => {
 
   var role = member.guild.roles.find('Прозелит', 'user');
   member.addRole(role);
-}
+});
 
  
 // THIS  MUST  BE  THIS  WAY
