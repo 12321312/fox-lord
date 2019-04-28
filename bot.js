@@ -98,8 +98,9 @@ client.on('message', message => {
 
 client.on('guildMemberAdd', member => {
   console.log('User' + member.user.tag + 'зашёл на сервер!');
-
-  var role = member.guild.roles.find('Прозелит', 'user');
+  let channel = client.channels.get("537720268446236682");
+  var role = member.guild.roles.get("537701217879588878");
+  channel.send("На сервер зашёл "+member.user.tag+"!");
   member.addRole(role);
 });
 
