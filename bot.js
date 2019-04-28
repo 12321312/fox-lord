@@ -101,7 +101,7 @@ client.on('guildMemberAdd', member => {
   let channel = client.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
   let esyy = client.emojis.find(emoji => emoji.name === "success");
-  channel.send("На сервер зашёл **"+member.user.tag+"**! ${esyy}");
+  channel.send("На сервер зашёл **"+member.user.tag+"**! "+`${esyy}`);
   member.addRole(role);
 });
 
