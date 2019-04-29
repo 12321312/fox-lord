@@ -51,8 +51,9 @@ bot.on("message", async message => {
 
 client.on('message', async message => {
   if (message.content === prefix + 'инфо') {
-    let sicon = message.guild.iconURL;
-    let serverembed = new Discord.RichEmbed()
+    
+    const sicon = message.guild.iconURL;
+    const serverembed = new Discord.RichEmbed()
     .setDescription("Информация сервера:")
     .setColor("#15f153")
     .setThumbnail(sicon)
