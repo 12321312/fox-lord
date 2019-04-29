@@ -44,6 +44,6 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.help = {
-  name: "мут"
+  name: "tempmute"
 } 
 
