@@ -4,7 +4,7 @@ const client = new Discord.Client();
 const prefix = "!";
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
-const commands = new Discord.Collection();
+bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
 
