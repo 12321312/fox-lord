@@ -49,7 +49,7 @@ bot.on("message", async message => {
 
 });
 
-client.on('message', message => {
+client.on('message', async message => {
   if (message.content === prefix + 'инфо') {
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
