@@ -30,14 +30,6 @@ client.user.setPresence({
    })
 });
  
-client.on('message', (receivedMessage) => {
-    if (receivedMessage.author == client.user) {
-        return
-    }
-    if (receivedMessage.content.indexOf(prefix) == 0) {
-    receivedMessage.react(client.emojis.get("554122910584012800"))
-    }
-});
 
 client.on('message', message => {
   if (message.content === prefix + 'лав') {
