@@ -1,7 +1,10 @@
 const Discord = require('discord.js');
+const botconfig = require("./botconfig.json");
 const client = new Discord.Client();
 const prefix = "!";
 const fs = require("fs"); 
+const bot = new Discord.Client({disableEveryone: true});
+bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -15,6 +18,7 @@ fs.readdir("./commands/", (err, files) => {
   jsfile.forEach((f, i) =>{
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
   });
 });
 
