@@ -53,15 +53,15 @@ client.on('message', message => {
   if (message.content === prefix + 'инфо') {
     let sicon = message.guild.iconURL;
     let serverembed = new Discord.RichEmbed()
-    .setDescription("Server Information")
+    .setDescription("Информация сервера:")
     .setColor("#15f153")
     .setThumbnail(sicon)
     .addField("Название сервера:", message.guild.name)
     .addField("Создан:", message.guild.createdAt)
     .addField("Вы зашли:", message.member.joinedAt)
     .addField("Всего участников:", message.guild.memberCount);
-
-    return message.channel.send(serverembed);
+    
+     channel.send(serverembed);
   }
 });
 
