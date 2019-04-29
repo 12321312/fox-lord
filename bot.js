@@ -1,12 +1,13 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const botconfig = require("./config.json");
 const client = new Discord.Client();
 const prefix = "!";
-const fs = require("fs"); 
+const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
+
   if(err) console.log(err);
   let jsfile = files.filter(f => f.split(".").pop() === "js")
   if(jsfile.length <= 0){
