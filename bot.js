@@ -20,7 +20,7 @@ fs.readdir("./commands/", (err, files) => {
   if (props.help && props.help.name) {
     bot.commands.set(props.help.name, props);
   } else {
-    console.error(`file ${f} does not have .help or .help.name property!`);
+    console.error(`file ${f} does not have .help or .help.name property!`); }
 });
 });
 
