@@ -61,7 +61,7 @@ client.on('message', message => {
     .addField("Вы зашли:", message.member.joinedAt)
     .addField("Всего участников:", message.guild.memberCount);
     
-    message.channel.send(serverembed);
+    return message.channel.send(serverembed);
   }
 });
 
