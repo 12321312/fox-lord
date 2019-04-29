@@ -49,6 +49,22 @@ bot.on("message", async message => {
 
 });
 
+client.on('message', message => {
+  if (message.content === prefix + 'инфо') {
+    let sicon = message.guild.iconURL;
+    let serverembed = new Discord.RichEmbed()
+    .setDescription("Server Information")
+    .setColor("#15f153")
+    .setThumbnail(sicon)
+    .addField("Название сервера:", message.guild.name)
+    .addField("Создан:", message.guild.createdAt)
+    .addField("Вы зашли:", message.member.joinedAt)
+    .addField("Всего участников:", message.guild.memberCount);
+
+    message.channel.send(serverembed);
+  }
+});
+
 // автороль
 client.on('guildMemberAdd', member => {
   console.log('User ' + member.user.tag + ' зашёл на сервер!');
