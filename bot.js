@@ -134,7 +134,7 @@ client.on('message', message => {
   message.reply('Хитрожопых наказываю'); 
   return;
   }
-  message.delete();
+  message.delete(); 
   member.sendMessage(args[1]);
   }
 }); 
