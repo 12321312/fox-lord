@@ -14,12 +14,14 @@ fs.readdir("./commands/", (err, files) => {
     console.log("Couldn't find commands.");
     return;
   }
-
   jsfile.forEach((f, i) =>{
-    let props = require(`./commands/${f}`);
-    console.log(`${f} загружен!`);
+  let props = require(`./commands/${f}`);
+  console.log(`${f} loaded!`);
+  if (props.help && props.help.name) {
     bot.commands.set(props.help.name, props);
-  });
+  } else {
+    console.error(`file ${f} does not have .help or .help.name property!`);
+});
 });
 
 client.on('ready', () => {
