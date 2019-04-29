@@ -16,11 +16,11 @@ fs.readdir("./commands/", (err, files) => {
   }
   jsfile.forEach((f, i) =>{
   let props = require(`./commands/${f}`);
-  console.log(`${f} loaded!`);
+  console.log(`${f} загружен!`);
   if (props.help && props.help.name) {
     bot.commands.set(props.help.name, props);
   } else {
-    console.error(`file ${f} does not have .help or .help.name property!`); }
+    console.error(`file ${f} не имеет свойства .help или .help.name!`); }
 });
 });
 
