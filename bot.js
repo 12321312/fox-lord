@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const botconfig = require("./config.json");
-const client = new Discord.Client();
+const bot = new Discord.Client();
 const fs = require('fs');
-client.commands = new Discord.Collection();
+bot.commands = new Discord.Collection();
 let config = require('./config.json');
 let prefix = config.prefix;
 
@@ -15,13 +15,13 @@ fs.readdir('./cmds/',(err,files)=>{
   jsfiles.forEach((f,i) =>{
       let props = require(`./cmds/${f}`);
       console.log(`${i+1}.${f} Загружен!`);
-      client.commands.set(props.help.name,props);
+      bot.commands.set(props.help.name,props);
   });
 });
 
 // проверка текста
-client.on('message', async message => {
-  if(message.author.client) return;
+bot.on('message', async message => {
+  if(message.author.bot) return;
   if(message.channel.type == "dm") return;
   let user = message.author.username;
   let uid = message.author.id;
@@ -29,14 +29,14 @@ client.on('message', async message => {
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
   if(!message.content.startsWith(prefix)) return;
-  let cmd = client.commands.get(command.slice(prefix.length));
-  if(cmd) cmd.run(client,message,args);
+  let cmd = bot.commands.get(command.slice(prefix.length));
+  if(cmd) cmd.run(bot,message,args);
 });
 
 // шапка
-client.on('ready', () => {
+bot.on('ready', () => {
   console.log('Запущен, сэр!');
-  client.user.setPresence({ 
+  bot.user.setPresence({
          status: "online",
          game: {
              name: "твои нервы",
@@ -47,4 +47,4 @@ client.on('ready', () => {
 });
   
 // login
-client.login(process.env.BOT_TOKEN); 
+bot.login(process.env.BOT_TOKEN); 
