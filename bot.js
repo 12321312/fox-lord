@@ -276,13 +276,13 @@ client.on('message', message => {
 
 // ролл
 client.on('message', message => {
+    let msg = message.content.toUpperCase();
+    let sender = message.author; 
+    let cont = message.content.slice(prefix.length).split(" "); 
+    let args = cont.slice(1);
+    let randonciks = Math.floor(Math.random() * 9999999999999) + 1 ;
+    
     if (msg.startsWith(prefix + 'РОЛЛ')) {
-        let msg = message.content.toUpperCase();
-        let sender = message.author; 
-        let cont = message.content.slice(prefix.length).split(" "); 
-        let args = cont.slice(1);
-        let randonciks = Math.floor(Math.random() * 9999999999999) + 1 ;
-
         async function purge() {
            if (isNaN(args[0])) {
                     message.reply("Ты бы число указывал, да? Откуда мне брать его? Ну на рандомное: **"+randonciks+"**, первое что на ум пришло."); 
