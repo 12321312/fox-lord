@@ -276,13 +276,13 @@ client.on('message', message => {
 
 // ролл
 client.on('message', message => {
-    let msg = message.content.toUpperCase();
-    let sender = message.author; 
-    let cont = message.content.slice(prefix.length).split(" "); 
-    let args = cont.slice(1);
-    let randonciks = Math.floor(Math.random() * 9999999999999) + 1 ;
-
     if (msg.startsWith(prefix + 'РОЛЛ')) {
+        let msg = message.content.toUpperCase();
+        let sender = message.author; 
+        let cont = message.content.slice(prefix.length).split(" "); 
+        let args = cont.slice(1);
+        let randonciks = Math.floor(Math.random() * 9999999999999) + 1 ;
+
         async function purge() {
            if (isNaN(args[0])) {
                     message.reply("Ты бы число указывал, да? Откуда мне брать его? Ну на рандомное: **"+randonciks+"**, первое что на ум пришло."); 
@@ -292,9 +292,18 @@ client.on('message', message => {
                     message.reply('А не жирно будет? Го меньше символов.');
                     return;
            }
+           if ((args[0]) === 0 || (args[0]) === 1) {
+            message.reply('А не ну збс ролл, результат сам знаешь.');
+            return;
+           }
+           if ((args[0]) === NaN) {
+            message.reply('Ты ебанутый, да? Числа вводи после рола, сука');
+            return;
+           }
         let randonnapl = Math.floor(Math.random() * (args[0])) + 1 ;   
         message.reply("**" + randonnapl + "**"); 
-        }      
+        } 
+    purge();     
     }  
 });     
 
