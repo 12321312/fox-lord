@@ -35,7 +35,7 @@ module.exports.run = async (bot,message,args) => {
                     "description": "Видители ли, я бот, который способен определить являетесь ли вы пидором, поверьте, мои результаты точны на 100% и никогда не могу ошибаться, если я отнесу вас к **пидорам**, значит вы 100% пидор и никак не можете в этом сомневаться, усяно надеюсь вам? В общем, это будет голосование среди всех пользователей, естественно числа рандомные и никак не влияют на результат, но я же должен выебнуться своими знаниями и познаниями, так что готовьтесь, посмотрим сколько людей проголосуют что вы пидор.",
                     "url": "https://discordapp.com",
                     "color": 4276371,
-                    "timestamp": "2019-04-30T00:28:03.913Z",
+                    "timestamp": new Date(),
                     "footer": {
                       "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Flag_of_Cusco.svg/1200px-Flag_of_Cusco.svg.png",
                       "text": "Пидорометр"
@@ -44,9 +44,9 @@ module.exports.run = async (bot,message,args) => {
                       "url": ranscr1 
                     },
                     "author": {
-                      "name": bot.user.username,
+                      "name": message.author.avatarURL,
                       "url": "http://gaychik.com/",
-                      "icon_url": bot.user.avatarURL,
+                      "icon_url": message.author.avatarURL,
                     },
                     "fields": [
                       {
