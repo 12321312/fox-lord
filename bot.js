@@ -53,8 +53,13 @@ client.on('message', message => {
   if (message.content === prefix + 'пидор') { 
     let ran1 = Math.floor(Math.random() * 30) + 1 ;
     let ran2 = Math.floor(Math.random() * 20) + 1 ;
-    let cooldown = new Set();
-    let cdseconds = 60000;
+    
+    if (message.member.roles.get(572598627126607882)) {
+      return message.reply("вы уже были признаны **натуралом**.")
+    };
+    if (message.member.roles.get(572598599024640010)) {
+      return message.reply("вы уже были признаны **пидором** :/")
+    };
     
     if (ran1 > ran2) {
     ranname1 = "Вы пидор, проздравляем!";
@@ -63,16 +68,6 @@ client.on('message', message => {
     ranname1 = "Вы натурал, так держать!";
     ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
     };
-    
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("You have to wait 5 seconds between commands.")
-  }
-    cooldown.add(message.author.id);
-    
-  setTimeout(() => {
-    cooldown.delete(message.author.id)
-  }, cdseconds * 1000)
     
     message.channel.send(
     {
