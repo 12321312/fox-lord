@@ -67,11 +67,11 @@ client.on('message', message => {
     if (ran1 > ran2) {
     ranname1 = "Вы пидор, проздравляем!";
     ranscr1 = "http://www.vladtime.ru/uploads/posts/2015-05/1432221293_shutterstock_4720675.jpg";
-    rolepidor = member.guild.roles.get("572598599024640010");
+    rolepidor = message.guild.roles.get("572598599024640010");
     } else {
     ranname1 = "Вы натурал, так держать!";
     ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
-    rolepidor = member.guild.roles.get("572598627126607882");
+    rolepidor = message.guild.roles.get("572598627126607882");
     };
     
 
