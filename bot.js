@@ -62,11 +62,11 @@ client.on('message', message => {
     ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
     };
     
-   if (message.member.roles.get(572598627126607882)) {
+   if (message.member.roles.id === "572598627126607882") {
       message.reply("вы уже были признаны **натуралом**.");
       return;
     }
-    if (message.member.roles.get(572598599024640010)) {
+    if (message.member.roles.id === "572598599024640010") {
       message.reply("вы уже были признаны **пидором** :/");
       return;
     }
