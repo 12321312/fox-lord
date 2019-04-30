@@ -51,8 +51,8 @@ bot.on("message", async message => {
 
 client.on('message', message => {
   if (message.content === prefix + 'пидор') { 
-    let ran1 = Math.random();
-    let ran2 = Math.random();
+    let ran1 = "5";
+    let ran2 = "3";
     message.channel.send(
     {
   "embed": {
