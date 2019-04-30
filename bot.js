@@ -51,8 +51,8 @@ bot.on("message", async message => {
 
 client.on('message', message => {
   if (message.content === prefix + 'пидор') { 
-    let ran1 = Math.floor(Math.random() * 1) + 20 ;
-    let ran2 = Math.floor(Math.random() * 10) + 20 ;
+    let ran1 = Math.floor(Math.random() * 30) + 1 ;
+    let ran2 = Math.floor(Math.random() * 20) + 1 ;
     
     if (ran1 > ran2) {
     ranname1 = "Вы пидор, проздравляем!";
