@@ -75,7 +75,7 @@ client.on('message', message => {
     };
     
 
-    member.addRole(rolepidor);
+    message.addRole(rolepidor);
     message.channel.send(
     {
   "embed": {
