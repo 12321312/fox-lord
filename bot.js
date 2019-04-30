@@ -36,7 +36,7 @@ client.on('message', async message => {
 // шапка
 client.on('ready', () => {
   console.log('Запущен, сэр!');
-  client.user.setPresence({
+  client.user.setPresence({ 
          status: "online",
          game: {
              name: "твои нервы",
