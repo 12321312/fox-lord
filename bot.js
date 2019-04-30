@@ -76,6 +76,12 @@ client.on('message', message => {
     
 
     message.member.addRole(rolepidor);
+    message.reply("проверяю вашу биографию...")
+    .then((msg)=>{
+    setTimeout(function(){
+    msg.edit('подключаюсь к NASA..');
+    }, 1000)};
+          
     message.channel.send(
     {
   "embed": {
