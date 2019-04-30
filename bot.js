@@ -55,7 +55,7 @@ client.on('message', message => {
       message.reply("вы уже были признаны **натуралом**.");
       return;
     }
-    if (message.member.roles.id(572598599024640010)) {
+    if (message.member.roles.has(572598599024640010)) {
       message.reply("вы уже были признаны **пидором** :/");
       return;
     }
