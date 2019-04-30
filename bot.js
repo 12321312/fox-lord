@@ -53,10 +53,14 @@ client.on('message', message => {
   if (message.content === prefix + 'пидор') { 
     let ran1 = Math.floor(Math.random() * 1) + 20 ;
     let ran2 = Math.floor(Math.random() * 10) + 20 ;
+    
+    if (ran1 > ran2) {
     let ranname1 = "Вы пидор, проздравляем!";
     let ranscr1 = "http://www.vladtime.ru/uploads/posts/2015-05/1432221293_shutterstock_4720675.jpg";
-    let ranname2 = "Вы натурал, так держать!";
-    let ranscr2 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
+    } else {
+    let ranname1 = "Вы натурал, так держать!";
+    let ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
+    };
     
     message.channel.send(
     {
@@ -71,7 +75,7 @@ client.on('message', message => {
       "text": "Пидорометр"
     },
     "image": {
-      "url": if (ran1 > ran2) { ranscr1 } else { ranscr2 };
+      "url": ranscr1 
     },
     "author": {
       "name": client.user.username,
@@ -95,7 +99,7 @@ client.on('message', message => {
       },
       {
         "name": "Результат: ",
-        "value": if (ran1 > ran2) { ranname1 } else { ranname2 };
+        "value": ranname1 
       }
     ]
   }
