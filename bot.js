@@ -80,7 +80,7 @@ client.on('message', message => {
     .then((msg)=>{
     setTimeout(function(){
     msg.edit('подключаюсь к NASA..');
-    }, 1000)};
+    }, 1000)});
           
     message.channel.send(
     {
