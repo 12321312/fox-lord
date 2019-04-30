@@ -51,8 +51,7 @@ bot.on("message", async message => {
 
 client.on('message', message => {
   if (message.content === prefix + 'инфо') { 
-    message.channel.send({pipiska:
-    {
+    message.channel.send({
   "embed": {
     "title": "Добро пожаловать на сервер **Fox Shelter**!",
     "description": "Сервер был специально создан для разностных лиц, которые увлекаются разными вещами.",
@@ -91,9 +90,8 @@ client.on('message', message => {
       }
     ]
   }
-}                     
-                         });
-  }
+})
+      };
 });
 
 // автороль
