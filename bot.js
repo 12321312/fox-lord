@@ -51,6 +51,16 @@ bot.on("message", async message => {
 
 client.on('message', message => {
   if (message.content === prefix + 'пидор') { 
+      if (message.member.roles.id === "572598627126607882") {
+      message.reply("вы уже были признаны **натуралом**.");
+      return;
+    }
+    if (message.member.roles.id === "572598599024640010") {
+      message.reply("вы уже были признаны **пидором** :/");
+      return;
+    }
+    
+    
     let ran1 = Math.floor(Math.random() * 30) + 1 ;
     let ran2 = Math.floor(Math.random() * 20) + 1 ;
     
@@ -62,14 +72,7 @@ client.on('message', message => {
     ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
     };
     
-   if (message.member.roles.id === "572598627126607882") {
-      message.reply("вы уже были признаны **натуралом**.");
-      return;
-    }
-    if (message.member.roles.id === "572598599024640010") {
-      message.reply("вы уже были признаны **пидором** :/");
-      return;
-    }
+
     
     message.channel.send(
     {
