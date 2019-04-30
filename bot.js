@@ -50,9 +50,9 @@ bot.on("message", async message => {
 });
 
 client.on('message', message => {
-  if (message.content === prefix + 'дота') { 
-    let ran1 = randomInteger(5, 20);
-    let ran2 = randomInteger(1, 5);
+  if (message.content === prefix + 'пидор') { 
+    let ran1 = Math.random();
+    let ran2 = Math.random();
     message.channel.send(
     {
   "embed": {
