@@ -64,13 +64,13 @@ client.on('message', message => {
     ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
     };
     
-    if(cooldown.has(message.author.id)){
+  if(cooldown.has(message.author.id)){
     message.delete();
-    return message.reply("Бот уже признал вас, идите нахуй.")
-    }
+    return message.reply("You have to wait 5 seconds between commands.")
+  }
     cooldown.add(message.author.id);
     
-     setTimeout(() => {
+  setTimeout(() => {
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
     
