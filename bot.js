@@ -51,11 +51,11 @@ bot.on("message", async message => {
 
 client.on('message', message => {
   if (message.content === prefix + 'пидор') { 
-      if (message.member.roles.has(572598627126607882)) {
+      if (message.member.roles.has("572598627126607882")) {
       message.reply("вы уже были признаны **натуралом**.");
       return;
     }
-    if (message.member.roles.has(572598599024640010)) {
+    if (message.member.roles.has("572598599024640010")) {
       message.reply("вы уже были признаны **пидором** :/");
       return;
     }
