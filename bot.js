@@ -55,10 +55,12 @@ client.on('message', message => {
     let ran2 = Math.floor(Math.random() * 20) + 1 ;
     
     if (message.member.roles.get(572598627126607882)) {
-      return message.reply("вы уже были признаны **натуралом**.")
+      message.reply("вы уже были признаны **натуралом**.");
+      return;
     };
     if (message.member.roles.get(572598599024640010)) {
-      return message.reply("вы уже были признаны **пидором** :/")
+      message.reply("вы уже были признаны **пидором** :/");
+      return;
     };
     
     if (ran1 > ran2) {
