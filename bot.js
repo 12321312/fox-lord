@@ -15,13 +15,13 @@ fs.readdir('./cmds/',(err,files)=>{
   jsfiles.forEach((f,i) =>{
       let props = require(`./cmds/${f}`);
       console.log(`${i+1}.${f} Загружен!`);
-      bot.commands.set(props.help.name,props);
+      client.commands.set(props.help.name,props);
   });
 });
 
 // проверка текста
-bot.on('message', async message => {
-  if(message.author.bot) return;
+client.on('message', async message => {
+  if(message.author.client) return;
   if(message.channel.type == "dm") return;
   let user = message.author.username;
   let uid = message.author.id;
@@ -29,8 +29,8 @@ bot.on('message', async message => {
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
   if(!message.content.startsWith(prefix)) return;
-  let cmd = bot.commands.get(command.slice(prefix.length));
-  if(cmd) cmd.run(bot,message,args);
+  let cmd = client.commands.get(command.slice(prefix.length));
+  if(cmd) cmd.run(client,message,args);
 });
 
 // шапка
