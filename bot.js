@@ -45,6 +45,23 @@ bot.on('ready', () => {
          }
      })
 });
+
+// Автороль
+bot.on('guildMemberAdd', member => {
+  console.log('User ' + member.user.tag + ' зашёл на сервер!');
+  let channel = bot.channels.get("537720268446236682");
+  var role = member.guild.roles.get("537701217879588878");
+  let esyy = bot.emojis.get("554122910584012800");
+  channel.send("На сервер зашёл **"+member.user.tag+"**! "+`${esyy}`);
+  member.addRole(role);
+});
+
+bot.on('guildMemberRemove', member => {
+  console.log('User ' + member.user.tag + ' вышел с сервера!');
+  let channel = bot.channels.get("537720268446236682");
+  let nsyy = bot.emojis.get("554122783165251585");
+  channel.send("**"+member.user.tag+"** вышел с сервера! "+`${nsyy}`);
+});
   
 // login
 bot.login(process.env.BOT_TOKEN); 
