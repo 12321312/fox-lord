@@ -276,10 +276,26 @@ client.on('message', message => {
 
 // ролл
 client.on('message', message => {
-    if (message.content === prefix + 'ролл') { 
-    let randonciks = Math.floor(Math.random() * 99999999999) + 1 ;
-    message.reply("Ты бы число указывал, да? Откуда мне брать его? Ну на рандомное: ```"+randonciks+"```"); 
-    };
+    let msg = message.content.toUpperCase();
+    let sender = message.author; 
+    let cont = message.content.slice(prefix.length).split(" "); 
+    let args = cont.slice(1);
+    let randonciks = Math.floor(Math.random() * 9999999999999) + 1 ;
+
+    if (msg.startsWith(prefix + 'РОЛЛ')) {
+        async function purge() {
+           if (isNaN(args[0])) {
+                    message.reply("Ты бы число указывал, да? Откуда мне брать его? Ну на рандомное: **"+randonciks+"**, первое что на ум пришло."); 
+                    return;
+           }
+           if ((args[0]) >= 100000) {
+                    message.reply('А не жирно будет? Го меньше символов.');
+                    return;
+           }
+        let randonnapl = Math.floor(Math.random() * (args[0])) + 1 ;   
+        message.reply("**" + randonnapl + "**"); 
+        }      
+    }  
 });     
 
 // конец  
