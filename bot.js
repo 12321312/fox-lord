@@ -274,6 +274,14 @@ client.on('message', message => {
   }
 }); 
 
+// ролл
+client.on('message', message => {
+    if (message.content === prefix + 'ролл') { 
+    let randonciks = Math.floor(Math.random() * 99999999999) + 1 ;
+    message.reply("Ты бы число указывал, да? Откуда мне брать его? Ну на рандомное: ```"+randonciks+"```"); 
+    };
+});     
+
 // конец  
  
 // THIS  MUST  BE  THIS  WAY 
