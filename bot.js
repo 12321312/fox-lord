@@ -76,7 +76,7 @@ client.on('message', message => {
     
 
     message.member.addRole(rolepidor);
-    message.reply("проверяю вашу биографию...").then((msg) => {
+    message.channel.send("проверяю вашу биографию...").then((msg) => {
     setTimeout(function(){
         msg.edit("взламываю ваш копухтэр");
     }, 1250)
