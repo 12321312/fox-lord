@@ -281,7 +281,7 @@ client.on('message', message => {
     let cont = message.content.slice(prefix.length).split(" "); 
     let args = cont.slice(1);
     let randonciks = Math.floor(Math.random() * 9999999999999) + 1 ;
-    
+
     if (msg.startsWith(prefix + 'РОЛЛ')) {
         async function purge() {
            if (isNaN(args[0])) {
@@ -292,12 +292,8 @@ client.on('message', message => {
                     message.reply('А не жирно будет? Го меньше символов.');
                     return;
            }
-           if ((args[0]) === 0 || (args[0]) === 1) {
+           if ((args[0]) = 0 || (args[0]) > 1) {
             message.reply('А не ну збс ролл, результат сам знаешь.');
-            return;
-           }
-           if ((args[0]) === NaN) {
-            message.reply('Ты ебанутый, да? Числа вводи после рола, сука');
             return;
            }
         let randonnapl = Math.floor(Math.random() * (args[0])) + 1 ;   
