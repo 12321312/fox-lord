@@ -305,13 +305,15 @@ client.on('message', message => {
 // жесткая хуета с ролями, пзд
 
 client.on("message", message => {
-    let embed = true;
-    let roles = ["Hacker", "Artist", "Public Relations", "Intern"];
-    let reactions = ["💻", "🖌", "😃", "🆕"];
-    let embedColor = "#dd2423";
-    let embedFooter = "Role Reactions";
-    let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
-    let embedMessage = `
+    const { Client, RichEmbed } = require('discord.js');
+    const client = new Client({ disableEveryone: true });
+    const embed = true;
+    const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key"];
+    const reactions = ["💻", "🖌", "😃", "🆕"];
+    const embedColor = "#dd2423";
+    const embedFooter = "Role Reactions";
+    const initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
+    const embedMessage = `
     React to the emoji that matches the role you wish to receive.
     If you would like to remove the role, simply remove your reaction!
     `;
