@@ -129,9 +129,7 @@ client.on('message', message => {
   }
 }
     )
-  }
-               )
-}, 1250)
+  }, 1250)
 }); 
 
 client.on('message', message => {
