@@ -76,16 +76,55 @@ client.on('message', message => {
     
 
     message.member.addRole(rolepidor);
-    message.reply("проверяю вашу биографию...")
-    .then((msg)=>{
+    message.reply("проверяю вашу биографию...").then((msg) => {
     setTimeout(function(){
-    msg.edit('подключаюсь к NASA..');
-    }, 1500)}
-    msg.edit('...');
-    }, 1500)}
-     msg.edit('..');
-    }, 1500)}      
-    );
+        msg.edit("взламываю ваш копухтэр");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("генирирую числа...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("тестирую данные..");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("загружено 20%...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Пожалуйста, дождитесь результатов.");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Выполнено 40%...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Проверяю ваше анальное оверствие на наличие проникновений...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Выполнено 50%...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Звоню вашим родителям, дождитесь...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Выполнено 80%");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Если честно, этот тест придумал такой мудак...");
+    }, 1250)
+}).then((msg) => {
+    setTimeout(function() {
+        msg.edit("Выполнено! Результаты сейчас будут загружены!");
+    }, 1250)
+});
           
     message.channel.send(
     {
