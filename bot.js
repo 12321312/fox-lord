@@ -80,12 +80,12 @@ client.on('message', message => {
       },
       {
         "name": "✅",
-        "value": "2",
+        "value": ran1,
         "inline": true
       },
       {
         "name": "❌",
-        "value": "3",
+        "value": ran2,
         "inline": true
       },
       {
