@@ -76,7 +76,7 @@ client.on('message', message => {
       "text": "Пидорометр"
     },
     "image": {
-      "url": ranscr1;
+      "url": ranscr1
     },
     "author": {
       "name": client.user.username,
@@ -100,7 +100,7 @@ client.on('message', message => {
       },
       {
         "name": "Результат: ",
-        "value": ranname1;
+        "value": ranname1
       }
     ]
   }
