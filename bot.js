@@ -53,7 +53,7 @@ client.on('message', async message => {
   if (message.content === prefix + 'инфо') {
     
     const sicon = message.guild.iconURL;
-    const serverembed = new Discord.RichEmbed()
+    const pipiska = new Discord.RichEmbed()
     .setDescription("Информация сервера:")
     .setColor("#15f153")
     .setThumbnail(sicon)
@@ -62,7 +62,7 @@ client.on('message', async message => {
     .addField("Вы зашли:", message.member.joinedAt)
     .addField("Всего участников:", message.guild.memberCount);
     
-    return message.channel.send(serverembed);
+    return message.channel.send({pipiska});
   }
 });
 
