@@ -62,6 +62,16 @@ bot.on('guildMemberRemove', member => {
   let nsyy = bot.emojis.get("554122783165251585");
   channel.send("**"+member.user.tag+"** вышел с сервера! "+`${nsyy}`);
 });
+
+// Автореакция 
+bot.on('message', (receivedMessage) => {
+    if (receivedMessage.author == bot.user) {
+        return
+    }
+    if (receivedMessage.content.indexOf(prefix) == 0) {
+    receivedMessage.react(bot.emojis.get("554122910584012800"))
+    }
+});
   
 // login
 bot.login(process.env.BOT_TOKEN); 
