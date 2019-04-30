@@ -44,7 +44,7 @@ module.exports.run = async (bot,message,args) => {
                       "url": ranscr1 
                     },
                     "author": {
-                      "name": message.author.avatarURL,
+                      "name": message.author.username,
                       "url": "http://gaychik.com/",
                       "icon_url": message.author.avatarURL,
                     },
