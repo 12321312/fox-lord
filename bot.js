@@ -296,8 +296,8 @@ client.on('message', message => {
             message.reply('А не ну збс ролл, результат сам знаешь.');
             return;
            }
-        let randonnapl = Math.floor(Math.random() * (args[0])) + 1 ;   
-        message.reply("**" + randonnapl + "**"); 
+        let randonnaplrr = Math.floor(Math.random() * args[0]) + 1 ;   
+        message.reply("**" + randonnaplrr + "**"); 
         } 
     purge();     
     }  
