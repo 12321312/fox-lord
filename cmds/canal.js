@@ -8,7 +8,7 @@ module.exports.run = async (bot,message,args) => {
     if (!member) { message.delete(); message.reply('Такого нету...'); return; }
     if ((args[1])==null) { message.delete(); message.reply('Пустота в описании...'); return; }
     message.delete();
-    message.channel.send(member + ' ' + args[1]);
+    message.channel.send(member + ' ' + args[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]);
 };
 module.exports.help = {
     name: "канал"
