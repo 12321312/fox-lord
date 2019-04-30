@@ -292,7 +292,7 @@ client.on('message', message => {
                     message.reply('А не жирно будет? Го меньше символов.');
                     return;
            }
-           if ((args[0]) = 0 || (args[0]) > 1) {
+           if ((args[0]) = 0 || (args[0]) <= 1) {
             message.reply('А не ну збс ролл, результат сам знаешь.');
             return;
            }
