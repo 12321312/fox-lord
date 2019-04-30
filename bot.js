@@ -54,15 +54,6 @@ client.on('message', message => {
     let ran1 = Math.floor(Math.random() * 30) + 1 ;
     let ran2 = Math.floor(Math.random() * 20) + 1 ;
     
-    if (message.member.roles.get(572598627126607882)) {
-      message.reply("вы уже были признаны **натуралом**.");
-      return;
-    };
-    if (message.member.roles.get(572598599024640010)) {
-      message.reply("вы уже были признаны **пидором** :/");
-      return;
-    };
-    
     if (ran1 > ran2) {
     ranname1 = "Вы пидор, проздравляем!";
     ranscr1 = "http://www.vladtime.ru/uploads/posts/2015-05/1432221293_shutterstock_4720675.jpg";
@@ -70,6 +61,15 @@ client.on('message', message => {
     ranname1 = "Вы натурал, так держать!";
     ranscr1 = "https://pp.vk.me/c622017/v622017502/dc34/eooFYxthWT4.jpg";
     };
+    
+   if (message.member.roles.get(572598627126607882)) {
+      message.reply("вы уже были признаны **натуралом**.");
+      return;
+    }
+    if (message.member.roles.get(572598599024640010)) {
+      message.reply("вы уже были признаны **пидором** :/");
+      return;
+    }
     
     message.channel.send(
     {
