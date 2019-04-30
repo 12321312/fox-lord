@@ -307,6 +307,7 @@ client.on('message', message => {
 client.on("message", message => {
     const { Client, RichEmbed } = require('discord.js');
     const client = new Client({ disableEveryone: true });
+    const roleEmbed = new Discord.RichEmbed();
     const embed = true;
     const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key"];
     const reactions = ["💻", "🖌", "😃", "🆕"];
