@@ -6,6 +6,7 @@ let randonnaplrr = Math.floor(Math.random() * (args[0])) + 1 ;
 
 if (isNaN(args[0])) { message.reply("Ты бы число указывал, да? Откуда мне брать его? Ну на рандомное: **"+randonciks+"**, первое что на ум пришло."); return;}
 if ((args[0]) >= 100000) { message.reply('А не жирно будет? Го меньше символов.'); return;}
+if (1 >= (args[0])) { message.reply('А не ну збс, результат сам знаешь.'); return;}
 message.reply("**" + randonnaplrr + "**"); 
 };
 module.exports.help = {
