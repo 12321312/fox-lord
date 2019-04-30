@@ -80,27 +80,12 @@ client.on('message', message => {
     .then((msg)=>{
     setTimeout(function(){
     msg.edit('подключаюсь к NASA..');
-    }, 1500)})
-    .then((msg)=>{
-    setTimeout(function(){
-    msg.edit('сканирую вашу половую активность..');
-    }, 1500)})
-    .then((msg)=>{
-    setTimeout(function(){
-    msg.edit('взламываю ваш комп, еще чуть-чуть..');
-    }, 1500)})
-    .then((msg)=>{
-    setTimeout(function(){
+    }, 1500)}
     msg.edit('...');
-    }, 1500)})
-    .then((msg)=>{
-    setTimeout(function(){
-    msg.edit('..');
-    }, 100)})
-    .then((msg)=>{
-    setTimeout(function(){
-    msg.edit('.');
-    }, 100)});
+    }, 1500)}
+     msg.edit('..');
+    }, 1500)}      
+    );
           
     message.channel.send(
     {
