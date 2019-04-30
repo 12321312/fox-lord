@@ -312,11 +312,8 @@ client.on("message", message => {
     const reactions = ["💻", "🖌", "😃", "🆕"];
     const embedColor = "#dd2423";
     const embedFooter = "Role Reactions";
-    const initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
-    const embedMessage = `
-    React to the emoji that matches the role you wish to receive.
-    If you would like to remove the role, simply remove your reaction!
-    `;
+    const initialMessage = "**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**";
+    const embedMessage = "соси писос";
 
     function generateMessages() {
         let messages = [];
