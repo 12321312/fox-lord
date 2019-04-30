@@ -67,7 +67,8 @@ client.on('message', message => {
     if(cooldown.has(message.author.id)){
     message.delete();
     return message.reply("Бот уже признал вас, идите нахуй.")
-    };
+    }
+    cooldown.add(message.author.id);
     
      setTimeout(() => {
     cooldown.delete(message.author.id)
