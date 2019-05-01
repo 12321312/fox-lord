@@ -13,9 +13,9 @@ module.exports.run = async (bot,message,args) => {
     .addField("Вы бот?",a.bot)
     .setThumbnail(a.avatarURL)
 
-    bot.send(embed);
+    message.channel.send(embed);
 
 };
 module.exports.help = {
-    name: "юзеринфо"
+    name: "userinfo"
 };
