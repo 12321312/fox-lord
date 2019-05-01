@@ -5,6 +5,7 @@ const fs = require('fs');
 bot.commands = new Discord.Collection();
 let config = require('./config.json');
 let prefix = config.prefix;
+let profile = require('./profile.json');
 
 // подключение
 fs.readdir('./cmds/',(err,files)=>{
@@ -25,6 +26,20 @@ bot.on('message', async message => {
   if(message.channel.type == "dm") return;
   let user = message.author.username;
   let uid = message.author.id;
+  if(!profile[uid]){
+    profile[uid] ={
+        coins:10,
+        warns:0,
+        xp:0,
+        lvl:1,
+    };
+  };
+  let u = profile[uid];
+
+  fs.writeFile('./profile.json',JSON.stringify(profile),(err)=>{
+    if(err) console.log(err);
+  });
+
   let messageArray = message.content.split(" ");
   let command = messageArray[0].toLowerCase();
   let args = messageArray.slice(1);
