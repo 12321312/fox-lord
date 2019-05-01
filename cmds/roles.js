@@ -7,14 +7,18 @@ module.exports.run = async (bot,message,args) => {
     const b = message.guild.roles.get('537706608105619457'); // гмод
     const c = message.guild.roles.get('537706571015258156'); // Eve
 
+    let dota = bot.emojis.get("573000975250489345");
+    let gmod = bot.emojis.get("573000973367246849");
+    let eve = bot.emojis.get("573000974503772172");
+
     const filter = (reaction, user) => ['573000975250489345', '573000973367246849', '573000974503772172'].includes(reaction.emoji.get) && user.id === message.author.id;
 
     let ombed = new Discord.RichEmbed()
         .setTitle('Выберите ключ')
         .setDescription(`
-        🇦 ${a.toString()} 
-        🇧 ${b.toString()} 
-        🇨 ${c.toString()}
+        ${dota} ${a.toString()} 
+        ${gmod} ${b.toString()} 
+        ${eve} ${c.toString()}
         `)
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
