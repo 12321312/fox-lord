@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
     let a = message.author
-    let embed = new Discord.RichEmbed()
+    let ambed = new Discord.RichEmbed()
     .setDescription("Информация о сервере")
     .setColor('#10c7e2')
     .addField("Имя",a.username)
@@ -13,7 +13,7 @@ module.exports.run = async (bot,message,args) => {
     .addField("Вы бот?",a.bot)
     .setThumbnail(a.avatarURL)
 
-    bot.send(embed);
+    bot.send(ambed);
 
 };
 module.exports.help = {
