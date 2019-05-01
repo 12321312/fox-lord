@@ -9,10 +9,9 @@ module.exports.run = async (bot,message,args) => {
 
     const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
 
-    const ambed = new RichEmbed()
+    let ombed = new RichEmbed()
         .setTitle('Avaiilable Roles')
         .setDescription(`
-        
         🇦 ${a.toString()}
         🇧 ${b.toString()}
         🇨 ${c.toString()}
@@ -20,7 +19,7 @@ module.exports.run = async (bot,message,args) => {
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
         
-    message.channel.send({embed:ambed}).then(async msg => {
+    message.channel.send({embed:ombed}).then(async msg => {
 
         await msg.react('🇦');
         await msg.react('🇧');
