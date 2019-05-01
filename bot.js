@@ -4,6 +4,7 @@ const bot = new Discord.Client();
 const fs = require('fs');
 bot.commands = new Discord.Collection();
 let config = require('./config.json');
+bot.mutes = require('./mutes.json');
 let prefix = config.prefix;
 
 // подключение
@@ -31,6 +32,8 @@ bot.on('message', async message => {
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args);
+  bot.rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  bot.uId = message.author.id;
 });
 
 // шапка
