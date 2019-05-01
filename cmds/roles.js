@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args) => {
     let gmod = bot.emojis.get("573000973367246849");
     let eve = bot.emojis.get("573000974503772172");
 
-    const filter = (reaction, user) => ['dota', 'gmod', 'eve'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['573000975250489345', '573000973367246849', '573000974503772172'].includes(reaction.emoji.id) && user.id === message.author.id;
 
     let ombed = new Discord.RichEmbed()
         .setTitle('Выберите ключ')
@@ -37,8 +37,8 @@ module.exports.run = async (bot,message,args) => {
 
             const reaction = collected.first();
 
-            switch (reaction.emoji.name) {
-                case 'dota':
+            switch (reaction.emoji.id) {
+                case '573000975250489345':
                     if (message.member.roles.has(a.id)) {
                         msg.delete(2000);
                         return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
@@ -50,7 +50,7 @@ module.exports.run = async (bot,message,args) => {
                     message.channel.send(`Вам был выдан **${a.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
-                case 'gmod':
+                case '573000973367246849':
                     if (message.member.roles.has(b.id)) {
                         msg.delete(2000);
                         return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
@@ -62,7 +62,7 @@ module.exports.run = async (bot,message,args) => {
                     message.channel.send(`Вам был выдан **${b.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
-                case 'eve':
+                case '573000974503772172':
                     if (message.member.roles.has(c.id)) {
                         msg.delete(2000);
                         return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
