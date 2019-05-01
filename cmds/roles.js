@@ -7,7 +7,7 @@ module.exports.run = async (bot,message,args) => {
     const b = message.guild.roles.get('537706608105619457'); // гмод
     const c = message.guild.roles.get('537706571015258156'); // Eve
 
-    const filter = (reaction, user) => ['dota', 'gmod', 'eve'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['573000975250489345', '573000973367246849', '573000974503772172'].includes(reaction.emoji.get) && user.id === message.author.id;
 
     let ombed = new Discord.RichEmbed()
         .setTitle('Выберите ключ')
@@ -21,9 +21,9 @@ module.exports.run = async (bot,message,args) => {
         
     message.channel.send({embed:ombed}).then(async msg => {
 
-        await msg.react('dota');
-        await msg.react('gmod');
-        await msg.react('eve');
+        await msg.react('573000975250489345');
+        await msg.react('573000973367246849');
+        await msg.react('573000974503772172');
 
         msg.awaitReactions(filter, {
             max: 1,
@@ -33,8 +33,8 @@ module.exports.run = async (bot,message,args) => {
 
             const reaction = collected.first();
 
-            switch (reaction.emoji.name) {
-                case '🇦':
+            switch (reaction.emoji.get) {
+                case '573000975250489345':
                     if (message.member.roles.has(a.id)) {
                         msg.delete(2000);
                         return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
@@ -46,7 +46,7 @@ module.exports.run = async (bot,message,args) => {
                     message.channel.send(`Вам был выдан **${a.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
-                case '🇧':
+                case '573000973367246849':
                     if (message.member.roles.has(b.id)) {
                         msg.delete(2000);
                         return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
@@ -58,7 +58,7 @@ module.exports.run = async (bot,message,args) => {
                     message.channel.send(`Вам был выдан **${b.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
-                case '🇨':
+                case '573000974503772172':
                     if (message.member.roles.has(c.id)) {
                         msg.delete(2000);
                         return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
