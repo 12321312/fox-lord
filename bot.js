@@ -26,6 +26,9 @@ bot.on('message', async message => {
   if(message.channel.type == "dm") return;
   let user = message.author.username;
   let uid = message.author.id;
+  bot.send = function (msg){
+        message.channel.send(msg);
+  };
   if(!profile[uid]){
     profile[uid] ={
         coins:10,
