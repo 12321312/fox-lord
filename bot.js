@@ -43,7 +43,26 @@ bot.on('ready', () => {
              url: "https://www.youtube.com/watch?v=qrohU75OdJ8",
              type: "STREAMING"
          }
-     })
+     });
+      bot.setInterval(()=>{
+        for(let i in bot.mutes){
+            let time = bot.mutes[i].time;
+            let guildid = bot.mutes[i].guild;
+            let guild = bot.guilds.get(guildid);
+            let member = guild.members.get(i);
+            let muteRole = member.guild.roles.find(r => r.name === "Muted"); 
+            if(!muteRole) continue;
+
+            if(Date.now()>= time){
+                member.removeRole(muteRole);
+                delete bot.mutes[i];
+                fs.writeFile('./mutes.json',JSON.stringify(bot.mutes),(err)=>{
+                    if(err) console.log(err);
+                });
+            }
+        }
+
+    },5000)
 });
 
 // Автороль
