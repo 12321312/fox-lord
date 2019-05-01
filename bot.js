@@ -4,7 +4,6 @@ const bot = new Discord.Client();
 const fs = require('fs');
 bot.commands = new Discord.Collection();
 let config = require('./config.json');
-bot.mutes = require('./mutes.json');
 let prefix = config.prefix;
 
 // подключение
@@ -32,8 +31,6 @@ bot.on('message', async message => {
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args);
-  bot.rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-  bot.uId = message.author.id;
 });
 
 // шапка
@@ -47,25 +44,6 @@ bot.on('ready', () => {
              type: "STREAMING"
          }
      });
-      bot.setInterval(()=>{
-        for(let i in bot.mutes){
-            let time = bot.mutes[i].time;
-            let guildid = bot.mutes[i].guild;
-            let guild = bot.guilds.get(guildid);
-            let member = guild.members.get(i);
-            let muteRole = member.guild.roles.find(r => r.name === "Muted"); 
-            if(!muteRole) continue;
-
-            if(Date.now()>= time){
-                member.removeRole(muteRole);
-                delete bot.mutes[i];
-                fs.writeFile('./mutes.json',JSON.stringify(bot.mutes),(err)=>{
-                    if(err) console.log(err);
-                });
-            }
-        }
-
-    },5000)
 });
 
 // Автороль
