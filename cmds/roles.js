@@ -16,9 +16,9 @@ module.exports.run = async (bot,message,args) => {
     let ombed = new Discord.RichEmbed()
         .setTitle('Выберите ключ')
         .setDescription(`
-        ${dota} ${a.toString()} 
-        ${gmod} ${b.toString()} 
-        ${eve} ${c.toString()}
+        573000975250489345 ${a.toString()} 
+        573000973367246849 ${b.toString()} 
+        573000974503772172 ${c.toString()}
         `)
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
