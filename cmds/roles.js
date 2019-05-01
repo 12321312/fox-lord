@@ -9,13 +9,9 @@ module.exports.run = async (bot,message,args) => {
 
     const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
 
-    let ombed = new RichEmbed()
+    let ombed = new Discord.RichEmbed()
         .setTitle('Avaiilable Roles')
-        .setDescription(`
-        🇦 ${a.toString()}
-        🇧 ${b.toString()}
-        🇨 ${c.toString()}
-        `)
+        .setDescription(`🇦 ${a.toString()} 🇧 ${b.toString()} 🇨 ${c.toString()}`)
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
         
