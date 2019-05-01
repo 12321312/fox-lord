@@ -36,6 +36,14 @@ bot.on('message', async message => {
   };
   let u = profile[uid];
 
+  u.coins++;
+  u.xp++;
+
+  if(u.xp>= (u.lvl * 5)){
+      u.xp = 0;
+      u.lvl += 1;
+  };
+
   fs.writeFile('./profile.json',JSON.stringify(profile),(err)=>{
     if(err) console.log(err);
   });
@@ -90,4 +98,3 @@ bot.on('message', (receivedMessage) => {
   
 // login
 bot.login(process.env.BOT_TOKEN); 
- 
