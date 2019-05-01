@@ -7,7 +7,7 @@ module.exports.run = async (bot,message,args) => {
     const b = message.guild.roles.get('537706608105619457'); // гмод
     const c = message.guild.roles.get('537706571015258156'); // Eve
 
-    const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
+    const filter = (reaction, user) => ['dota', 'gmod', 'eve'].includes(reaction.emoji.name) && user.id === message.author.id;
 
     let ombed = new Discord.RichEmbed()
         .setTitle('Выберите ключ')
@@ -21,9 +21,9 @@ module.exports.run = async (bot,message,args) => {
         
     message.channel.send({embed:ombed}).then(async msg => {
 
-        await msg.react('🇦');
-        await msg.react('🇧');
-        await msg.react('🇨');
+        await msg.react('dota');
+        await msg.react('gmod');
+        await msg.react('eve');
 
         msg.awaitReactions(filter, {
             max: 1,
