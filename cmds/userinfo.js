@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
-    let a = message.author
+    let a = message.author;
     let ambed = new Discord.RichEmbed()
     .setDescription("Информация о сервере")
     .setColor('#10c7e2')
@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args) => {
     .addField("Создание аккаунта",a.createdAt)
     .addField("ID",a.id)
     .addField("Вы бот?",a.bot)
-    .setThumbnail(a.avatarURL)
+    .setThumbnail(a.avatarURL);
 
     bot.send(ambed);
 
