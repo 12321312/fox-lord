@@ -10,8 +10,12 @@ module.exports.run = async (bot,message,args) => {
     const filter = (reaction, user) => ['🇦', '🇧', '🇨'].includes(reaction.emoji.name) && user.id === message.author.id;
 
     let ombed = new Discord.RichEmbed()
-        .setTitle('Avaiilable Roles')
-        .setDescription(`🇦 ${a.toString()} 🇧 ${b.toString()} 🇨 ${c.toString()}`)
+        .setTitle('Выберите ключ')
+        .setDescription(`
+        🇦 ${a.toString()} 
+        🇧 ${b.toString()} 
+        🇨 ${c.toString()}
+        `)
         .setColor(0xdd9323)
         .setFooter(`ID: ${message.author.id}`);
         
@@ -33,42 +37,42 @@ module.exports.run = async (bot,message,args) => {
                 case '🇦':
                     if (message.member.roles.has(a.id)) {
                         msg.delete(2000);
-                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
+                        return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
                     }
                     message.member.addRole(a).catch(err => {
                         console.log(err);
-                        return message.channel.send(`Error adding you to this role: **${err.message}**.`);
+                        return message.channel.send(`Ошибка выдачи ключа: **${err.message}**.`);
                     });
-                    message.channel.send(`You have been added to the **${a.name}** role!`).then(m => m.delete(3000));
+                    message.channel.send(`Вам был выдан **${a.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
                 case '🇧':
                     if (message.member.roles.has(b.id)) {
                         msg.delete(2000);
-                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
+                        return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
                     }
                     message.member.addRole(b).catch(err => {
                         console.log(err);
-                        return message.channel.send(`Error adding you to this role: **${err.message}**.`);
+                        return message.channel.send(`Ошибка выдачи ключа: **${err.message}**.`);
                     });
-                    message.channel.send(`You have been added to the **${b.name}** role!`).then(m => m.delete(3000));
+                    message.channel.send(`Вам был выдан **${b.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
                 case '🇨':
                     if (message.member.roles.has(c.id)) {
                         msg.delete(2000);
-                        return message.channel.send('You are already in this role!').then(m => m.delete(3000));
+                        return message.channel.send('Вы уже имеете этот ключ!').then(m => m.delete(3000));
                     }
                     message.member.addRole(c).catch(err => {
                         console.log(err);
-                        return message.channel.send(`Error adding you to this role: **${err.message}**.`);
+                        return message.channel.send(`Ошибка выдачи ключа: **${err.message}**.`);
                     });
-                    message.channel.send(`You have been added to the **${c.name}** role!`).then(m => m.delete(3000));
+                    message.channel.send(`Вам был выдан **${c.name}**!`).then(m => m.delete(3000));
                     msg.delete();
                     break;
             }
         }).catch(collected => {
-            return message.channel.send(`I couldn't add you to this role!`);
+            return message.channel.send(`Я не смогу вас добавить :с`);
         });
 
     });
@@ -76,5 +80,5 @@ module.exports.run = async (bot,message,args) => {
 };
 
 module.exports.help = {
-    name: 'roles'
+    name: 'ключ'
 };
