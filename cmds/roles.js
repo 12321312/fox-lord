@@ -1,7 +1,8 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
-    message.channel.send("Сосать", {
+    let botmessage = args.join(" ");
+    message.channel.send(botmessage, {
         file: "./img/lol.png" 
     });
 };
