@@ -109,7 +109,7 @@ If you would like to remove the role, simply remove your reaction!
 `;
 const embedFooter = "Role Reactions"; // Must set this if "embed" is set to true
 const roles = ["Dota-key", "EVE-key", "Gmod-key", "Secret-key"];
-const reactions = [":dota:", "🖌", "😃", "🆕"];
+const reactions = ["💻", "🖌", "😃", "🆕"];
 const embed = true; // Set to "true" if you want all roles to be in a single embed
 const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
 
