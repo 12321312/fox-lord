@@ -142,7 +142,7 @@ bot.on("message", message => {
                 });
             });
         } else {
-            const roleEmbed = new RichEmbed()
+            const roleEmbed = new Discord.RichEmbed()
                 .setDescription(embedMessage)
                 .setFooter(embedFooter);
 
