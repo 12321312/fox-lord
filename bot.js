@@ -123,7 +123,7 @@ function generateMessages() {
 function generateEmbedFields() {
     return roles.map((r, e) => {
         return {
-            emoji: reactions[e],
+            emojis: reactions[e],
             role: r
         };
     });
@@ -149,7 +149,7 @@ bot.on("message", message => {
             if (embedColor) roleEmbed.setColor(embedColor);
 
             const fields = generateEmbedFields();
-            for (const f of fields) roleEmbed.addField(f.emoji, f.role, true);
+            for (const f of fields) roleEmbed.addField(f.emojis, f.role, true);
 
             message.channel.send({embed:roleEmbed}).then(async m => {
                 for (let r of reactions) await m.react(r);
@@ -172,7 +172,7 @@ bot.on('raw', async event => {
     const message = await channel.fetchMessage(data.message_id);
     const member = message.guild.members.get(user.id);
 
-    const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
+    const emojiKey = (data.emojis.id) ? `${data.emojis.name}:${data.emojis.id}` : data.emojis.name;
     const reaction = message.reactions.get(emojiKey);
 
     let embedFooterText;
@@ -200,7 +200,7 @@ bot.on('raw', async event => {
                 if (member.id !== bot.user.id) {
                     const role = message.guild.roles.find(r => r.name === fields[i].value);
 
-                    if (fields[i].name === reaction.emoji.name) {
+                    if (fields[i].name === reaction.emojis.name) {
                         if (event.t === "MESSAGE_REACTION_ADD") {
                             member.addRole(role.id);
                             break;
