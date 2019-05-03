@@ -108,7 +108,7 @@ React to the emoji that matches the role you wish to receive.
 If you would like to remove the role, simply remove your reaction!
 `;
 const embedFooter = "Role Reactions"; // Must set this if "embed" is set to true
-const roles = ["Dota-key", "EVE-key", "Gmod-key", "Secret-key"];
+const roles = ["Dota-key", "EVE-key", "Gmod-key", "Minecraft-key"];
 const reactions = ["💻", "🖌", "😃", "🆕"];
 const embed = true; // Set to "true" if you want all roles to be in a single embed
 const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
@@ -123,7 +123,7 @@ function generateMessages() {
 function generateEmbedFields() {
     return roles.map((r, e) => {
         return {
-            emojis: reactions[e],
+            emoji: reactions[e],
             role: r
         };
     });
@@ -149,7 +149,7 @@ bot.on("message", message => {
             if (embedColor) roleEmbed.setColor(embedColor);
 
             const fields = generateEmbedFields();
-            for (const f of fields) roleEmbed.addField(f.emojis, f.role, true);
+            for (const f of fields) roleEmbed.addField(f.emoji, f.role, true);
 
             message.channel.send({embed:roleEmbed}).then(async m => {
                 for (let r of reactions) await m.react(r);
@@ -200,7 +200,7 @@ bot.on('raw', async event => {
                 if (member.id !== bot.user.id) {
                     const role = message.guild.roles.find(r => r.name === fields[i].value);
 
-                    if (fields[i].name === reaction.emojis.name) {
+                    if (fields[i].name === reaction.emoji.name) {
                         if (event.t === "MESSAGE_REACTION_ADD") {
                             member.addRole(role.id);
                             break;
