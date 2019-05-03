@@ -172,7 +172,7 @@ bot.on('raw', async event => {
     const message = await channel.fetchMessage(data.message_id);
     const member = message.guild.members.get(user.id);
 
-    const emojiKey = (data.emojis.id) ? `${data.emojis.name}:${data.emojis.id}` : data.emojis.name;
+    const emojiKey = (data.emoji.id) ? `${data.emoji.name}:${data.emoji.id}` : data.emoji.name;
     const reaction = message.reactions.get(emojiKey);
 
     let embedFooterText;
