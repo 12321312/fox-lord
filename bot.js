@@ -151,7 +151,7 @@ bot.on("message", message => {
             const fields = generateEmbedFields();
             for (const f of fields) roleEmbed.addField(f.emoji, f.role, true);
 
-            message.channel.send({roleEmbed}).then(async m => {
+            message.channel.send({embed:roleEmbed}).then(async m => {
                 for (let r of reactions) await m.react(r);
             });
         }
