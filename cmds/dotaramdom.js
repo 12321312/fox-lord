@@ -14,7 +14,7 @@ module.exports.run = async (bot,message,args) => {
  .setTimestamp()
  .addField(`${randomHero}`, `${randomLine}`, true)
  .setAuthor(a.username, a.avatarURL)
- .setThumbnail("./img/"+`${randomHero}`+".jpg")
+ .setThumbnail("https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
  .setColor('#'+`${ColorRan}`)
  .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
 
