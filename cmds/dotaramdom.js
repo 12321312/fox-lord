@@ -28,10 +28,10 @@ module.exports.run = async (bot,message,args) => {
  .setColor("#c10020")
  .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
 
- bot.send({embed:dotasend});
- message.react("👍");
- message.react("👎");
-
+ message.channel.send({embed:dotasend}).then(async msg => {
+    await message.react("👍");
+    await message.react("👎");
+});
 };
 module.exports.help = {
     name: "дота"
