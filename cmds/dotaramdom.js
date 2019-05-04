@@ -6,7 +6,7 @@ module.exports.run = async (bot,message,args) => {
  const randomHero = Hero[Math.floor(Math.random()*Hero.length)];
  let a = message.author;
  let dotasend = new Discord.RichEmbed()
- .setTitle(${randomHero});
+ .setTitle(`${randomHero}`);
 
  bot.send({embed:dotasend});
 
