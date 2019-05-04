@@ -29,8 +29,8 @@ module.exports.run = async (bot,message,args) => {
  .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
 
  message.channel.send({embed:dotasend}).then(async msg => {
-    await message.react("👍");
-    await message.react("👎");
+    await msg.react("👍");
+    await msg.react("👎");
 });
 };
 module.exports.help = {
