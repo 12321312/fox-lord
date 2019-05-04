@@ -6,7 +6,6 @@ module.exports.run = async (bot,message,args) => {
  var Line = Array('Mid, 1 позиция', 'Easy, 2 позиция', 'Easy, 5 позиция', 'Hard, 3 позиция', 'Hard 4 позиция')
  const randomLine = Line[Math.floor(Math.random()*Line.length)];
  const randomHero = Hero[Math.floor(Math.random()*Hero.length)];
- const ColorRan = Math.floor(Math.random() * 7) + 1 ;
 
  let a = message.author;
  let dotasend = new Discord.RichEmbed()
@@ -15,7 +14,7 @@ module.exports.run = async (bot,message,args) => {
  .addField(`${randomHero}`, `${randomLine}`, true)
  .setAuthor(a.username, a.avatarURL)
  .setThumbnail("https://raw.githubusercontent.com/12321312/fox-lord/master/img/"+`${randomHero}`+".jpg")
- .setColor(`${ColorRan}`)
+ .setColor(0x00AE86)
  .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
 
  bot.send({embed:dotasend});
