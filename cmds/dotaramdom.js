@@ -6,9 +6,9 @@ module.exports.run = async (bot,message,args) => {
  var Line = [
      {value: 1, name: 'Mid, 1 позиция'},
      {value: 2, name: 'Easy, 2 позиция'},
-     {value: 3, name: 'Easy, 5 позиция'},
-     {value: 4, name: 'Hard, 3 позиция'},
-     {value: 5, name: 'Hard 4 позиция'} 
+     {value: 3, name: 'Hard, 3 позиция'},
+     {value: 4, name: 'Hard 4 позиция'},
+     {value: 5, name: 'Easy, 5 позиция'} 
  ];
  var TextAr = Array('Хорошая идея будет взять:', 'Стоит попробовать:', 'Отлично себя покажет:', 'Наверное это вам пойдет:', 'Пикайте себе на здровье:')
  const randomLine = Line[Math.floor(Math.random()*Line.length)];
