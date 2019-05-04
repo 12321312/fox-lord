@@ -26,14 +26,16 @@ module.exports.run = async (bot,message,args) => {
  .setImage("https://raw.githubusercontent.com/12321312/fox-lord/master/img/"+randomidlol+".png")
  .setThumbnail("https://raw.githubusercontent.com/12321312/fox-lord/master/img/"+`${randomHero}`+".jpg")
  .setColor("#c10020")
- .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png");
+ .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
 
  bot.send({embed:dotasend}).then(function (message) {
     message.react("👍")
     message.react("👎")
-  }).catch(function() { 
+  }).catch(function() {
+    //Something
    });
 
+};
 module.exports.help = {
     name: "дота"
 };
