@@ -31,7 +31,7 @@ module.exports.run = async (bot,message,args) => {
  bot.send({embed:dotasend}).then(function (message) {
     message.react("👍")
     message.react("👎")
-  }).catch(function() {
+  }).catch(function() { 
    });
 
 module.exports.help = {
