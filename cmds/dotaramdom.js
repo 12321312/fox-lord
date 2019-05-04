@@ -11,7 +11,6 @@ module.exports.run = async (bot,message,args) => {
      {value: 5, name: 'Easy, 5 позиция'} 
  ];
  var TextAr = Array('Хорошая идея будет взять:', 'Стоит попробовать:', 'Отлично себя покажет:', 'Наверное это вам пойдет:', 'Пикайте себе на здровье:')
- const randomLine = Line[Math.floor(Math.random()*Line.length)];
  const randomHero = Hero[Math.floor(Math.random()*Hero.length)];
  const randomTextAr = TextAr[Math.floor(Math.random()*TextAr.length)];
  const randomidlol = Math.floor(Math.random() * 5) + 1 ;   
@@ -24,7 +23,7 @@ module.exports.run = async (bot,message,args) => {
  .addField(`${randomHero}`, "Линия: "+`${Line[randomidlol].name}`, true)
  .setAuthor(a.username, a.avatarURL)
  .setImage("https://raw.githubusercontent.com/12321312/fox-lord/master/img/"+randomidlol+".png")
- .setThumbnail("attachment://img/"+`${randomHero}`+".jpg")
+ .setThumbnail("attachment://"+`${randomHero}`+".jpg")
  .setColor("#c10020")
  .setFooter("Dota Random Hero", "https://avatanplus.com/files/resources/mid/5b4d22308ef8c164a54d8dca.png")
 
