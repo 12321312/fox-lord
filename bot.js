@@ -60,7 +60,17 @@ bot.on('message', async message => {
 });
 
 // шапка
-
+bot.on('ready', () => {
+  console.log('Запущен, сэр!');
+  bot.user.setPresence({
+         status: "online",
+         game: {
+             name: "твои нервы",
+             url: "https://www.youtube.com/watch?v=qrohU75OdJ8",
+             type: "STREAMING"
+         }
+     });
+});
 
 // Автороль
 bot.on('guildMemberAdd', member => {
