@@ -65,7 +65,7 @@ bot.on('ready', () => {
   bot.user.setPresence({
          status: "online",
          game: {
-             name: "затроллить терру",
+             name: "твои нервы",
              url: "https://www.youtube.com/watch?v=6uCTdjTjbWA",
              type: "STREAMING"
          }
