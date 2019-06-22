@@ -66,7 +66,7 @@ bot.on('ready', () => {
          status: "online",
          game: {
              name: "твои нервы",
-             url: "https://www.youtube.com/watch?v=qrohU75OdJ8",
+             url: "",
              type: "STREAMING"
          }
      });
