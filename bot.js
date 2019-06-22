@@ -66,7 +66,7 @@ bot.on('ready', () => {
          status: "online",
          game: {
              name: "затроллить терру",
-             url: "",
+             url: "https://www.youtube.com/watch?v=6uCTdjTjbWA",
              type: "STREAMING"
          }
      });
