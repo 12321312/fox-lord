@@ -5,6 +5,8 @@ module.exports.run = async (bot,message,args) => {
       message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```");
       return;
     }
+    if ((args[0]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
+    if ((args[1]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Такого участника нету, иди нахуй.");
     let rreason = args.join(" ").slice(22);
@@ -23,7 +25,7 @@ module.exports.run = async (bot,message,args) => {
 
 
     message.delete().catch(O_o=>{});
-    reportschannel.send(reportEmbed);
+    reportschannel.send({embed:reportEmbed});
 
 }
 
