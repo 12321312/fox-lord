@@ -18,7 +18,7 @@ const reactions = [":dota:", "🖌", "😃", "🆕",":dota:",":dota:"];
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
 //Function to generate the role messages, based on your settings
-function generateMessages(){
+function generateMessages(){ 
     var messages = [];
     messages.push(initialMessage);
     for (let role of roles) messages.push(`React below to get the **"${role}"** role!`); //DONT CHANGE THIS
