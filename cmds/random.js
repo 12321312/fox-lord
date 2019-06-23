@@ -7,7 +7,7 @@ module.exports.run = async (bot,message,args) => {
     let a = message.author;
 
     if ((args[0])==null) {message.reply('А чё тебе надо то? \n Напиши например: `!рандом котэ`'); return; }
-    if ((args[0]) != ramdomcat || (args[0]) != ramdomdog) { message.reply('Хуй знает что тебе надо'); return; }
+    if ((args[0]) != ramdomcat && (args[0]) != ramdomdog) { message.reply('Хуй знает что тебе надо'); return; }
     if ((args[0]) == ramdomcat) { let inforandom = "http://aws.random.cat/meow"; };  
     if ((args[0]) == ramdomcat) { let inforandom = "https://dog.ceo/api/breeds/image/random"; };  
     let {body} = await superagent
