@@ -12,7 +12,7 @@ const yourID = "294844223675564034"; //Instructions on how to get this: https://
 const setupCMD = "!роль"
 let initialMessage = `**Чтобы получить **`;
 const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
-const reactions = [":dota:", "🖌", "😃", "🆕"];
+const reactions = [":dota:", "🖌", "😃", "🆕",":dota:",":dota:"];
 
 //If there isn't a reaction for every role, scold the user!
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
