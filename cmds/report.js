@@ -9,8 +9,7 @@ module.exports.run = async (bot,message,args) => {
     if ((args[1]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let rFox = message.guild.members.get("294844223675564034");
-    if(!rUser) return message.channel.send("Такого участника нету, иди нахуй.");
-    if (rUser = rFox) {message.reply("Нахуй сходи, ок?"); return; };
+    if (rUser == rFox) {message.reply("Нахуй сходи, ок?"); return; };
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
