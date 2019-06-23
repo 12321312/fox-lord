@@ -6,9 +6,10 @@ module.exports.run = async (bot,message,args) => {
     var ramdomdog = Array("собака","Собака","Собакин","Dog","Doge","Гаф","гаф","пёс","пес","щенок","шенок","псина");
     let a = message.author;
 
-    if (args[0] != ramdomcat || args[0] != ramdomdog) { message.reply('Хуй знает что тебе надо'); return; }
-    if (args[0] == ramdomcat) { let inforandom = "http://aws.random.cat/meow"; };  
-    if (args[0] == ramdomcat) { let inforandom = "https://dog.ceo/api/breeds/image/random"; };  
+    if (isNaN(args[0])) {message.reply('А чё тебе надо то? \n Напиши например: `!рандом котэ`'); return; }
+    if ((args[0]) != ramdomcat || (args[0]) != ramdomdog) { message.reply('Хуй знает что тебе надо'); return; }
+    if ((args[0]) == ramdomcat) { let inforandom = "http://aws.random.cat/meow"; };  
+    if ((args[0]) == ramdomcat) { let inforandom = "https://dog.ceo/api/breeds/image/random"; };  
     let {body} = await superagent
     .get('inforandom'); 
 
