@@ -8,14 +8,18 @@ module.exports.run = async (bot,message,args) => {
     if ((args[0]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
     if ((args[1]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let rFox = message.guild.member(message.mentions.users.first() || message.guild.members.get("294844223675564034"));
     if(!rUser) return message.channel.send("Такого участника нету, иди нахуй.");
+    if (rUser = rFox) {message.reply("Нахуй сходи, ок?"); return; };
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Репорт")
     .setColor('#c10020')
-    .addField("На:", `${rUser} смотреть ID: ${rUser.id}`)
-    .addField("От:", `${message.author} Смотреть ID: ${message.author.id}`)
+    .setThumbnail("http://pngimg.com/uploads/gavel/gavel_PNG45.png")
+    .setFooter("Репорт систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+    .addField("На:", `${rUser} ID: ${rUser.id}`)
+    .addField("От:", `${message.author} ID: ${message.author.id}`)
     .addField("Канал:", message.channel)
     .addField("Время:", message.createdAt)
     .addField("Причина:", rreason);
