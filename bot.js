@@ -14,11 +14,6 @@ let initialMessage = `**React to the messages below to receive the associated ro
 const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key"];
 const reactions = ["💻", "🖌", "😃", "🆕"];
 
-
-//Load up the bot...
-const Discord = require('discord.js');
-const bot = new Discord.Client();
-
 //If there isn't a reaction for every role, scold the user!
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
