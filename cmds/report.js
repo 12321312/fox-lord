@@ -11,14 +11,14 @@ module.exports.run = async (bot,message,args) => {
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Репорт")
-    .setColor(orange)
+    .setColor(#c10020)
     .addField("На:", `${rUser} смотреть ID: ${rUser.id}`)
     .addField("От:", `${message.author} Смотреть ID: ${message.author.id}`)
     .addField("Канал:", message.channel)
     .addField("Время:", message.createdAt)
     .addField("Причина:", rreason);
 
-    let reportschannel = message.guild.channels.find(`name`, "🏴репорты");
+    let reportschannel = message.guild.channels.get("592383011581067274");
     if(!reportschannel) return message.channel.send("Нет такого канала.");
 
 
@@ -28,5 +28,5 @@ module.exports.run = async (bot,message,args) => {
 }
 
 module.exports.help = {
-  name: "Репорт"
+  name: "репорт"
 }
