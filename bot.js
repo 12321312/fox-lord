@@ -139,7 +139,7 @@ bot.on("message", message => {
             });
         }
     }
-});.emojis.find(e => e.name === emoji);
+});bot.emojis.find(e => e.name === emoji);
               
               if (!customEmote) roleEmbed.addField(emoji, f.role, true);
               else roleEmbed.addField(customEmote, f.role, true);
