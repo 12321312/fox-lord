@@ -165,7 +165,7 @@ const events = {
 	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
 };
 
-bot.on('raw', async event => {
+client.on('raw', async event => {
 
   if (!events.hasOwnProperty(event.t)) return;
 
