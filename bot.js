@@ -10,7 +10,7 @@ let profile = require('./profile.json');
 //Settings!
 const yourID = "294844223675564034"; //Instructions on how to get this: https://redd.it/40zgse
 const setupCMD = "!роль"
-let initialMessage = `**Чтобы получить **`;
+let initialMessage = `**Получи ключ от нужной тебе категории**`;
 const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
 const reactions = [":dota:", "🖌", "😃", "🆕",":dota:",":dota:"];
 
@@ -21,7 +21,7 @@ if (roles.length !== reactions.length) throw "Roles list and reactions list are 
 function generateMessages(){ 
     var messages = [];
     messages.push(initialMessage);
-    for (let role of roles) messages.push(`React below to get the **"${role}"** role!`); //DONT CHANGE THIS
+    for (let role of roles) messages.push(`Поставь реакцию тут, чтобы получить роль: **"${role}"**!`); //DONT CHANGE THIS
     return messages;
 }
 
