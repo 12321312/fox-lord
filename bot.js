@@ -22,6 +22,8 @@ const embed = false; // Set to "true" if you want all roles to be in a single em
 const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
 const embedThumbnail = true; // Set to "true" if you want to set a thumbnail in the embed
 const embedThumbnailLink = "https://i.imgur.com/P8PD7DD.png"; // The link for the embed thumbnail
+const { Client, RichEmbed, Emoji, MessageReaction } = require('discord.js');
+const client = new Client({ disableEveryone: true });
 
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
@@ -139,7 +141,7 @@ bot.on("message", message => {
             });
         }
     }
-});bot.emojis.find(e => e.name === emoji);
+});client.emojis.find(e => e.name === emoji);
               
               if (!customEmote) roleEmbed.addField(emoji, f.role, true);
               else roleEmbed.addField(customEmote, f.role, true);
@@ -168,8 +170,8 @@ bot.on('raw', async event => {
   if (!events.hasOwnProperty(event.t)) return;
 
   const { d: data } = event;
-  const user = bot.users.get(data.user_id);
-  const channel = bot.channels.get(data.channel_id);
+  const user = client.users.get(data.user_id);
+  const channel = client.channels.get(data.channel_id);
 
   const message = await channel.fetchMessage(data.message_id);
   const member = message.guild.members.get(user.id);
@@ -179,20 +181,20 @@ bot.on('raw', async event => {
 
   if (!reaction) {
       // Create an object that can be passed through the event like normal
-      const emoji = new Emoji(bot.guilds.get(data.guild_id), data.emoji);
-      reaction = new MessageReaction(message, emoji, 1, data.user_id === bot.user.id);
+      const emoji = new Emoji(client.guilds.get(data.guild_id), data.emoji);
+      reaction = new MessageReaction(message, emoji, 1, data.user_id === client.user.id);
   }
 
   let embedFooterText;
   if (message.embeds[0]) embedFooterText = message.embeds[0].footer.text;
 
-  if (message.author.id === bot.user.id && (message.content !== initialMessage || (message.embeds[0] && (embedFooterText !== embedFooter)))) {
+  if (message.author.id === client.user.id && (message.content !== initialMessage || (message.embeds[0] && (embedFooterText !== embedFooter)))) {
 
       if (!embed) {
           const re = `\\*\\*"(.+)?(?="\\*\\*)`;
           const role = message.content.match(re)[1];
 
-          if (member.id !== bot.user.id) {
+          if (member.id !== client.user.id) {
               const roleObj = message.guild.roles.find(r => r.name === role);
 
               if (event.t === "MESSAGE_REACTION_ADD") {
@@ -205,7 +207,7 @@ bot.on('raw', async event => {
           const fields = message.embeds[0].fields;
 
           for (let i = 0; i < fields.length; i++) {
-              if (member.id !== bot.user.id) {
+              if (member.id !== client.user.id) {
                   const role = message.guild.roles.find(r => r.name === fields[i].value);
 
                   if ((fields[i].name === reaction.emoji.name) || (fields[i].name === reaction.emoji.toString())) {
