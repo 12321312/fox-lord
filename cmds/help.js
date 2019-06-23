@@ -14,6 +14,7 @@ module.exports.run = async (bot,message,args) => {
     .addField("!инфо","Показывает информацию о сервере")
     .addField("!пидор","Уточняет вашу оринтацию благодоря новым методам, после чего выдает вам роль")
     .addField("!дота","Выдает вам роль, героя и позицию на следующую катку в доте")
+    .addField("!репорт (юзер) (причина)","Отправляет репорт администрации сервера на участника.")
     .setThumbnail("http://pngimg.com/uploads/question_mark/question_mark_PNG73.png")
 
     bot.send({embed:ambed});
