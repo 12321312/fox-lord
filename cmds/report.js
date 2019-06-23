@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args) => {
 
     let reportEmbed = new Discord.RichEmbed()
     .setDescription("Репорт")
-    .setColor(#c10020)
+    .setColor('#c10020')
     .addField("На:", `${rUser} смотреть ID: ${rUser.id}`)
     .addField("От:", `${message.author} Смотреть ID: ${message.author.id}`)
     .addField("Канал:", message.channel)
