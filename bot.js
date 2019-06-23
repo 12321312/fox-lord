@@ -10,9 +10,9 @@ let profile = require('./profile.json');
 //Settings!
 const yourID = "294844223675564034"; //Instructions on how to get this: https://redd.it/40zgse
 const setupCMD = "!роль"
-let initialMessage = `**React to the messages below to receive the associated role. If you would like to remove the role, simply remove your reaction!**`;
-const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key"];
-const reactions = ["💻", "🖌", "😃", "🆕"];
+let initialMessage = `**Чтобы получить **`;
+const roles = ["Dota-key", "EVE-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
+const reactions = [":dota:", "🖌", "😃", "🆕"];
 
 //If there isn't a reaction for every role, scold the user!
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
