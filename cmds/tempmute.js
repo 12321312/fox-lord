@@ -8,7 +8,7 @@ if(!tomute) return message.reply("такого участника нету");
 if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("у вас нет прав на это, идите нахуй");
 let muterole = message.guild.roles.find('name', "muted");
 let mreason = args.join(" ").slice(27);
-if ((mreason)==null) { let mreason = "---"; }
+if (mreason==null) { mreason = await "---"; }
 
   if(!muterole){
       try{
