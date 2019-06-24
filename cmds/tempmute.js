@@ -46,7 +46,7 @@ let muteEmbed = new Discord.RichEmbed()
 
 await(tomute.addRole(muterole.id));
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
-mutechannel.send({embed:muteEmbed});
+mutechannel.send({embed:muteEmbed}); 
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
