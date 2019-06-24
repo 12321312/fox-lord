@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-const ms = require("ms"); 
+//const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
