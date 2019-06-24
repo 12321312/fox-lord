@@ -20,7 +20,7 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
     bot.send({embed:ambed});
 } else 
 {
-  message.reply("А пососать не завернуть?");
+  message.reply("А пососать не завернуть?"); 
 };
 
 };
