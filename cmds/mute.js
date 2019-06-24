@@ -9,7 +9,7 @@ let tomute = message.guild.member(message.mentions.users.first() || message.guil
 if(!tomute) return message.reply("такого участника нету");
 if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
 let muterole = message.guild.roles.find('name', "muted");
-let mreason = args.join(" ").slice(26) || "---";
+let mreason = args.slice(2).join(" ") || "---";
 
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
   if(!muterole){
