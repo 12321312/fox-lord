@@ -8,7 +8,7 @@ if ((args[1]) == null) {message.reply("Не верно указано время
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
 if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
-if (tomute.roles.get('537700464888643595')) { message.reply('он уже в молчанку играет'); return; }
+if (tomute.roles.get('592772182543695882')) { message.reply('он уже в молчанку играет'); return; }
 let muterole = message.guild.roles.find('name', "silence");
 let mreason = args.slice(2).join(" ") || "---";
 
