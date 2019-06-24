@@ -37,8 +37,8 @@ let mutetime = args[1];
 if(!mutetime) return message.reply("Укажите время, блэать!");
 let muteEmbed = new Discord.RichEmbed()
 .setDescription("Гаг")
-.setColor('#00538A')
-.setThumbnail("https://freepngimg.com/thumb/silence/7-2-silence-picture-thumb.png")
+.setColor('#00FFFF')
+.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/2/29/Audio-mute.png")
 .setFooter("Гаг систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .addField("Был замучен:", `${tomute}`)
 .addField("Администратор:", `${message.author}`)
