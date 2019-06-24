@@ -20,6 +20,7 @@ let muteEmbed = new Discord.RichEmbed()
 .addField("Канал:", message.channel);
 
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был размутен принудительно');
+message.delete();
 mutechannel.send({embed:muteEmbed}); 
 tomute.removeRole(muterole.id);
 } else 
