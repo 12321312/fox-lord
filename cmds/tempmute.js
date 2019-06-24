@@ -7,6 +7,7 @@ let tomute = message.guild.member(message.mentions.users.first() || message.guil
 if(!tomute) return message.reply("такого участника нету");
 if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("у вас нет прав на это, идите нахуй");
 let muterole = message.guild.roles.find('name', "muted");
+let mreason = args.join(" ").slice(22);
  
   if(!muterole){
       try{
@@ -25,6 +26,7 @@ let muterole = message.guild.roles.find('name', "muted");
           console.log(e.stack);
       }
   }
+message.delete();
 
 let mutechannel = message.guild.channels.get("537720268446236682");
 if(!mutechannel) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
@@ -38,17 +40,17 @@ let muteEmbed = new Discord.RichEmbed()
 .addField("Был замучен:", `${tomute}`)
 .addField("Администратор:", `${message.author}`)
 .addField("Канал:", message.channel)
+.addField("Причина:", mreason)
 .addField("Время мута:", `${ms(ms(mutetime))}`)
 .addField("Начало мута:", message.createdAt);
 
 await(tomute.addRole(muterole.id));
-message.delete();
-message.channel.send('пользователь' + `<@${tomute.id}>` + ' был замучен на`'+ `${ms(ms(mutetime))}` + '`');
+message.channel.send('пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: ' + `${mreason}`);
 mutechannel.send({embed:muteEmbed});
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
-    message.channel.send(`<@${tomute.id}> был размучен`);
+    message.channel.send(`<@${tomute.id}> был размутен`);
 },ms(mutetime));
 
 
