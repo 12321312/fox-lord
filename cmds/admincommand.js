@@ -25,5 +25,5 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
 
 };
 module.exports.help = {
-    name: "хелп"
+    name: "админка"
 };
