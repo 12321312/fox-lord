@@ -7,7 +7,7 @@ let tomute = message.guild.member(message.mentions.users.first() || message.guil
 if(!tomute) return message.reply("такого участника нету");
 if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("у вас нет прав на это, идите нахуй");
 let muterole = message.guild.roles.find('name', "muted");
-
+ 
   if(!muterole){
       try{
           muterole = await message.guild.createRole({
