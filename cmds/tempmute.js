@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-import ms from './ms';
+import ms from 'ms.macro';
 const ms = require("ms");
 
 module.exports.run = async (bot,message,args) => {
