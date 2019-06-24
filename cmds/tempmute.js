@@ -13,7 +13,7 @@ if(!tomute) return message.reply("такого участника нету");
 if (!admin) { message.reply('соси, у тебя нет прав на это'); return; }
 if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
 let muterole = message.guild.roles.find('name', "muted");
-let mreason = args.join(" ").slice(27) || "---";
+let mreason = args.join(" ").slice(26) || "---";
 
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
   if(!muterole){
@@ -59,7 +59,7 @@ setTimeout(function(){
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> был размутен`);
 },ms(mutetime));
-}else 
+} else 
       {
         message.reply("А пососать не завернуть?");
       };
