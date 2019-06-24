@@ -17,7 +17,7 @@ let muteEmbed = new Discord.RichEmbed()
 .setFooter("Мут систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .addField("Снят мут с:", `${tomute}`)
 .addField("Администратор:", `${message.author}`)
-.addField("Канал:", message.channel)
+.addField("Канал:", message.channel);
 
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был размутен принудительно');
 mutechannel.send({embed:muteEmbed}); 
