@@ -33,5 +33,5 @@ tomute.removeRole(muterole.id);
      
 };
 module.exports.help = {
-    name: "унмут"
+    name: "унгаг"
 };
