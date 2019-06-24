@@ -1,7 +1,9 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
+const ms = require("ms");
+
 module.exports.run = async (bot,message,args) => {
-let tomute = message.guild.member(message.mentions.members.first() || message.guild.member.get(args[0]));
+let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
 if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("у вас нет прав на это, идите нахуй");
 let muterole = message.guild.roles.find('name', "muted");
