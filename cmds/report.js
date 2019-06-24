@@ -2,11 +2,11 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
     if(args[0] == "help"){
-      message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```");
+      message.reply("Не правильная жалоба, напиши так: ```!репорт <юзер упоминание> <причина>```");
       return;
     }
-    if ((args[0]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
-    if ((args[1]) == null) {message.reply("Не правильная жалоба, напиши так: ```!report <юзер упоминание> <причина>```"); return; }
+    if ((args[0]) == null) {message.reply("Не правильная жалоба, напиши так: ```!репорт <юзер упоминание> <причина>```"); return; }
+    if ((args[1]) == null) {message.reply("Не правильная жалоба, напиши так: ```!репорт <юзер упоминание> <причина>```"); return; }
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let rFox = message.guild.members.get("294844223675564034");
     if (rUser == rFox) {message.reply("Нахуй сходи, ок?"); return; };
