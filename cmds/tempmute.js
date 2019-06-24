@@ -15,6 +15,7 @@ if (tomute.id == "294844223675564034") { message.reply('а пизды не да�
 let muterole = message.guild.roles.find('name', "muted");
 let mreason = args.join(" ").slice(27) || "---";
 
+if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
   if(!muterole){
       try{
           muterole = await message.guild.createRole({
@@ -58,8 +59,11 @@ setTimeout(function(){
     tomute.removeRole(muterole.id);
     message.channel.send(`<@${tomute.id}> был размутен`);
 },ms(mutetime));
-
-
+}else 
+      {
+        message.reply("А пососать не завернуть?");
+      };
+     
 };
 module.exports.help = {
     name: "мут"
