@@ -1,6 +1,5 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-import msm from './ms';
 import ms from './ms';
 const ms = require("ms");
 
