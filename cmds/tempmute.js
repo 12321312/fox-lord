@@ -7,6 +7,7 @@ if ((args[0]) == null) {message.reply("Не верно указан пользо
 if ((args[1]) == null) {message.reply("Не верно указано время, напиши так: ```!report <юзер упоминание> <время> <причина>```"); return; }
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
+if (message.member.roles.get('537700464888643595') && message.member.roles.get('537705223301365781') && message.member.roles.get('537704565043363840')) { message.reply('соси, у тебя нет прав на это'); return; }
 if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
 let muterole = message.guild.roles.find('name', "muted");
 let mreason = args.join(" ").slice(27) || "---";
