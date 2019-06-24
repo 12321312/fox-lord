@@ -14,7 +14,7 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
     .addField("!гаг <юзер*> <время(1s|1m|1h|1d|1w)*> <причина>","Запрещает говорить на указанное время")
     .addField("!унмут <юзер*>","Снимает мут")
     .addField("!унгаг <юзер*>","Снимает гаг")
-    .setThumbnail("http://www.sclance.com/pngs/admin-png/admin_png_17235.jpg")
+    .setThumbnail("http://www.sclance.com/pngs/admin-png/admin_png_17235.jpg");
 
     bot.send({embed:ambed});
 } else 
