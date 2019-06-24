@@ -3,9 +3,6 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
-let admin = message.member.roles.get('537700464888643595');
-let admin2 = message.member.roles.get('537705223301365781');
-let admin3 = message.member.roles.get('537704565043363840');
 if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```"); return; }
 if ((args[1]) == null) {message.reply("Не верно указано время, напиши так: ```!report <юзер упоминание> <время> <причина>```"); return; }
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
