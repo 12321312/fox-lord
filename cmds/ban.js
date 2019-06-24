@@ -22,8 +22,10 @@ module.exports.run = async (bot, message, args) => {
     let banchannel = message.guild.channels.get("537720268446236682");
     if(!banchannel) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
 
+    message.delete();
     message.guild.member(bUser).ban(bReason);
     banchannel.send({embed:banEmbed});
+    message.channel.send('Пользователь' + `<@${bUser.id}>` + ' был забанен по причине: **' + `${bReason}` + '**');
 
 } else 
 {
