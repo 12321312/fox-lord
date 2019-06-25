@@ -6,7 +6,7 @@ const youtube = new YouTube("AIzaSyCsPmdU2GRkcOl4NiNdkl293PpI7PlUWhk");
 module.exports.run = async (bot,message,args) => {
 
     async function searchYouTubeAsync(args) {
-        var video = await youtube.searchVideos(args.toString().replace(/,/g,' '));
+        var video = await youtube.searchVideos(args);
         console.log(video.url);
         console.log(typeof String(video.url));
         return String(video.url);
