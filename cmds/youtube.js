@@ -13,7 +13,7 @@ search(args, {
     if (err) return message.channel.send("**Нет результатов!**")
     if (!res) return message.channel.send("**Нет результатов!**")
 
-    message.reply(res[0].link)
+    message.reply(res.link)
 });
 };
 module.exports.help = {
