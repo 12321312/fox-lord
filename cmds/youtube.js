@@ -5,7 +5,7 @@ const youtube = new YouTube("AIzaSyCsPmdU2GRkcOl4NiNdkl293PpI7PlUWhk");
 
 module.exports.run = async (bot,message,args) => {
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
-const video = await youtube.searchVideos(args);
+const video = await youtube.searchVideos(args.toString().replace(/,/g,' '));
 
 message.reply(video.url); 
 };
