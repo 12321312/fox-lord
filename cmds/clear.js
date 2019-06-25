@@ -12,7 +12,7 @@ if ((args[0]) >= 100) { message.reply('Больше 100 за раз не мог�
 
 const fetched = await message.channel.fetchMessages({limit: args[0]});
 console.log(fetched.size + ' сообщения найдены, удаление...'); 
-message.channel.send('удалено `' + fetched.size + '` сообщений');            
+message.channel.send('Удалено `' + fetched.size + '` сообщений');            
 message.channel.bulkDelete(fetched)
 .catch(error => message.channel.send(`Error: ${error}`)); 
 
@@ -26,7 +26,7 @@ message.channel.bulkDelete(fetched)
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);
 
   console.log(fetched.size + ' сообщения пользователя ' + `${mention.user.tag}` + ' найдены, удаление...'); 
-  message.channel.send('удалено `' + fetched.size + '` сообщений пользователя ' + `<@${mention.id}>`);       
+  message.channel.send('Удалено `' + fetched.size + '` сообщений пользователя ' + `<@${mention.id}>`);       
   message.channel.bulkDelete(fetched)
   .catch(error => message.channel.send(`Error: ${error}`)); 
 };
