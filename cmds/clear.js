@@ -17,10 +17,12 @@ message.reply('удалено `' + fetched.size + '` сообщений');
 message.channel.bulkDelete(fetched)
 .catch(error => message.channel.send(`Error: ${error}`));   
 } else {
-    if (isNaN(args[1])) {message.reply('А сколько удалять то? \n Напиши: `!удалить <упоминание> <число>`'); return; }
-    if ((args[1]) >= 100) { message.reply('Больше 100 за раз не могу ;с'); return; }
+  if (isNaN(args[1])) {message.reply('А сколько удалять то? \n Напиши: `!удалить <упоминание> <число>`'); return; }
+  if ((args[1]) >= 100) { message.reply('Больше 100 за раз не могу ;с'); return; }
+
   let mention = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
   fetched = await message.channel.fetchMessages({limit: args[1]});
+  fetched = fetched .filter(m => m.createdTimestamp >= Date.now() - 1179360000);
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);
 
   console.log(fetched.size + ' сообщения пользователя ' + `${mention.user.tag}` + ' найдены, удаление...'); 
