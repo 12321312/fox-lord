@@ -20,7 +20,7 @@ message.channel.bulkDelete(fetched)
   fetched = await message.channel.fetchMessages({limit: args[1]});
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);
 
-  console.log(fetched.size + ' сообщения пользователя' + `<@${mention.name}>` + 'найдены, удаление...'); 
+  console.log(fetched.size + ' сообщения пользователя' + `${mention.name}` + 'найдены, удаление...'); 
   message.reply('удалено `' + fetched.size + '` сообщений пользователя ' + `<@${mention.id}>`);       
       
   message.channel.bulkDelete(fetched)
