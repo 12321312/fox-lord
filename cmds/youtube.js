@@ -14,7 +14,9 @@ module.exports.run = async (bot,message,args) => {
 
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
 
-message.reply(searchYouTubeAsync(args)); 
+const video1 = await youtube.getVideo("https://www.youtube.com/watch?v=5NPBIwQyPWE");
+
+message.reply(video1); 
 };
 
 module.exports.help = {
