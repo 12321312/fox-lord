@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-const YouTube = require("discord-youtube-api");
+const youTube = require("discord-youtube-api");
 
 module.exports.run = async (bot,message,args) => {
 
@@ -12,7 +12,6 @@ module.exports.run = async (bot,message,args) => {
       }
 
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
-let video = await searchYouTubeAsync(args);
 
 message.reply(video.url); 
 };
