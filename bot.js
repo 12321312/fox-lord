@@ -114,9 +114,8 @@ bot.on('message', async message => {
     if(err) console.log(err);
   });
 
-  let messageArray = message.content.split(" ");
-  let command = messageArray[0].toLowerCase();
-  let args = messageArray.slice(1);
+  let command = args.shift().toLowerCase();
+  let args = message.content.slice(prefix.length).trim().split(/ +/g);
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args);
