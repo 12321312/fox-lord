@@ -6,8 +6,8 @@ let mention = message.mentions.users.first();
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {
 message.delete();
     if (!mention) {
-if (isNaN(args[0])) {message.reply('А сколько удалять то? \n Напиши: `!удалить <число>`'); return; }
-if ((args[0]) >= 100) { message.reply('Больше 100 за раз не могу ;с'); return; }
+if (isNaN(args[0])) return message.reply('А сколько удалять то? \n Напиши: `!удалить <число>`');
+if ((args[0]) >= 100) return message.reply('Больше 100 за раз не могу ;с');
 
 
 const fetched = await message.channel.fetchMessages({limit: args[0]});
@@ -17,9 +17,9 @@ message.channel.bulkDelete(fetched)
 .catch(error => message.channel.send(`Error: ${error}`)); 
 
 } else {
-  if (isNaN(args[1])) {message.reply('А сколько удалять то? \n Напиши: `!удалить <упоминание> <число>`'); return; }
-  if ((args[1]) >= 100) { message.reply('Больше 100 за раз не могу ;с'); return; }
-
+  if (isNaN(args[1])) return message.reply('А сколько удалять то? \n Напиши: `!удалить <упоминание> <число>`');
+  if ((args[1]) >= 100)  return message.reply('Больше 100 за раз не могу ;с'); 
+  
   let mention = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
   fetched = await message.channel.fetchMessages({limit: args[1]});
   fetched = fetched .filter(m => m.createdTimestamp >= Date.now() - 1179360000);
