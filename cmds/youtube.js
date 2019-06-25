@@ -1,15 +1,21 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-const YouTube = require("discord-youtube-api");
-const youtube = new YouTube("AIzaSyCsPmdU2GRkcOl4NiNdkl293PpI7PlUWhk");
+const talkedRecently = new Set(),
+      search = require('youtube-search');
 
 module.exports.run = async (bot,message,args) => {
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
-const video = await youtube.searchVideos(args.toString().replace(/,/g,' '));
 
-message.reply(video.url); 
+search(args[0], {
+    maxResults: 1,
+    key: process.env.GOOGLE_KEY
+  }, (err, res) => {
+    if (err) return message.channel.send("**Нет результатов!**")
+    if (!res[0]) return message.channel.send("**Нет результатов!**")
+
+    message.reply(res[0].link)
+});
 };
-
 module.exports.help = {
     name: "ютуб"
 };
