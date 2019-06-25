@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 const YouTube = require("discord-youtube-api");
-const youtube = new YouTube("google api key");
+const youtube = new YouTube("AIzaSyCsPmdU2GRkcOl4NiNdkl293PpI7PlUWhk");
 
 module.exports.run = async (bot,message,args) => {
 
