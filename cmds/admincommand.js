@@ -16,6 +16,7 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
     .addField("!унгаг *<юзер>*","Снимает гаг")
     .addField("!бан *<юзер> <причина>*","Банит юзера на сервере")
     .addField("!кик *<юзер>*","Кикает юзера на сервере")
+    .addField("!удалить *<юзер> <кол-во>*","Удаляет сообщение пользователя в указаном кол-ве, можно удалить всех, указав только кол-во.")
     .setThumbnail("http://www.sclance.com/pngs/admin-png/admin_png_17235.jpg");
 
     bot.send({embed:ambed});
