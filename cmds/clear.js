@@ -12,10 +12,10 @@ if ((args[0]) >= 100) { message.reply('Больше 100 за раз не мог�
 
 const fetched = await message.channel.fetchMessages({limit: args[0]});
 console.log(fetched.size + ' сообщения найдены, удаление...'); 
-message.reply('удалено `' + fetched.size + '` сообщений');       
-      
+message.channel.send('удалено `' + fetched.size + '` сообщений');            
 message.channel.bulkDelete(fetched)
-.catch(error => message.channel.send(`Error: ${error}`));   
+.catch(error => message.channel.send(`Error: ${error}`)); 
+
 } else {
   if (isNaN(args[1])) {message.reply('А сколько удалять то? \n Напиши: `!удалить <упоминание> <число>`'); return; }
   if ((args[1]) >= 100) { message.reply('Больше 100 за раз не могу ;с'); return; }
@@ -26,8 +26,9 @@ message.channel.bulkDelete(fetched)
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);
 
   console.log(fetched.size + ' сообщения пользователя ' + `${mention.user.tag}` + ' найдены, удаление...'); 
-  message.reply('удалено `' + fetched.size + '` сообщений пользователя ' + `<@${mention.id}>`);       
+  message.channel.send('удалено `' + fetched.size + '` сообщений пользователя ' + `<@${mention.id}>`);       
   message.channel.bulkDelete(fetched)
+  .catch(error => message.channel.send(`Error: ${error}`)); 
 };
 } else 
 {
