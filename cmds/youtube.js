@@ -13,7 +13,7 @@ module.exports.run = async (bot,message,args) => {
 
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
 
-message.reply(video.url); 
+message.reply(searchYouTubeAsync(args)); 
 };
 
 module.exports.help = {
