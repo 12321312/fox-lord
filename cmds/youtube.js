@@ -5,15 +5,16 @@ const talkedRecently = new Set(),
 
 module.exports.run = async (bot,message,args) => {
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
+let mreason = args.slice(0).join(" ") || "---";
 
-search(args, {
+search(mreason, {
     maxResults: 1,
     key: process.env.GOOGLE_KEY
   }, (err, res) => {
     if (err) return message.channel.send("**Нет результатов!**")
-    if (!res) return message.channel.send("**Нет результатов!**")
+    if (!res[0]) return message.channel.send("**Нет результатов!**")
 
-    message.reply(res.link)
+    message.reply(res[0].link)
 });
 };
 module.exports.help = {
