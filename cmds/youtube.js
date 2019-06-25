@@ -16,7 +16,7 @@ if ((args[0]) == null) { message.reply("так, а чё искать то теб
 
 const video1 = await youtube.getVideo("https://www.youtube.com/watch?v=5NPBIwQyPWE");
 
-message.reply(video1); 
+message.reply(video1.url); 
 };
 
 module.exports.help = {
