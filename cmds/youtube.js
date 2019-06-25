@@ -6,7 +6,7 @@ const talkedRecently = new Set(),
 module.exports.run = async (bot,message,args) => {
 if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
 
-search(args[0], {
+search(args, {
     maxResults: 1,
     key: process.env.GOOGLE_KEY
   }, (err, res) => {
