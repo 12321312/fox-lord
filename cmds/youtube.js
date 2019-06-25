@@ -11,7 +11,7 @@ search(args, {
     key: process.env.GOOGLE_KEY
   }, (err, res) => {
     if (err) return message.channel.send("**Нет результатов!**")
-    if (!res[0]) return message.channel.send("**Нет результатов!**")
+    if (!res) return message.channel.send("**Нет результатов!**")
 
     message.reply(res[0].link)
 });
