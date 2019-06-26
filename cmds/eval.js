@@ -9,8 +9,8 @@ module.exports.run = async (bot,message,args) => {
          return text; 
     }
     try {
-    let input = args.slice(0).join(" ") || "---";
-    let evalcode = eval(input);
+    var input = args.join(" ")
+    let evalcode = eval(input)
     if(typeof evalcode !== 'string')
     evalcode = require('util').inspect(evalcode);
 
@@ -22,7 +22,7 @@ module.exports.run = async (bot,message,args) => {
     .addField("Исходное:", `\`\`\`js\n${input}\`\`\``)
     .addField("Вывод:" ,`\`\`\`js\n${clean(evalcode)}\`\`\``)
     .addField("Тип:", `\`\`\`js\n${typeof evalcode}\`\`\``)
-    .setThumbnail("https://banner2.kisspng.com/20180329/whq/kisspng-web-development-computer-icons-source-code-coder-5abc6d430ee9b9.7342667415222981790611.jpg");
+    .setThumbnail("https://img.icons8.com/wired/1600/code-file.png");
 
     bot.send({embed:ambed});
 
