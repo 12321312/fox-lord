@@ -9,10 +9,10 @@ if (randomclien > 25) nameclien = "ну сойдет чтобы похваста
 let clien = new Discord.RichEmbed()
 .setTitle(message.author.username)
 .setTimestamp()
-.setFooter("Измеритель пениса v228", "https://pngimage.net/wp-content/uploads/2018/06/png-%D1%87%D0%BB%D0%B5%D0%BD.png")
+.setFooter("Измеритель пениса v228", "https://icon2.kisspng.com/20180425/zuw/kisspng-youtube-video-animation-tenor-5ae0d876161ae1.9363982315246849180906.jpg")
 .setColor('#964B00')
 .addField("Размер вашего члена состоявляет", `\`\`\`js\n${randomclien}+"см"+\`\`\``)
-.addField(nameclien, "")
+.addField(nameclien, "линейка вам больше не нужна.")
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
 
 bot.send({embed:clien});
