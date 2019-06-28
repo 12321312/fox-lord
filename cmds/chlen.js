@@ -16,7 +16,7 @@ let clien = new Discord.RichEmbed()
 .addField(nameclien, "Линейка вам больше не нужна.")
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
 var arrclien = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"];
-if (message.author.roles.find('name', `Размер члена ${arrclien}`)) { message.reply('Ваш размер уже определенён был...'); return; }
+//if (message.author.roles.find('name', `Размер члена ${arrclien}`)) { message.reply('Ваш размер уже определенён был...'); return; }
 let clienrole = message.guild.roles.find('name', `Размер члена ${randomclien}`);
 if(!clienrole){
     try{
