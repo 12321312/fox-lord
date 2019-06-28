@@ -17,7 +17,7 @@ let clien = new Discord.RichEmbed()
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
 var sizepenis = 0;
 for (sizepenis = 0; sizepenis < 31; sizepenis++) {
-if (message.author.roles.find('name', `Член ${sizepenis} см`)) return message.reply('Ваш размер уже определенён был...');
+if (message.guild.roles.find('name', `Член ${sizepenis} см`)) return message.reply('Ваш размер уже определенён был...');
 };
 let clienrole = message.guild.roles.find('name', `Член ${randomclien} см`);
 if(!clienrole){
