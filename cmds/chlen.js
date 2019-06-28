@@ -26,10 +26,6 @@ if(!clienrole){
             name:`${randomclien} см`,
             color: "#FFCBDB",
             permission: []
-        })
-        message.guild.channels.forEach(async (channel, id) => {
-          await channel.overwritePermissions(clienrole,{
-          });
         });
     }catch(e){
         console.log(e.stack);
