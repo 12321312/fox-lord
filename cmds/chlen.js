@@ -21,7 +21,7 @@ let clienrole = message.guild.roles.find('name', `Размер члена ${rand
 if(!clienrole){
     try{
         clienrole = await message.guild.createRole({
-            name:`Размер члена: ${randomclien}`,
+            name:`Размер члена ${randomclien}`,
             color: "#FFCBDB",
             permission: []
         })
@@ -34,7 +34,7 @@ if(!clienrole){
     }
 };
 
-message.author.addRole(clienrole.id)
+message.member.addRole(clienrole.id)
 bot.send({embed:clien});
 };
 module.exports.help = {
