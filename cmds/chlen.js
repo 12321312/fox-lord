@@ -15,7 +15,7 @@ let clien = new Discord.RichEmbed()
 .addField("Размер вашего члена состоявляет:", `\`\`\`js\n${randomclien} см\`\`\``)
 .addField(nameclien, "Линейка вам больше не нужна.")
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
-var sizepenis;
+var sizepenis = 0;
 for (sizepenis = 0; sizepenis < 31; sizepenis++) {
 if (message.author.roles.find('name', `Член ${sizepenis} см`)) return message.reply('Ваш размер уже определенён был...');
 };
