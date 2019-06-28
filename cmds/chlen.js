@@ -11,8 +11,8 @@ let clien = new Discord.RichEmbed()
 .setTimestamp()
 .setFooter("Измеритель пениса v228", "https://pngimage.net/wp-content/uploads/2018/06/png-%D1%87%D0%BB%D0%B5%D0%BD.png")
 .setColor('#964B00')
-.addField("Размер вашего члена состоявляет", `\`\`\`js\n${randomclien}\`\`\``)
-.addField(nameclien)
+.addField("Размер вашего члена состоявляет", `\`\`\`js\n${randomclien}+"см"+\`\`\``)
+.addField(nameclien, "")
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
 
 bot.send({embed:clien});
