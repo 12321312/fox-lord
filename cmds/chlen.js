@@ -3,6 +3,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
 let randomclien = Math.floor(Math.random() * 30) + 1 ;
 if (message.author.id == "294844223675564034") randomclien = "999999999";
+if (message.author.id == "414822924005015552") randomclien = "1";
 let nameclien = "Уууу блядь п@здец..."; 
 if (randomclien < 25) nameclien = "Ну перед пацанами уже можно выебнуться..."; 
 if (randomclien < 20) nameclien = "Ну сойдет чтобы похвастаться перед скромной тёлкой..."; 
