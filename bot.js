@@ -18,7 +18,7 @@ const embedMessage = `
 И получи свой ключ от нужной категории!
 `;
 const embedFooter = "Ключи"; // Must set this if "embed" is set to true
-const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
+const roles = [":dota:", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
 const reactions = ["573000975250489345","573000974503772172","595920474857406466","557906517970386974", "573000973367246849","☄","🔞"];
 const embed = true; // Set to "true" if you want all roles to be in a single embed
 const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
@@ -54,7 +54,6 @@ bot.on("message", message => {
 
         if (!embed) {
             if (!initialMessage) throw "The 'initialMessage' property is not set. Please do this!";
-
             message.channel.send(initialMessage);
 
             const messages = generateMessages();
@@ -106,13 +105,13 @@ bot.on("message", message => {
     }
 });
 
-// This makes the events used a bit more readable
+
 const events = {
 	MESSAGE_REACTION_ADD: 'messageReactionAdd',
 	MESSAGE_REACTION_REMOVE: 'messageReactionRemove',
 };
 
-// This event handles adding/removing users from the role(s) they chose
+
 bot.on('raw', async event => {
 
     if (!events.hasOwnProperty(event.t)) return;
@@ -128,7 +127,6 @@ bot.on('raw', async event => {
     let reaction = message.reactions.get(emojiKey);
 
     if (!reaction) {
-        // Create an object that can be passed through the event like normal
         const emoji = new Discord.Emoji(bot.guilds.get(data.guild_id), data.emoji);
         reaction = new Discord.MessageReaction(message, emoji, 1, data.user_id === bot.user.id);
     }
