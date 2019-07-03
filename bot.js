@@ -6,8 +6,6 @@ bot.commands = new Discord.Collection();
 let config = require('./config.json');
 let prefix = config.prefix;
 let profile = require('./profile.json');
-let cooldown = new Set();
-let cdseconds = 5;
 const yourID = "294844223675564034"; 
 const setupCMD = "!роль";
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
@@ -175,7 +173,7 @@ bot.on('message', async message => {
       u.xp = 0;
       u.lvl += 1;
   };
-  
+
   fs.writeFile('./profile.json',JSON.stringify(profile),(err)=>{
     if(err) console.log(err);
   });
@@ -186,17 +184,6 @@ bot.on('message', async message => {
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args);
-
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("Вам надо подождать 5 секунд до повторной команды.")
-  }
-  //if(!message.member.hasPermission("ADMINISTRATOR")){
-    cooldown.add(message.author.id);
-  //}
-  setTimeout(() => {
-    cooldown.delete(message.author.id)
-  }, cdseconds * 1000)
 });
 
 // шапка
