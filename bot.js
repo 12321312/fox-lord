@@ -21,7 +21,7 @@ antispam(bot, {
   maxBuffer: 5,
   interval: 2000, 
   warningMessage: "хватит спамить!", 
-  roleMessage: "В мут за спам!", 
+  roleMessage: "в мут за спам!", 
   roleName: "muted", 
   maxDuplicatesWarning: 7, 
   maxDuplicatesBan: 10, 
