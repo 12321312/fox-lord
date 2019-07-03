@@ -19,13 +19,13 @@ const antispam = require("anti-spam");
 antispam(bot, {
   warnBuffer: 3,
   maxBuffer: 5,
-  interval: 1000, 
+  interval: 2000, 
   warningMessage: "хватит спамить!", 
   roleMessage: "В мут за спам!", 
   roleName: "muted", 
   maxDuplicatesWarning: 7, 
   maxDuplicatesBan: 10, 
-  time: 6000, 
+  time: 3600000, 
 });
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
