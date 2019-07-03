@@ -16,7 +16,7 @@ const embedThumbnail = true;
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const antispam = require("anti-spam");
  
-antispam(client, {
+antispam(bot, {
   warnBuffer: 3,
   maxBuffer: 5,
   interval: 1000, 
