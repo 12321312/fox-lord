@@ -6,6 +6,7 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
     let a = message.author;
     let ambed = new Discord.RichEmbed()
     .setTitle("Админ Команды:")
+    .setDescription(`<@&537705223301365781> и <@&537704565043363840>`)
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
     .setColor('#c10020')
