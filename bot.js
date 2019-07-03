@@ -76,7 +76,7 @@ client.on("message", message => {
             if (!embedMessage) throw "The 'embedMessage' property is not set. Please do this!";
             if (!embedFooter) throw "The 'embedFooter' property is not set. Please do this!";
 
-            const roleEmbed = new RichEmbed()
+            const roleEmbed = new Discord.RichEmbed()
                 .setDescription(embedMessage)
                 .setFooter(embedFooter);
 
