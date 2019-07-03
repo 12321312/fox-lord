@@ -23,14 +23,8 @@ const reactions = ["573000975250489345","573000974503772172","595920474857406466
 const embed = true; // Set to "true" if you want all roles to be in a single embed
 const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
 const embedThumbnail = true; // Set to "true" if you want to set a thumbnail in the embed
-const embedThumbnailLink = "https://i.imgur.com/P8PD7DD.png"; // The link for the embed thumbnail
-/**
- * You'll have to set this up yourself! Read more below:
- * 
- * https://github.com/reactiflux/discord-irc/wiki/Creating-a-discord-bot-&-getting-a-token
- */
+const embedThumbnailLink = ""; // The link for the embed thumbnail
 
-// Import constructords and login the client
 const { Client, RichEmbed, Emoji, MessageReaction } = require('discord.js');
 const client = new Client({ disableEveryone: true });
 
