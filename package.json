@@ -11,6 +11,7 @@
     "request": "2.81.0",
     "ms": "2.1.2",
     "youtube-search": "1.1.4",
-    "node-dota-api": "5.0.1"
+    "node-dota-api": "5.0.1",
+    "anti-spam": "0.2.7"
   }
 }
