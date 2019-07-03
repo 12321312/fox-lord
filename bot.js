@@ -191,9 +191,9 @@ bot.on('message', async message => {
     message.delete();
     return message.reply("Вам надо подождать 5 секунд до повторной команды.")
   }
-  if(!message.member.hasPermission("ADMINISTRATOR")){
+  //if(!message.member.hasPermission("ADMINISTRATOR")){
     cooldown.add(message.author.id);
-  }
+  //}
   setTimeout(() => {
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
