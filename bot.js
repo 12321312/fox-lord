@@ -109,7 +109,7 @@ bot.on('raw', async event => {
     let embedFooterText;
     if (message.embeds[0]) embedFooterText = message.embeds[0].footer.text;
 
-    if (message.author.id === bot.user.id && (message.content !== initialMessage || (message.embeds[0] && (embedFooterText !== embedFooter)))) {
+    if (message.author.id === bot.user.id && ((message.embeds[0] && (embedFooterText !== embedFooter)))) {
 
             const fields = message.embeds[0].fields;
 
