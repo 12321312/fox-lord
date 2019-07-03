@@ -14,7 +14,19 @@ const embed = true;
 const embedColor = "#dd2423"; 
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
-
+const antispam = require("anti-spam");
+ 
+antispam(client, {
+  warnBuffer: 3,
+  maxBuffer: 5,
+  interval: 1000, 
+  warningMessage: "хватит спамить!.", 
+  roleMessage: "Замучен!!", 
+  roleName: "muted", 
+  maxDuplicatesWarning: 7, 
+  maxDuplicatesBan: 10, 
+  time: 10, 
+});
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
