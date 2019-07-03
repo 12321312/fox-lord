@@ -19,7 +19,7 @@ const embedMessage = `
 `;
 const embedFooter = "Ключи"; // Must set this if "embed" is set to true
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
-const reactions = [":dota:","573000974503772172","595920474857406466","557906517970386974", "573000973367246849","☄","🔞"];
+const reactions = ["dota","eve","cs","minecraftsword", "gmod","☄","🔞"];
 const embed = true; // Set to "true" if you want all roles to be in a single embed
 const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
 const embedThumbnail = true; // Set to "true" if you want to set a thumbnail in the embed
