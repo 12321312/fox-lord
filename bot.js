@@ -8,10 +8,6 @@ let prefix = config.prefix;
 let profile = require('./profile.json');
 const yourID = "294844223675564034"; 
 const setupCMD = "!роль";
-const embedMessage = `**
-Поставь реакцию под этим сообщением.
-И получи свой ключ от нужной категории!
-**`;
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
 const reactions = ["dota","eve","cs","minecraftsword", "gmod","☄","🔞"];
 const embed = true; 
@@ -48,7 +44,8 @@ bot.on("message", message => {
     if (message.author.id == yourID && message.content.toLowerCase() == setupCMD) {
 
             const roleEmbed = new Discord.RichEmbed()
-                .setDescription(embedMessage)
+                .setTitle(`**Ключи:**`)
+                .setDescription("```Поставь реакцию под этим сообщением. И получи свой ключ от нужной категории!```")
                 .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
                 .setTimestamp();
 
