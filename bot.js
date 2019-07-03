@@ -8,10 +8,10 @@ let prefix = config.prefix;
 let profile = require('./profile.json');
 const yourID = "294844223675564034"; 
 const setupCMD = "!роль";
-const embedMessage = `***
+const embedMessage = `**
 Поставь реакцию под этим сообщением.
 И получи свой ключ от нужной категории!
-***`;
+**`;
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
 const reactions = ["dota","eve","cs","minecraftsword", "gmod","☄","🔞"];
 const embed = true; 
@@ -109,7 +109,7 @@ bot.on('raw', async event => {
     let embedFooterText;
     if (message.embeds[0]) embedFooterText = message.embeds[0].footer.text;
 
-    if (message.author.id === bot.user.id && ((message.embeds[0] && (embedFooterText !== embedFooter)))) {
+    if (message.author.id === bot.user.id && ((message.embeds[0]))) {
 
             const fields = message.embeds[0].fields;
 
