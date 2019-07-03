@@ -6,30 +6,25 @@ bot.commands = new Discord.Collection();
 let config = require('./config.json');
 let prefix = config.prefix;
 let profile = require('./profile.json');
-
-
-
-
-const yourID = "294844223675564034"; //Instructions on how to get this: https://redd.it/40zgse
+const yourID = "294844223675564034"; 
 const setupCMD = "!роль";
-const initialMessage = `**Получи ключ от нужной тебе категории**`;
-const embedMessage = `
+const embedMessage = `***
 Поставь реакцию под этим сообщением.
 И получи свой ключ от нужной категории!
-`;
-const embedFooter = "Ключи"; // Must set this if "embed" is set to true
+***`;
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
 const reactions = ["dota","eve","cs","minecraftsword", "gmod","☄","🔞"];
-const embed = true; // Set to "true" if you want all roles to be in a single embed
-const embedColor = "#dd2423"; // Set the embed color if the "embed" variable is set to true
-const embedThumbnail = true; // Set to "true" if you want to set a thumbnail in the embed
-const embedThumbnailLink = ""; // The link for the embed thumbnail
+const embed = true; 
+const embedColor = "#dd2423"; 
+const embedThumbnail = true; 
+const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 
+// бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
 function generateMessages() {
     let messages = [];
-    for (const role of roles) messages.push({ role, message: `React below to get the **"${role}"** role!` }); //DONT CHANGE THIS
+    for (const role of roles) messages.push({ role, message: `React below to get the **"${role}"** role!` }); 
     return messages;
 }
 
@@ -52,38 +47,19 @@ bot.on('error', console.error);
 bot.on("message", message => {
     if (message.author.id == yourID && message.content.toLowerCase() == setupCMD) {
 
-        if (!embed) {
-            if (!initialMessage) throw "The 'initialMessage' property is not set. Please do this!";
-            message.channel.send(initialMessage);
-
-            const messages = generateMessages();
-            messages.forEach((obj, react) => {
-                if (!checkRole(message.guild, obj.role)) throw `The role '${obj.role}' does not exist!`;
-
-                message.channel.send(obj.message).then(async m => {
-                    const emoji = reactions[react];
-                    const customEmote = bot.emojis.find(e => e.name === emoji);
-                    
-                    if (!customEmote) await m.react(emoji);
-                    else await m.react(customEmote.id);
-                });
-            });
-        } else {
-            if (!embedMessage) throw "The 'embedMessage' property is not set. Please do this!";
-            if (!embedFooter) throw "The 'embedFooter' property is not set. Please do this!";
-
             const roleEmbed = new Discord.RichEmbed()
                 .setDescription(embedMessage)
-                .setFooter(embedFooter);
+                .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
+                .setTimestamp();
 
             if (embedColor) roleEmbed.setColor(embedColor);
             if (embedThumbnail) roleEmbed.setThumbnail(embedThumbnailLink);
 
             const fields = generateEmbedFields();
-            if (fields.length >= 25) throw "That maximum roles that can be set for an embed is 25!";
+            if (fields.length >= 25) throw "Максимум 25 ролей!";
 
             for (const f of fields) {
-                if (!checkRole(message.guild, f.role)) throw `The role '${role}' does not exist!`;
+                if (!checkRole(message.guild, f.role)) throw `Роль '${role}' не найдена!`;
 
                 const emoji = f.emoji;
                 const customEmote = bot.emojis.find(e => e.name === emoji);
@@ -102,7 +78,6 @@ bot.on("message", message => {
                 }
             });
         }
-    }
 });
 
 
@@ -136,20 +111,6 @@ bot.on('raw', async event => {
 
     if (message.author.id === bot.user.id && (message.content !== initialMessage || (message.embeds[0] && (embedFooterText !== embedFooter)))) {
 
-        if (!embed) {
-            const re = `\\*\\*"(.+)?(?="\\*\\*)`;
-            const role = message.content.match(re)[1];
-
-            if (member.id !== bot.user.id) {
-                const roleObj = message.guild.roles.find(r => r.name === role);
-
-                if (event.t === "MESSAGE_REACTION_ADD") {
-                    member.addRole(roleObj.id);
-                } else {
-                    member.removeRole(roleObj.id);
-                }
-            }
-        } else {
             const fields = message.embeds[0].fields;
 
             for (let i = 0; i < fields.length; i++) {
@@ -167,7 +128,6 @@ bot.on('raw', async event => {
                     }
                 }
             }
-        }
     }
 });
 
@@ -175,10 +135,6 @@ process.on('unhandledRejection', err => {
     let msg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
 	console.error(`Unhandled Rejection: \n ${msg}`);
 });
-
-
-
-
 
 
 // подключение
