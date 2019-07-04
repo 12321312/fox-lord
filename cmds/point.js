@@ -1,6 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
+    if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
     let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!target) return message.reply("такого участника нету");
 
@@ -17,7 +18,7 @@ module.exports.run = async (bot,message,args,connection) => {
         message.reply(`остаток баланса <@${target.id}> на данный момент: ` + `\`\`\`js\n${point}\`\`\``);
       } else {
     sql = `UPDATE xp SET point = ${point}+${args[1]} WHERE id = '${target.id}'`      
-        message.reply(`Добавил пользователю <@${target.id}>, ваши ${args[1]} поинтов \n остаток баланса на данный момент: ` + `\`\`\`js\n${point}\`\`\``);
+        message.reply(`Изменил кол-во поинтов у пользователя <@${target.id}> на **${args[1]}** поинтов \n остаток баланса пользователя на данный момент: ` + `\`\`\`js\n${point+args[1]}\`\`\``);
       };
     };
     connection.query(sql);
