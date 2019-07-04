@@ -27,7 +27,7 @@ module.exports.run = async (bot,message,args,connection) => {
         });
     });
     let list = "";
-    members.forEach(id => {
+    members.forEach(roles => {
         list += "<@" + roles +">, ";
     });
 
