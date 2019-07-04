@@ -16,20 +16,6 @@ const embedThumbnail = true;
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const mysql = require("mysql");
 
-var antispam = require("anti-spam");
- 
-antispam(bot, {
-  warnBuffer: 5, 
-  maxBuffer: 7,
-  interval: 1000, 
-  warningMessage: "Хватит спамить.", 
-  roleMessage: "в мут.", 
-  roleName: "muted", 
-  maxDuplicatesWarning: 7, 
-  maxDuplicatesBan: 10, 
-  time: 3600000, 
-});
-
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
