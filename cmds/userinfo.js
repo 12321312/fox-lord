@@ -5,10 +5,13 @@ module.exports.run = async (bot,message,args,connection) => {
     connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, (err, rows) => {
      if(err) throw err;
      let xpi = rows[0].xp;
-     let point = rows[0].point;
-    
-    let lvl = xpi / 1000
-    if (xpi < 1000) lvl = 1;    
+     let point = rows[0].point; 
+
+    if (xpi && xpi > 1000) {
+        let lvl = xpi / 1000
+     } else {
+        let lvl = 1
+     }
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
