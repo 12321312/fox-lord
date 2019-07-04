@@ -14,7 +14,7 @@ module.exports.run = async (bot,message,args,connection) => {
         lvl = 1
      }
 
-    if (lvl < lvl.toFixed(0)) lvl - 1;
+    if (lvl < lvl.toFixed(0)) lvl -= 1;
 
     let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ').slice(24);
 
