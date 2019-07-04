@@ -26,7 +26,8 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Уровень:",lvl.toFixed(0), true)
     .addField("Донат поинтов:",point, true)
     .addField("Роли и ключи:",roles, false)
-    .addField("Создание аккаунта",a.createdAt, false)
+    .addField("Зашёл на сервер:",a.joinedAt, false)
+    .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
     bot.send({embed:ambed});
