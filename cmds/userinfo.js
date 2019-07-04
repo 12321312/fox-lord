@@ -1,6 +1,11 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-module.exports.run = async (bot,message,args) => {
+module.exports.run = async (bot,message,args,connection) => {
+    let target = message.mentions.users.first() || message.guild.member.get(args[0]) || message.author;
+    connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
+     if(err) throw err;
+     let xp = rows[0].xp;
+    });
     let a = message.author;
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -9,6 +14,7 @@ module.exports.run = async (bot,message,args) => {
     .setColor('#10c7e2').addField("Имя",a.username)
     .addField("Тэг",a.tag)
     .addField("Дискриминатор",a.discriminator)
+    .addField("Опыта:",xp)
     .addField("Создание аккаунта",a.createdAt)
     .setThumbnail(a.avatarURL);
 
