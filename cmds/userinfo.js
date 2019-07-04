@@ -12,7 +12,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setColor('#10c7e2').addField("Имя",target.username)
     .addField("Тэг",target.tag)
     .addField("Дискриминатор",target.discriminator)
-    .addField("Опыта:",xp)
+    .addField("Опыта:",xp + " XP")
     .addField("Создание аккаунта",target.createdAt)
     .setThumbnail(target.avatarURL);
 
