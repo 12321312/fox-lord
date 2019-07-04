@@ -7,8 +7,8 @@ module.exports.run = async (bot,message,args,connection) => {
      let xp = rows[0].xp;
 
     var lvl;
-    for (lvl = 1; xp < lvl*1000; lvl++) {
-
+    for (lvl = 1; xp > lvl*1000; lvl++) {
+    if(xp > lvl*1000) {
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
     .setTimestamp()
@@ -22,6 +22,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setThumbnail(target.avatarURL);
 
     bot.send({embed:ambed});
+    };
 };
 });
 };
