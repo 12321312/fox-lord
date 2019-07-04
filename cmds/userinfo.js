@@ -7,7 +7,7 @@ module.exports.run = async (bot,message,args,connection) => {
      let xp = rows[0].xp;
 
     var lvl;
-    for (lvl = 1; xp > lvl*1000; lvl++) {
+    for (lvl = 1; xp < lvl*1000; lvl++) {
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
