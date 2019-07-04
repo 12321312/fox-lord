@@ -209,7 +209,7 @@ bot.on('message', async message => {
    if(err) throw err;
    let sql;
    if(rows.length < 1) {
-    sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXp()})`
+    sql = `INSERT INTO xp (id, xp, point) VALUES ('${message.author.id}', ${generateXp()}, 0)`
    } else {
     let xp = rows[0].xp;
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
