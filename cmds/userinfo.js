@@ -20,12 +20,12 @@ module.exports.run = async (bot,message,args,connection) => {
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
     .setColor('#10c7e2').addField("Имя",a.username)
-    .addField("Тэг",a.tag)
+    .addField("Статус",a.presence.status)
     .addField("Дискриминатор",a.discriminator)
     .addField("Опыта:",xpi + " XP")
     .addField("Уровень:",lvl.toFixed(0))
     .addField("Донат поинтов:",point)
-    .addField("Роли и ключи:",roles.replace('<@&537698849184153611>,'))
+    .addField("Роли и ключи:",roles)
     .addField("Создание аккаунта",a.createdAt)
     .setThumbnail(a.avatarURL);
 
