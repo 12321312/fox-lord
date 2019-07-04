@@ -147,17 +147,16 @@ process.on('unhandledRejection', err => {
 });
 
 // mysql
-var con = mysql.createConnection({
+var consql = mysql.createConnection({
     host: process.env.HOST_MYSQL,
     user: process.env.LOGIN_MYSQL,
     password: process.env.PASSWORD_MYSQL,
     database: process.env.DATABASE_MYSQL
 });
 
-con.connect(err => {
+consql.connect(err => {
  if(err) throw err;
  console.log("Подключено к базе данных!");
- сon.query("SHOW TABLES", console.log);
 });
 
 // XP
@@ -190,7 +189,7 @@ bot.on('message', async message => {
         message.channel.send(msg);
   };
 
-  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+  consql.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
    console.log(rows);
    let sql;
@@ -201,7 +200,7 @@ bot.on('message', async message => {
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
    }
 
-   con.query(sql, console.log);
+   consql.query(sql, console.log);
   });
 
   let messageArray = message.content.split(" ");
