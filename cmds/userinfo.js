@@ -13,24 +13,6 @@ module.exports.run = async (bot,message,args,connection) => {
     if (xpi > 32000) lvl = 32; if (xpi > 33000) lvl = 33; if (xpi > 34000) lvl = 34; if (xpi > 35000) lvl = 35; if (xpi > 36000) lvl = 36; if (xpi > 37000) lvl = 37; if (xpi > 38000) lvl = 38; if (xpi > 39000) lvl = 39; if (xpi > 40000) lvl = 40; if (xpi > 41000) lvl = 41; if (xpi > 42000) lvl = 42; if (xpi > 43000) lvl = 43; if (xpi > 44000) lvl = 44; if (xpi > 45000) lvl = 45; if (xpi > 46000) lvl = 46; if (xpi > 47000) lvl = 47; if (xpi > 48000) lvl = 48;
     if (xpi > 49000) lvl = 49; if (xpi > 50000) lvl = 50; if (xpi > 51000) lvl = 51; if (xpi > 52000) lvl = 52; if (xpi > 53000) lvl = 53; if (xpi > 54000) lvl = 54; if (xpi > 55000) lvl = 55; if (xpi > 56000) lvl = 56; if (xpi > 57000) lvl = 57; if (xpi > 58000) lvl = 58; if (xpi > 59000) lvl = 59; if (xpi > 60000) lvl = 60; if (xpi > 50000) lvl = 61;
 
-    let roles = [];
-    message.mentions.roles.forEach(role => {
-        roles.push(role.id);
-    });
-    let members = [];
-    message.guild.members.forEach(member => {
-        member.roles.forEach(member_in_role => {
-            roles.forEach(role => {
-                if(member_in_role.id == role)
-                    members.push(member.user.id);
-            })
-        });
-    });
-    let list = "";
-    members.forEach(roles => {
-        list += "<@" + roles +">, ";
-    });
-
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
     .setTimestamp()
@@ -41,7 +23,6 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Опыта:",xpi + " XP")
     .addField("Уровень:",lvl)
     .addField("Донат поинтов:",point)
-    .addField("Роли и ключи:",+list)
     .addField("Создание аккаунта",a.createdAt)
     .setThumbnail(a.avatarURL);
 
