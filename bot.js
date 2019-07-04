@@ -15,6 +15,7 @@ const embedColor = "#dd2423";
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const antispam = require("anti-spam");
+const mysql = require("mysql");
  
 antispam(bot, {
   warnBuffer: 3,
@@ -145,6 +146,26 @@ process.on('unhandledRejection', err => {
 	console.error(`Unhandled Rejection: \n ${msg}`);
 });
 
+// mysql
+var con = mysql.createConnection({
+    host: process.env.HOST_MYSQL,
+    user: process.env.LOGIN_MYSQL,
+    password: process.env.PASSWORD_MYSQL,
+    database: process.env.DATABASE_MYSQL
+});
+
+con.connect(err => {
+ if(err) throw err;
+ console.log("Подключено к базе данных!");
+ сon.query("SHOW TABLES", console.log);
+});
+
+// XP
+function generateXp() {
+    let min = 20;
+    let max = 30;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 // подключение
 fs.readdir('./cmds/',(err,files)=>{
@@ -168,26 +189,19 @@ bot.on('message', async message => {
   bot.send = function (msg){
         message.channel.send(msg);
   };
-  if(!profile[uid]){
-    profile[uid] ={
-        coins:10,
-        warns:0,
-        xp:0,
-        lvl:1,
-    };
-  };
-  let u = profile[uid];
 
-  u.coins++;
-  u.xp++;
+  con.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+   if(err) throw err;
+   console.log(rows);
+   let sql;
+   if(rows.length < 1) {
+    sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXp()})`
+   } else {
+    let xp = rows[0].xp;
+    sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
+   }
 
-  if(u.xp>= (u.lvl * 5)){
-      u.xp = 0;
-      u.lvl += 1;
-  };
-
-  fs.writeFile('./profile.json',JSON.stringify(profile),(err)=>{
-    if(err) console.log(err);
+   con.query(sql, console.log);
   });
 
   let messageArray = message.content.split(" ");
@@ -195,7 +209,7 @@ bot.on('message', async message => {
   let args = messageArray.slice(1);
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
-  if(cmd) cmd.run(bot,message,args);
+  if(cmd) cmd.run(bot,message,args,con);
 });
 
 // шапка
