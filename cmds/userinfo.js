@@ -41,7 +41,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Опыта:",xpi + " XP")
     .addField("Уровень:",lvl)
     .addField("Донат поинтов:",point)
-    .addField("Роли и ключи:",list)
+    .addField("Роли и ключи:",+list)
     .addField("Создание аккаунта",a.createdAt)
     .setThumbnail(a.avatarURL);
 
