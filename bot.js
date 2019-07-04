@@ -165,8 +165,8 @@ function handleDisconnect() {
 
 // XP
 function generateXp() {
-    let min = 20;
-    let max = 30;
+    let min = 2;
+    let max = 22;
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
