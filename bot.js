@@ -215,7 +215,6 @@ bot.on('message', async message => {
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
    }
 
-   let xp = rows[0].xp;
    let xprole0 = message.guild.roles.find('name', "Прозелит");
    let xprole1 = message.guild.roles.find('name', "Искушенный");
    let xprole2 = message.guild.roles.find('name', "Штуцер");
