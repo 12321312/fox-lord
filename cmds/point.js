@@ -12,12 +12,11 @@ module.exports.run = async (bot,message,args,connection) => {
     } else {
     let point = rows[0].point;
     sql = `UPDATE xp SET point = ${point} WHERE id = '${target.id}'`
+    if ((args[1]) == null) {
+        message.reply(`<@${target.id}> имеет на счету ` + point)
+      }
     }
     connection.query(sql);
-     
-    if ((args[1]) == null) {
-      message.reply(`<@${target.id}> имеет на счету ` + point)
-    }
 
 });
 };
