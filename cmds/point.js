@@ -14,7 +14,7 @@ module.exports.run = async (bot,message,args,connection) => {
     sql = `UPDATE xp SET point = ${xp} WHERE id = '${target.id}'`
     }
     connection.query(sql);
-    
+     
     if ((args[1]) == null) {
       message.reply(`<@${target.id}> имеет на счету ` + point)
     }
