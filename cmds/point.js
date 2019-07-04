@@ -25,7 +25,7 @@ module.exports.run = async (bot,message,args,connection) => {
           if((args[2]) == "add") {
             message.delete();
             sql = `UPDATE xp SET point = ${point}+${args[1]} WHERE id = '${target.id}'`  
-            bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \n остаток баланса пользователя на данный момент: ${point+args[1]}`);
+            bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \n остаток баланса пользователя на данный момент: ${number(point) + number(args[1])}`);
           } 
       };
     };
