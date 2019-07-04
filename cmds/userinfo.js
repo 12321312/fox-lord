@@ -5,8 +5,6 @@ module.exports.run = async (bot,message,args,connection) => {
     connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
      if(err) throw err;
      let xp = rows[0].xp;
-    let lvl = 1;
-    if (1000 > xp) lvl = 1;
 
     var lvl = 1;
     for (lvlup = 1; lvlup < 100; lvlup++) {
