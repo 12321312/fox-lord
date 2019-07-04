@@ -4,7 +4,7 @@ module.exports.run = async (bot,message,args,connection) => {
     let target = message.author;
     connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
      if(err) throw err;
-     let xp = rows[0].xp;
+     let xpi = rows[0].xp;
      let point = rows[0].point;
     
     var lvl = 1;
@@ -19,7 +19,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setColor('#10c7e2').addField("Имя",target.username)
     .addField("Тэг",target.tag)
     .addField("Дискриминатор",target.discriminator)
-    .addField("Опыта:",xp + " XP")
+    .addField("Опыта:",xpi + " XP")
     .addField("Уровень:",lvl)
     .addField("Донат поинтов:",point)
     .addField("Создание аккаунта",target.createdAt)
