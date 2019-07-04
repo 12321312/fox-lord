@@ -207,7 +207,15 @@ bot.on('message', async message => {
 
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
-   console.log(rows);
+   let xp = rows[0].xp;
+   let xprole1 = message.guild.roles.find('name', "Искушенный");
+   if (xp > 1000) { 
+       if (!message.guild.roles.find('name', "Искушенный")) {
+       message.author.addRole(xprole1.id); 
+       message.channel.send("Поздравляю с повышением!")
+    }};
+
+
    let sql;
    if(rows.length < 1) {
     sql = `INSERT INTO xp (id, xp) VALUES ('${message.author.id}', ${generateXp()})`
