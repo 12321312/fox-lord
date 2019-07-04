@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
-    let target = message.mentions.users.first() || message.guild.member.get(args[0]) || message.author;
+    let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]) || message.author);
     connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
      if(err) throw err;
      let xp = rows[0].xp;
