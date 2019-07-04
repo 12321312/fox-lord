@@ -6,10 +6,6 @@ module.exports.run = async (bot,message,args,connection) => {
      if(err) throw err;
      let xp = rows[0].xp;
 
-    for (lvlup = 1; lvlup < 100; lvlup++) {
-    if (xp < lvlup+000) let lvl = lvlup;
-     };
-
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
     .setTimestamp()
@@ -18,7 +14,6 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Тэг",target.tag)
     .addField("Дискриминатор",target.discriminator)
     .addField("Опыта:",xp + " XP")
-    .addField("Уровень:",lvl)
     .addField("Создание аккаунта",target.createdAt)
     .setThumbnail(target.avatarURL);
 
