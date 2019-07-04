@@ -210,10 +210,10 @@ bot.on('message', async message => {
    let xp = rows[0].xp;
    let xprole1 = message.guild.roles.find('name', "Искушенный");
    if (xp > 1000) { 
-       if (!message.guild.roles.find('name', "Искушенный")) {
+ 
        message.author.addRole(xprole1.id); 
        message.channel.send("Поздравляю с повышением!")
-    }};
+ };
 
 
    let sql;
