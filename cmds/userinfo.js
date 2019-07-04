@@ -14,7 +14,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Дискриминатор",target.discriminator)
     .addField("Опыта:",xp)
     .addField("Создание аккаунта",target.createdAt)
-    .setThumbnail(a.avatarURL);
+    .setThumbnail(target.avatarURL);
 
     bot.send({embed:ambed});
 });
