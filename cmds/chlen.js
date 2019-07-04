@@ -1,6 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
+if (message.member.roles.get('537707501819396098')) return message.reply('у девушек нет члена о_О');
 let randomclien = Math.floor(Math.random() * 30) + 1 ;
 if (message.author.id == "294844223675564034") randomclien = "999999999";
 if (message.author.id == "414822924005015552") randomclien = "1";
