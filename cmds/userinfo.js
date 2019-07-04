@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args,connection) => {
      if (xpi && xpi >= 1000) {
         lvl = xpi / 1000
      } else {
-        lvl = 0
+        lvl = 1
      }
     let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ');
 
