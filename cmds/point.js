@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args,connection) => {
     sql = `INSERT INTO xp (id, point) VALUES ('${target.id}', 0)`
     } else {
     let point = rows[0].point;
-    sql = `UPDATE xp SET point = ${xp} WHERE id = '${target.id}'`
+    sql = `UPDATE xp SET point = ${point} WHERE id = '${target.id}'`
     }
     connection.query(sql);
      
