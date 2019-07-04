@@ -229,7 +229,7 @@ bot.on('message', async message => {
         message.member.addRole(xprole3.id); 
         message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень.")
     }}
-    if (xp > 35000 && xp < 50000) { 
+    if (xp > 35000 && xp < 70000) { 
         if (!message.member.roles.find('name', "Просвещенный")) {
         message.member.removeRole(xprole3.id); 
         message.member.addRole(xprole4.id); 
