@@ -200,7 +200,7 @@ bot.on('message', async message => {
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
    }
 
-   consql.query(sql, console.log);
+   consql.query(sql);
   });
 
   let messageArray = message.content.split(" ");
