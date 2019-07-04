@@ -7,6 +7,7 @@ module.exports.run = async (bot,message,args,connection) => {
      let xp = rows[0].xp;
     
     let lvl = 1;
+    var glass = 1;
     //if (xp > 1000) lvl = 1; if (xp > 2000) lvl = 2; if (xp > 3000) lvl = 3; if (xp > 4000) lvl = 4; if (xp > 5000) lvl = 5; if (xp > 7000) lvl = 7; if (xp > 8000) lvl = 8; if (xp > 9000) lvl = 9; if (xp > 10000) lvl = 10;
     if (xp > glass*1000) {lvl = glass;} else {glass++};
     let ambed = new Discord.RichEmbed()
