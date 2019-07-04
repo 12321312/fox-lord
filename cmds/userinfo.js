@@ -5,7 +5,6 @@ module.exports.run = async (bot,message,args,connection) => {
     connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
      if(err) throw err;
      let xp = rows[0].xp;
-    });
     let a = message.author;
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -19,7 +18,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setThumbnail(a.avatarURL);
 
     bot.send({embed:ambed});
-
+});
 };
 module.exports.help = {
     name: "юзеринфо"
