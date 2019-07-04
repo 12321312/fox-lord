@@ -20,9 +20,10 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Уровень:",lvlup)
     .addField("Создание аккаунта",target.createdAt)
     .setThumbnail(target.avatarURL);
-}
+
 
     bot.send({embed:ambed});
+}
 });
 };
 module.exports.help = {
