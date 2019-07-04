@@ -20,7 +20,7 @@ const mysql = require("mysql");
 antispam(bot, {
   warnBuffer: 3,
   maxBuffer: 5,
-  interval: 2000, 
+  interval: 1000, 
   warningMessage: "хватит спамить!", 
   roleMessage: "в мут за спам!", 
   roleName: "muted", 
@@ -213,7 +213,6 @@ bot.on('message', async message => {
    } else {
     let xp = rows[0].xp;
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
-   
 
    let xprole0 = message.guild.roles.find('name', "Прозелит");
    let xprole1 = message.guild.roles.find('name', "Искушенный");
