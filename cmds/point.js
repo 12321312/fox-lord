@@ -21,12 +21,12 @@ module.exports.run = async (bot,message,args,connection) => {
           if(!(args[2])){         
             message.delete();
             sql = `UPDATE xp SET point = ${args[1]} WHERE id = '${target.id}'`  
-            bot.send(`Изменил кол-во поинтов у пользователя <@${target.id}>. \n остаток баланса пользователя на данный момент: ` + `\`\`\`js${args[1]}\`\`\``);
+            bot.send(`Изменил кол-во поинтов у пользователя <@${target.id}>. \n остаток баланса пользователя на данный момент: ` + `\`\`\`js\n${args[1]}\`\`\``);
          }
           if((args[2]) == "add") {
             message.delete();
             sql = `UPDATE xp SET point = ${point}+${args[1]} WHERE id = '${target.id}'`  
-            bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \nОстаток баланса пользователя на данный момент: ` + `\`\`\`js${Number(point) + Number(args[1])}\`\`\``);
+            bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \nОстаток баланса пользователя на данный момент: ` + `\`\`\`js\n${Number(point) + Number(args[1])}`\`\`\``);
           } 
       };
     };
