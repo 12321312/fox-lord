@@ -22,7 +22,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Тэг",a.tag)
     .addField("Дискриминатор",a.discriminator)
     .addField("Опыта:",xpi + " XP")
-    .addField("Уровень:",lvl)
+    .addField("Уровень:",lvl.toFixed(0))
     .addField("Донат поинтов:",point)
     .addField("Создание аккаунта",a.createdAt)
     .setThumbnail(a.avatarURL);
