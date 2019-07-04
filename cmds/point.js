@@ -17,12 +17,12 @@ module.exports.run = async (bot,message,args,connection) => {
     if ((args[1]) == null) {
         message.reply(`остаток баланса <@${target.id}> на данный момент: ` + `\`\`\`js\n${point}\`\`\``);
       } else {
-          if(!arg[2]){         
+          if(!(arg[2])){         
             message.delete();
             sql = `UPDATE xp SET point = ${args[1]} WHERE id = '${target.id}'`  
             bot.send(`Изменил кол-во поинтов у пользователя <@${target.id}>. \n остаток баланса пользователя на данный момент: ` + `\`\`\`js\n${args[1]}\`\`\``);
          }
-          if(arg[2] == "add") {
+          if((arg[2]) == "add") {
             message.delete();
             sql = `UPDATE xp SET point = ${point}+${args[1]} WHERE id = '${target.id}'`  
             bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \n остаток баланса пользователя на данный момент: ${point}+${args[1]}`);
