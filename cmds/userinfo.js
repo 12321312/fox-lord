@@ -28,7 +28,7 @@ module.exports.run = async (bot,message,args,connection) => {
     });
     let list = "";
     members.forEach(id => {
-        list += "<@" + id +">, ";
+        list += "<@" + roles +">, ";
     });
 
     let ambed = new Discord.RichEmbed()
