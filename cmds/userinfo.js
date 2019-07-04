@@ -8,8 +8,7 @@ module.exports.run = async (bot,message,args,connection) => {
      let point = rows[0].point;
     
     let lvl = xpi / 1000
-    if (xpi < 1000) var lvl = 1;
-    
+    if (xpi < 1000) lvl = 1;    
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
