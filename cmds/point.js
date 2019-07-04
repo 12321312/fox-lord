@@ -4,7 +4,8 @@ module.exports.run = async (bot,message,args,connection) => {
     if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
     let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!target) return message.reply("такого участника нету");
-
+    if (message.author.id !== "294844223675564034") { message.reply('Хитрожопых наказываю'); return; }
+    
     connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
     if(err) throw err;
     let sql;
@@ -25,7 +26,7 @@ module.exports.run = async (bot,message,args,connection) => {
           if((args[2]) == "add") {
             message.delete();
             sql = `UPDATE xp SET point = ${point}+${args[1]} WHERE id = '${target.id}'`  
-            bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \n остаток баланса пользователя на данный момент: ${number(point) + number(args[1])}`);
+            bot.send(`Добавил пользователю <@${target.id}> - **${args[1]}** поинтов. \n остаток баланса пользователя на данный момент: ${Number(point) + Number(args[1])}`);
           } 
       };
     };
