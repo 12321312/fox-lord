@@ -212,7 +212,7 @@ bot.on('message', async message => {
    let xprole1 = message.guild.roles.find('name', "Искушенный");
    let xprole2 = message.guild.roles.find('name', "Штуцер");
    let xprole3 = message.guild.roles.find('name', "Шнурок");
-   if (!message.member.roles.has('537700464888643595') || !message.member.roles.has('537705223301365781') || !message.member.roles.has('537704565043363840') || !message.member.roles.has('537703136597639178')) {
+   if (!message.member.roles.find('name', "Лисий повелитель") || !message.member.roles.find('name', "Куратор")) {
    if (xp > 1000 && xp < 10000) { 
        if (!message.member.roles.find('name', "Искушенный")) {
        message.member.removeRole(xprole0.id); 
