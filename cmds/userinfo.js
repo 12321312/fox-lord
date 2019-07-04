@@ -13,7 +13,7 @@ module.exports.run = async (bot,message,args,connection) => {
      } else {
         lvl = 1
      }
-    let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ');
+    let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ').slice(24);
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
