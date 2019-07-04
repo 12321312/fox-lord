@@ -14,7 +14,6 @@ module.exports.run = async (bot,message,args,connection) => {
         lvl = 1
      }
     let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ').slice(24);
-    let lastMsg = a.lastMessage.createdAt.toString().split(' ')
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -27,7 +26,6 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Уровень:",lvl.toFixed(0), true)
     .addField("Донат поинтов:",point, true)
     .addField("Роли и ключи:",roles, false)
-    .addField('Последнее сообщение: ', a.lastMessage + ' в ' + lastMsg[1] + ', ' + lastMsg[2] + ', ' + lastMsg[3] + ', ' + lastMsg[4])
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
