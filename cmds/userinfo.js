@@ -6,9 +6,8 @@ module.exports.run = async (bot,message,args,connection) => {
      if(err) throw err;
      let xp = rows[0].xp;
 
-    var lvl = 1;
     for (lvlup = 1; lvlup < 100; lvlup++) {
-    if (xp < lvlup+000) lvl = lvlup;
+    if (xp < lvlup+000) let lvl = lvlup;
      };
 
     let ambed = new Discord.RichEmbed()
