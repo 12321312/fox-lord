@@ -212,7 +212,8 @@ bot.on('message', async message => {
    let xprole1 = message.guild.roles.find('name', "Искушенный");
    let xprole2 = message.guild.roles.find('name', "Штуцер");
    let xprole3 = message.guild.roles.find('name', "Шнурок");
-   if (!message.member.roles.find('name', "Лисий повелитель") || !message.member.roles.find('name', "Куратор")) {
+
+   if (!message.member.roles.find('name', "Лисий повелитель")) {
    if (xp > 1000 && xp < 10000) { 
        if (!message.member.roles.find('name', "Искушенный")) {
        message.member.removeRole(xprole0.id); 
