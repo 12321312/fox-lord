@@ -7,10 +7,11 @@ module.exports.run = async (bot,message,args,connection) => {
      let xpi = rows[0].xp;
      let point = rows[0].point; 
 
-    if (xpi && xpi > 1000) {
-        let lvl = xpi / 1000
+     let lvl;
+     if (xpi && xpi >= 1000) {
+        lvl = xpi / 1000
      } else {
-        let lvl = 1
+        lvl = 0
      }
 
     let ambed = new Discord.RichEmbed()
