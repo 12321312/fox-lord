@@ -19,14 +19,14 @@ module.exports.run = async (bot,message,args,connection) => {
     .setTitle("Информация о участнике")
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-    .setColor('#10c7e2').addField("Имя",a.username)
-    .addField("Тэг",a.tag)
-    .addField("Статус",a.presence.status)
-    .addField("Опыта:",xpi + " XP")
-    .addField("Уровень:",lvl.toFixed(0))
-    .addField("Донат поинтов:",point)
-    .addField("Роли и ключи:",roles)
-    .addField("Создание аккаунта",a.createdAt)
+    .setColor('#10c7e2').addField("Имя",a.username, true)
+    .addField("Тэг",a.tag, true)
+    .addField("Статус",a.presence.status, true)
+    .addField("Опыта:",xpi + " XP", true)
+    .addField("Уровень:",lvl.toFixed(0), true)
+    .addField("Донат поинтов:",point, true)
+    .addField("Роли и ключи:",roles, false)
+    .addField("Создание аккаунта",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
     bot.send({embed:ambed});
