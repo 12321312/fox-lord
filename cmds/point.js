@@ -18,9 +18,8 @@ module.exports.run = async (bot,message,args,connection) => {
         message.reply(`остаток баланса <@${target.id}> на данный момент: ` + `\`\`\`js\n${point}\`\`\``);
       } else {
         message.delete();
-        sql = `UPDATE xp SET point = ${point}+${args[1]} WHERE id = '${target.id}'`  
-        pints = point + args[1];
-        message.reply(`Изменил кол-во поинтов у пользователя <@${target.id}> на **${args[1]}** поинтов \n остаток баланса пользователя на данный момент: ` + `\`\`\`js\n${pints}\`\`\``);
+        sql = `UPDATE xp SET point = ${args[1]} WHERE id = '${target.id}'`  
+        message.reply(`Изменил кол-во поинтов у пользователя <@${target.id}>. \n остаток баланса пользователя на данный момент: ` + `\`\`\`js\n${args[1]}\`\`\``);
       };
     };
     connection.query(sql);
