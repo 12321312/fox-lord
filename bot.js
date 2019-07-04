@@ -207,32 +207,6 @@ bot.on('message', async message => {
 
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
-   let xp = rows[0].xp;
-   let xprole0 = message.guild.roles.find('name', "Прозелит");
-   let xprole1 = message.guild.roles.find('name', "Искушенный");
-   let xprole2 = message.guild.roles.find('name', "Штуцер");
-   let xprole3 = message.guild.roles.find('name', "Шнурок");
-
-   if (!message.member.roles.find('name', "Лисий повелитель") || message.member.roles.find('name', "Куратор")) {
-   if (xp > 5000 && xp < 10000) { 
-       if (!message.member.roles.find('name', "Искушенный")) {
-       message.member.removeRole(xprole0.id); 
-       message.member.addRole(xprole1.id); 
-       message.reply("поздравляю с новым званием <@&537701837000802304>! Вы набрали 5 уровень.")
-    }}
-    if (xp > 10000 && xp < 20000) { 
-        if (!message.member.roles.find('name', "Штуцер")) {
-        message.member.removeRole(xprole1.id); 
-        message.member.addRole(xprole2.id); 
-        message.reply("поздравляю с новым званием <@&537702291059507213>! Вы набрали 10 уровень.")
-    }}
-    if (xp > 20000) { 
-        if (!message.member.roles.find('name', "Шнурок")) {
-        message.member.removeRole(xprole2.id); 
-        message.member.addRole(xprole3.id); 
-        message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень.")
-    }}
-    };
 
    let sql;
    if(rows.length < 1) {
@@ -244,6 +218,33 @@ bot.on('message', async message => {
 
    connection.query(sql);
   });
+
+  let xp = rows[0].xp;
+  let xprole0 = message.guild.roles.find('name', "Прозелит");
+  let xprole1 = message.guild.roles.find('name', "Искушенный");
+  let xprole2 = message.guild.roles.find('name', "Штуцер");
+  let xprole3 = message.guild.roles.find('name', "Шнурок");
+
+  if (!message.member.roles.find('name', "Лисий повелитель") || message.member.roles.find('name', "Куратор")) {
+  if (xp > 5000 && xp < 10000) { 
+      if (!message.member.roles.find('name', "Искушенный")) {
+      message.member.removeRole(xprole0.id); 
+      message.member.addRole(xprole1.id); 
+      message.reply("поздравляю с новым званием <@&537701837000802304>! Вы набрали 5 уровень.")
+   }}
+   if (xp > 10000 && xp < 20000) { 
+       if (!message.member.roles.find('name', "Штуцер")) {
+       message.member.removeRole(xprole1.id); 
+       message.member.addRole(xprole2.id); 
+       message.reply("поздравляю с новым званием <@&537702291059507213>! Вы набрали 10 уровень.")
+   }}
+   if (xp > 20000) { 
+       if (!message.member.roles.find('name', "Шнурок")) {
+       message.member.removeRole(xprole2.id); 
+       message.member.addRole(xprole3.id); 
+       message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень.")
+   }}
+   };
 
   let messageArray = message.content.split(" ");
   let command = messageArray[0].toLowerCase();
