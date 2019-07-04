@@ -20,6 +20,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Дискриминатор",target.discriminator)
     .addField("Опыта:",xp + " XP")
     .addField("Уровень:",lvl)
+    .addField("Донат поинтов:","0")
     .addField("Создание аккаунта",target.createdAt)
     .setThumbnail(target.avatarURL);
 
