@@ -13,7 +13,7 @@ module.exports.run = async (bot,message,args,connection) => {
      } else {
         lvl = 1
      }
-    let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ').replace('<@&537698849184153611>');
+    let roles = message.member.roles.map(r=> "<@&" + r.id + ">").join(', ');
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -25,7 +25,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Опыта:",xpi + " XP")
     .addField("Уровень:",lvl.toFixed(0))
     .addField("Донат поинтов:",point)
-    .addField("Роли и ключи:",roles)
+    .addField("Роли и ключи:",roles.replace('<@&537698849184153611>,'))
     .addField("Создание аккаунта",a.createdAt)
     .setThumbnail(a.avatarURL);
 
