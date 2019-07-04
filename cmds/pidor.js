@@ -10,6 +10,7 @@ module.exports.run = async (bot,message,args) => {
         return;
       }
       
+      if (message.member.roles.get('537707501819396098')) return message.reply('девушки все лезби :Р');
       
       let ran1 = Math.floor(Math.random() * 30) + 1 ;
       let ran2 = Math.floor(Math.random() * 20) + 1 ;
