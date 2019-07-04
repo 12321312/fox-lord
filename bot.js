@@ -206,6 +206,9 @@ bot.on('message', async message => {
    let xprole1 = message.guild.roles.find('name', "Искушенный");
    let xprole2 = message.guild.roles.find('name', "Штуцер");
    let xprole3 = message.guild.roles.find('name', "Шнурок");
+   let xprole4 = message.guild.roles.find('name', "Просвещенный");
+   let xprole5 = message.guild.roles.find('name', "Знаток");
+   let xprole6 = message.guild.roles.find('name', "Божество");
 
    if (!message.member.roles.find('name', "Лисий повелитель") || message.member.roles.find('name', "Куратор")) {
    if (xp > 5000 && xp < 10000) { 
@@ -220,11 +223,29 @@ bot.on('message', async message => {
         message.member.addRole(xprole2.id); 
         message.reply("поздравляю с новым званием <@&537702291059507213>! Вы набрали 10 уровень.")
     }}
-    if (xp > 20000) { 
+    if (xp > 20000 && xp < 35000) { 
         if (!message.member.roles.find('name', "Шнурок")) {
         message.member.removeRole(xprole2.id); 
         message.member.addRole(xprole3.id); 
         message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень.")
+    }}
+    if (xp > 35000 && xp < 50000) { 
+        if (!message.member.roles.find('name', "Просвещенный")) {
+        message.member.removeRole(xprole3.id); 
+        message.member.addRole(xprole4.id); 
+        message.reply("поздравляю с новым званием <@&596398929718018049>! Вы набрали 35 уровень.")
+    }}
+    if (xp > 70000 && xp < 100000) { 
+        if (!message.member.roles.find('name', "Знаток")) {
+        message.member.removeRole(xprole4.id); 
+        message.member.addRole(xprole5.id); 
+        message.reply("поздравляю с новым званием <@&596399524847812621>! Вы набрали 70 уровень.")
+    }}
+    if (xp > 100000) { 
+        if (!message.member.roles.find('name', "Божество")) {
+        message.member.removeRole(xprole5.id); 
+        message.member.addRole(xprole6.id); 
+        message.reply("поздравляю с новым званием <@&596399865274171461>! Вы набрали 100 уровень.")
     }}
     };
 }
