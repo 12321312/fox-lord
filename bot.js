@@ -147,17 +147,33 @@ process.on('unhandledRejection', err => {
 });
 
 // mysql
-var consql = mysql.createConnection({
+var consql = {
     host: process.env.HOST_MYSQL,
     user: process.env.LOGIN_MYSQL,
     password: process.env.PASSWORD_MYSQL,
     database: process.env.DATABASE_MYSQL
-});
+};
 
-consql.connect(err => {
- if(err) throw err;
- console.log("Подключено к базе данных!");
-});
+var connection;
+function handleDisconnect() {
+    connection = mysql.createConnection(consql); 
+
+    connection.connect(function(err) {              
+        if(err) {                                     
+          console.log('error when connecting to db:', err);
+          setTimeout(handleDisconnect, 2000); 
+        }                                    
+      });  
+      connection.on('error', function(err) {
+        console.log('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+          handleDisconnect();                         // lost due to either server restart, or a
+        } else {                                      // connnection idle timeout (the wait_timeout
+          throw err;                                  // server variable configures this)
+        }
+      });
+    }
+    handleDisconnect();
 
 // XP
 function generateXp() {
@@ -189,7 +205,7 @@ bot.on('message', async message => {
         message.channel.send(msg);
   };
 
-  consql.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
+  connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
    console.log(rows);
    let sql;
@@ -200,7 +216,7 @@ bot.on('message', async message => {
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
    }
 
-   consql.query(sql);
+   connection.query(sql);
   });
 
   let messageArray = message.content.split(" ");
@@ -208,7 +224,7 @@ bot.on('message', async message => {
   let args = messageArray.slice(1);
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
-  if(cmd) cmd.run(bot,message,args,consql);
+  if(cmd) cmd.run(bot,message,args,connection);
 });
 
 // шапка
