@@ -19,7 +19,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setTitle("Информация о участнике")
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-    .setColor('RANDOM').addField("Имя",a.username, true)
+    .setColor('#10c7e2').addField("Имя",a.username, true)
     .addField("Тэг",a.tag, true)
     .addField("Статус",a.presence.status, true)
     .addField("Опыта:",xpi + " XP", true)
