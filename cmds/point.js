@@ -2,7 +2,6 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
-    if ((args[1]) != NaN) {message.reply("Не верно указаны поинты, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
     let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!target) return message.reply("такого участника нету");
 
