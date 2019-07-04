@@ -213,7 +213,7 @@ bot.on('message', async message => {
    } else {
     let xp = rows[0].xp;
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
-   }
+   
 
    let xprole0 = message.guild.roles.find('name', "Прозелит");
    let xprole1 = message.guild.roles.find('name', "Искушенный");
@@ -240,6 +240,7 @@ bot.on('message', async message => {
         message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень.")
     }}
     };
+}
 
    connection.query(sql);
   });
