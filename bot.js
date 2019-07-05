@@ -183,8 +183,6 @@ fs.readdir('./cmds/',(err,files)=>{
 bot.on('message', async message => {
   if(message.author.bot) return;
   if(message.channel.type == "dm") return;
-  let user = message.author.username;
-  let uid = message.author.id;
   bot.send = function (msg){
         message.channel.send(msg);
   };
@@ -249,24 +247,11 @@ bot.on('message', async message => {
    connection.query(sql);
   });
 
-
-  if(cooldown.has(message.author.id)){
-    message.delete();
-    return message.reply("хэй! Подожди 7 секунд и пиши команду...")
-  }
-  //if(!message.member.hasPermission("ADMINISTRATOR")){
-    cooldown.add(message.author.id);
-  //}
-
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command);
   if(cmd) cmd.run(bot,message,args,connection);
-
-  setTimeout(() => {
-    cooldown.delete(message.author.id)
-  }, cdseconds * 1000)
 });
 
 // шапка
@@ -306,6 +291,19 @@ bot.on('message', (receivedMessage) => {
     }
     if (receivedMessage.content.indexOf(prefix) == 0) {
     receivedMessage.react(bot.emojis.get("554122910584012800"))
+
+    if(cooldown.has(message.author.id)){
+        message.delete();
+        return message.reply("хэй! Подожди 7 секунд и пиши команду...")
+    }
+      if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
+        cooldown.add(message.author.id);
+    }
+    
+    setTimeout(() => {
+        cooldown.delete(message.author.id)
+      }, cdseconds * 1000)
+      
     }
 });
 
