@@ -13,11 +13,11 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B1%D0%B0%D0%BD-png-3-300x200.png")
     .setFooter("Бан систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
     .setColor("#bc0000")
-    .addField("Забанен:", `${bUser}`)
-    .addField("Администратор:", `<@${message.author.id}>`)
-    .addField("Канал:", message.channel)
-    .addField("Причина:", bReason) 
-    .addField("Время:", message.createdAt);
+    .addField("Забанен:", `${bUser}`, true)
+    .addField("Администратор:", `<@${message.author.id}>`, true)
+    .addField("Канал:", message.channel, true)
+    .addField("Причина:", bReason, false) 
+    .addField("Время:", message.createdAt, false);
 
     let banchannel = message.guild.channels.get("537720268446236682");
     if(!banchannel) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
