@@ -252,7 +252,7 @@ bot.on('message', async message => {
     message.delete();
     return message.reply("хэй! Подожди 7 секунд и пиши команду...")
 }
-  if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
+  if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
 }
 
