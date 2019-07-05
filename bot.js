@@ -214,14 +214,15 @@ bot.on('message', async message => {
     let sql;
 
     if(rows.length < 1) {
-        for (sizepenis = 1; sizepenis < 31; sizepenis++) {
-            if (message.member.roles.find('name', `${sizepenis} см`)) {
+        var sizepenisrole = 1;
+        for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
+            if (message.member.roles.find('name', `${sizepenisrole} см`)) {
                 if (message.member.roles.find('name', 'Пидор')) {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenis}', 1)`
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenisrole}', 1)`
                 } else if (message.member.roles.find('name', 'Натурал')) {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenis}', 2)`
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenisrole}', 2)`
                 } else {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenis}', 0)`   
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenisrole}', 0)`   
                 };
             } else {
                 if (message.member.roles.find('name', 'Пидор')) {
@@ -241,13 +242,13 @@ bot.on('message', async message => {
             message.member.addRole(sizerol.id)
           };
         };
-        let pidor = rows[0].pidr;
-         if (pidor = 1) {
+        let pidorn = rows[0].pidr;
+         if (pidorn = 1) {
           if (!message.member.roles.find('name', 'Пидор')) {
           let pidorrole = message.guild.roles.find('name', `Пидор`);  
           message.member.addRole(pidorrole.id)    
           };
-         } else if (pidor = 2) {
+         } else if (pidorn = 2) {
           if (!message.member.roles.find('name', 'Натурал')) {
           let naturalrole = message.guild.roles.find('name', `Натурал`);  
           message.member.addRole(naturalrole.id)    
