@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-module.exports.run = async (bot,message,args) => {
+module.exports.run = async (bot,message,args,connection) => {
 if (message.member.roles.get('537707501819396098')) return message.reply('у девушек нет члена о_О');
 let randomclien = Math.floor(Math.random() * 30) + 1 ;
 if (message.author.id == "294844223675564034") randomclien = "999999999";
@@ -13,8 +13,6 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     let cms = rows[0].cm;
     if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши ${cms} обратно`)
 });
-
-
 let clien = new Discord.RichEmbed()
 .setTitle(message.author.username)
 .setTimestamp()
