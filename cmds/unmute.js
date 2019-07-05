@@ -11,7 +11,7 @@ let muterole = message.guild.roles.find('name', "silence");
 
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
 let muteEmbed = new Discord.RichEmbed()
-.setDescription("Гаг снят")
+.setDescription("Гаг снят") 
 .setColor('#00FF00')
 .setThumbnail("http://pngimg.com/uploads/megaphone/megaphone_PNG94.png")
 .setFooter("Гаг систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
