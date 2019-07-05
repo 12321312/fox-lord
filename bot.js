@@ -15,8 +15,6 @@ const mysql = require("mysql");
 let cooldown = new Set();
 let cdseconds = 7;
 
-
-
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
