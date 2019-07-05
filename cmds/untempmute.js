@@ -15,9 +15,9 @@ let muteEmbed = new Discord.RichEmbed()
 .setColor('#00FF00')
 .setThumbnail("http://mediaseller.agency/wp-content/uploads/2018/06/pravki.png")
 .setFooter("Мут систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-.addField("Снят мут с:", `${tomute}`)
-.addField("Администратор:", `${message.author}`)
-.addField("Канал:", message.channel);
+.addField("Снят мут с:", `${tomute}`, true)
+.addField("Администратор:", `${message.author}`, true)
+.addField("Канал:", message.channel, true);
 
 
 let mutechannel = message.guild.channels.get("537720268446236682"); 

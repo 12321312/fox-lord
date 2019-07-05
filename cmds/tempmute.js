@@ -41,12 +41,12 @@ let muteEmbed = new Discord.RichEmbed()
 .setColor('#00538A')
 .setThumbnail("https://cdn1.iconfinder.com/data/icons/ui-controls-miscellaneous/32/chat-off-512.png")
 .setFooter("Мут систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-.addField("Был замучен:", `${tomute}`)
-.addField("Администратор:", `${message.author}`)
-.addField("Канал:", message.channel)
-.addField("Причина:", mreason)
-.addField("Время мута:", `${ms(ms(mutetime))}`)
-.addField("Начало мута:", message.createdAt);
+.addField("Был замучен:", `${tomute}`, true)
+.addField("Администратор:", `${message.author}`, true)
+.addField("Канал:", message.channel, true)
+.addField("Время мута:", `${ms(ms(mutetime))}`, true)
+.addField("Причина:", mreason, false)
+.addField("Начало мута:", message.createdAt, false);
 
 await(tomute.addRole(muterole.id));
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');

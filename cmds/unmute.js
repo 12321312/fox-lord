@@ -15,9 +15,9 @@ let muteEmbed = new Discord.RichEmbed()
 .setColor('#00FF00')
 .setThumbnail("http://pngimg.com/uploads/megaphone/megaphone_PNG94.png")
 .setFooter("Гаг систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-.addField("Снят гаг с:", `${tomute}`)
-.addField("Администратор:", `${message.author}`)
-.addField("Канал:", message.channel);
+.addField("Снят гаг с:", `${tomute}`, true)
+.addField("Администратор:", `${message.author}`, true)
+.addField("Канал:", message.channel, true);
 
 
 let mutechannel = message.guild.channels.get("537720268446236682");

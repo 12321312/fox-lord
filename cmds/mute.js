@@ -41,12 +41,12 @@ let muteEmbed = new Discord.RichEmbed()
 .setColor('#00FFFF')
 .setThumbnail("https://upload.wikimedia.org/wikipedia/commons/2/29/Audio-mute.png")
 .setFooter("Гаг систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-.addField("Был замучен:", `${tomute}`)
-.addField("Администратор:", `${message.author}`)
-.addField("Канал:", message.channel)
-.addField("Причина:", mreason)
-.addField("Время гага:", `${ms(ms(mutetime))}`)
-.addField("Начало гага:", message.createdAt);
+.addField("Был замучен:", `${tomute}`, true)
+.addField("Администратор:", `${message.author}`, true)
+.addField("Канал:", message.channel, true)
+.addField("Время гага:", `${ms(ms(mutetime))}`, true)
+.addField("Причина:", mreason, false)
+.addField("Начало гага:", message.createdAt, false);
 
 await(tomute.addRole(muterole.id));
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был заткнут на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
