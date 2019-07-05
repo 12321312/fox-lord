@@ -257,7 +257,7 @@ bot.on('message', async message => {
   if(cmd) cmd.run(bot,message,args,connection);
 
   setTimeout(() => {
-      if (message) return;
+      if (!message) return;
     message.react(bot.emojis.get("554122910584012800"));
   }, 10000)
   setTimeout(() => {
