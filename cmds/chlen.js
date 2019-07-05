@@ -11,8 +11,8 @@ if (randomclien < 20) nameclien = "Ну сойдет чтобы похваста
 if (randomclien < 15) nameclien = "У вас пиздец маленький, советую не показывать девочкам, описаются от смеха...";
 connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => { 
     let cms = rows[0].cm;
-    if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши ${cms} обратно`)
-});
+    if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши **${cms} см** обратно`)
+
 let clien = new Discord.RichEmbed()
 .setTitle(message.author.username)
 .setTimestamp()
@@ -40,6 +40,7 @@ if(!clienrole){
 
 message.member.addRole(clienrole.id)
 bot.send({embed:clien});
+});
 };
 module.exports.help = {
     name: "член"
