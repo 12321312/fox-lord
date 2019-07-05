@@ -251,7 +251,14 @@ bot.on('message', async message => {
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
 } 
-  message.react(bot.emojis.get("554122910584012800")).throw();
+
+  message.react(bot.emojis.get("554122910584012800")).(function(err) {              
+    if(err) {                                     
+      console.log('хуй:', err);
+      return;
+    }                                    
+  });  
+
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
   let cmd = bot.commands.get(command);
