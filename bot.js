@@ -225,7 +225,7 @@ bot.on('message', async message => {
                 };
             } else {
                 if (message.member.roles.find('name', 'Пидор')) {
-                 sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', 0, 1)`
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 1)`
                 } else if (message.member.roles.find('name', 'Натурал')) {
                  sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 2)`
                 } else {
