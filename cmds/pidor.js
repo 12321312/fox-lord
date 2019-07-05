@@ -13,7 +13,7 @@ module.exports.run = async (bot,message,args,connection) => {
       
       if(rows.length == 1) {
         let pidro = rows[0].pidr;
-        if (pidro > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши **${cms} см** обратно`);
+        if (pidro > 0) return message.reply(`Вы уже проходили этот тест, восстанавливаю ваши результаты...`);
       }
 
       if (message.member.roles.get('537707501819396098')) return message.reply('девушки все лезби :Р');
