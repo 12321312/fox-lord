@@ -276,7 +276,7 @@ bot.on('ready', () => {
              type: "STREAMING"
          }
      });
-     antispam(client, {
+     antispam(bot, {
         warnBuffer: 5, 
         maxBuffer: 10, 
         interval: 1000, 
