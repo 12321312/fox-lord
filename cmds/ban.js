@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Забанен:", `${bUser}`)
     .addField("Администратор:", `<@${message.author.id}>`)
     .addField("Канал:", message.channel)
-    .addField("Причина:", bReason)
+    .addField("Причина:", bReason) 
     .addField("Время:", message.createdAt);
 
     let banchannel = message.guild.channels.get("537720268446236682");
