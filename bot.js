@@ -254,7 +254,7 @@ bot.on('message', async message => {
   });
   
   let messageArray = message.content.trim().split(/ +/g);
-  let command = messageArray[0].toLowerCase();
+  let command = messageArray[0].shift().toLowerCase();
   let args = messageArray.slice(1);
 
   if(!message.content.startsWith(prefix)) return;
