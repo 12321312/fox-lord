@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     let bReason = args.slice(1).join(" ") || "---";
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
-    .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B1%D0%B0%D0%BD-png-3-300x200.png")
+    .setThumbnail("https://cdn.pixabay.com/photo/2013/07/12/18/01/kickboxing-152817_960_720.png")
     .setFooter("Кик систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
     .setColor("#bc0000")
     .addField("Кикнут:", `${kUser}`)
