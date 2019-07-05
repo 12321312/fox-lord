@@ -20,7 +20,7 @@ let muteEmbed = new Discord.RichEmbed()
 .addField("Канал:", message.channel);
 
 
-let mutechannel = message.guild.channels.get("537720268446236682");
+let mutechannel = message.guild.channels.get("537720268446236682"); 
 if(!mutechannel) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был размутен принудительно');
 message.delete();
