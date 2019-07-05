@@ -100,7 +100,7 @@ var consql = {
 };
 
 var connection;
-function handleDisconnect() {
+async function handleDisconnect() {
     connection = mysql.createConnection(consql); 
 
     connection.connect(function(err) {              
