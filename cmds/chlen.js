@@ -10,7 +10,9 @@ let nameclien = "Уууу блядь п@здец...";
 if (randomclien < 25) nameclien = "Ну перед пацанами уже можно выебнуться..."; 
 if (randomclien < 20) nameclien = "Ну сойдет чтобы похвастаться перед скромной тёлкой..."; 
 if (randomclien < 15) nameclien = "У вас пиздец маленький, советую не показывать девочкам, описаются от смеха...";
+for (sizepenis = 1; sizepenis < 31; sizepenis++) {
 if (message.member.roles.find('name', `${sizepenis} см`)) return message.reply(`Ваш размер уже определенён был, у вас ${cms} см ...`);
+};
 
 if(rows.length > 1) {
 let cms = rows[0].cm;
@@ -25,9 +27,6 @@ let clien = new Discord.RichEmbed()
 .addField("Размер вашего члена состоявляет:", `\`\`\`js\n${randomclien} см\`\`\``)
 .addField(nameclien, "Линейка вам больше не нужна.")
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
-var sizepenis = 0;
-for (sizepenis = 0; sizepenis < 31; sizepenis++) {
-};
 let clienrole = message.guild.roles.find('name', `${randomclien} см`);
 if(!clienrole){
     try{
