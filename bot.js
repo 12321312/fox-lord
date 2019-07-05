@@ -252,7 +252,7 @@ bot.on('message', async message => {
     cooldown.add(message.author.id);
 }
 
-  if (messageDelete) return console.log('Удалено нахуй!');
+  if (message.Delete) return console.log('Удалено нахуй!');
   message.react(bot.emojis.get("554122910584012800"));
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
