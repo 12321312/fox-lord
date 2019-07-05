@@ -210,12 +210,10 @@ bot.on('message', async message => {
 
 connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => {
     if(err) throw err;
-    let sqladd;
-    let sqladddl;
-    let sqladdcm;
+ 
     
     if(rows.length < 1) {
-       sqladddl = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`
+       let sqladddl = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`
        connection.query(sqladddl);
     } else {
       let cms = rows[0].cm;
@@ -231,17 +229,13 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
        
        if (pidor == 0) {
         if (message.member.roles.find('name', 'Пидор')) {
-         sqladd = `UPDATE clien SET pidr = 1 WHERE id = '${message.author.id}'`
+         let sqladd = `UPDATE clien SET pidr = 1 WHERE id = '${message.author.id}'`
          connection.query(sqladd);  
         } else if (message.member.roles.find('name', 'Натурал'))
-         sqladd = `UPDATE clien SET pidr = 2 WHERE id = '${message.author.id}'`
+         let sqladd = `UPDATE clien SET pidr = 2 WHERE id = '${message.author.id}'`
          connection.query(sqladd);  
         };
     };
-
-  
-
-  
 });  
 
 
