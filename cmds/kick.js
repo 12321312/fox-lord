@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if (kUser.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
 
     if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) { 
-    let bReason = args.slice(1).join(" ") || "---";
+    let kReason = args.slice(1).join(" ") || "---";
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
     .setThumbnail("https://cdn.pixabay.com/photo/2013/07/12/18/01/kickboxing-152817_960_720.png")
@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Кикнут:", `${kUser}`)
     .addField("Администратор:", `<@${message.author.id}>`)
     .addField("Канал:", message.channel) 
-    .addField("Причина:", bReason)
+    .addField("Причина:", kReason)
     .addField("Время:", message.createdAt);
 
     let banchannel = message.guild.channels.get("537720268446236682");
@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
     message.delete();
     message.guild.member(kUser).kick(bReason);
     banchannel.send({embed:banEmbed});
-    message.channel.send('Пользователь' + `<@${kUser.id}>` + ' был кикнут по причине: **' + `${bReason}` + '**');
+    message.channel.send('Пользователь' + `<@${kUser.id}>` + ' был кикнут по причине: **' + `${kReason}` + '**');
 
 } else 
 {
