@@ -12,6 +12,7 @@ const embedColor = "#dd2423";
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const mysql = require("mysql");
+const antispam = require('discord-anti-spam'); 
 let cooldown = new Set();
 let cdseconds = 7;
 
@@ -275,6 +276,18 @@ bot.on('ready', () => {
              type: "STREAMING"
          }
      });
+     antispam(client, {
+        warnBuffer: 5, 
+        maxBuffer: 10, 
+        interval: 1000, 
+        warningMessage: "хватит спамить!", 
+        banMessage: "был ударен бан-хаммером по ебалу за спам..", 
+        maxDuplicatesWarning: 10,
+        maxDuplicatesBan: 20, 
+        deleteMessagesAfterBanForPastDays: 7,
+        //exemptRoles: ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Шнурок", "Music-key"],
+        //exemptUsers: ["LousyFox#1337"] 
+      });  
 });
 
 // Автороль

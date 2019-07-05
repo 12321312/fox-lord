@@ -12,7 +12,7 @@
     "ms": "2.1.2",
     "youtube-search": "1.1.4",
     "node-dota-api": "5.0.1",
-    "anti-spam": "0.2.7",
+    "discord-anti-spam": "2.0.0",
     "mysql": "2.17.1"
   }
 }
