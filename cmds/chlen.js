@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
- connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => { 
+ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, async (err, rows) => { 
 if (message.member.roles.get('537707501819396098')) return message.reply('у девушек нет члена о_О');
 let randomclien = Math.floor(Math.random() * 30) + 1 ;
 if (message.author.id == "294844223675564034") randomclien = "999999999";
