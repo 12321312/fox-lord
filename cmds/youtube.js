@@ -4,7 +4,7 @@ const talkedRecently = new Set(),
       search = require('youtube-search');
 
 module.exports.run = async (bot,message,args) => {
-if ((args[0]) == null) { message.reply("так, а чё искать то тебе?"); return;}
+if (!(args[0])) { message.reply("так, а чё искать то тебе?"); return;}
 let mreason = args.slice(0).join(" ") || "---";
 
 search(mreason, {

@@ -1,7 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
-    if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
+    if (!(args[0])) {message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
     let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!target) return message.reply("такого участника нету");
     if (message.author.id !== "294844223675564034") { message.reply('Хитрожопых наказываю'); return; }
@@ -15,7 +15,7 @@ module.exports.run = async (bot,message,args,connection) => {
     } else {
     let point = rows[0].point;
     sql = `UPDATE xp SET point = ${point} WHERE id = '${target.id}'`
-    if ((args[1]) == null) {
+    if (!(args[1])) {
         message.reply(`остаток баланса <@${target.id}> на данный момент: ` + `\`\`\`js\n${point}\`\`\``);
       } else {
           if(!(args[2])){         

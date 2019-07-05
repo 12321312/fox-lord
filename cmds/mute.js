@@ -3,8 +3,8 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
-if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
-if ((args[1]) == null) {message.reply("Не верно указано время, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
+if (!(args[0])) {message.reply("Не верно указан пользователь, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
+if (!(args[1])) {message.reply("Не верно указано время, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
 if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
