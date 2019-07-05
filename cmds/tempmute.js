@@ -3,12 +3,12 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
-if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```"); return; }
-if ((args[1]) == null) {message.reply("Не верно указано время, напиши так: ```!мут <юзер упоминание> <время> <причина>```"); return; }
+if ((args[0]) == null) return message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
+if ((args[1]) == null) return message.reply("Не верно указано время, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
-if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
-if (tomute.roles.get('592734106471628869')) { message.reply('он уже писать не может...'); return; }
+if (tomute.id == "294844223675564034") return message.reply('а пизды не дать?');
+if (tomute.roles.get('592734106471628869')) return message.reply('он уже писать не может...');
 let muterole = message.guild.roles.find('name', "muted");
 let mreason = args.slice(2).join(" ") || "---";
 
@@ -55,10 +55,7 @@ mutechannel.send({embed:muteEmbed});
 setTimeout(function(){
     tomute.removeRole(muterole.id);
 },ms(mutetime));
-} else 
-      {
-        message.reply("А пососать не завернуть?");
-      };
+} else { message.reply("А пососать не завернуть?"); };
      
 };
 module.exports.help = {

@@ -3,10 +3,10 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
-if ((args[0]) == null) {message.reply("Не верно указан пользователь, напиши так: ```!унгаг <юзер упоминание>```"); return; }
+if ((args[0]) == null) return message.reply("Не верно указан пользователь, напиши так: ```!унгаг <юзер упоминание>```"); 
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
-if (!tomute.roles.get('592772182543695882')) { message.reply('Он не в гаге, прикинь...'); return; }
+if (!tomute.roles.get('592772182543695882'))  return message.reply('Он не в гаге, прикинь...');
 let muterole = message.guild.roles.find('name', "silence");
 
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
