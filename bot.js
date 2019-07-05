@@ -236,6 +236,14 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
          connection.query(sqladd2);  
          }
         };
+       
+       if (cms > 0) {
+        if (!message.member.roles.find('name', `${cms} см`)) {
+         let clienroleadd = message.guild.roles.find('name', `${cms} см`);
+         message.member.addRole(clienroleadd.id)
+        }
+       };
+        
 
     };
 });  
