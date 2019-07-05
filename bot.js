@@ -285,8 +285,8 @@ bot.on('ready', () => {
         maxDuplicatesWarning: 10,
         maxDuplicatesBan: 20, 
         deleteMessagesAfterBanForPastDays: 7,
-        //exemptRoles: ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Шнурок", "Music-key"],
-        //exemptUsers: ["LousyFox#1337"] 
+        exemptRoles: ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Шнурок", "Music-key"],
+        exemptUsers: ["LousyFox#1337"] 
       });  
 });
 
