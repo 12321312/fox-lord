@@ -228,13 +228,15 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
        
        if (pidor == 0) {
         if (message.member.roles.find('name', 'Пидор')) {
-         sqladd = `UPDATE clien SET pidr = 1 WHERE id = '${message.author.id}'`  
+         sqladd = `UPDATE clien SET pidr = 1 WHERE id = '${message.author.id}'`
+         connection.query(sqladd);  
         } else if (message.member.roles.find('name', 'Натурал'))
-         sqladd = `UPDATE clien SET pidr = 2 WHERE id = '${message.author.id}'`  
+         sqladd = `UPDATE clien SET pidr = 2 WHERE id = '${message.author.id}'`
+         connection.query(sqladd);  
         };
     };
 
-  connection.query(sqladd);
+  
 
   
 });  
