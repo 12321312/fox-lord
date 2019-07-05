@@ -217,7 +217,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     } else {
       let cms = rows[0].cm;
       let pidor = rows[0].pidr;
-       if (cms = 0) {
+       if (cms == 0) {
         for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
          if (message.member.roles.find('name', `${sizepenisrole} см`)) {
           sqladd = `UPDATE clien SET cm = ${sizepenisrole} WHERE id = '${message.author.id}'`  
