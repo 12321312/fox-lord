@@ -226,20 +226,22 @@ bot.on('message', async message => {
                 };
             } else {
                 if (message.member.roles.find('name', 'Пидор')) {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 1)`
+                 sql = `INSERT INTO clien (id, pidr) VALUES ('${message.author.id}', 1)`
                 } else if (message.member.roles.find('name', 'Натурал')) {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 2)`
+                 sql = `INSERT INTO clien (id, pidr) VALUES ('${message.author.id}', 2)`
                 } else {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`   
+                 sql = `INSERT INTO clien (id, pidr) VALUES ('${message.author.id}', 0)`   
                 };
             };
         };
        } else {
         let penis = rows[0].cm;
         for (sizepenis = 1; sizepenis < 31; sizepenis++) {
+          if (penis > 1) {
           if (!message.member.roles.find('name', `${sizepenis} см`)) {
             let sizerol = message.guild.roles.find('name', `${penis} см`);  
             message.member.addRole(sizerol.id)
+           } 
           };
         };
         let pidorn = rows[0].pidr;
