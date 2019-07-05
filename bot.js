@@ -15,8 +15,6 @@ const mysql = require("mysql");
 let cooldown = new Set();
 let cdseconds = 7;
 
-
-
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
@@ -252,6 +250,7 @@ bot.on('message', async message => {
 }
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
+    message.react(bot.emojis.get("554122910584012800"));
 }
 
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
