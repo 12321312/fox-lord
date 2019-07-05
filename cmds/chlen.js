@@ -28,7 +28,7 @@ if (message.member.roles.find('name', `${sizepenis} см`)) return message.reply
 let clienrole = message.guild.roles.find('name', `${randomclien} см`);
 if(!clienrole){
     try{
-        clienrole = await message.guild.createRole({
+        clienrole = message.guild.createRole({
             name:`${randomclien} см`,
             color: "#FFCBDB",
             permission: []
