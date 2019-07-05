@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-module.exports.run = async (bot,message,args) => {
+module.exports.run = async (bot,message,args,connection) => {
   connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, async (err, rows) => { 
     if (message.member.roles.has("572598627126607882")) {
         message.reply("вы уже были признаны **натуралом**.");
