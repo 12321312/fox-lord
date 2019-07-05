@@ -17,7 +17,7 @@ module.exports.run = async (bot,message,args,connection) => {
     let xp = rows[0].xp;
     sql = `UPDATE xp SET xp = ${xp} WHERE id = '${target.id}'`
     if (!(args[1])) {
-        message.reply(`остаток баланса <@${target.id}> на данный момент: ` + `\`\`\`js\n${xp}\`\`\``);
+        bot.send(`остаток опыта <@${target.id}> на данный момент: ` + `\`\`\`js\n${xp} XP\`\`\``);
       } else {
           if(!(args[2])){         
             message.delete();
