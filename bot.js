@@ -252,12 +252,7 @@ bot.on('message', async message => {
     cooldown.add(message.author.id);
 } 
 
-  message.react(bot.emojis.get("554122910584012800")).(function(err) {              
-    if(err) {                                     
-      console.log('хуй:', err);
-      return;
-    }                                    
-  });  
+  //message.react(bot.emojis.get("554122910584012800"));
 
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
