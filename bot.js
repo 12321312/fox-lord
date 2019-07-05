@@ -220,8 +220,8 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
        if (cms == 0) {
         for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
          if (message.member.roles.find('name', `${sizepenisrole} см`)) {
-          sqladd = `UPDATE clien SET cm = ${sizepenisrole} WHERE id = '${message.author.id}'`  
-          connection.query(sqladd);
+          sqladdcm = `UPDATE clien SET cm = ${sizepenisrole} WHERE id = '${message.author.id}'` 
+          connection.query(sqladdcm); 
          };
         };
        };
