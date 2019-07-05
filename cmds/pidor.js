@@ -1,6 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
+  connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, async (err, rows) => { 
     if (message.member.roles.has("572598627126607882")) {
         message.reply("вы уже были признаны **натуралом**.");
         return;
@@ -10,6 +11,11 @@ module.exports.run = async (bot,message,args) => {
         return;
       }
       
+      if(rows.length == 1) {
+        let pidro = rows[0].pidr;
+        if (pidro > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши **${cms} см** обратно`);
+      }
+
       if (message.member.roles.get('537707501819396098')) return message.reply('девушки все лезби :Р');
       
       let ran1 = Math.floor(Math.random() * 30) + 1 ;
@@ -74,6 +80,7 @@ module.exports.run = async (bot,message,args) => {
           )
       }, 1250)
   });
+});  
 };
 module.exports.help = {
     name: "пидор"
