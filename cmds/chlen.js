@@ -10,8 +10,10 @@ let nameclien = "Уууу блядь п@здец...";
 if (randomclien < 25) nameclien = "Ну перед пацанами уже можно выебнуться..."; 
 if (randomclien < 20) nameclien = "Ну сойдет чтобы похвастаться перед скромной тёлкой..."; 
 if (randomclien < 15) nameclien = "У вас пиздец маленький, советую не показывать девочкам, описаются от смеха...";
+
+var sizepenis;
 for (sizepenis = 1; sizepenis < 31; sizepenis++) {
-if (message.member.roles.find('name', `${sizepenis} см`)) return message.reply(`Ваш размер уже определенён был, у вас ${cms} см ...`);
+if (message.member.roles.find('name', `${sizepenis} см`)) return message.reply(`Ваш размер уже определенён был...`);
 };
 
 if(rows.length > 1) {
