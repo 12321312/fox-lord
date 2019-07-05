@@ -251,7 +251,9 @@ bot.on('message', async message => {
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
 }
- //message.react(bot.emojis.get("554122910584012800"));
+
+  if (messageDelete) return console.log('Удалено нахуй!');
+  message.react(bot.emojis.get("554122910584012800"));
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
   let cmd = bot.commands.get(command);
