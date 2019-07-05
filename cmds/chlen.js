@@ -8,7 +8,13 @@ if (message.author.id == "414822924005015552") randomclien = "1";
 let nameclien = "Уууу блядь п@здец..."; 
 if (randomclien < 25) nameclien = "Ну перед пацанами уже можно выебнуться..."; 
 if (randomclien < 20) nameclien = "Ну сойдет чтобы похвастаться перед скромной тёлкой..."; 
-if (randomclien < 15) nameclien = "У вас пиздец маленький, советую не показывать девочкам, описаются от смеха..."; 
+if (randomclien < 15) nameclien = "У вас пиздец маленький, советую не показывать девочкам, описаются от смеха...";
+connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => { 
+    let cms = rows[0].cm;
+    if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши ${cms} обратно`)
+});
+
+
 let clien = new Discord.RichEmbed()
 .setTitle(message.author.username)
 .setTimestamp()
