@@ -225,7 +225,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
         };
        };
        
-       if (pidor > 0) {
+       if (pidor == 0) {
         if (message.member.roles.find('name', 'Пидор')) {
          sqladd = `UPDATE clien SET pidr = 1 WHERE id = '${message.author.id}'`  
         } else if (message.member.roles.find('name', 'Натурал'))
