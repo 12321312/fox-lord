@@ -5,11 +5,6 @@ module.exports.run = async (bot,message,args) => {
     if (message.author.id !== "294844223675564034") return message.reply('Хитрожопых наказываю'); 
     if (!(args[0])) return message.reply('Пустота в обращении...');
     message.delete().then(message.channel.send(botmessage));
-    
-    if(message.deleted) {
-        console.log(`Всё, пиздец блять, удалено нахуй`);
-        return;
-      }
 
 };
 module.exports.help = {
