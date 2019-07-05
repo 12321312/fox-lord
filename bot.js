@@ -246,16 +246,9 @@ bot.on('message', async message => {
    connection.query(sql);
   });
 
-  let args = message.content.slice(prefix.length).trim().split(/ +/g);
-  let cmd = args.shift().toLowerCase();
-  let command;
-  
-  if (bot.commands.has(cmd)) {
-      command = bot.commands.get(cmd);
-  } else if (bot.aliases.has(cmd)) {
-      command = bot.commands.get(bot.aliases.get(cmd));
-  }
-  
+  let messageArray = message.content.split(" ");
+  let command = messageArray[0].toLowerCase();
+  let args = messageArray.slice(1);
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args,connection);
