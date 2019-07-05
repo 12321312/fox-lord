@@ -14,11 +14,11 @@ if (randomclien < 15) nameclien = "У вас пиздец маленький, с
 var sizepenis;
 for (sizepenis = 1; sizepenis < 31; sizepenis++) {
 if (message.member.roles.find('name', `${sizepenis} см`)) return message.reply(`Ваш размер уже определенён был...`);
-};
+}
 
 if(rows.length > 1) {
 let cms = rows[0].cm;
-if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши **${cms} см** обратно`)
+if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши **${cms} см** обратно`);
 }
 
 let clien = new Discord.RichEmbed()
