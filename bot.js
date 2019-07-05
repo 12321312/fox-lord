@@ -211,6 +211,8 @@ bot.on('message', async message => {
 connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => {
     if(err) throw err;
     let sqladd;
+    let sqladddl;
+    let sqladdcm;
     
     if(rows.length < 1) {
        sqladddl = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`
