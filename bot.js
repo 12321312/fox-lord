@@ -208,59 +208,6 @@ bot.on('message', async message => {
    connection.query(sql);
   });
 
-
- connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => {
-    if(err) throw err;
-    let sql;
-
-    if(rows.length < 1) {
-        var sizepenisrole = 1;
-        for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
-            if (message.member.roles.find('name', `${sizepenisrole} см`)) {
-                if (message.member.roles.find('name', 'Пидор')) {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenisrole}', 1)`
-                } else if (message.member.roles.find('name', 'Натурал')) {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenisrole}', 2)`
-                } else {
-                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenisrole}', 0)`   
-                };
-            } else {
-                if (message.member.roles.find('name', 'Пидор')) {
-                 sql = `INSERT INTO clien (id, pidr) VALUES ('${message.author.id}', 1)`
-                } else if (message.member.roles.find('name', 'Натурал')) {
-                 sql = `INSERT INTO clien (id, pidr) VALUES ('${message.author.id}', 2)`
-                } else {
-                 sql = `INSERT INTO clien (id, pidr) VALUES ('${message.author.id}', 0)`   
-                };
-            };
-        };
-       } else {
-        let penis = rows[0].cm;
-        for (sizepenis = 1; sizepenis < 31; sizepenis++) {
-          if (penis > 1) {
-          if (!message.member.roles.find('name', `${sizepenis} см`)) {
-            let sizerol = message.guild.roles.find('name', `${penis} см`);  
-            message.member.addRole(sizerol.id)
-           } 
-          };
-        };
-        let pidorn = rows[0].pidr;
-         if (pidorn = 1) {
-          if (!message.member.roles.find('name', 'Пидор')) {
-          let pidorrole = message.guild.roles.find('name', `Пидор`);  
-          message.member.addRole(pidorrole.id)    
-          };
-         } else if (pidorn = 2) {
-          if (!message.member.roles.find('name', 'Натурал')) {
-          let naturalrole = message.guild.roles.find('name', `Натурал`);  
-          message.member.addRole(naturalrole.id)    
-         };
-        };
-    }
-
-  connection.query(sql);
-});  
-
   if (message.author.id == yourID && message.content.toLowerCase() == setupCMD) {
 
     const roleEmbed = new Discord.RichEmbed()
