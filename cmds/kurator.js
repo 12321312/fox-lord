@@ -8,16 +8,19 @@ module.exports.run = async (bot,message,args) => {
  if (toadmin.id == "294844223675564034")  return message.reply('фоксу нельзя дать роль и снять её.');
  let prislyga = message.guild.roles.find('name', "Прислужник");
  let dozor = message.guild.roles.find('name', "Дозорный");
+
+
+ message.delete();
  if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781')) { 
  if ((args[2]) == "дать") {
      if ((args[1]) == "прислужник") { 
      if (toadmin.roles.get(prislyga.id)) return message.reply('он и так в этой роли...');     
      toadmin.addRole(prislyga.id);
-     message.channel.send('Пользователю' + `<@${toadmin.id}>` + ' была выдана роль ' + `<@${prislyga.id}>`);
+     message.channel.send('Пользователю' + `<@${toadmin.id}>` + ' была выдана роль ' + `<@&${prislyga.id}>`);
      } else if ((args[1]) == "дозорный") {
         if (toadmin.roles.get(dozor.id)) return message.reply('он и так в этой роли...');    
         toadmin.addRole(dozor.id);
-        message.channel.send('Пользователю' + `<@${toadmin.id}>` + ' была выдана роль ' + `<@${dozor.id}>`);
+        message.channel.send('Пользователю' + `<@${toadmin.id}>` + ' была выдана роль ' + `<@&${dozor.id}>`);
      } else {
         message.reply("с ролью ошибся кажись, такую выдать не смогу.");
      };
@@ -25,15 +28,15 @@ module.exports.run = async (bot,message,args) => {
     if ((args[1]) == "прислужник") { 
         if (!toadmin.roles.get(prislyga.id)) return message.reply('у него и нет этой роли...'); 
         toadmin.removeRole(prislyga.id);
-        message.channel.send('Забрал у пользователя' + `<@${toadmin.id}>` + ' роль ' + `<@${prislyga.id}>`);
+        message.channel.send('Забрал у пользователя' + `<@${toadmin.id}>` + ' роль ' + `<@&${prislyga.id}>`);
     } else if ((args[1]) == "дозорный") { 
         if (!toadmin.roles.get(dozor.id)) return message.reply('у него и нет этой роли...'); 
         toadmin.removeRole(dozor.id);
-        message.channel.send('Забрал у пользователя' + `<@${toadmin.id}>` + ' роль ' + `<@${dozor.id}>`);
+        message.channel.send('Забрал у пользователя' + `<@${toadmin.id}>` + ' роль ' + `<@&${dozor.id}>`);
     } else {
         message.reply("с ролью ошибся кажись, такую забрать не смогу.");
         }; 
- };
+ } else {  message.reply("так мне дать или забрать?") };
 } else { message.reply("А пососать не завернуть?"); }
 
 
