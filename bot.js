@@ -217,31 +217,31 @@ bot.on('message', async message => {
         for (sizepenis = 1; sizepenis < 31; sizepenis++) {
             if (message.member.roles.find('name', `${sizepenis} см`)) {
                 if (message.member.roles.find('name', 'Пидор')) {
-                 sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', '${sizepenis}', 1)`
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenis}', 1)`
                 } else if (message.member.roles.find('name', 'Натурал')) {
-                 sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', '${sizepenis}', 2)`
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenis}', 2)`
                 } else {
-                 sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', '${sizepenis}', 0)`   
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', '${sizepenis}', 0)`   
                 };
             } else {
                 if (message.member.roles.find('name', 'Пидор')) {
                  sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', 0, 1)`
                 } else if (message.member.roles.find('name', 'Натурал')) {
-                 sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', 0, 2)`
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 2)`
                 } else {
-                 sql = `INSERT INTO clien (id, cm, pidor) VALUES ('${message.author.id}', 0, 0)`   
+                 sql = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`   
                 };
             };
         };
        } else {
         let penis = rows[0].cm;
-        let pidor = rows[0].pidr;
         for (sizepenis = 1; sizepenis < 31; sizepenis++) {
           if (!message.member.roles.find('name', `${sizepenis} см`)) {
             let sizerol = message.guild.roles.find('name', `${penis} см`);  
             message.member.addRole(sizerol.id)
           };
         };
+        let pidor = rows[0].pidr;
          if (pidor = 1) {
           if (!message.member.roles.find('name', 'Пидор')) {
           let pidorrole = message.guild.roles.find('name', `Пидор`);  
