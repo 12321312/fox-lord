@@ -18,9 +18,8 @@ let cdseconds = 7;
 
 // Автореакция 
 bot.on('message', (receivedMessage) => {
-    if (receivedMessage.author == bot.user) {
-        return
-    }
+    if (receivedMessage.author == bot.user) return;
+    if (!receivedMessage) return;
     if (receivedMessage.content.indexOf(prefix) == 0) {
     receivedMessage.react(bot.emojis.get("554122910584012800"))
     }
