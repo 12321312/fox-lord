@@ -252,11 +252,6 @@ bot.on('message', async message => {
     cooldown.add(message.author.id);
 }
 
-
-if(message.deleted) {
-    console.log(`Всё, пиздец блять, удалено нахуй`);
-    return;
-}
   message.react(bot.emojis.get("554122910584012800"));
 
   let args = message.content.slice(prefix.length).trim().split(/ +/g);

@@ -6,6 +6,11 @@ module.exports.run = async (bot,message,args) => {
     if (!(args[0])) return message.reply('Пустота в обращении...');
     message.delete().then(message.channel.send(botmessage));
     
+    if(message.deleted) {
+        console.log(`Всё, пиздец блять, удалено нахуй`);
+        return;
+      }
+
 };
 module.exports.help = {
     name: "канал"
