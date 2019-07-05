@@ -243,8 +243,16 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
          message.member.addRole(clienroleadd.id)
         }
        };
-        
-
+       
+       if (pidor > 0) {
+        if (pidor == 1) {
+          let pidorrole1 = message.guild.roles.find('name', 'Пидор');  
+          message.member.addRole(pidorrole1.id)
+        } else if (pidor == 2) {
+            let pidorrole2 = message.guild.roles.find('name', 'Натурал');  
+            message.member.addRole(pidorrole2.id)
+        };
+       };
     };
 });  
 
