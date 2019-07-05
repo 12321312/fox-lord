@@ -15,7 +15,7 @@ const embedThumbnail = true;
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const mysql = require("mysql");
 let cooldown = new Set();
-let cdseconds = 5;
+let cdseconds = 7;
 
 
 // бот реакции
@@ -252,7 +252,7 @@ bot.on('message', async message => {
 
   if(cooldown.has(message.author.id)){
     message.delete();
-    return message.reply("You have to wait 5 seconds between commands.")
+    return message.reply("хэй! Подожди 7 секунд и пиши команду...")
   }
   //if(!message.member.hasPermission("ADMINISTRATOR")){
     cooldown.add(message.author.id);
