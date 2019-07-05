@@ -37,7 +37,8 @@ if(!clienrole){
             permission: []
         });
 };
-message.member.addRole(clienrole.id)
+let clienroletoo = message.guild.roles.find('name', `${randomclien} см`);
+message.member.addRole(clienroletoo.id)
 bot.send({embed:clien});
 })
 };
