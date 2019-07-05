@@ -1,11 +1,9 @@
 const Discord = require("discord.js");
-const botconfig = require("./config.json");
 const bot = new Discord.Client();
 const fs = require('fs');
 bot.commands = new Discord.Collection();
 let config = require('./config.json');
 let prefix = config.prefix;
-let profile = require('./profile.json');
 const yourID = "294844223675564034"; 
 const setupCMD = "!роль";
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
