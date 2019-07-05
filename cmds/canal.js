@@ -5,7 +5,7 @@ module.exports.run = async (bot,message,args) => {
     if (message.author.id !== "294844223675564034") return message.reply('Хитрожопых наказываю'); 
     if (!(args[0])) return message.reply('Пустота в обращении...');
     message.channel.send(botmessage);
-    message.delete(message.author.id);
+    message.delete();
 };
 module.exports.help = {
     name: "канал"
