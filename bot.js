@@ -16,14 +16,6 @@ let cooldown = new Set();
 let cdseconds = 7;
 
 
-// Автореакция 
-bot.on('message', (receivedMessage) => {
-    if (receivedMessage.author == bot.user) return;
-    if (!receivedMessage) return;
-    if (receivedMessage.content.indexOf(prefix) == 0) {
-    receivedMessage.react(bot.emojis.get("554122910584012800"))
-    }
-});
 
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
