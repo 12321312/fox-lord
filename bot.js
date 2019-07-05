@@ -10,7 +10,6 @@ const yourID = "294844223675564034";
 const setupCMD = "!роль";
 const roles = ["Dota-key", "EVE-key", "CS-key", "Minecraft-key", "Gmod-key", "SI-key", "Secret-key"];
 const reactions = ["dota","eve","cs","minecraftsword", "gmod","☄","🔞"];
-const embed = true; 
 const embedColor = "#dd2423"; 
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
@@ -18,12 +17,6 @@ const mysql = require("mysql");
 
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
-
-function generateMessages() {
-    let messages = [];
-    for (const role of roles) messages.push({ role, message: `React below to get the **"${role}"** role!` }); 
-    return messages;
-}
 
 function generateEmbedFields() {
     return roles.map((r, e) => {
