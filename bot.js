@@ -100,16 +100,16 @@ var consql = {
 };
 
 var connection;
-async function handleDisconnect() {
+ function handleDisconnect() {
     connection = mysql.createConnection(consql); 
 
-    connection.connect(function(err) {              
+    connection.connect(async function(err) {              
         if(err) {                                     
           console.log('error when connecting to db:', err);
           setTimeout(handleDisconnect, 2000); 
         }                                    
       });  
-      connection.on('error', function(err) {
+      connection.on('error', async function(err) {
         //console.log('db error', err);
         if(err.code === 'PROTOCOL_CONNECTION_LOST') { 
           handleDisconnect();                         
