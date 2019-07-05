@@ -17,6 +17,20 @@ let cooldown = new Set();
 let cdseconds = 7;
 
 
+antispam(bot, {
+    warnBuffer: 5, 
+    maxBuffer: 10, 
+    interval: 1000, 
+    warningMessage: "хватит спамить!", 
+    banMessage: "был ударен бан-хаммером по ебалу за спам..", 
+    maxDuplicatesWarning: 10,
+    maxDuplicatesBan: 20, 
+    deleteMessagesAfterBanForPastDays: 7,
+    exemptRoles: ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Шнурок", "Music-key"],
+    exemptUsers: ["LousyFox#1337"] 
+  });  
+
+
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
@@ -276,18 +290,6 @@ bot.on('ready', () => {
              type: "STREAMING"
          }
      });
-     antispam(bot, {
-        warnBuffer: 5, 
-        maxBuffer: 10, 
-        interval: 1000, 
-        warningMessage: "хватит спамить!", 
-        banMessage: "был ударен бан-хаммером по ебалу за спам..", 
-        maxDuplicatesWarning: 10,
-        maxDuplicatesBan: 20, 
-        deleteMessagesAfterBanForPastDays: 7,
-        exemptRoles: ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Шнурок", "Music-key"],
-        exemptUsers: ["LousyFox#1337"] 
-      });  
 });
 
 // Автороль
