@@ -253,8 +253,10 @@ bot.on('message', async message => {
    connection.query(sql);
   });
   
-  let args = message.content.slice(prefix.length).trim().split(/ +/g);
-  let command = args.shift().toLowerCase();
+  let messageArray = message.content.trim().split(/ +/g);
+  let command = messageArray[0].toLowerCase();
+  let args = messageArray.slice(1);
+
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd) cmd.run(bot,message,args,connection);
