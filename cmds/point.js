@@ -1,10 +1,10 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
-    if (!(args[0])) {message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```"); return; }
+    if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!поинт <юзер упоминание> <+/-поинты>```");
     let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
     if(!target) return message.reply("такого участника нету");
-    if (message.author.id !== "294844223675564034") { message.reply('Хитрожопых наказываю'); return; }
+    if (message.author.id !== "294844223675564034") return message.reply('Хитрожопых наказываю');
 
     connection.query(`SELECT * FROM xp WHERE id = '${target.id}'`, (err, rows) => {
     if(err) throw err;
