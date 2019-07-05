@@ -15,6 +15,17 @@ const mysql = require("mysql");
 let cooldown = new Set();
 let cdseconds = 7;
 
+
+// Автореакция 
+bot.on('message', (receivedMessage) => {
+    if (receivedMessage.author == bot.user) {
+        return
+    }
+    if (receivedMessage.content.indexOf(prefix) == 0) {
+    receivedMessage.react(bot.emojis.get("554122910584012800"))
+    }
+});
+
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
@@ -290,16 +301,6 @@ bot.on('guildMemberRemove', member => {
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
   channel.send("**"+member.user.tag+"** вышел с сервера! "+`${nsyy}`);
-});
-
-// Автореакция 
-bot.on('message', (receivedMessage) => {
-    if (receivedMessage.author == bot.user) {
-        return
-    }
-    if (receivedMessage.content.indexOf(prefix) == 0) {
-    receivedMessage.react(bot.emojis.get("554122910584012800"))
-    }
 });
 
 
