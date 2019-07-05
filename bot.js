@@ -34,42 +34,6 @@ function checkRole(guild, role) {
 }
 
 bot.on('error', console.error);
-bot.on("message", message => {
-    if (message.author.id == yourID && message.content.toLowerCase() == setupCMD) {
-
-            const roleEmbed = new Discord.RichEmbed()
-                .setTitle(`**Ключи:**`)
-                .setDescription("```Поставь реакцию под этим сообщением. И получи свой ключ от нужной категории!```")
-                .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-                .setTimestamp();
-
-            if (embedColor) roleEmbed.setColor(embedColor);
-            if (embedThumbnail) roleEmbed.setThumbnail(embedThumbnailLink);
-
-            const fields = generateEmbedFields();
-            if (fields.length >= 25) throw "Максимум 25 ролей!";
-
-            for (const f of fields) {
-                if (!checkRole(message.guild, f.role)) throw `Роль '${role}' не найдена!`;
-
-                const emoji = f.emoji;
-                const customEmote = bot.emojis.find(e => e.name === emoji);
-                
-                if (!customEmote) roleEmbed.addField(emoji, f.role, true);
-                else roleEmbed.addField(customEmote, f.role, true);
-            }
-
-            message.channel.send({embed:roleEmbed}).then(async m => {
-                for (const r of reactions) {
-                    const emoji = r;
-                    const customEmote = bot.emojis.find(e => e.name === emoji);
-                    
-                    if (!customEmote) await m.react(emoji);
-                    else await m.react(customEmote.id);
-                }
-            });
-        }
-});
 
 
 const events = {
@@ -243,6 +207,41 @@ bot.on('message', async message => {
 
    connection.query(sql);
   });
+
+  if (message.author.id == yourID && message.content.toLowerCase() == setupCMD) {
+
+    const roleEmbed = new Discord.RichEmbed()
+        .setTitle(`**Ключи:**`)
+        .setDescription("```Поставь реакцию под этим сообщением. И получи свой ключ от нужной категории!```")
+        .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
+        .setTimestamp();
+
+    if (embedColor) roleEmbed.setColor(embedColor);
+    if (embedThumbnail) roleEmbed.setThumbnail(embedThumbnailLink);
+
+    const fields = generateEmbedFields();
+    if (fields.length >= 25) throw "Максимум 25 ролей!";
+
+    for (const f of fields) {
+        if (!checkRole(message.guild, f.role)) throw `Роль '${role}' не найдена!`;
+
+        const emoji = f.emoji;
+        const customEmote = bot.emojis.find(e => e.name === emoji);
+        
+        if (!customEmote) roleEmbed.addField(emoji, f.role, true);
+        else roleEmbed.addField(customEmote, f.role, true);
+    }
+
+    message.channel.send({embed:roleEmbed}).then(async m => {
+        for (const r of reactions) {
+            const emoji = r;
+            const customEmote = bot.emojis.find(e => e.name === emoji);
+            
+            if (!customEmote) await m.react(emoji);
+            else await m.react(customEmote.id);
+        }
+    });
+}  
 
   if(!message.content.startsWith(prefix)) return;
   if(cooldown.has(message.author.id)){
