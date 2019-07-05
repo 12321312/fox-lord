@@ -14,6 +14,9 @@ const embedColor = "#dd2423";
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const mysql = require("mysql");
+let cooldown = new Set();
+let cdseconds = 5;
+
 
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
@@ -246,11 +249,19 @@ bot.on('message', async message => {
    connection.query(sql);
   });
 
+  //if(!message.member.hasPermission("ADMINISTRATOR")){
+    cooldown.add(message.author.id);
+  //}
+
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
   if(!message.content.startsWith(prefix)) return;
   let cmd = bot.commands.get(command);
   if(cmd) cmd.run(bot,message,args,connection);
+
+  setTimeout(() => {
+    cooldown.delete(message.author.id)
+  }, cdseconds * 1000)
 });
 
 // шапка
