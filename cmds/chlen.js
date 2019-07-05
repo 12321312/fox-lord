@@ -31,7 +31,7 @@ let clien = new Discord.RichEmbed()
 .setThumbnail("http://pngimg.com/uploads/ruler/ruler_PNG22.png");
 let clienrole = message.guild.roles.find('name', `${randomclien} см`);
 if(!clienrole){
-        clienrole = message.guild.createRole({
+        clienrole = await message.guild.createRole({
             name:`${randomclien} см`,
             color: "#FFCBDB",
             permission: []
