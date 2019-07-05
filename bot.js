@@ -213,8 +213,8 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     let sqladd;
     
     if(rows.length < 1) {
-       sqladd = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`
-       connection.query(sqladd);
+       sqladddl = `INSERT INTO clien (id, cm, pidr) VALUES ('${message.author.id}', 0, 0)`
+       connection.query(sqladddl);
     } else {
       let cms = rows[0].cm;
       let pidor = rows[0].pidr;
