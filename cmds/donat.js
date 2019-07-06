@@ -10,7 +10,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
-    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, 1 поинт - 1 см\n**Оринтация**\nМеняет местами роли 'Пидор/Натурал' - 20 поинтов")
+    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, 1 поинт - 1 см\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал' - 20 поинтов")
     .setThumbnail("https://www.buybitcoinworldwide.com/img/goodicons/doublecoin.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
@@ -53,7 +53,7 @@ module.exports.run = async (bot,message,args,connection) => {
         } else return message.reply(`У вас не может быть ${Number(sizepenisrole) + Number(args[1])} см! Максимальная длина члена 30 см`);
       }
      }
-    } else if ((args[0]) == "Оринтация" || (args[0]) == "оринтация") {
+    } else if ((args[0]) == "Ориентация" || (args[0]) == "ориентация" || (args[0]) == "оринтация" || (args[0]) == "Оринтация") {
         if(point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на смену оринтации, на данный момент ваш баланс **${point}**`);
         let pirddrole = message.guild.roles.find('name', `Пидор`);   
         let pirdnrole = message.guild.roles.find('name', `Натурал`);  
