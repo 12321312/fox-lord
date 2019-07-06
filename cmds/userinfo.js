@@ -22,7 +22,7 @@ module.exports.run = async (bot,message,args,connection) => {
     let keys = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Dota-key" || r.name == "EVE-key" || r.name == "Music-key" || r.name == "Minecraft-key" || r.name == "Gmod-key" || r.name == "SI-key" || r.name == "CS-key" || r.name == "Secret-key").map(r => r).join(', ')
     if(!keys) keys = "нету";
 
-    let osuff = message.member.roles.filter(r => r.name !=="@everyone" && r.name !== "Лисий повелитель" || r.name !== "Куратор" || r.name !== "Дозорный" || r.name !== "Прислужник" || r.name !== "Божество" || r.name !== "Знаток" || r.name !== "Просвещенный" || r.name !== "Шнурок" || r.name !== "Штуцер" || r.name !== "Искушенный" || r.name !== "Прозелит" || r.name !== "V.I.P" && r.name !== "Dota-key" || r.name !== "EVE-key" || r.name !== "Music-key" || r.name !== "Minecraft-key" || r.name !== "Gmod-key" || r.name !== "SI-key" || r.name !== "CS-key" || r.name !== "Secret-key").map(r => r).join(', ')
+    let osuff = message.member.roles.filter(r => r.name !=="@everyone" || r.name !== "Лисий повелитель" || r.name !== "Куратор" || r.name !== "Дозорный" || r.name !== "Прислужник" || r.name !== "Божество" || r.name !== "Знаток" || r.name !== "Просвещенный" || r.name !== "Шнурок" || r.name !== "Штуцер" || r.name !== "Искушенный" || r.name !== "Прозелит" || r.name !== "V.I.P" || r.name !== "Dota-key" || r.name !== "EVE-key" || r.name !== "Music-key" || r.name !== "Minecraft-key" || r.name !== "Gmod-key" || r.name !== "SI-key" || r.name !== "CS-key" || r.name !== "Secret-key").map(r => r).join(', ')
     if(!keys) osuff = "нету";
     
     let pole = "Мужской"; 
