@@ -147,7 +147,7 @@ fs.readdir('./cmds/',(err,files)=>{
 bot.on('message', async message => {
   if(message.author.bot) return;
   if(message.channel.type == "dm") return;
-  antispam.emit('checkMessage', message);
+  bot.emit('checkMessage', message);
   bot.send = function (msg){
         message.channel.send(msg);
   };
@@ -382,6 +382,7 @@ bot.on('ready', () => {
          }
      });
      wait(1000);
+     antispam();
      bot.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
           invites[g.id] = guildInvites;
