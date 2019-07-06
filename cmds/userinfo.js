@@ -17,8 +17,7 @@ module.exports.run = async (bot,message,args,connection) => {
     if (lvl < lvl.toFixed(0)) lvl -= 1;
 
  
-    let zvania = message.member.roles.filter(r => r.name =="Лисий повелитель" && r.name =="Куратор" && r.name =="Дозорный" && r.name =="Прислужник" && r.name =="Божество" && r.name =="Знаток" && r.name =="Просвещенный" && r.name =="Шнурок" && r.name =="Штуцер" && r.name =="Искушенный" && r.name =="Прозелит").map(r => r).join(', ');
-    if(!zvania) zvania = "нету";
+    let zvania = message.member.roles.filter(r => r.name == "Лисий повелитель" && r.name == "Куратор" && r.name == "Дозорный" && r.name == "Прислужник" && r.name == "Божество" && r.name =="Знаток" && r.name == "Просвещенный" && r.name == "Шнурок" && r.name == "Штуцер" && r.name == "Искушенный" && r.name == "Прозелит").map(r => r).join(', ');
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
