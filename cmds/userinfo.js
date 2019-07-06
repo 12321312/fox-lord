@@ -16,7 +16,7 @@ module.exports.run = async (bot,message,args,connection) => {
 
     if (lvl < lvl.toFixed(0)) lvl -= 1;
 
-    let roles = message.member.roles.filter(r => r.name !=="@everyone").map(r => r).join(',')
+    let roles = message.member.roles.filter(r => r.name == "!@everyone" || "@Лисий повелитель" || "@Куратор").map(r => r).join(',')
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -30,6 +30,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Донат поинтов:",point, true)
     .addField("ID индификатор:",a.id, true)
     .addField("Роли и ключи:",roles, false)
+    .addField("Звание:",roles, false)
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
