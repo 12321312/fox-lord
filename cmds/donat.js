@@ -10,13 +10,20 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
-    .addField("______\nУслуги:","```**Член**\nПокупка сантиметров члена, 1 поинт - 1 см\n**Оринтация**\nМеняет местами роли 'Пидор/Натурал' - 20 поинтов```")
+    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, 1 поинт - 1 см\n**Оринтация**\nМеняет местами роли 'Пидор/Натурал' - 20 поинтов")
     .setThumbnail("https://www.buybitcoinworldwide.com/img/goodicons/doublecoin.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
+  
+  if((args[0])) {
+  connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, rows) => {
+   if(err) throw err;
+   let cm = rows[0].cm;    
+   let sql;
 
-  connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
-   
+    if((args[0]) == "член") {
+     if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
+    }
 
 
   if(err) throw err;
@@ -26,6 +33,7 @@ module.exports.run = async (bot,message,args,connection) => {
  
   connection.query(sql);
  });
+ }
 };
 module.exports.help = {
     name: "донат"
