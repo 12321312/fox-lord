@@ -14,7 +14,7 @@ const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"
 const mysql = require("mysql");
 const invites = {};
 const wait = require('util').promisify(setTimeout);
-const antispam = require('./anti-spam.js');
+const antispam = require('anti-spam.js');
 let cooldown = new Set();
 let cdseconds = 7;
 
