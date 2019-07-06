@@ -43,7 +43,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Донат поинтов:",point, true)
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true)
-    .addField("Ключи:",keys, true)
+    if(!keys) { ambed.addField("Ключи:", keys, true) }
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
