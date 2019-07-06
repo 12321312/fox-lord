@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
-    .addField("______\nУслуги:","**XP**\nДобавляет вам опыта, *100XP - 1 поинт*\n**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**Музыка**\nДобавляет вам роль Music-key и дает возможность использовать DJ команды, *20 поинтов*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
+    .addField("______\nУслуги:","**XP**\nДобавляет вам опыта, *100XP - 1 поинт*\n**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**Музыка**\nДобавляет вам роль Music-key и дает возможность использовать DJ команды, *20 поинтов*\n**Вип**\nБот выдает вам V.I.P навсегда, *100 поинтов*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
     .setThumbnail("http://pngimg.com/uploads/coin/coin_PNG36874.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
@@ -97,6 +97,14 @@ module.exports.run = async (bot,message,args,connection) => {
         let musickey = message.guild.roles.find('name', `Music-key`); 
         message.member.addRole(musickey.id);
         return message.reply(`Поздравляем с покупкой, вы купили ключ **"Music-key"**. Вам открылся канал <#552433561769345029> в нём введите *"!help"* и получите весь список команд, команды в этот же чат писать.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${Number(point) - Number(20)}**. `);
+    } else if ((args[0]) == "ВИП" || (args[0]) == "вип" || (args[0]) == "Вип" || (args[0]) == "мьюзик" || (args[0]) == "VIP"|| (args[0]) == "vip" || (args[0]) == "Vip" || (args[0]) == "випа") {
+        if (point < 100) return message.reply(`У вас не хватает **${Number(100) - Number(point)} поинта(ов)** на покупку VIP, на данный момент ваш баланс: **${point}**.`);
+        if (message.member.roles.find('name', `V.I.P`)) return message.reply(`У вас уже есть **"V.I.P"**! Повторно его купить - нельзя.`);
+        let vipkeypoint = `UPDATE xp SET point = ${point}-100 WHERE id = '${message.author.id}'`
+        connection.query(vipkeypoint);
+        let vipkey = message.guild.roles.find('name', `V.I.P`); 
+        message.member.addRole(vipkey.id);
+        return message.reply(`Поздравляем с покупкой, вы купили **"V.I.P"**. Теперь у вас есть вип каналы и вы сверху в списке участников.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${Number(point) - Number(100)}**. `);
     } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
     
 
