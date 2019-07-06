@@ -355,13 +355,11 @@ member.guild.fetchInvites().then(guildInvites => {
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = bot.users.get(invite.inviter.id);
-
-
   console.log('User ' + member.user.tag + ' зашёл на сервер!');
   let channel = bot.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
   let esyy = bot.emojis.get("554122910584012800");
-  channel.send(`На сервер зашёл ${member.user.tag} по приглашению ${inviter.tag}! ${esyy}`);
+  channel.send(`На сервер зашёл <@${member.user.id}>(**${member.user.tag}**) по приглашению <@${inviter.id}>(**${inviter.tag}**)! ${esyy}`);
   member.addRole(role);
  });
 });
@@ -370,7 +368,7 @@ bot.on('guildMemberRemove', member => {
   console.log('User ' + member.user.tag + ' вышел с сервера!');
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
-  channel.send("**"+member.user.tag+"** вышел с сервера! "+`${nsyy}`);
+  channel.send(`<@${member.user.id}>(**${member.user.tag}**) вышел с сервера! ${nsyy}`);
 });
 
 
