@@ -39,7 +39,8 @@ message.channel.bulkDelete(fetched)
   .addField("Удаленного:", `<@${mention.id}>`, true)
   .addField("Канал:", message.channel, true)
   .addField("Удалено:", fetched.size, true);
-  } else if (!mention) {
+  };
+  if (!mention) {
    clearmess = new Discord.RichEmbed()
     .setDescription("Удалены сообщения")
     .setColor('#FFFFFF')
@@ -48,7 +49,7 @@ message.channel.bulkDelete(fetched)
     .addField("Администратор:", `${message.author}`, true)
     .addField("Канал:", message.channel, true)
     .addField("Удалено:", fetched.size, true); 
-  }
+  };
 
   console.log(fetched.size + ' сообщения пользователя ' + `${mention.user.tag}` + ' найдены, удаление...'); 
   message.channel.send('Удалено `' + fetched.size + '` сообщений пользователя ' + `<@${mention.id}>`);       
