@@ -21,9 +21,9 @@ module.exports.run = async (bot,message,args,connection) => {
    let cm = rows[0].cm; 
    let point = rows[0].point;    
 
-    if((args[0]) == "член") {
+    if((args[0]) == "член" || (args[0]) == "Член") {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
-     if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)**, на данный момент ваш баланс **${point}**`);
+     if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс **${point}**`);
      for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
       if (message.member.roles.find('name', `${sizepenisrole} см`)) {
         if (Number(sizepenisrole) + Number(args[1]) < 31) { 
@@ -53,7 +53,29 @@ module.exports.run = async (bot,message,args,connection) => {
         } else return message.reply(`У вас не может быть ${Number(sizepenisrole) + Number(args[1])} см! Максимальная длина члена 30 см`);
       }
      }
-    }
+    } else if ((args[0]) == "Оринтация" || (args[0]) == "оринтация") {
+        if(point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на смену оринтации, на данный момент ваш баланс **${point}**`);
+        let pirddrole = message.guild.roles.find('name', `Пидор`);   
+        let pirdnrole = message.guild.roles.find('name', `Натурал`);  
+
+        if (message.member.roles.find('name', `Пидор`)) {
+            let ortroleo = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
+            connection.query(ortroleo);   
+            let ortrolep = `UPDATE clien SET pidr = 2 WHERE id = '${message.author.id}'`
+            connection.query(ortrolep); 
+            message.member.removeRole(pirddrole.id)
+            message.member.addRole(pirdnrole.id)
+            return message.reply(`Поздравляем с покупкой, вы купили себе звание **"НАТУРАЛ"**, теперь смело еб@ать баб! Остаток вашего баланса **${Number(point) - Number(20)}**`);
+        } else if (message.member.roles.find('name', `Натурал`)) {
+            let ortroleon = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
+            connection.query(ortroleon);   
+            let ortrolen = `UPDATE clien SET pidr = 1 WHERE id = '${message.author.id}'`
+            connection.query(ortrolen); 
+            message.member.removeRole(pirdnrole.id)
+            message.member.addRole(pirddrole.id)
+            return message.reply(`Поздравляем с покупкой, вы купили себе звание **"ПИДОР"**, теперь можете долбиться в очко! Остаток вашего баланса **${Number(point) - Number(20)}**`);
+        } else return message.reply(`Вы не прошли еще тест, пройдите его для начала! Напишите в чат *"!пидор"*`);
+    } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
 
 
  });
