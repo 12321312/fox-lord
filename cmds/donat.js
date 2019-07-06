@@ -26,7 +26,7 @@ module.exports.run = async (bot,message,args,connection) => {
      if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)**, на данный момент ваш баланс **${point}**`);
      for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
       if (message.member.roles.find('name', `${sizepenisrole} см`)) {
-        if ((sizepenisrole+(args[1])) < 31) { 
+        if (Number(sizepenisrole) + Number(args[1]) < 31) { 
          let clienroles = message.guild.roles.find('name', `${sizepenisrole} см`);   
          let clienrolen = message.guild.roles.find('name', `${Number(sizepenisrole) + Number(args[1])} см`);  
          let raddclien = `UPDATE xp SET point = ${point}-${args[1]} WHERE id = '${message.author.id}'`
