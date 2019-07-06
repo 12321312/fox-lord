@@ -173,49 +173,37 @@ bot.on('message', async message => {
        if (!message.member.roles.find('name', "Искушенный")) {
        message.member.removeRole(xprole0.id); 
        message.member.addRole(xprole1.id); 
-       message.reply("поздравляю с новым званием <@&537701837000802304>! Вы набрали 5 уровень. Выдал вам 5 поинтов за уровень!");
-       let pointlvladd = `UPDATE xp SET point = ${point}+5 WHERE id = '${message.author.id}'`;
-       connection.query(pointlvladd);
+       message.reply("поздравляю с новым званием <@&537701837000802304>! Вы набрали 5 уровень.");
     }}
     if (xp > 10000 && xp < 20000) { 
         if (!message.member.roles.find('name', "Штуцер")) {
         message.member.removeRole(xprole1.id); 
         message.member.addRole(xprole2.id); 
-        message.reply("поздравляю с новым званием <@&537702291059507213>! Вы набрали 10 уровень. Выдал вам 10 поинтов за уровень!");
-        let pointlvladd = `UPDATE xp SET point = ${point}+10 WHERE id = '${message.author.id}'`;
-        connection.query(pointlvladd);
+        message.reply("поздравляю с новым званием <@&537702291059507213>! Вы набрали 10 уровень.");
     }}
     if (xp > 20000 && xp < 35000) { 
         if (!message.member.roles.find('name', "Шнурок")) {
         message.member.removeRole(xprole2.id); 
         message.member.addRole(xprole3.id); 
-        message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень. Выдал вам 20 поинтов за уровень!");
-        let pointlvladd = `UPDATE xp SET point = ${point}+20 WHERE id = '${message.author.id}'`;
-        connection.query(pointlvladd);
+        message.reply("поздравляю с новым званием <@&537706999845093377>! Вы набрали 20 уровень.");
     }}
     if (xp > 35000 && xp < 70000) { 
         if (!message.member.roles.find('name', "Просвещенный")) {
         message.member.removeRole(xprole3.id); 
         message.member.addRole(xprole4.id); 
-        message.reply("поздравляю с новым званием <@&596398929718018049>! Вы набрали 35 уровень. Выдал вам 35 поинтов за уровень!");
-        let pointlvladd = `UPDATE xp SET point = ${point}+35 WHERE id = '${message.author.id}'`;
-        connection.query(pointlvladd);
+        message.reply("поздравляю с новым званием <@&596398929718018049>! Вы набрали 35 уровень.");
     }}
     if (xp > 70000 && xp < 100000) { 
         if (!message.member.roles.find('name', "Знаток")) {
         message.member.removeRole(xprole4.id); 
         message.member.addRole(xprole5.id); 
-        message.reply("поздравляю с новым званием <@&596399524847812621>! Вы набрали 70 уровень. Выдал вам 70 поинтов за уровень!");
-        let pointlvladd = `UPDATE xp SET point = ${point}+35 WHERE id = '${message.author.id}'`;
-        connection.query(pointlvladd);
+        message.reply("поздравляю с новым званием <@&596399524847812621>! Вы набрали 70 уровень.");
     }}
     if (xp > 100000) { 
         if (!message.member.roles.find('name', "Божество")) {
         message.member.removeRole(xprole5.id); 
         message.member.addRole(xprole6.id); 
-        message.reply("поздравляю с новым званием <@&596399865274171461>! Вы набрали 100 уровень, максимальный на этом сервере. Дарю вам за это 150 поинтов!");
-        let pointlvladd = `UPDATE xp SET point = ${point}+150 WHERE id = '${message.author.id}'`;
-        connection.query(pointlvladd);
+        message.reply("поздравляю с новым званием <@&596399865274171461>! Вы набрали 100 уровень, максимальный на этом сервере.");
     }}
     };
 }
