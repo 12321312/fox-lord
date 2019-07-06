@@ -42,10 +42,10 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Уровень:",lvl.toFixed(0), true) 
     .addField("Донат поинтов:",point, true)
     .addField("Звание:",zhanei, true)
-    .addField("ID индификатор:",a.id, true)
+    .addField("ID индификатор:",a.id, true);
     if(!keys) { ambed.addField("Ключи:", keys, true) }
-    .addField("Создание аккаунта:",a.createdAt, false)
-    .setThumbnail(a.avatarURL);
+    ambed.addField("Создание аккаунта:",a.createdAt, false);
+    ambed.setThumbnail(a.avatarURL);
 
      bot.send({embed:ambed});
 });
