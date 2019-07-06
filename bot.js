@@ -293,7 +293,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     });
 }  
 
-  if(!message.content.startsWith(prefix)) return message.react(bot.emojis.get("554122910584012800"));
+  if(!message.content.startsWith(prefix)) return;
   if(cooldown.has(message.author.id)){
     message.delete();
     return message.reply("хэй! Подожди 7 секунд и пиши команду...")
@@ -301,6 +301,8 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
 } 
+
+  await message.react(bot.emojis.get("554122910584012800"));
 
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
