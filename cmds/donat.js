@@ -14,7 +14,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("______\nУслуги:","**XP**\nДобавляет вам опыта, *100XP - 1 поинт*\n**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**Музыка**\nДобавляет вам роль Music-key и дает возможность использовать DJ команды, *20 поинтов*\n**Вип**\nБот выдает вам V.I.P навсегда, *100 поинтов*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
     .setThumbnail("http://pngimg.com/uploads/coin/coin_PNG36874.png");
   
-  if(!(args[0])) return bot.send({embed:ambed});  
+  if(!(args[0])) return message.delete(15000); bot.send({embed:ambed}).then(async msg => await msg.delete(15000));  
   
   if((args[0])) {
   connection.query(`SELECT * FROM clien,xp WHERE clien.id = '${message.author.id}' AND xp.id = '${message.author.id}'`, async (err, rows) => {
