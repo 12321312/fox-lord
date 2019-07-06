@@ -21,7 +21,6 @@ module.exports.run = async (bot,message,args,connection) => {
     
     let keys = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Dota-key" || r.name == "EVE-key" || r.name == "Music-key" || r.name == "Minecraft-key" || r.name == "Gmod-key" || r.name == "SI-key" || r.name == "CS-key" || r.name == "Secret-key").map(r => r).join(', ')
     if(!keys) keys = "нету";
-    
     let pole = "Мужской"; 
     if (message.member.roles.find('name', `Барышня`)) pole = "Женский";
     let oritn = "Не установленно"; 
@@ -43,7 +42,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Донат поинтов:",point, true)
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
-    if(!keys) { ambed.addField("Ключи:", keys, true) };
+    if(keys) { ambed.addField("Ключи:", keys, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
     ambed.setThumbnail(a.avatarURL);
 
