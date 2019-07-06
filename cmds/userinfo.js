@@ -47,7 +47,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
     if(!keys) { ambed.addField("Ключи:", keys, true) }
-    if(!keys) { ambed.addField("Особые роли:", osuff, true) }
+    if(!osuff) { ambed.addField("Особые роли:", osuff, true) }
     ambed.addField("Создание аккаунта:",a.createdAt, false);
     ambed.setThumbnail(a.avatarURL);
 
