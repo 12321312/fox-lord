@@ -147,7 +147,7 @@ fs.readdir('./cmds/',(err,files)=>{
 bot.on('message', async message => {
   if(message.author.bot) return;
   if(message.channel.type == "dm") return;
-  bot.emit('checkMessage', msg);
+  bot.emit('checkMessage', message);
   bot.send = function (msg){
         message.channel.send(msg);
   };
