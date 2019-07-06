@@ -21,7 +21,8 @@ module.exports.run = async (bot,message,args) => {
     .addField("!репорт <юзер> <причина>","Отправляет репорт администрации сервера на участника.")
     .setThumbnail("http://pngimg.com/uploads/question_mark/question_mark_PNG73.png")
 
-    bot.send({embed:ambed});
+    message.delete(15000);
+    message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000));
 
 };
 module.exports.help = {

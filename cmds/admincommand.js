@@ -20,7 +20,9 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
     .addField("!удалить *<юзер> <кол-во>*","Удаляет сообщение пользователя в указаном кол-ве, можно удалить все, указав только кол-во.")
     .setThumbnail("http://www.sclance.com/pngs/admin-png/admin_png_17235.jpg");
 
-    bot.send({embed:ambed});
+    message.delete(15000);
+    message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000));
+    
 } else 
 {
   message.reply("А пососать не завернуть?"); 

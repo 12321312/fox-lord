@@ -45,8 +45,8 @@ module.exports.run = async (bot,message,args,connection) => {
     ambed.addField("Создание аккаунта:",a.createdAt, false);
     ambed.setThumbnail(a.avatarURL);
      
-     message.delete(10000);
-     message.channel.send({embed:ambed}).then(async msg => await msg.delete(10000));
+     message.delete(15000);
+     message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000));
 });
 };
 module.exports.help = {

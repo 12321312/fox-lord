@@ -40,7 +40,9 @@ module.exports.run = async (bot,message,args) => {
             }
           ]
         }
-      })
+      }).then(async msg => await msg.delete(15000));
+
+      message.delete(15000);
 };
 module.exports.help = {
     name: "инфо"
