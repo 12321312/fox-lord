@@ -293,7 +293,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     });
 }  
 
-  if(!message.content.startsWith(prefix)) return;
+  if(!message.content.startsWith(prefix)) return message.react(bot.emojis.get("554122910584012800"));
   if(cooldown.has(message.author.id)){
     message.delete();
     return message.reply("хэй! Подожди 7 секунд и пиши команду...")
