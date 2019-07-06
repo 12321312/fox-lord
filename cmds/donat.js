@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
-    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**XP**\nДобавляет вам опыта, *100XP - 1 поинт*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
+    .addField("______\nУслуги:","**XP**\nДобавляет вам опыта, *100XP - 1 поинт***Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**Музыка**\nДобавляет вам роль Music-key и дает возможность использовать DJ команды, *20 поинтов*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
     .setThumbnail("http://pngimg.com/uploads/coin/coin_PNG36874.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
@@ -89,7 +89,15 @@ module.exports.run = async (bot,message,args,connection) => {
         if(point < 150) return message.reply(`У вас не хватает **${Number(150) - Number(point)} поинта(ов)** на покупку Nitro Discord, на данный момент ваш баланс **${point}**`);
         message.author.sendMessage(`В данный момент нитро я не смогу выдать, так как не была привязанна БД к этой команде, когда-нибудь фокс это добавит... я надеюсь. Поинты с вас сняты не были, ваш баланс: **${point}**.`);
         return message.reply(`Поздравляем с покупкой, вся инструкция по активации была высланна вам в ЛС.`);
-   } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
+    } else if ((args[0]) == "Музыка" || (args[0]) == "музыка" || (args[0]) == "Мьюзик" || (args[0]) == "мьюзик" || (args[0]) == "Music-key"|| (args[0]) == "music-key" || (args[0]) == "Music" || (args[0]) == "music") {
+        if (point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на покупку Music-key, на данный момент ваш баланс **${point}**`);
+        if (message.member.roles.find('name', `Music-key`)) return message.reply(`У вас уже есть ключ **"Music-key"**! Повторно его купить - нельзя.`);
+        let xpon = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
+        connection.query(xpon);
+        let musickey = message.guild.roles.find('name', `Music-key`); 
+        message.member.addRole(musickey.id);
+        return message.reply(`Поздравляем с покупкой, вы купили ключ **"Music-key"**. Вам открылся канал <#552433561769345029> в нём введите *"!help"* и получите весь список команд, команды в этот же чат писать.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${point}**. `);
+    } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
     
 
  });
