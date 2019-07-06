@@ -24,7 +24,7 @@ module.exports.run = async (bot,message,args,connection) => {
 
     if((args[0]) == "член") {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
-      if(!(args[2]) < point) return message.reply(`У вас не хватает **${Number(args[2]) - Number(point)} поинта(ов)**, на данный момент ваш баланс **${point}**`);
+      if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)**, на данный момент ваш баланс **${point}**`);
     }
 
   //sql = `UPDATE xp SET xp = ${xp + 1000} WHERE id = '${message.author.id}'`
