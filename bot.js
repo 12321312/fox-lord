@@ -382,7 +382,7 @@ bot.on('ready', () => {
          }
      });
      wait(1000);
-     antispam();
+     antispam(bot);
      bot.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
           invites[g.id] = guildInvites;
