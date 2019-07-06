@@ -10,7 +10,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
-    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, 1 поинт - 1 см\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал' - 20 поинтов")
+    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**XP**\nДобавляет вам опыта, *100XP - 1 поинт*")
     .setThumbnail("https://www.buybitcoinworldwide.com/img/goodicons/doublecoin.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
@@ -19,7 +19,8 @@ module.exports.run = async (bot,message,args,connection) => {
   connection.query(`SELECT * FROM clien,xp WHERE clien.id = '${message.author.id}' AND xp.id = '${message.author.id}'`, async (err, rows) => {
    if(err) throw err;
    let cm = rows[0].cm; 
-   let point = rows[0].point;    
+   let point = rows[0].point; 
+   let xp = rows[0].xp;    
 
     if((args[0]) == "член" || (args[0]) == "Член") {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
@@ -75,8 +76,16 @@ module.exports.run = async (bot,message,args,connection) => {
             message.member.addRole(pirddrole.id)
             return message.reply(`Поздравляем с покупкой, вы купили себе звание **"ПИДОР"**, теперь можете долбиться в очко! Остаток вашего баланса **${Number(point) - Number(20)}**`);
         } else return message.reply(`Вы не прошли еще тест, пройдите его для начала! Напишите в чат *"!пидор"*`);
+    } else if ((args[0]) == "ХП" || (args[0]) == "хп" || (args[0]) == "Хп" || (args[0]) == "xp" || (args[0]) == "XP") {
+           if (!(args[1])) return message.reply(`На данный момент у вас **${xp} XP**, напишите кол-во которое вы хотите купить командой: *"!донат хп <кол-во>"*`); 
+           if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс **${point}**`);
+           let xpon = `UPDATE xp SET point = ${point}-${args[1]} WHERE id = '${message.author.id}'`
+           connection.query(xpon);
+           let xpono = `UPDATE xp SET xp = ${point}+${args[1]*100} WHERE id = '${message.author.id}'`
+           connection.query(xpono);
+           return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${point}+${args[1]*100} XP**! Остаток вашего баланса **${Number(point) - Number(args[1])}**.`);
     } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
-
+    
 
  });
  }
