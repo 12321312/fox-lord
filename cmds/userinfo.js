@@ -18,7 +18,7 @@ module.exports.run = async (bot,message,args,connection) => {
 
  
 
-    let roles = message.member.roles.filter(r => r.name !==("@everyone" || "@Лисий повелитель")).map(r => r).join(', ')
+    let roles = message.member.roles.filter(r => r.name !==("@everyone" || "Лисий повелитель")).map(r => r).join(', ')
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
