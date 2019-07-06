@@ -77,7 +77,7 @@ module.exports.run = async (bot,message,args,connection) => {
             return message.reply(`Поздравляем с покупкой, вы купили себе звание **"ПИДОР"**, теперь можете долбиться в очко! Остаток вашего баланса **${Number(point) - Number(20)}**`);
         } else return message.reply(`Вы не прошли еще тест, пройдите его для начала! Напишите в чат *"!пидор"*`);
     } else if ((args[0]) == "ХП" || (args[0]) == "хп" || (args[0]) == "Хп" || (args[0]) == "xp" || (args[0]) == "XP") {
-           if (!(args[1])) return message.reply(`На данный момент у вас **${xp} XP**, напишите кол-во которое вы хотите купить командой: *"!донат хп <кол-во>"*`); 
+           if (!(args[1])) return message.reply(`На данный момент у вас **${xp} XP**, напишите кол-во которое вы хотите купить командой: *"!донат хп <кол-во>(поинтов за xp)"*`); 
            if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс **${point}**`);
            let xpon = `UPDATE xp SET point = ${point}-${args[1]} WHERE id = '${message.author.id}'`
            connection.query(xpon);
