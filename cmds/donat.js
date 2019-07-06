@@ -16,7 +16,7 @@ module.exports.run = async (bot,message,args,connection) => {
   if(!(args[0])) return bot.send({embed:ambed});  
   
   if((args[0])) {
-  connection.query(`SELECT * FROM clien,xp WHERE clien.id = '${message.author.id}'`, (err, rows) => {
+  connection.query(`SELECT * FROM clien,xp WHERE clien.id = '${message.author.id}' and xp.id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
    let cm = rows[0].cm; 
    let point = rows[0].point;    
