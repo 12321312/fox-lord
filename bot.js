@@ -351,7 +351,7 @@ bot.on('ready', () => {
 // Автороль
 bot.on('guildMemberAdd', member => {
   const ei = invites[member.guild.id];
-  invites[member.guild.id] = guildInvites;
+  //invites[member.guild.id] = guildInvites;
   const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
   const inviter = client.users.get(invite.inviter.id);
   console.log('User ' + member.user.tag + ' зашёл на сервер!');
