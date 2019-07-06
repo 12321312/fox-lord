@@ -341,7 +341,7 @@ bot.on('ready', () => {
          }
      });
    wait(1000);
-   client.guilds.forEach(g => {
+   bot.guilds.forEach(g => {
      g.fetchInvites().then(guildInvites => {
        invites[g.id] = guildInvites;
       });
@@ -353,7 +353,7 @@ bot.on('guildMemberAdd', member => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
   const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-  const inviter = client.users.get(invite.inviter.id);
+  const inviter = bot.users.get(invite.inviter.id);
   console.log('User ' + member.user.tag + ' зашёл на сервер!');
   let channel = bot.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
