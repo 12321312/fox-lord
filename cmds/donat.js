@@ -10,7 +10,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
-    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**XP**\nДобавляет вам опыта, *100XP - 1 поинт*")
+    .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**XP**\nДобавляет вам опыта, *100XP - 1 поинт*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
     .setThumbnail("https://www.buybitcoinworldwide.com/img/goodicons/doublecoin.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
@@ -78,13 +78,17 @@ module.exports.run = async (bot,message,args,connection) => {
         } else return message.reply(`Вы не прошли еще тест, пройдите его для начала! Напишите в чат *"!пидор"*`);
     } else if ((args[0]) == "ХП" || (args[0]) == "хп" || (args[0]) == "Хп" || (args[0]) == "xp" || (args[0]) == "XP") {
            if (!(args[1])) return message.reply(`На данный момент у вас **${xp} XP**, напишите кол-во которое вы хотите купить командой: *"!донат хп <кол-во>(поинтов за xp)"*`); 
-           if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс **${point}**`);
+           if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на покупку XP, на данный момент ваш баланс **${point}**`);
            let xpon = `UPDATE xp SET point = ${point}-${args[1]} WHERE id = '${message.author.id}'`
            connection.query(xpon);
            let xpono = `UPDATE xp SET xp = ${xp}+${args[1]*100} WHERE id = '${message.author.id}'`
            connection.query(xpono);
            return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${Number(xp) + Number(args[1]*100)} XP**! Остаток вашего баланса **${Number(point) - Number(args[1])}**.`);
-    } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
+    } else if ((args[0]) == "Нитро" || (args[0]) == "нитро" || (args[0]) == "Nitro" || (args[0]) == "nitro" || (args[0]) == "НИТРО") {
+        if(point < 150) return message.reply(`У вас не хватает **${Number(150) - Number(point)} поинта(ов)** на покупку Nitro Discord, на данный момент ваш баланс **${point}**`);
+        message.author.sendMessage(`В данный момент нитро я не смогу выдать, так как не была привязанна БД к этой команде, когда-нибудь фокс это добавит... я надеюсь. Поинты с вас сняты не были, ваш баланс: **${point}**.`);
+        return message.reply(`Поздравляем с покупкой, вся инструкция по активации была высланна вам в ЛС.`);
+   } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
     
 
  });
