@@ -15,10 +15,13 @@ module.exports.run = async (bot,message,args,connection) => {
      }
 
     if (lvl < lvl.toFixed(0)) lvl -= 1;
+
     let zhanei = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник" || r.name == "Божество" || r.name == "Знаток" || r.name == "Просвещенный" || r.name == "Шнурок" || r.name == "Штуцер" || r.name == "Искушенный" || r.name == "Прозелит" || r.name == "V.I.P").map(r => r).join(', ')
-    if(!zhanei) zhanei = "нету";  
+    if(!zhanei) zhanei = "нету";
+    
     let keys = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Dota-key" || r.name == "EVE-key" || r.name == "Music-key" || r.name == "Minecraft-key" || r.name == "Gmod-key" || r.name == "SI-key" || r.name == "CS-key" || r.name == "Secret-key").map(r => r).join(', ')
     if(!keys) keys = "нету";
+    
     let pole = "Мужской"; 
     if (message.member.roles.find('name', `Барышня`)) pole = "Женский";
     let oritn = "Не установленно"; 
@@ -40,8 +43,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Донат поинтов:",point, true)
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
-    if(!keys) { ambed.addField("Ключи:", keys, true) }
- 
+    if(!keys) { ambed.addField("Ключи:", keys, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
     ambed.setThumbnail(a.avatarURL);
 
