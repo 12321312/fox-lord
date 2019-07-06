@@ -172,7 +172,7 @@ bot.on('message', async message => {
 
    if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name)) ){
    if (xp > 5000 && xp < 10000) { 
-     if(zvania = 0) let zvarl = `UPDATE xp SET zvania = 1 WHERE id = '${message.author.id}'`
+     if(zvania == 0) let zvarl = `UPDATE xp SET zvania = 1 WHERE id = '${message.author.id}'`
      connection.query(zvarl);
        if (!message.member.roles.find('name', "Искушенный")) {
        message.member.removeRole(xprole0.id); 
