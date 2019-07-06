@@ -92,8 +92,8 @@ module.exports.run = async (bot,message,args,connection) => {
     } else if ((args[0]) == "Музыка" || (args[0]) == "музыка" || (args[0]) == "Мьюзик" || (args[0]) == "мьюзик" || (args[0]) == "Music-key"|| (args[0]) == "music-key" || (args[0]) == "Music" || (args[0]) == "music") {
         if (point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на покупку Music-key, на данный момент ваш баланс **${point}**`);
         if (message.member.roles.find('name', `Music-key`)) return message.reply(`У вас уже есть ключ **"Music-key"**! Повторно его купить - нельзя.`);
-        let xpon = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
-        connection.query(xpon);
+        let musickeypoint = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
+        connection.query(musickeypoint);
         let musickey = message.guild.roles.find('name', `Music-key`); 
         message.member.addRole(musickey.id);
         return message.reply(`Поздравляем с покупкой, вы купили ключ **"Music-key"**. Вам открылся канал <#552433561769345029> в нём введите *"!help"* и получите весь список команд, команды в этот же чат писать.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${point}**. `);
