@@ -14,7 +14,7 @@ const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"
 const mysql = require("mysql");
 const invites = {};
 const wait = require('util').promisify(setTimeout);
-const antispam = require('discord-anti-spam');
+const antispam = require('./antispam.js');
 let cooldown = new Set();
 let cdseconds = 7;
 
@@ -381,18 +381,6 @@ bot.on('ready', () => {
              type: "STREAMING"
          }
      });
-     antispam(bot, {
-      warnBuffer: 5, 
-      maxBuffer: 10, 
-      interval: 2000,  
-      warningMessage: "хватит спамить!",  
-      banMessage: "по ебалу банхамером за спам!", 
-      maxDuplicatesWarning: 7,
-      maxDuplicatesBan: 15, 
-      deleteMessagesAfterBanForPastDays: 7, 
-      exemptRoles: ["Лисий повелитель","Андроид 2.0","Куратор","Дозорный","Прислужник","Nsfw-знаток","Андроид","Божество","Знаток","Просвещенный"], 
-      exemptUsers: ["LousyFox#1337"] 
-     });  
      wait(1000);
      bot.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
