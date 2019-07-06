@@ -51,7 +51,7 @@ module.exports = async (bot, options) => {
 
         setTimeout(function(){
             user.removeRole(muteroleauto.id);
-        }, 86400000);
+        }, 10000);
         return message.channel.send(`Замутил пользователя <@!${user.id}> на сутки, за неоднократный спам.`);
     }
   }
