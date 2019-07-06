@@ -25,13 +25,9 @@ module.exports.run = async (bot,message,args,connection) => {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
     }
 
-
-  if(err) throw err;
-  let sql;
-  let xp = rows[0].xp;
-  sql = `UPDATE xp SET xp = ${xp + 1000} WHERE id = '${message.author.id}'`
+  //sql = `UPDATE xp SET xp = ${xp + 1000} WHERE id = '${message.author.id}'`
  
-  connection.query(sql);
+  //connection.query(sql);
  });
  }
 };
