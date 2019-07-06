@@ -12,7 +12,6 @@ const embedColor = "#dd2423";
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const mysql = require("mysql");
-const invites = {};
 let cooldown = new Set();
 let cdseconds = 7;
 
@@ -343,6 +342,7 @@ bot.on('ready', () => {
 
 // Автороль
 bot.on('guildMemberAdd', member => {
+    const invites = {};
     bot.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
             invites[g.id] = guildInvites;
