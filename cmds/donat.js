@@ -84,19 +84,19 @@ module.exports.run = async (bot,message,args,connection) => {
            connection.query(xpon);
            let xpono = `UPDATE xp SET xp = ${xp}+${args[1]*100} WHERE id = '${message.author.id}'`
            connection.query(xpono);
-           return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${Number(xp) + Number(args[1]*100)} XP**! Остаток вашего баланса **${Number(point) - Number(args[1])}**.`);
+           return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${Number(xp) + Number(args[1]*100)} XP**! Остаток вашего баланса: **${Number(point) - Number(args[1])}**.`);
     } else if ((args[0]) == "Нитро" || (args[0]) == "нитро" || (args[0]) == "Nitro" || (args[0]) == "nitro" || (args[0]) == "НИТРО") {
         if(point < 150) return message.reply(`У вас не хватает **${Number(150) - Number(point)} поинта(ов)** на покупку Nitro Discord, на данный момент ваш баланс **${point}**`);
         message.author.sendMessage(`В данный момент нитро я не смогу выдать, так как не была привязанна БД к этой команде, когда-нибудь фокс это добавит... я надеюсь. Поинты с вас сняты не были, ваш баланс: **${point}**.`);
         return message.reply(`Поздравляем с покупкой, вся инструкция по активации была высланна вам в ЛС.`);
     } else if ((args[0]) == "Музыка" || (args[0]) == "музыка" || (args[0]) == "Мьюзик" || (args[0]) == "мьюзик" || (args[0]) == "Music-key"|| (args[0]) == "music-key" || (args[0]) == "Music" || (args[0]) == "music") {
-        if (point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на покупку Music-key, на данный момент ваш баланс **${point}**`);
+        if (point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на покупку Music-key, на данный момент ваш баланс: **${point}**.`);
         if (message.member.roles.find('name', `Music-key`)) return message.reply(`У вас уже есть ключ **"Music-key"**! Повторно его купить - нельзя.`);
         let musickeypoint = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
         connection.query(musickeypoint);
         let musickey = message.guild.roles.find('name', `Music-key`); 
         message.member.addRole(musickey.id);
-        return message.reply(`Поздравляем с покупкой, вы купили ключ **"Music-key"**. Вам открылся канал <#552433561769345029> в нём введите *"!help"* и получите весь список команд, команды в этот же чат писать.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${point}**. `);
+        return message.reply(`Поздравляем с покупкой, вы купили ключ **"Music-key"**. Вам открылся канал <#552433561769345029> в нём введите *"!help"* и получите весь список команд, команды в этот же чат писать.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${Number(point) - Number(20)}**. `);
     } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
     
 
