@@ -4,6 +4,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
   let ambed = new Discord.RichEmbed()
     .setTitle("Донат меню:")
+    .setDescription(`Купить монеты можно у <@!294844223675564034>, стоимость 1 поинт = 3 рубля. Или заработать получая уровень или выполняя поручения специальных ролей.`)
     .setTimestamp()
     .setFooter("Донат систем v1337", "http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png")
     .setColor('#FFFF00')
@@ -24,7 +25,7 @@ module.exports.run = async (bot,message,args,connection) => {
 
     if((args[0]) == "член" || (args[0]) == "Член") {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
-     if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс **${point}**`);
+     if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс: **${point}**.`);
      for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
       if (message.member.roles.find('name', `${sizepenisrole} см`)) {
         if (Number(sizepenisrole) + Number(args[1]) < 31) { 
@@ -50,12 +51,12 @@ module.exports.run = async (bot,message,args,connection) => {
 
          message.member.addRole(clienrolen.id)
 
-         return message.reply(`Поздравляем с покупкой, теперь у вас **${Number(sizepenisrole) + Number(args[1])} см**! Остаток вашего баланса **${Number(point) - Number(args[1])}**`);
+         return message.reply(`Поздравляем с покупкой, теперь у вас **${Number(sizepenisrole) + Number(args[1])} см**! Остаток вашего баланса: **${Number(point) - Number(args[1])}**.`);
         } else return message.reply(`У вас не может быть ${Number(sizepenisrole) + Number(args[1])} см! Максимальная длина члена 30 см`);
       }
      }
     } else if ((args[0]) == "Ориентация" || (args[0]) == "ориентация" || (args[0]) == "оринтация" || (args[0]) == "Оринтация") {
-        if(point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на смену оринтации, на данный момент ваш баланс **${point}**`);
+        if(point < 20) return message.reply(`У вас не хватает **${Number(20) - Number(point)} поинта(ов)** на смену оринтации, на данный момент ваш баланс: **${point}**.`);
         let pirddrole = message.guild.roles.find('name', `Пидор`);   
         let pirdnrole = message.guild.roles.find('name', `Натурал`);  
 
@@ -66,7 +67,7 @@ module.exports.run = async (bot,message,args,connection) => {
             connection.query(ortrolep); 
             message.member.removeRole(pirddrole.id)
             message.member.addRole(pirdnrole.id)
-            return message.reply(`Поздравляем с покупкой, вы купили себе звание **"НАТУРАЛ"**, теперь смело еб@ать баб! Остаток вашего баланса **${Number(point) - Number(20)}**`);
+            return message.reply(`Поздравляем с покупкой, вы купили себе звание **"НАТУРАЛ"**, теперь смело еб@ать баб! Остаток вашего баланса: **${Number(point) - Number(20)}**.`);
         } else if (message.member.roles.find('name', `Натурал`)) {
             let ortroleon = `UPDATE xp SET point = ${point}-20 WHERE id = '${message.author.id}'`
             connection.query(ortroleon);   
@@ -74,11 +75,11 @@ module.exports.run = async (bot,message,args,connection) => {
             connection.query(ortrolen); 
             message.member.removeRole(pirdnrole.id)
             message.member.addRole(pirddrole.id)
-            return message.reply(`Поздравляем с покупкой, вы купили себе звание **"ПИДОР"**, теперь можете долбиться в очко! Остаток вашего баланса **${Number(point) - Number(20)}**`);
+            return message.reply(`Поздравляем с покупкой, вы купили себе звание **"ПИДОР"**, теперь можете долбиться в очко! Остаток вашего баланса: **${Number(point) - Number(20)}**.`);
         } else return message.reply(`Вы не прошли еще тест, пройдите его для начала! Напишите в чат *"!пидор"*`);
     } else if ((args[0]) == "ХП" || (args[0]) == "хп" || (args[0]) == "Хп" || (args[0]) == "xp" || (args[0]) == "XP") {
            if (!(args[1])) return message.reply(`На данный момент у вас **${xp} XP**, напишите кол-во которое вы хотите купить командой: *"!донат хп <кол-во>(поинтов за xp)"*`); 
-           if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на покупку XP, на данный момент ваш баланс **${point}**`);
+           if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на покупку XP, на данный момент ваш баланс: **${point}**.`);
            let xpon = `UPDATE xp SET point = ${point}-${args[1]} WHERE id = '${message.author.id}'`
            connection.query(xpon);
            let xpono = `UPDATE xp SET xp = ${xp}+${args[1]*100} WHERE id = '${message.author.id}'`
