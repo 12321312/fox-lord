@@ -5,7 +5,7 @@ var warned = [];
 var banned = [];
 var messageLog = [];
 
-module.exports = async (client, options) => {
+module.exports = async (bot, options) => {
   /* Option Definitions */
   
   const warnBuffer = (options && options.warnBuffer) || 3; // Default Value: 3
@@ -34,7 +34,7 @@ module.exports = async (client, options) => {
   if(exemptUsers.constructor !== Array) throw new Error("exemptUsers must be an array.");
   
   // Custom 'checkMessage' event that handles messages
- client.on("checkMessage", async (message) => {
+ bot.on("checkMessage", async (message) => {
  
   // Ban the User
   const banUser = async (m, banMsg) => {
@@ -70,7 +70,7 @@ module.exports = async (client, options) => {
    
     if (message.member.roles.some(r => exemptRoles.includes(r.name)) || exemptUsers.includes(message.author.tag)) return;
 
-    if (message.author.id !== client.user.id) {
+    if (message.author.id !== bot.user.id) {
       let currentTime = Math.floor(Date.now());
       authors.push({
         "time": currentTime,
@@ -84,7 +84,7 @@ module.exports = async (client, options) => {
       
       let msgMatch = 0;
       for (var i = 0; i < messageLog.length; i++) {
-        if (messageLog[i].message == message.content && (messageLog[i].author == message.author.id) && (message.author.id !== client.user.id)) {
+        if (messageLog[i].message == message.content && (messageLog[i].author == message.author.id) && (message.author.id !== bot.user.id)) {
           msgMatch++;
         }
       }
