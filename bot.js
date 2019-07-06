@@ -159,7 +159,7 @@ bot.on('message', async message => {
     let xp = rows[0].xp;
     let point = rows[0].point;
     let zvaniad = rows[0].zvania;
-
+    let zvarl = `UPDATE xp SET zvania = 0 WHERE id = '${message.author.id}'`
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
 
    let xprole0 = message.guild.roles.find('name', "Прозелит");
@@ -172,7 +172,7 @@ bot.on('message', async message => {
 
    if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name)) ){
    if (xp > 5000 && xp < 10000) { 
-     if(zvaniad == 0) let zvarl = `UPDATE xp SET zvania = 1 WHERE id = '${message.author.id}'`
+     if(zvaniad == 0) zvarl = `UPDATE xp SET zvania = 1 WHERE id = '${message.author.id}'`
      connection.query(zvarl);
        if (!message.member.roles.find('name', "Искушенный")) {
        message.member.removeRole(xprole0.id); 
@@ -186,7 +186,7 @@ bot.on('message', async message => {
         };
     }}
     if (xp > 10000 && xp < 20000) { 
-     if(zvaniad == 1 || zvaniad == 0) let zvarl = `UPDATE xp SET zvania = 2 WHERE id = '${message.author.id}'`
+     if(zvaniad == 1 || zvaniad == 0) zvarl = `UPDATE xp SET zvania = 2 WHERE id = '${message.author.id}'`
      connection.query(zvarl);
         if (!message.member.roles.find('name', "Штуцер")) {
          message.member.removeRole(xprole1.id); 
@@ -200,7 +200,7 @@ bot.on('message', async message => {
           };
     }}
     if (xp > 20000 && xp < 35000) { 
-      if(zvaniad == 2 || zvaniad == 0) let zvarl = `UPDATE xp SET zvania = 3 WHERE id = '${message.author.id}'`
+      if(zvaniad == 2 || zvaniad == 0) zvarl = `UPDATE xp SET zvania = 3 WHERE id = '${message.author.id}'`
       connection.query(zvarl);   
         if (!message.member.roles.find('name', "Шнурок")) {
          message.member.removeRole(xprole2.id); 
@@ -214,7 +214,7 @@ bot.on('message', async message => {
           };
     }}
     if (xp > 35000 && xp < 70000) {
-      if(zvaniad == 3 || zvaniad == 0) let zvarl = `UPDATE xp SET zvania = 4 WHERE id = '${message.author.id}'`
+      if(zvaniad == 3 || zvaniad == 0) zvarl = `UPDATE xp SET zvania = 4 WHERE id = '${message.author.id}'`
       connection.query(zvarl); 
         if (!message.member.roles.find('name', "Просвещенный")) {
         message.member.removeRole(xprole3.id); 
@@ -228,7 +228,7 @@ bot.on('message', async message => {
          };
     }}
     if (xp > 70000 && xp < 100000) {
-      if(zvaniad == 4 || zvaniad == 0) let zvarl = `UPDATE xp SET zvania = 5 WHERE id = '${message.author.id}'`
+      if(zvaniad == 4 || zvaniad == 0) zvarl = `UPDATE xp SET zvania = 5 WHERE id = '${message.author.id}'`
       connection.query(zvarl); 
         if (!message.member.roles.find('name', "Знаток")) {
         message.member.removeRole(xprole4.id); 
@@ -242,7 +242,7 @@ bot.on('message', async message => {
         };
     }}
     if (xp > 100000) {
-      if(zvaniad == 5 || zvaniad == 0) let zvarl = `UPDATE xp SET zvania = 6 WHERE id = '${message.author.id}'`
+      if(zvaniad == 5 || zvaniad == 0) zvarl = `UPDATE xp SET zvania = 6 WHERE id = '${message.author.id}'`
       connection.query(zvarl); 
         if (!message.member.roles.find('name', "Божество")) {
         message.member.removeRole(xprole5.id); 
