@@ -159,7 +159,7 @@ bot.on('message', async message => {
     let xp = rows[0].xp;
     let point = rows[0].point;
     let zvaniad = rows[0].zvania;
-    let zvarl = `UPDATE xp SET zvania = 0 WHERE id = '${message.author.id}'`
+    let zvarl = `UPDATE xp SET zvania = ${zvaniad} WHERE id = '${message.author.id}'`
     sql = `UPDATE xp SET xp = ${xp + generateXp()} WHERE id = '${message.author.id}'`
 
    let xprole0 = message.guild.roles.find('name', "Прозелит");
