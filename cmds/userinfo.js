@@ -34,6 +34,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setThumbnail(a.avatarURL);
 
     await bot.send({embed:ambed}).then(m => m.delete(10000));
+    return;
 });
 };
 module.exports.help = {
