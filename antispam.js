@@ -47,7 +47,7 @@ module.exports = async (bot, options) => {
       
       if (user) {
         let muteroleauto = message.guild.roles.find('name', "muted");  
-        user.addRole(muterole.id);
+        user.addRole(muteroleauto.id);
 
         setTimeout(function(){
             user.removeRole(muteroleauto.id);
