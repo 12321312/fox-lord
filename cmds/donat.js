@@ -23,7 +23,7 @@ module.exports.run = async (bot,message,args,connection) => {
    let sql;
 
     if((args[0]) == "член") {
-     if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
+     if (!(args[1])) return message.reply(`У вас на данный момент **${point} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
       if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)**, на данный момент ваш баланс **${point}**`);
     }
 
