@@ -81,9 +81,9 @@ module.exports.run = async (bot,message,args,connection) => {
            if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс **${point}**`);
            let xpon = `UPDATE xp SET point = ${point}-${args[1]} WHERE id = '${message.author.id}'`
            connection.query(xpon);
-           let xpono = `UPDATE xp SET xp = ${point}+${args[1]*100} WHERE id = '${message.author.id}'`
+           let xpono = `UPDATE xp SET xp = ${xp}+${args[1]*100} WHERE id = '${message.author.id}'`
            connection.query(xpono);
-           return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${point}+${args[1]*100} XP**! Остаток вашего баланса **${Number(point) - Number(args[1])}**.`);
+           return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${Number(xp) + Number(args[1]*100)} XP**! Остаток вашего баланса **${Number(point) - Number(args[1])}**.`);
     } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
     
 
