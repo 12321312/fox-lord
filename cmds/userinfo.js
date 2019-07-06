@@ -44,11 +44,11 @@ module.exports.run = async (bot,message,args,connection) => {
     if(keys) { ambed.addField("Ключи:", keys, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
     ambed.setThumbnail(a.avatarURL);
-
-     bot.send({embed:ambed}).then(async msg => {
+     
+     message.delete(10000)
+     message.channel.send({embed:ambed}).then(async msg => {
       await msg.delete(10000);
-      await message.delete(10000);
-      });
+     });
 });
 };
 module.exports.help = {
