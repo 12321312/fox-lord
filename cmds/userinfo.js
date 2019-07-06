@@ -16,7 +16,7 @@ module.exports.run = async (bot,message,args,connection) => {
 
     if (lvl < lvl.toFixed(0)) lvl -= 1;
 
-    let roles = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор").map(r => r).join(', ')
+    let roles = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник" || r.name == "Божество" || r.name == "Знаток" || r.name == "Просвещенный" || r.name == "Шнурок" || r.name == "Штуцер" || r.name == "Искушенный" || r.name == "Прозелит" || r.name == "V.I.P").map(r => r).join(', ')
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -33,7 +33,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
-     bot.send({embed:ambed}).then(m => m.delete(10000));
+     bot.send({embed:ambed});
 });
 };
 module.exports.help = {
