@@ -348,7 +348,7 @@ bot.on('ready', () => {
       });   
 });
 
-// Автороль
+// Автороль + логирование
 bot.on('guildMemberAdd', member => {
 member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
@@ -359,7 +359,19 @@ member.guild.fetchInvites().then(guildInvites => {
   let channel = bot.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
   let esyy = bot.emojis.get("554122910584012800");
-  channel.send(`На сервер зашёл <@${member.user.id}> по приглашению <@${inviter.id}>! (${invite.uses}) ${esyy}`);
+
+  let Vshde = new Discord.RichEmbed()
+  .setDescription("Зашёл на сервер")
+  .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B2%D1%85%D0%BE%D0%B4-png-.png")
+  .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+  .setColor("#54ff9f")
+  .addField("Зашёл:", `<@${member.user.id}>`, true)
+  .addField("Пригласил:", `<@${inviter.id}>`, true)
+  .addField("ID инвайта:", invite.code, true)
+  .addField("Инвайт использован:", `${invite.uses} раз`, true);
+
+
+  channel.send({embed:Vshde});
   member.addRole(role);
  });
 });
@@ -368,7 +380,15 @@ bot.on('guildMemberRemove', member => {
   console.log('User ' + member.user.tag + ' вышел с сервера!');
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
-  channel.send(`<@${member.user.id}> вышел с сервера! ${nsyy}`);
+  let Vshdex = new Discord.RichEmbed()
+  .setDescription("Вышел с сервера")
+  .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B2%D1%85%D0%BE%D0%B4-png-.png")
+  .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+  .setColor("#f80000")
+  .addField("Вышел:", `<@${member.user.id}>`, true);
+
+
+  channel.send({embed:Vshdex});
 });
 
 
