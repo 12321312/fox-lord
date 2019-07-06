@@ -104,7 +104,7 @@ module.exports.run = async (bot,message,args,connection) => {
         connection.query(vipkeypoint);
         let vipkey = message.guild.roles.find('name', `V.I.P`); 
         message.member.addRole(vipkey.id);
-        return message.reply(`Поздравляем с покупкой, вы купили **"V.I.P"**. Теперь у вас есть вип каналы и вы сверху в списке участников.\nЗа покупку с вас снято 20 поинтов, ваш баланс: **${Number(point) - Number(100)}**. `);
+        return message.reply(`Поздравляем с покупкой, вы купили **"V.I.P"**. Теперь у вас есть вип каналы и вы сверху в списке участников.\nЗа покупку с вас снято 100 поинтов, ваш баланс: **${Number(point) - Number(100)}**. `);
     } else return message.reply(`Не известная команда для доната, посмотрите внимательно на услуги в **"!донат"**`);
     
 
