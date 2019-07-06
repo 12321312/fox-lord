@@ -147,10 +147,11 @@ fs.readdir('./cmds/',(err,files)=>{
 bot.on('message', async message => {
   if(message.author.bot) return;
   if(message.channel.type == "dm") return;
+  bot.emit('checkMessage', msg);
   bot.send = function (msg){
         message.channel.send(msg);
   };
-  bot.emit('checkMessage', msg);
+ 
 
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
