@@ -48,8 +48,8 @@ module.exports.run = async (bot,message,args,connection) => {
         };
 
          message.member.addRole(clienrolen.id)
-         
-         return message.reply(`Поздравляем с покупкой, теперь у вас **${Number(sizepenisrole) + Number(args[1])} см**! Остаток вашего баланса **${point}**`);
+
+         return message.reply(`Поздравляем с покупкой, теперь у вас **${Number(sizepenisrole) + Number(args[1])} см**! Остаток вашего баланса **${Number(point) - Number(args[1])}**`);
         } else return message.reply(`У вас не может быть ${Number(sizepenisrole) + Number(args[1])} см! Максимальная длина члена 30 см`);
       }
      }
