@@ -17,8 +17,8 @@ module.exports.run = async (bot,message,args,connection) => {
     if (lvl < lvl.toFixed(0)) lvl -= 1;
 
  
-
-    let roles = message.member.roles.filter(r => r.name !=="@everyone" && r.name !=="Лисий повелитель").map(r => r).join(', ')
+    let zvania = message.member.roles.filter(r => r.name !=="@everyone" && r.name =="Лисий повелитель" && r.name =="Куратор" && r.name =="Дозорный" && r.name =="Прислужник" && r.name =="Божество" && r.name =="Знаток" && r.name =="Просвещенный" && r.name =="Шнурок" && r.name =="Штуцер" && r.name =="Искушенный" && r.name =="Прозелит").map(r => r).join(', ');
+    if(!zvania) zvania = "нету";
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -31,7 +31,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Уровень:",lvl.toFixed(0), true)
     .addField("Донат поинтов:",point, true)
     .addField("ID индификатор:",a.id, true)
-    .addField("Роли и ключи:",roles, false)
+    .addField("Звания:",zvania, false)
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
