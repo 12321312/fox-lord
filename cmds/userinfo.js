@@ -30,7 +30,6 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Донат поинтов:",point, true)
     .addField("ID индификатор:",a.id, true)
     .addField("Роли и ключи:",roles, false)
-    .addField("Звание:",roles, false)
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
