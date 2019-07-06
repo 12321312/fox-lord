@@ -16,8 +16,8 @@ module.exports.run = async (bot,message,args,connection) => {
 
     if (lvl < lvl.toFixed(0)) lvl -= 1;
 
-    let roles = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник" || r.name == "Божество" || r.name == "Знаток" || r.name == "Просвещенный" || r.name == "Шнурок" || r.name == "Штуцер" || r.name == "Искушенный" || r.name == "Прозелит" || r.name == "V.I.P").map(r => r).join(', ')
-
+    let zhanei = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник" || r.name == "Божество" || r.name == "Знаток" || r.name == "Просвещенный" || r.name == "Шнурок" || r.name == "Штуцер" || r.name == "Искушенный" || r.name == "Прозелит" || r.name == "V.I.P").map(r => r).join(', ')
+    if(!zhanei) zhanei = "нету";
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
     .setTimestamp()
@@ -29,7 +29,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Уровень:",lvl.toFixed(0), true)
     .addField("Донат поинтов:",point, true)
     .addField("ID индификатор:",a.id, true)
-    .addField("Роли и ключи:",roles, false)
+    .addField("Звание:",zhanei, false)
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
