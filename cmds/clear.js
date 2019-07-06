@@ -44,8 +44,8 @@ mutechannel.send({embed:clearmess})
   .setThumbnail("https://api.icons8.com/download/62a92be89dfeaf8aad2ac897c989cae6875429c2/windows8/PNG/512/Industry/trash-512.png")
   .setFooter("Клеар месседжер v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .addField("Администратор:", `${message.author}`, true)
-  .addField("Удаленного:", `<@${mention.id}>`, true)
   .addField("Канал:", message.channel, true)
+  .addField("Удаленного:", `<@${mention.id}>`, true)
   .addField("Удалено:", fetched.size, true);
 
 
