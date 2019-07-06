@@ -20,6 +20,7 @@ if(rows.length == 1) {
 let cms = rows[0].cm;
 if (cms > 0) return message.reply(`вы уже проходили тест, видно перезашли, я окажу услугу и выдам ваши **${cms} см** обратно`);
 }
+
 let clien = new Discord.RichEmbed()
 .setTitle(message.author.username)
 .setTimestamp()
