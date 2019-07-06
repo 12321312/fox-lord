@@ -12,6 +12,8 @@ const embedColor = "#dd2423";
 const embedThumbnail = true; 
 const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"; 
 const mysql = require("mysql");
+const invites = {};
+const wait = require('util').promisify(setTimeout);
 let cooldown = new Set();
 let cdseconds = 7;
 
@@ -337,17 +339,31 @@ bot.on('ready', () => {
              url: "https://www.youtube.com/watch?v=6uCTdjTjbWA",
              type: "STREAMING"
          }
-     });
+     });  
+     wait(1000);
+     bot.guilds.forEach(g => {
+        g.fetchInvites().then(guildInvites => {
+          invites[g.id] = guildInvites;
+        });
+      });   
 });
 
 // Автороль
 bot.on('guildMemberAdd', member => {
+member.guild.fetchInvites().then(guildInvites => {
+    const ei = invites[member.guild.id];
+    invites[member.guild.id] = guildInvites;
+    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const inviter = client.users.get(invite.inviter.id);
+
+
   console.log('User ' + member.user.tag + ' зашёл на сервер!');
   let channel = bot.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
   let esyy = bot.emojis.get("554122910584012800");
-  channel.send("На сервер зашёл **"+member.user.tag+"**! "+`${esyy}`);
+  channel.send(`На сервер зашёл ${member.user.tag} по приглашению ${inviter.tag}! ${esyy}`);
   member.addRole(role);
+ });
 });
 
 bot.on('guildMemberRemove', member => {
