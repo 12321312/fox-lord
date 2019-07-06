@@ -16,7 +16,7 @@ module.exports.run = async (bot,message,args,connection) => {
   
   if(!(args[0])) { 
       message.delete(15000); 
-      bot.send({embed:ambed}).then(async msg => await msg.delete(15000)); 
+      message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000)); 
       return;
     } 
   
