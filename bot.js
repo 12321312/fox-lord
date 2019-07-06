@@ -14,6 +14,7 @@ const embedThumbnailLink = "http://pngimg.com/uploads/shield/shield_PNG1276.png"
 const mysql = require("mysql");
 const invites = {};
 const wait = require('util').promisify(setTimeout);
+const antispam = require('discord-anti-spam');
 let cooldown = new Set();
 let cdseconds = 7;
 
@@ -146,9 +147,10 @@ fs.readdir('./cmds/',(err,files)=>{
 bot.on('message', async message => {
   if(message.author.bot) return;
   if(message.channel.type == "dm") return;
-  bot.send = async function (msg){
+  bot.send = function (msg){
         message.channel.send(msg);
   };
+  bot.emit('checkMessage', msg);
 
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
@@ -377,6 +379,18 @@ bot.on('ready', () => {
              url: "https://www.youtube.com/watch?v=6uCTdjTjbWA",
              type: "STREAMING"
          }
+     });
+     antispam(bot, {
+      warnBuffer: 5, 
+      maxBuffer: 10, 
+      interval: 2000,  
+      warningMessage: "хватит спамить!",  
+      banMessage: "по ебалу банхамером за спам!", 
+      maxDuplicatesWarning: 7,
+      maxDuplicatesBan: 15, 
+      deleteMessagesAfterBanForPastDays: 7, 
+      exemptRoles: ["Moderator"], 
+      exemptUsers: ["MrAugu#9016"] 
      });  
      wait(1000);
      bot.guilds.forEach(g => {
