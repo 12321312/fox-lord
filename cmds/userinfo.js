@@ -26,7 +26,7 @@ module.exports.run = async (bot,message,args,connection) => {
     if (message.member.roles.find('name', `Барышня`)) pole = "Женский";
     let oritn = "Не установленно"; 
     if (message.member.roles.find('name', `Пидор`)) oritn = "Пидор";
-    if (message.member.roles.find('name', `Натурал`)) oritn = "Пидор";
+    if (message.member.roles.find('name', `Натурал`)) oritn = "Натурал";
     if (message.member.roles.find('name', `Лисий повелитель`)) oritn = "Ебет лисичек";
 
     let ambed = new Discord.RichEmbed()
@@ -39,7 +39,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Оринтация:",oritn, true)
     .addField("Статус",a.presence.status, true)
     .addField("Опыта:",xpi + " XP", true)
-    .addField("Уровень:",lvl.toFixed(0), true)
+    .addField("Уровень:",lvl.toFixed(0), true) 
     .addField("Донат поинтов:",point, true)
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true)
