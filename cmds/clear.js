@@ -8,7 +8,7 @@ message.delete();
     if (!mention) {
 if (!(args[0])) return message.reply('А сколько удалять то? \n Напиши: `!удалить <число>`');
 if ((args[0]) >= 100) return message.reply('Больше 100 за раз не могу ;с');
-
+const fetched = await message.channel.fetchMessages({limit: args[0]});
 let clearmess = new Discord.RichEmbed()
 .setDescription("Удалены сообщения")
 .setColor('#FFFFFF')
@@ -18,7 +18,6 @@ let clearmess = new Discord.RichEmbed()
 .addField("Канал:", message.channel, true)
 .addField("Удалено:", fetched.size, true);
 
-const fetched = await message.channel.fetchMessages({limit: args[0]});
 console.log(fetched.size + ' сообщения найдены, удаление...'); 
 message.channel.send('Удалено `' + fetched.size + '` сообщений');            
 message.channel.bulkDelete(fetched)
