@@ -28,7 +28,7 @@ module.exports.run = async (bot,message,args,connection) => {
      if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс: **${point}**.`);
      if((args[1]) == 0) return message.reply("Это как ты себе представляешь?");
      if((args[1]) < 1) return message.reply("И зачем тебе в минус?");
-     if((args[1]) == NaN) return message.reply("Чо? Цифрами пиши бл");
+     if(isNaN(args[1])) return message.reply("Чо? Цифрами пиши бл");
      for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
       if (message.member.roles.find('name', `${sizepenisrole} см`)) {
         if (Number(sizepenisrole) + Number(args[1]) < 31) { 
