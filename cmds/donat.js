@@ -16,7 +16,7 @@ module.exports.run = async (bot,message,args,connection) => {
   if(!(args[0])) return bot.send({embed:ambed});  
   
   if((args[0])) {
-  connection.query(`SELECT * FROM clien,xp WHERE clien.id = '${message.author.id}' AND xp.id = '${message.author.id}'`, (err, rows) => {
+  connection.query(`SELECT * FROM clien,xp WHERE clien.id = '${message.author.id}' AND xp.id = '${message.author.id}'`, async (err, rows) => {
    if(err) throw err;
    let cm = rows[0].cm; 
    let point = rows[0].point;    
@@ -34,8 +34,23 @@ module.exports.run = async (bot,message,args,connection) => {
          let addclien = `UPDATE clien SET cm = ${cm}+${args[1]} WHERE id = '${message.author.id}'`
          connection.query(addclien);
          message.member.removeRole(clienroles.id)
+
+         if(!clienrolen){
+            try{
+                clienrolen = await message.guild.createRole({
+                    name:`${Number(sizepenisrole) + Number(args[1])}  см`,
+                    color: "#FFCBDB",
+                    permission: []
+                });
+            }catch(e){
+                console.log(e.stack);
+            }
+        };
+
          message.member.addRole(clienrolen.id)
-        } else return message.reply(`У вас не может быть ${Number(sizepenisrole) + Number(args[1])}! Максимальная длина члена 30`);
+         
+         return message.reply(`Поздравляем с покупкой, теперь у вас **${Number(sizepenisrole) + Number(args[1])} см**! Остаток вашего баланса **${point}**`);
+        } else return message.reply(`У вас не может быть ${Number(sizepenisrole) + Number(args[1])} см! Максимальная длина члена 30 см`);
       }
      }
     }
