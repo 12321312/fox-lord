@@ -391,7 +391,7 @@ bot.on('ready', () => {
       maxDuplicatesBan: 15, 
       deleteMessagesAfterBanForPastDays: 7, 
       exemptRoles: ["Moderator"], 
-      exemptUsers: ["MrAugu#9016"] 
+      exemptUsers: ["Лисий повелитель","Андроид 2.0","Куратор","Дозорный","Прислужник","Nsfw-знаток","Андроид","Божество","Знаток","Просвещенный"] 
      });  
      wait(1000);
      bot.guilds.forEach(g => {
