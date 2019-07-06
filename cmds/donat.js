@@ -7,12 +7,12 @@ module.exports.run = async (bot,message,args,connection) => {
     .setDescription(`Купить монеты можно у <@!294844223675564034>, стоимость 1 поинт = 3 рубля. Или заработать получая уровень или выполняя поручения специальных ролей.`)
     .setTimestamp()
     .setFooter("Донат систем v1337", "https://media.cdnandroid.com/c8/6e/52/82/imagen-vernyj-kurs-kurs-rublya-0thumb.jpg")
-    .setColor('#FFFF00')
+    .setColor('#FF8000')
     .addField("!донат","Вызывает это окно")
     .addField("!донат <услуга> <кол-во>","Проводит операцию по покупке услуги.")
     .addField("!юзеринфо","Показывает ваши поинты и другую важную информацию.")
     .addField("______\nУслуги:","**Член**\nПокупка сантиметров члена, *1 поинт - 1 см*\n**Ориентация**\nМеняет местами роли 'Пидор/Натурал', *20 поинтов*\n**XP**\nДобавляет вам опыта, *100XP - 1 поинт*\n**Нитро**\nБот выдает вам Discord nitro на месяц, *150 поинтов*")
-    .setThumbnail("https://psv4.userapi.com/c848016/u64620891/docs/d11/9065c01fa35e/Moneta_bez_fona.png?extra=9-xv-M5lQyqCYmfCf_dN6BiupEQOMNoUWYXaH8OEQZVuU3KEW6H5ai8hf0EvFzGYdmmzKy4wfUDjOtP34mcZhEabPSWbEEOITOvIQfWrZnM6IOa4iFicqHI6SiUGsGZhRq5WYgf0XQMRkfLOAIMNemQ");
+    .setThumbnail("http://pngimg.com/uploads/coin/coin_PNG36874.png");
   
   if(!(args[0])) return bot.send({embed:ambed});  
   
