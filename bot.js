@@ -302,9 +302,6 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     cooldown.add(message.author.id);
 } 
 
-
-  if(!message.content.startsWith(prefix)) return message.react('554122910584012800');
-  
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
   let command = args.shift().toLowerCase();
   let cmd = bot.commands.get(command);
