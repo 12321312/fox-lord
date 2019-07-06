@@ -21,6 +21,13 @@ module.exports.run = async (bot,message,args,connection) => {
     
     let keys = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Dota-key" || r.name == "EVE-key" || r.name == "Music-key" || r.name == "Minecraft-key" || r.name == "Gmod-key" || r.name == "SI-key" || r.name == "CS-key" || r.name == "Secret-key").map(r => r).join(', ')
     if(!keys) keys = "нету";
+    
+    let pole = "Мужской"; 
+    if (message.member.roles.find('name', `Барышня`)) pole = "Женский";
+    let oritn = "Не установленно"; 
+    if (message.member.roles.find('name', `Пидор`)) oritn = "Пидор";
+    if (message.member.roles.find('name', `Натурал`)) oritn = "Пидор";
+    if (message.member.roles.find('name', `Лисий повелитель`)) oritn = "Ебет лисичек";
 
     let ambed = new Discord.RichEmbed()
     .setTitle("Информация о участнике")
@@ -28,6 +35,8 @@ module.exports.run = async (bot,message,args,connection) => {
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
     .setColor('#10c7e2').addField("Имя",a.username, true)
     .addField("Тэг",a.tag, true)
+    .addField("Пол:",pole, true)
+    .addField("Оринтация:",oritn, true)
     .addField("Статус",a.presence.status, true)
     .addField("Опыта:",xpi + " XP", true)
     .addField("Уровень:",lvl.toFixed(0), true)
