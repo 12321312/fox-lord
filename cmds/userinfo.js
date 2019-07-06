@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     let a = message.author;
-    connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, (err, rows) => {
+    connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
      if(err) throw err;
      let xpi = rows[0].xp;
      let point = rows[0].point; 
