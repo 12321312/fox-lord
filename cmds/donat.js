@@ -26,6 +26,7 @@ module.exports.run = async (bot,message,args,connection) => {
     if((args[0]) == "член" || (args[0]) == "Член") {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
      if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс: **${point}**.`);
+     if((args[1]) < 1) return message.reply("И зачем тебе в минус?");
      for (sizepenisrole = 1; sizepenisrole < 31; sizepenisrole++) {
       if (message.member.roles.find('name', `${sizepenisrole} см`)) {
         if (Number(sizepenisrole) + Number(args[1]) < 31) { 
