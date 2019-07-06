@@ -359,7 +359,7 @@ member.guild.fetchInvites().then(guildInvites => {
   let channel = bot.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
   let esyy = bot.emojis.get("554122910584012800");
-  channel.send(`На сервер зашёл <@${member.user.id}> по приглашению <@${inviter.id}>! ${esyy}`);
+  channel.send(`На сервер зашёл <@${member.user.id}> по приглашению <@${inviter.id}>! (${invite.uses}) ${esyy}`);
   member.addRole(role);
  });
 });
