@@ -342,22 +342,12 @@ bot.on('ready', () => {
 
 // Автороль
 bot.on('guildMemberAdd', member => {
-    const invites = {};
-    bot.guilds.forEach(g => {
-        g.fetchInvites().then(guildInvites => {
-            invites[g.id] = guildInvites;
-  const ei = invites[member.guild.id];
-  invites[member.guild.id] = guildInvites;
-  const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-  const inviter = bot.users.get(invite.inviter.id);
   console.log('User ' + member.user.tag + ' зашёл на сервер!');
   let channel = bot.channels.get("537720268446236682");
   var role = member.guild.roles.get("537701217879588878");
   let esyy = bot.emojis.get("554122910584012800");
-  channel.send(`На сервер зашёл **${member.user.tag}** используя приглашение от ${inviter.tag}! (${invite.uses}) `+`${esyy}`);
+  channel.send("На сервер зашёл **"+member.user.tag+"**! "+`${esyy}`);
   member.addRole(role);
-});
-});  
 });
 
 bot.on('guildMemberRemove', member => {
