@@ -33,8 +33,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
-    await bot.send({embed:ambed}).then(m => m.delete(10000));
-    return;
+     bot.send({embed:ambed}).then(m => m.delete(10000));
 });
 };
 module.exports.help = {
