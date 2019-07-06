@@ -52,11 +52,11 @@ module.exports = async (bot, options) => {
         fetched = fetched.filter(m => m.createdTimestamp >= Date.now() - 1179360000);
         fetched = fetched.filter(m => m.author.id === user.id || m.content === message.content);
         message.channel.bulkDelete(fetched)
-        
+
         setTimeout(function(){
             user.removeRole(muteroleauto.id);
         }, 86400000);
-        return message.channel.send(`Замутил пользователя <@!${user.id}> на сутки, за неоднократный спам.`);
+        return message.channel.send(`Замутил пользователя <@!${user.id}> на сутки, за неоднократный спам и удалил ${fetched.size} его.`);
     }
   }
   
