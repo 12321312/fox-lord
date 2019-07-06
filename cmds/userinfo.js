@@ -16,8 +16,6 @@ module.exports.run = async (bot,message,args,connection) => {
 
     if (lvl < lvl.toFixed(0)) lvl -= 1;
 
- 
-
     let roles = message.member.roles.filter(r => r.name !=="@everyone").map(r => r).join(', ')
 
     let ambed = new Discord.RichEmbed()
@@ -35,7 +33,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Создание аккаунта:",a.createdAt, false)
     .setThumbnail(a.avatarURL);
 
-    bot.send({embed:ambed});
+    bot.send({embed:ambed}).then(m => m.delete(10000));
 });
 };
 module.exports.help = {
