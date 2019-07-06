@@ -23,7 +23,7 @@ module.exports.run = async (bot,message,args,connection) => {
    let point = rows[0].point; 
    let xp = rows[0].xp;    
 
-    if((args[0]) == "член" || (args[0]) == "Член") {
+    if((args[0]) == "член" || (args[0]) == "Член" || (args[0]) == "хуй" || (args[0]) == "Хуй" || (args[0]) == "СМ" || (args[0]) == "см" || (args[0]) == "см") {
      if (!(args[1])) return message.reply(`У вас на данный момент **${cm} см**, если вы хотите купить еще см, то напишите так: \n*!донат член <кол-во>*`);
      if((args[1]) > point) return message.reply(`У вас не хватает **${Number(args[1]) - Number(point)} поинта(ов)** на увлечения члена, на данный момент ваш баланс: **${point}**.`);
      if((args[1]) == 0) return message.reply("Это как ты себе представляешь?");
@@ -88,7 +88,7 @@ module.exports.run = async (bot,message,args,connection) => {
            let xpono = `UPDATE xp SET xp = ${xp}+${args[1]*100} WHERE id = '${message.author.id}'`
            connection.query(xpono);
            return message.reply(`Поздравляем с покупкой, вы купили **${args[1]*100} XP**! Теперь у вас **${Number(xp) + Number(args[1]*100)} XP**! Остаток вашего баланса: **${Number(point) - Number(args[1])}**.`);
-    } else if ((args[0]) == "Нитро" || (args[0]) == "нитро" || (args[0]) == "Nitro" || (args[0]) == "nitro" || (args[0]) == "НИТРО") {
+    } else if ((args[0]) == "discord" || (args[0]) == "Discord" || (args[0]) == "дискорд" || (args[0]) == "Дискорд" || (args[0]) == "Нитро" || (args[0]) == "нитро" || (args[0]) == "Nitro" || (args[0]) == "nitro" || (args[0]) == "НИТРО") {
         if(point < 150) return message.reply(`У вас не хватает **${Number(150) - Number(point)} поинта(ов)** на покупку Nitro Discord, на данный момент ваш баланс **${point}**`);
         message.author.sendMessage(`В данный момент нитро я не смогу выдать, так как не была привязанна БД к этой команде, когда-нибудь фокс это добавит... я надеюсь. Поинты с вас сняты не были, ваш баланс: **${point}**.`);
         return message.reply(`Поздравляем с покупкой, вся инструкция по активации была высланна вам в ЛС.`);
