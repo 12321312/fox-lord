@@ -365,6 +365,7 @@ member.guild.fetchInvites().then(guildInvites => {
   .setThumbnail("https://i.ibb.co/9r6FD3J/image.png")
   .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .setColor("#54ff9f")
+  .setTimestamp()
   .addField("Зашёл:", `<@${member.user.id}>`, true)
   .addField("Пригласил:", `<@${inviter.id}>`, true)
   .addField("ID инвайта:", invite.code, true)
@@ -382,6 +383,7 @@ bot.on('guildMemberRemove', member => {
   let nsyy = bot.emojis.get("554122783165251585");
   let Vshdex = new Discord.RichEmbed()
   .setDescription("Вышел с сервера")
+  .setTimestamp()
   .setThumbnail("https://i.ibb.co/QkmrYsK/image.png")
   .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .setColor("#f80000")

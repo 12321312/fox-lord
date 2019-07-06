@@ -13,6 +13,7 @@ if (message.member.roles.get('537700464888643595') || message.member.roles.get('
 let muteEmbed = new Discord.RichEmbed()
 .setDescription("Мут снят")
 .setColor('#00FF00')
+.setTimestamp()
 .setThumbnail("http://mediaseller.agency/wp-content/uploads/2018/06/pravki.png")
 .setFooter("Мут систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .addField("Снят мут с:", `${tomute}`, true)
