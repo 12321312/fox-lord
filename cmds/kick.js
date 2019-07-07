@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     if(!kUser) return message.channel.send("нет такого пользователя!");
     if (kUser.id == "294844223675564034") return message.reply('а пизды не дать?');
     if (kUser.id == "565899297187692544") return message.reply('я тя ща сам кину, сука');
-    if (kUser.roles.get("537707976304230421")) return message.reply('ботов, сука, не трогай');
+    if (kUser.roles.get("592343493905743906")) return message.reply('ботов, сука, не трогай');
 
     if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) { 
     let kReason = args.slice(1).join(" ") || "---";
