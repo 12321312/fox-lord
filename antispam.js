@@ -48,7 +48,7 @@ module.exports = async (bot, options) => {
       if (user) {
         let muteroleauto = message.guild.roles.find('name', "muted");  
         user.addRole(muteroleauto.id);
-        let fetched = await message.channel.fetchMessages(10);
+        let fetched = await message.channel.fetchMessages({limit: 20});
         fetched = fetched.filter(m => m.createdTimestamp >= Date.now() - 1179360000);
         fetched = fetched.filter(m => m.author.id === user.id || m.content === message.content);
         message.channel.bulkDelete(fetched)
@@ -56,7 +56,7 @@ module.exports = async (bot, options) => {
         setTimeout(function(){
             user.removeRole(muteroleauto.id);
         }, 86400000);
-        return message.channel.send(`Замутил пользователя <@!${user.id}> на сутки, за неоднократный спам и удалил ${fetched.size} его.`);
+        return message.channel.send(`Замутил пользователя <@!${user.id}> на сутки, за неоднократный спам и удалил сообщений ${fetched.size} его.`);
     }
   }
   
