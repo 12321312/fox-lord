@@ -16,8 +16,8 @@ module.exports = async (bot, options) => {
   const maxDuplicatesWarning = (7); 
   const maxDuplicatesBan = (10); 
   const deleteMessagesAfterBanForPastDays = (7); 
-  const exemptRoles = ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Music-key"]; 
-  const exemptUsers = ["LousyFox#1337"]; 
+  const exemptRoles = []; 
+  const exemptUsers = []; 
 
   if(isNaN(warnBuffer)) throw new Error("Нету буфера для варна.");
   if(isNaN(maxBuffer)) throw new Error("Нету буфера для мута.");
