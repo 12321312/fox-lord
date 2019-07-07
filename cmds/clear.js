@@ -33,8 +33,6 @@ mutechannel.send({embed:clearmess})
   let mention = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
   if (mention.id == "565899297187692544") return message.reply('я тя ща сам удалю, сука');
   if (mention.roles.get("592343493905743906")) return message.reply('ботов, сука, не трогай');
-  if (mention.roles.get("537705223301365781") && !message.member.roles.get('537700464888643595')) return message.reply('кураторов удалять сообщения может только фокс');
-  if (mention.roles.get("537704565043363840") && !message.member.roles.get('537705223301365781') || !message.member.roles.get('537705223301365781')) return message.reply('дозорные свои сообщения удалять не могут');
   fetched = await message.channel.fetchMessages({limit: args[1]});
   fetched = fetched .filter(m => m.createdTimestamp >= Date.now() - 1179360000);
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);

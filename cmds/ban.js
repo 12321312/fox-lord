@@ -7,8 +7,6 @@ module.exports.run = async (bot, message, args) => {
     if (bUser.id == "294844223675564034") return message.reply('а пизды не дать?');
     if (bUser.id == "565899297187692544") return message.reply('я тя ща сам забаню, сука');
     if (bUser.roles.get("537707976304230421")) return message.reply('ботов, сука, не трогай');
-    if (bUser.roles.get("537705223301365781") && !message.member.roles.get('537700464888643595')) return message.reply('кураторов банить может только фокс');
-    if (bUser.roles.get("537704565043363840") && !message.member.roles.get('537705223301365781') || !message.member.roles.get('537705223301365781')) return message.reply('дозорные сами себя банить не могут');
 
     if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) { 
     let bReason = args.slice(1).join(" ") || "---";
