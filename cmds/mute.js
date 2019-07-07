@@ -7,12 +7,11 @@ if (!(args[0])) {message.reply("Не верно указан пользоват�
 if (!(args[1])) {message.reply("Не верно указано время, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
-if (tomute.id == "294844223675564034") { message.reply('а пизды не дать?'); return; }
-if (tomute.roles.get('592772182543695882')) { message.reply('он уже в молчанку играет...'); return; }
+if (tomute.id == "294844223675564034") return message.reply('а пизды не дать?'); 
+if (tomute.roles.get('592772182543695882')) return message.reply('он уже в молчанку играет...'); 
 let muterole = message.guild.roles.find('name', "silence");
 let mreason = args.slice(2).join(" ") || "---";
-
-if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
+if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
   if(!muterole){
       try{
           muterole = await message.guild.createRole({
@@ -56,10 +55,6 @@ mutechannel.send({embed:muteEmbed});
 setTimeout(function(){
     tomute.removeRole(muterole.id);
 },ms(mutetime));
-} else 
-      {
-        message.reply("А пососать не завернуть?");
-      };
      
 };
 module.exports.help = {
