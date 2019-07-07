@@ -13,11 +13,11 @@ module.exports.run = async (bot,message,args) => {
  message.delete();
  if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781')) { 
  if ((args[2]) == "дать") {
-     if ((args[1]) == "прислужник") { 
+     if ((args[1]) == "прислужник" || (args[1]) == "Прислужник" || (args[1]) == "<@&537703136597639178>") { 
      if (toadmin.roles.get(prislyga.id)) return message.reply('он и так в этой роли...');     
      toadmin.addRole(prislyga.id);
      message.channel.send('Пользователю' + `<@${toadmin.id}>` + ' была выдана роль ' + `<@&${prislyga.id}>`);
-     } else if ((args[1]) == "дозорный") {
+     } else if ((args[1]) == "дозорный" || (args[1]) == "Дозорный" || (args[1]) == "<@&537704565043363840>") {
         if (toadmin.roles.get(dozor.id)) return message.reply('он и так в этой роли...');    
         toadmin.addRole(dozor.id);
         message.channel.send('Пользователю' + `<@${toadmin.id}>` + ' была выдана роль ' + `<@&${dozor.id}>`);
@@ -25,11 +25,11 @@ module.exports.run = async (bot,message,args) => {
         message.reply("с ролью ошибся кажись, такую выдать не смогу.");
      };
  } else if ((args[2]) == "забрать") {
-    if ((args[1]) == "прислужник") { 
+    if ((args[1]) == "прислужник" || (args[1]) == "Прислужник" || (args[1]) == "<@&537703136597639178>") { 
         if (!toadmin.roles.get(prislyga.id)) return message.reply('у него и нет этой роли...'); 
         toadmin.removeRole(prislyga.id);
         message.channel.send('Забрал у пользователя' + `<@${toadmin.id}>` + ' роль ' + `<@&${prislyga.id}>`);
-    } else if ((args[1]) == "дозорный") { 
+    } else if ((args[1]) == "дозорный" || (args[1]) == "Дозорный" || (args[1]) == "<@&537704565043363840>") { 
         if (!toadmin.roles.get(dozor.id)) return message.reply('у него и нет этой роли...'); 
         toadmin.removeRole(dozor.id);
         message.channel.send('Забрал у пользователя' + `<@${toadmin.id}>` + ' роль ' + `<@&${dozor.id}>`);
