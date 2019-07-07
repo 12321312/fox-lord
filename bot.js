@@ -370,6 +370,10 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
   }, cdseconds * 1000)
 });
 
+
+bot.on('guildIntegrationsUpdate', () => {
+  console.log('Жопа хуй хуй хуй');
+});
 // шапка
 bot.on('ready', () => {
   wait(1000);
