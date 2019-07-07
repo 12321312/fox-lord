@@ -31,7 +31,6 @@ mutechannel.send({embed:clearmess})
   if ((args[1]) >= 100)  return message.reply('Больше 100 за раз не могу ;с'); 
   
   let mention = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
-  if (mention.id == "294844223675564034") return message.reply('а пизды не дать?');
   fetched = await message.channel.fetchMessages({limit: args[1]});
   fetched = fetched .filter(m => m.createdTimestamp >= Date.now() - 1179360000);
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);
