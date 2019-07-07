@@ -16,8 +16,8 @@ module.exports = async (bot, options) => {
   const maxDuplicatesWarning = (7); 
   const maxDuplicatesBan = (10); 
   const deleteMessagesAfterBanForPastDays = (7); 
-  const exemptRoles = []; 
-  const exemptUsers = []; 
+  const exemptRoles = ["Лисий повелитель", "Андроид 2.0", "Куратор", "Дозорный", "Прислужник", "Nsfw-знаток", "Андроид", "Божество", "Знаток", "Просвещенный", "Music-key"]; 
+  const exemptUsers = ["LousyFox#1337"]; 
 
   if(isNaN(warnBuffer)) throw new Error("Нету буфера для варна.");
   if(isNaN(maxBuffer)) throw new Error("Нету буфера для мута.");
@@ -48,10 +48,26 @@ module.exports = async (bot, options) => {
       if (user) {
         let muteroleauto = message.guild.roles.find('name', "muted");  
         user.addRole(muteroleauto.id);
-        let fetched = await message.channel.fetchMessages({limit: 20});
+        let fetched = await message.channel.fetchMessages({limit: 12});
         fetched = fetched.filter(m => m.createdTimestamp >= Date.now() - 1179360000);
         fetched = fetched.filter(m => m.author.id === user.id || m.content === message.content);
         message.channel.bulkDelete(fetched)
+
+        let muteEmbedauto = new Discord.RichEmbed()
+        .setDescription("Авто-Мут")
+        .setColor('#00538A')
+        .setThumbnail("https://i.ibb.co/rydV8gN/chat-off-512.png")
+        .setFooter("Авто-Мут систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+        .setTimestamp()
+        .addField("Был замучен:", `${user}`, true)
+        .addField("Выдала:", `Автосистема`, true)
+        .addField("Канал:", message.channel, true)
+        .addField("Время мута:", `1 день`, true)
+        .addField("Причина:", `Спам`, false)
+        .addField("Начало мута:", message.createdAt, false);
+
+        let mutechannelauto = message.guild.channels.get("537720268446236682");
+        mutechannelauto.send({embed:muteEmbedauto}); 
 
         setTimeout(function(){
             user.removeRole(muteroleauto.id);
