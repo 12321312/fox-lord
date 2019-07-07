@@ -402,7 +402,7 @@ member.guild.fetchInvites().then(guildInvites => {
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => { 
       ei.get(i.code).uses < i.uses;
-      console.log(ei.get(i.code));
+      console.log(i.uses);
     });
     const inviter = bot.users.get(invite.inviter.id);
   let channel = bot.channels.get("537720268446236682");
