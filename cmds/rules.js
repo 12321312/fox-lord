@@ -4,10 +4,10 @@ const fs = require("fs");
 module.exports.run = async (bot, message, args) => {
     let ambed = new Discord.RichEmbed()
     .setTitle("Команды:")
+    .setDescription("Основные правила Discord сервера.")
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-    .setColor('#FFFF00')
-    .setDescription("Основные правила Discord сервера.") ​
+    .setColor('#FFFF00') ​
     .addField(`
 1. Общие правила.
 `,`
