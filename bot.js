@@ -148,13 +148,13 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
   let channelUpdate = bot.channels.get("537720268446236682");
   let embedUpdate = new Discord.RichEmbed()
    .setTitle(`Сообщение изменено`)
-   .setThumbnail("https://www.freeiconspng.com/uploads/edit-icon-png-24.png")
+   .setThumbnail("http://cdn.onlinewebfonts.com/svg/img_167289.png")
    .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
    .addField('Отправитель', oldmsg.member, true)
    .addField('Канал', oldmsg.channel, true)
    .addField('Раньше', oldmsg.content)
    .addField('Сейчас', newmsg.content)
-   .setColor(`#007fff`)
+   .setColor(`#507d2a`)
    .setTimestamp();
    await channelUpdate.send({embed:embedUpdate})
 })
@@ -168,7 +168,7 @@ bot.on('messageDelete', async message => {
    .addField('Отправитель', message.member, true)
    .addField('Канал', message.channel, true)
    .addField('Содержание', message.content)
-   .setColor(`#354d73`)
+   .setColor(`#9d9101`)
    .setTimestamp();
    await channelUpdate.send({embed:embedDelete})
 })
