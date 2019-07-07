@@ -34,7 +34,7 @@ module.exports.run = async (bot,message,args,connection) => {
     .setColor('#10c7e2').addField("Имя",a.username, true)
     .addField("Тэг",a.tag, true)
     .addField("Пол:",pole, true)
-    .addField("Оринтация:",oritn, true)
+    .addField("Ориентация:",oritn, true)
     .addField("Статус",a.presence.status, true)
     .addField("Опыта:",xpi + " XP", true)
     .addField("Уровень:",lvl.toFixed(0), true) 
