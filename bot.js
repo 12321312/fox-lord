@@ -156,7 +156,7 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
    .addField('Сейчас', newmsg.content)
    .setColor(`#507d2a`)
    .setTimestamp();
-   await channelUpdate.send({embed:embedUpdate})
+   channelUpdate.send({embed:embedUpdate})
 })
 
 bot.on('messageDelete', async message => {
@@ -170,7 +170,7 @@ bot.on('messageDelete', async message => {
    .addField('Содержание', message.content)
    .setColor(`#9d9101`)
    .setTimestamp();
-   await channelUpdate.send({embed:embedDelete})
+   channelUpdate.send({embed:embedDelete})
 })
 
 
