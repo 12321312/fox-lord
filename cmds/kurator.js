@@ -1,6 +1,7 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
+ if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) return message.reply('Отказано в доступе.');
  if (!(args[0])) {message.reply("Не верно указан пользователь, напиши так: ```!админ <юзер упоминание> <роль> <дать/забрать>```"); return; }
  if (!(args[1])) {message.reply("Не верно указано время, напиши так: ```!админ <юзер упоминание> <роль> <дать/забрать>```"); return; }
  let toadmin = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
@@ -11,8 +12,8 @@ module.exports.run = async (bot,message,args) => {
 
 
  message.delete();
- if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781')) { 
- if ((args[2]) == "дать") {
+
+ if ((args[2]) == "дать" || (args[2]) == "Дать" || (args[2]) == "Add" || (args[2]) == "add") {
      if ((args[1]) == "прислужник" || (args[1]) == "Прислужник" || (args[1]) == "<@&537703136597639178>") { 
      if (toadmin.roles.get(prislyga.id)) return message.reply('он и так в этой роли...');     
      toadmin.addRole(prislyga.id);
@@ -24,7 +25,7 @@ module.exports.run = async (bot,message,args) => {
      } else {
         message.reply("с ролью ошибся кажись, такую выдать не смогу.");
      };
- } else if ((args[2]) == "забрать") {
+ } else if ((args[2]) == "забрать" || (args[2]) == "Забрать" || (args[2]) == "remove" || (args[2]) == "Remove") {
     if ((args[1]) == "прислужник" || (args[1]) == "Прислужник" || (args[1]) == "<@&537703136597639178>") { 
         if (!toadmin.roles.get(prislyga.id)) return message.reply('у него и нет этой роли...'); 
         toadmin.removeRole(prislyga.id);
@@ -37,8 +38,6 @@ module.exports.run = async (bot,message,args) => {
         message.reply("с ролью ошибся кажись, такую забрать не смогу.");
         }; 
  } else {  message.reply("так мне дать или забрать?") };
-} else { message.reply("А пососать не завернуть?"); }
-
 
 };
 module.exports.help = {
