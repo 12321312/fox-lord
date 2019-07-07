@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
     .setColor('#FFFF00')
-    .setDescription(`Основные правила Discord сервера.`) ​
+    .setDescription("Основные правила Discord сервера.") ​
     .addField(`
 1. Общие правила.
 `,`
