@@ -143,6 +143,37 @@ fs.readdir('./cmds/',(err,files)=>{
   });
 });
 
+
+bot.on('messageUpdate', async (oldmsg, newmsg) => {
+  let channelUpdate = bot.channels.get("537720268446236682");
+  let embedUpdate = new Discord.RichEmbed()
+   .setTitle(`Сообщение изменено`)
+   .setThumbnail("https://www.freeiconspng.com/uploads/edit-icon-png-24.png")
+   .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
+   .addField('Отправитель', oldmsg.member, true)
+   .addField('Канал', oldmsg.channel, true)
+   .addField('Раньше', oldmsg.content)
+   .addField('Сейчас', newmsg.content)
+   .setColor(`#007fff`)
+   .setTimestamp();
+   await channelUpdate.channel.send({embed:embedUpdate})
+})
+
+bot.on('messageDelete', async message => {
+  let channelUpdate = bot.channels.get("537720268446236682");
+  let embedDelete = new Discord.RichEmbed()
+   .setTitle(`Сообщение удалено автором`)
+   .setThumbnail("https://www.pngrepo.com/download/67177/delete-searching.png")
+   .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
+   .addField('Отправитель', message.member, true)
+   .addField('Канал', message.channel, true)
+   .addField('Содержание', message.content)
+   .setColor(`#354d73`)
+   .setTimestamp();
+   await channelUpdate.channel.send({embed:embedDelete})
+})
+
+
 // проверка текста
 bot.on('message', async message => {
   if(message.author.bot) return;
@@ -397,7 +428,7 @@ member.addRole(role);
 console.log('User ' + member.user.tag + ' зашёл на сервер!');
 let channel = bot.channels.get("537720268446236682");
 let Vshde = new Discord.RichEmbed()
-.setDescription("Зашёл на сервер")
+.setTitle("Зашёл на сервер")
 .setTimestamp()
 .setThumbnail("https://i.ibb.co/9r6FD3J/image.png")
 .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
@@ -411,7 +442,7 @@ bot.on('guildMemberRemove', member => {
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
   let Vshdex = new Discord.RichEmbed()
-  .setDescription("Вышел с сервера")
+  .setTitle("Вышел с сервера")
   .setTimestamp()
   .setThumbnail("https://i.ibb.co/QkmrYsK/image.png")
   .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")

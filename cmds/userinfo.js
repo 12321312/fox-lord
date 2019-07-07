@@ -31,7 +31,9 @@ module.exports.run = async (bot,message,args,connection) => {
     .setTitle("Информация о участнике")
     .setTimestamp()
     .setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-    .setColor('#10c7e2').addField("Имя",a.username, true)
+    .setThumbnail(a.avatarURL)
+    .setColor('#10c7e2')
+    .addField("Имя",a.username, true)
     .addField("Тэг",a.tag, true)
     .addField("Пол:",pole, true)
     .addField("Ориентация:",oritn, true)
@@ -43,7 +45,6 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("ID индификатор:",a.id, true);
     if(keys) { ambed.addField("Ключи:", keys, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
-    ambed.setThumbnail(a.avatarURL);
      
      message.delete(15000);
      message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000));
