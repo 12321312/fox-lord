@@ -369,12 +369,6 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
 });
-
-
-bot.on('guildIntegrationsUpdate', () => {
-  console.log('Жопа хуй хуй хуй');
-});
-
 // шапка
 bot.on('ready', () => {
   wait(1000);
@@ -397,11 +391,6 @@ bot.on('ready', () => {
 
 // Автороль + логирование
 bot.on('guildMemberAdd', member => {
-  bot.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
-    });
-  });   
 
 var role = member.guild.roles.get("537701217879588878");
 member.addRole(role);
