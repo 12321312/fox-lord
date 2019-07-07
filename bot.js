@@ -392,14 +392,17 @@ bot.on('ready', () => {
 
 // Автороль + логирование
 bot.on('guildMemberAdd', member => {
+
+var role = member.guild.roles.get("537701217879588878");
+member.addRole(role);
+console.log('User ' + member.user.tag + ' зашёл на сервер!');
+
 member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     const inviter = bot.users.get(invite.inviter.id);
-  console.log('User ' + member.user.tag + ' зашёл на сервер!');
   let channel = bot.channels.get("537720268446236682");
-  var role = member.guild.roles.get("537701217879588878");
   let esyy = bot.emojis.get("554122910584012800");
 
   let Vshde = new Discord.RichEmbed()
@@ -415,7 +418,6 @@ member.guild.fetchInvites().then(guildInvites => {
 
 
   channel.send({embed:Vshde});
-  member.addRole(role);
  });
 });
 
