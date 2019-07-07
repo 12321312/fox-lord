@@ -3,13 +3,13 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
+if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!унгаг <юзер упоминание>```"); 
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
 if (!tomute.roles.get('592772182543695882'))  return message.reply('Он не в гаге, прикинь...');
 let muterole = message.guild.roles.find('name', "silence");
 
-if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
 let muteEmbed = new Discord.RichEmbed()
 .setDescription("Гаг снят") 
 .setColor('#00FF00')
@@ -27,10 +27,6 @@ message.channel.send('Пользователь' + `<@${tomute.id}>` + ' снов
 message.delete();
 mutechannel.send({embed:muteEmbed}); 
 tomute.removeRole(muterole.id);
-} else 
-      {
-        message.reply("А пососать не завернуть?");
-      };
      
 };
 module.exports.help = {

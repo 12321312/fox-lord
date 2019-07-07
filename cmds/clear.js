@@ -2,8 +2,8 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 
 module.exports.run = async (bot,message,args) => {
+if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
 let mention = message.mentions.users.first();
-if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {
 message.delete();
     if (!mention) {
 if (!(args[0])) return message.reply('А сколько удалять то? \n Напиши: `!удалить <число>`');
@@ -58,10 +58,6 @@ mutechannel.send({embed:clearmess})
   message.channel.bulkDelete(fetched)
   mutechannel.send({embed:clearmess})
   .catch(error => message.channel.send(`Error: ${error}`)); 
-};
-} else 
-{
-  message.reply("А пососать не завернуть?");
 };
 };
 module.exports.help = {

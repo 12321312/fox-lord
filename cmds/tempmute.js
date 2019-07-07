@@ -3,6 +3,7 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
+if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
@@ -12,7 +13,7 @@ if (tomute.roles.get('592734106471628869')) return message.reply('он уже п
 let muterole = message.guild.roles.find('name', "muted");
 let mreason = args.slice(2).join(" ") || "---";
 
-if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {          
+
   if(!muterole){
       try{
           muterole = await message.guild.createRole({
@@ -56,7 +57,6 @@ mutechannel.send({embed:muteEmbed});
 setTimeout(function(){
     tomute.removeRole(muterole.id);
 },ms(mutetime));
-} else { message.reply("А пососать не завернуть?"); };
      
 };
 module.exports.help = {

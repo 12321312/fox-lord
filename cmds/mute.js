@@ -3,15 +3,15 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
-if (!(args[0])) {message.reply("Не верно указан пользователь, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
-if (!(args[1])) {message.reply("Не верно указано время, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); return; }
+if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
+if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); 
+if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!гаг <юзер упоминание> <время> <причина>```"); 
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!tomute) return message.reply("такого участника нету");
 if (tomute.id == "294844223675564034") return message.reply('а пизды не дать?'); 
 if (tomute.roles.get('592772182543695882')) return message.reply('он уже в молчанку играет...'); 
 let muterole = message.guild.roles.find('name', "silence");
 let mreason = args.slice(2).join(" ") || "---";
-if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
   if(!muterole){
       try{
           muterole = await message.guild.createRole({
