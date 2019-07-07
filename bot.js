@@ -407,6 +407,7 @@ member.guild.fetchInvites().then(guildInvites => {
       console.log('Ета хуйня работает?!');
     };
   });
+  console.log(bot.users.get(invite.inviter.id));
   /*const inviter = bot.users.get(invite.inviter.id);
   //let channel = bot.channels.get("537720268446236682");
   let esyy = bot.emojis.get("554122910584012800");
