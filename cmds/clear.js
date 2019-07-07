@@ -3,6 +3,10 @@ const fs = require("fs");
 
 module.exports.run = async (bot,message,args) => {
 let mention = message.mentions.users.first();
+if (mention.id == "565899297187692544") return message.reply('я тя ща сам удалю, сука');
+if (mention.roles.get("537707976304230421")) return message.reply('ботов, сука, не трогай');
+if (mention.roles.get("537705223301365781") && !message.member.roles.get('537700464888643595')) return message.reply('кураторов удалять сообщения может только фокс');
+if (mention.roles.get("537704565043363840") && !message.member.roles.get('537705223301365781') || !message.member.roles.get('537705223301365781')) return message.reply('дозорные свои сообщения удалять не могут');
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {
 message.delete();
     if (!mention) {
@@ -31,7 +35,7 @@ mutechannel.send({embed:clearmess})
   if ((args[1]) >= 100)  return message.reply('Больше 100 за раз не могу ;с'); 
   
   let mention = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
-  fetched = await message.channel.fetchMessages({limit: args[20]});
+  fetched = await message.channel.fetchMessages({limit: args[1]});
   fetched = fetched .filter(m => m.createdTimestamp >= Date.now() - 1179360000);
   if (mention) fetched = fetched.filter(m => m.author.id === mention.id || m.content === message.content);
   
