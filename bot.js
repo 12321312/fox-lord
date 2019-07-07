@@ -147,7 +147,7 @@ fs.readdir('./cmds/',(err,files)=>{
 bot.on('messageUpdate', async (oldmsg, newmsg) => {
   let channelUpdate = bot.channels.get("537720268446236682");
   let embedUpdate = new Discord.RichEmbed()
-   .setTitle(`Сообщение изменено`)
+   .setTitle(`Сообщение изменено автором`)
    .setThumbnail("http://cdn.onlinewebfonts.com/svg/img_167289.png")
    .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
    .addField('Отправитель', oldmsg.member, true)
