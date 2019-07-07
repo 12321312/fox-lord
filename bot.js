@@ -400,8 +400,13 @@ console.log('User ' + member.user.tag + ' зашёл на сервер!');
 member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
-  const invite = guildInvites.find(i => ei.get(i.code).code !== i.code);
-  console.log(bot.users.get(invite.inviter.id));
+  const invite = guildInvites.find(i => {
+    if (ei.get(i.code)) {
+    ei.get(i.code).uses < i.uses
+    } else {
+      console.log('Ета хуйня работает?!');
+    };
+  });
   /*const inviter = bot.users.get(invite.inviter.id);
   //let channel = bot.channels.get("537720268446236682");
   let esyy = bot.emojis.get("554122910584012800");
