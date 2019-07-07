@@ -399,8 +399,9 @@ console.log('User ' + member.user.tag + ' зашёл на сервер!');
 member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
-    if (!ei.get(i.code)) return console.log('хуйня какая-то');
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+    const invite = guildInvites.find(i => {
+    if (!ei.get(i.code)) return console.log('хуйня какая-то');  
+    ei.get(i.code).uses < i.uses});
     const inviter = bot.users.get(invite.inviter.id);
   let channel = bot.channels.get("537720268446236682");
   let esyy = bot.emojis.get("554122910584012800");
