@@ -372,6 +372,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
 
 // шапка
 bot.on('ready', () => {
+  wait(1000);
   console.log('Запущен, сэр!');
   bot.user.setPresence({
          status: "online",
@@ -381,7 +382,6 @@ bot.on('ready', () => {
              type: "STREAMING"
          }
      });
-     wait(1000);
      antispam(bot);
      bot.guilds.forEach(g => {
         g.fetchInvites().then(guildInvites => {
