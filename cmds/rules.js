@@ -6,7 +6,6 @@ module.exports.run = async (bot, message, args) => {
     ambed.setTitle("Правила сервера Fox's Shelter:");
     ambed.setDescription("Незнания правил не освобождает от отвественности.");
     ambed.setTimestamp();
-    ambed.setThumbnail("http://www.sclance.com/pngs/rules-png/rules_png_1190551.png");
     ambed.setFooter("Твой милый бот", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg");
     ambed.setColor('#d95030');
 
