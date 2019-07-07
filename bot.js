@@ -403,8 +403,6 @@ let Vshde = new Discord.RichEmbed()
 .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .setColor("#f80000")
 .addField("Зашёл:", `<@${member.user.id}>`, true);
-
-
 channel.send({embed:Vshde});
 });
 
@@ -419,8 +417,6 @@ bot.on('guildMemberRemove', member => {
   .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .setColor("#f80000")
   .addField("Вышел:", `<@${member.user.id}>`, true);
-
-
   channel.send({embed:Vshdex});
 });
 
