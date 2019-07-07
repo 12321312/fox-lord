@@ -369,6 +369,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     cooldown.delete(message.author.id)
   }, cdseconds * 1000)
 });
+
 // шапка
 bot.on('ready', () => {
   wait(1000);
@@ -400,8 +401,9 @@ member.guild.fetchInvites().then(guildInvites => {
     const ei = invites[member.guild.id];
     invites[member.guild.id] = guildInvites;
     const invite = guildInvites.find(i => {
-    if (!ei.get(i.code).uses) return console.log('хуйня какая-то');  
-    ei.get(i.code).uses < i.uses});
+    if (ei.get(i.code).uses == null) return console.log('хуй хуй!');
+    ei.get(i.code).uses < i.uses
+    });
     const inviter = bot.users.get(invite.inviter.id);
   let channel = bot.channels.get("537720268446236682");
   let esyy = bot.emojis.get("554122910584012800");
