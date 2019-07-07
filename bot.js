@@ -384,8 +384,7 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
    .addField('Отправитель', oldmsg.member, true)
    .addField('Канал', oldmsg.channel, true)
    .addField('Раньше', oldmsg.content, false)
-   .addField('Сейчас', newmsg.content, false);
-
+   .addField('Сейчас', newmsg.content, false)
    await channelUpdate.send({embed:embedUpdate})
 });
 
@@ -400,8 +399,7 @@ bot.on('messageDelete', async message => {
    .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
    .addField('Отправитель', message.member, true)
    .addField('Канал', message.channel, true)
-   .addField('Содержание', message.content, false);
-
+   .addField('Содержание', message.content, false)
    await channelUpdate.send({embed:embedDelete})
 });
 
