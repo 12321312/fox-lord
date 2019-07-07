@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("~Kick~")
     .setThumbnail("https://cdn.pixabay.com/photo/2013/07/12/18/01/kickboxing-152817_960_720.png")
     .setFooter("Кик систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+    .setTimestamp()
     .setColor("#bc0000")
     .addField("Кикнут:", `${kUser}`, true)
     .addField("Администратор:", `<@${message.author.id}>`, true)
