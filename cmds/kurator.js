@@ -13,7 +13,7 @@ module.exports.run = async (bot,message,args) => {
 
  message.delete();
 
- if ((args[2]) == "дать" || (args[2]) == "Дать" || (args[2]) == "Add" || (args[2]) == "add" || (args[2]) == "+") {
+ if ((args[2]) == "дать" || (args[2]) == "Дать" || (args[2]) == "Add" || (args[2]) == "add" || (args[2]) == "+" || (args[2]) == "Выдать" || (args[2]) == "выдать") {
      if ((args[1]) == "прислужник" || (args[1]) == "Прислужник" || (args[1]) == "<@&537703136597639178>") { 
      if (toadmin.roles.get(prislyga.id)) return message.reply('он и так в этой роли...');     
      toadmin.addRole(prislyga.id);
