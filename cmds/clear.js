@@ -4,7 +4,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
 let mention = message.mentions.users.first();
 if (mention.id == "565899297187692544") return message.reply('я тя ща сам удалю, сука');
-if (mention.roles.get("537707976304230421")) return message.reply('ботов, сука, не трогай');
+if (mention.roles.get("592343493905743906")) return message.reply('ботов, сука, не трогай');
 if (mention.roles.get("537705223301365781") && !message.member.roles.get('537700464888643595')) return message.reply('кураторов удалять сообщения может только фокс');
 if (mention.roles.get("537704565043363840") && !message.member.roles.get('537705223301365781') || !message.member.roles.get('537705223301365781')) return message.reply('дозорные свои сообщения удалять не могут');
 if (message.member.roles.get('537700464888643595') || message.member.roles.get('537705223301365781') || message.member.roles.get('537704565043363840')) {
