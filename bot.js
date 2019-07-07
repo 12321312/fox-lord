@@ -404,7 +404,7 @@ member.guild.fetchInvites().then(guildInvites => {
     if (ei.get(i.code)) {
     ei.get(i.code).uses < i.uses
     } else {
-      console.log('Ета хуйня работает?!');
+     return console.log('Ета хуйня работает?!');
     };
   });
   console.log(bot.users.get(invite.inviter.id));
