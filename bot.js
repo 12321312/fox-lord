@@ -158,7 +158,7 @@ bot.on('message', async message => {
    if(err) throw err;
    let sql;
    if(rows.length < 1) {
-    sql = `INSERT INTO xp (id, xp, point, zvania) VALUES ('${message.author.id}', ${generateXp()}, 0, 0)`
+    sql = `INSERT INTO xp (id, xp, point, zvania, mute) VALUES ('${message.author.id}', ${generateXp()}, 0, 0, 0)`
    } else {
     let xp = rows[0].xp;
     let point = rows[0].point;
