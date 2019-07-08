@@ -434,19 +434,19 @@ member.guild.fetchInvites().then(guildInvites => {
   invites[member.guild.id] = guildInvites;
   const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
   const inviter = bot.users.get(invite.inviter.id);
-  console.log(`{member.user.tag} зашёл. Код: ${invite.code} Пригласил: ${inviter.tag} использовано: ${invite.uses}`);
-
-/*
-let channel = bot.channels.get("537720268446236682");
-let Vshde = new Discord.RichEmbed()
-.setTitle("Зашёл на сервер")
-.setTimestamp()
-.setThumbnail("https://i.ibb.co/9r6FD3J/image.png")
-.setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-.setColor("#f80000")
-.addField("Зашёл:", `<@${member.user.id}>`, true);
-channel.send({embed:Vshde});
-*/
+  let channel = bot.channels.get("537720268446236682");
+  let Vshde = new Discord.RichEmbed()
+  .setTitle("Зашёл на сервер")
+  .setTimestamp()
+  .setThumbnail("https://i.ibb.co/9r6FD3J/image.png")
+  .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+  .setColor("#54ff9f")
+  .setTimestamp()
+  .addField("Зашёл:", `<@${member.user.id}>`, true)
+  .addField("Пригласил:", `<@${inviter.id}>`, true)
+  .addField("ID инвайта:", invite.code, true)
+  .addField("Инвайт использован:", `${invite.uses} раз`, true);
+  channel.send({embed:Vshde});
 });
 });
 
