@@ -434,6 +434,7 @@ member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
   const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
+  const inviter = invite.user || 'Неизвестно';
   let channel = bot.channels.get("537720268446236682");
   let Vshde = new Discord.RichEmbed()
   .setTitle("Зашёл на сервер")
@@ -443,12 +444,7 @@ member.guild.fetchInvites().then(guildInvites => {
   .setColor("#54ff9f")
   .setTimestamp()
   .addField("Зашёл:", `<@${member.user.id}>`, true);
-  if (invite.user) {
-  const inviter = client.users.get(invite.inviter.id);
   Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
-  } else {
-    Vshde.addField("Пригласил:", `Неизвестно`, true);  
-  }
   Vshde.addField("Ссылка:", `https://discord.gg/${invite.code}`, true);
   if (invite.maxUses > 0) Vshde.addField("Инвайт использован:", `${invite.uses}/${invite.maxUses} раз`, true); 
   if (invite.maxUses == 0) Vshde.addField("Инвайт использован:", `${invite.uses}/∞ раз`, true); 
