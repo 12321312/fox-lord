@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 const ms = require("ms"); 
 
-module.exports.run = async (bot,message,args) => {
+module.exports.run = async (bot,message,args,connection) => {
 connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
