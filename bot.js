@@ -448,6 +448,7 @@ let Vshde = new Discord.RichEmbed()
 channel.send({embed:Vshde});
 */
 });
+});
 
 bot.on('guildMemberRemove', member => {
   console.log('User ' + member.user.tag + ' вышел с сервера!');
@@ -466,9 +467,3 @@ bot.on('guildMemberRemove', member => {
 
 // login 
 bot.login(process.env.BOT_TOKEN);
-
-
-
-
-
-
