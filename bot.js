@@ -444,6 +444,7 @@ member.guild.fetchInvites().then(guildInvites => {
   .setTimestamp()
   .addField("Зашёл:", `<@${member.user.id}>`, true);
   if (invite.user) {
+  const inviter = client.users.get(invite.inviter.id);
   Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
   } else {
     Vshde.addField("Пригласил:", `Неизвестно`, true);  
