@@ -430,41 +430,6 @@ bot.on('guildMemberAdd', member => {
 var role = member.guild.roles.get("537701217879588878");
 member.addRole(role);
 console.log('User ' + member.user.tag + ' зашёл на сервер!');
-
-connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) => {
-  let mutetime = rows[0].mute;
-  if(rows.length < 1) {
-    let onepodl = `INSERT INTO xp (id, xp, point, zvania, mute) VALUES ('${member.user.id}', 0, 0, 0, 0)`
-    connection.query(onepodl);
-   } else {
-    if (mutetime > 0) {  
-    let mutetimerole = member.guild.roles.get("592734106471628869");
-    member.addRole(mutetimerole);
-    console.log('У ' + member.user.tag + ' был мут!');
-    let channellog = bot.channels.get("537720268446236682");
-    let pizdez = new Discord.RichEmbed()
-    .setTitle("Автомут")
-    .setTimestamp()
-    .setThumbnail("https://i.ibb.co/rydV8gN/chat-off-512.png")
-    .setFooter("Мут систем 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-    .setColor("#54ff9f")
-    .setTimestamp()
-    .addField("Был замучен:", `<@${member.user.id}>`, true)
-    .addField("Был выдан:", `Автосистемой`, true)
-    .addField("Был выдан:", `Автосистемой`, true)
-    .addField("Время мута:", `${ms(mutetime)}`, true)
-    .addField("Причина:", `Пользователь перезашёл с мутом`, false);
-    channellog.send({embed:pizdez});
-
-    setTimeout(function(){
-      member.removeRole(mutetimerole);
-      let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${member.user.id}'`  
-      connection.query(mutesqlq);
-    },mutetime);
-    };
-  };
-});
-
 member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
@@ -485,6 +450,41 @@ member.guild.fetchInvites().then(guildInvites => {
   if (invite.maxUses == 0) Vshde.addField("Инвайт использован:", `${invite.uses}/∞ раз`, true); 
   };
   channel.send({embed:Vshde});
+
+
+  connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) => {
+    let mutetime = rows[0].mute;
+    if(rows.length < 1) {
+      let onepodl = `INSERT INTO xp (id, xp, point, zvania, mute) VALUES ('${member.user.id}', 0, 0, 0, 0)`
+      connection.query(onepodl);
+     } else {
+      if (mutetime > 0) {  
+      let mutetimerole = member.guild.roles.get("592734106471628869");
+      member.addRole(mutetimerole);
+      console.log('У ' + member.user.tag + ' был мут!');
+      let channellog = bot.channels.get("537720268446236682");
+      let pizdez = new Discord.RichEmbed()
+      .setTitle("Автомут")
+      .setTimestamp()
+      .setThumbnail("https://i.ibb.co/rydV8gN/chat-off-512.png")
+      .setFooter("Мут систем 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+      .setColor("#54ff9f")
+      .setTimestamp()
+      .addField("Был замучен:", `<@${member.user.id}>`, true)
+      .addField("Был выдан:", `Автосистемой`, true)
+      .addField("Был выдан:", `Автосистемой`, true)
+      .addField("Время мута:", `${ms(mutetime)}`, true)
+      .addField("Причина:", `Пользователь перезашёл с мутом`, false);
+      channellog.send({embed:pizdez});
+  
+      setTimeout(function(){
+        member.removeRole(mutetimerole);
+        let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${member.user.id}'`  
+        connection.query(mutesqlq);
+      },mutetime);
+      };
+    };
+  });
 });
 });
 
