@@ -472,7 +472,6 @@ member.guild.fetchInvites().then(guildInvites => {
       .setTimestamp()
       .addField("Был замучен:", `<@${member.user.id}>`, true)
       .addField("Был выдан:", `Автосистемой`, true)
-      .addField("Был выдан:", `Автосистемой`, true)
       .addField("Время мута:", `${ms(mutetime)}`, true)
       .addField("Причина:", `Пользователь перезашёл с мутом`, false);
       channellog.send({embed:pizdez});
