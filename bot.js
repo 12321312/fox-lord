@@ -453,11 +453,11 @@ member.guild.fetchInvites().then(guildInvites => {
 
 
   connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) => {
-    let mutetime = rows[0].mute;
     if(rows.length < 1) {
       let onepodl = `INSERT INTO xp (id, xp, point, zvania, mute) VALUES ('${member.user.id}', 0, 0, 0, 0)`
       connection.query(onepodl);
      } else {
+      let mutetime = rows[0].mute;
       if (mutetime > 0) {  
       let mutetimerole = member.guild.roles.get("592734106471628869");
       member.addRole(mutetimerole);
