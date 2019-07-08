@@ -432,7 +432,7 @@ console.log('User ' + member.user.tag + ' зашёл на сервер!');
 member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
-  const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
+  const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
   let channel = bot.channels.get("537720268446236682");
   let Vshde = new Discord.RichEmbed()
   .setTitle("Зашёл на сервер")
@@ -454,7 +454,7 @@ member.guild.fetchInvites().then(guildInvites => {
 bot.on('guildMemberRemove', member => {
   console.log('User ' + member.user.tag + ' вышел с сервера!');
   let gggrole = member.roles.filter(r => r.name !=="@everyone").map(r => r).join(', ')
-  if (!gggrole) gggrole = "не было ролей";
+  if (!gggrole) gggrole = "не было";
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
   let Vshdex = new Discord.RichEmbed()
