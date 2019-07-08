@@ -452,7 +452,7 @@ connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) 
     .addField("Был замучен:", `<@${member.user.id}>`, true)
     .addField("Был выдан:", `Автосистемой`, true)
     .addField("Был выдан:", `Автосистемой`, true)
-    .addField("Время мута:", `${ms(ms(mutetime))}`, true)
+    .addField("Время мута:", `${ms(mutetime)}`, true)
     .addField("Причина:", `Пользователь перезашёл с мутом`, false);
     channellog.send({embed:pizdez});
 
