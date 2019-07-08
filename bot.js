@@ -432,7 +432,7 @@ console.log('User ' + member.user.tag + ' зашёл на сервер!');
 member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
-  const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
+  const invite = guildInvites.find(i => console.log(ei.get(i.code)));
   let channel = bot.channels.get("537720268446236682");
   let Vshde = new Discord.RichEmbed()
   .setTitle("Зашёл на сервер")
