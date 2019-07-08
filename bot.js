@@ -453,6 +453,7 @@ member.guild.fetchInvites().then(guildInvites => {
 
 bot.on('guildMemberRemove', member => {
   console.log('User ' + member.user.tag + ' вышел с сервера!');
+  let gggrole = member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник" || r.name == "Божество" || r.name == "Знаток" || r.name == "Просвещенный" || r.name == "Шнурок" || r.name == "Штуцер" || r.name == "Искушенный" || r.name == "Прозелит" || r.name == "V.I.P").map(r => r).join(', ');
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
   let Vshdex = new Discord.RichEmbed()
@@ -462,6 +463,7 @@ bot.on('guildMemberRemove', member => {
   .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .setColor("#f80000")
   .addField("Вышел:", `<@${member.user.id}>`, true);
+  .addField("Вышел:", gggrole, false);
   channel.send({embed:Vshdex});
 });
 
