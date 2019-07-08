@@ -433,7 +433,7 @@ member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
   const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
-  const inviter = client.users.get(invite.inviter.id);
+  const inviter = bot.users.get(invite.inviter.id);
   console.log(`{member.user.tag} зашёл. Код: ${invite.code} Пригласил: ${inviter.tag} использовано: ${invite.uses}`);
 
 /*
