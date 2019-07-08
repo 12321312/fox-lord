@@ -11,7 +11,7 @@ module.exports.run = async (bot,message,args,connection) => {
     if(err) throw err;
     let sql;
     if(rows.length < 1) {
-    sql = `INSERT INTO xp (id, xp, point, zvania) VALUES ('${target.id}', 0, 0, 0)`;
+    sql = `INSERT INTO xp (id, xp, point, zvania, mute) VALUES ('${target.id}', 0, 0, 0, 0)`;
     message.reply(`успешно записал пользователя <@${target.id}> в базу данных`);
     } else {
     let xp = rows[0].xp;
