@@ -444,7 +444,7 @@ member.guild.fetchInvites().then(guildInvites => {
   .addField("Зашёл:", `<@${member.user.id}>`, true);
   if (invite.inviter) {
   Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
-  Vshde.addField("ID инвайта:", invite.code, true);
+  Vshde.addField("Ссылка:", `https://discord.gg/${invite.code}`, true);
   Vshde.addField("Инвайт использован:", `${invite.uses} раз`, true);
   };
   channel.send({embed:Vshde});
