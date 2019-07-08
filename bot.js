@@ -433,7 +433,6 @@ member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
   const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
-  const inviter = bot.users.get(invite.inviter.id);
   let channel = bot.channels.get("537720268446236682");
   let Vshde = new Discord.RichEmbed()
   .setTitle("Зашёл на сервер")
@@ -442,10 +441,12 @@ member.guild.fetchInvites().then(guildInvites => {
   .setFooter("Лог мастер 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .setColor("#54ff9f")
   .setTimestamp()
-  .addField("Зашёл:", `<@${member.user.id}>`, true)
-  .addField("Пригласил:", `<@${inviter.id}>`, true)
-  .addField("ID инвайта:", invite.code, true)
-  .addField("Инвайт использован:", `${invite.uses} раз`, true);
+  .addField("Зашёл:", `<@${member.user.id}>`, true);
+  if (inviter) {
+  Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
+  Vshde.addField("ID инвайта:", invite.code, true);
+  Vshde.addField("Инвайт использован:", `${invite.uses} раз`, true);
+  };
   channel.send({embed:Vshde});
 });
 });
