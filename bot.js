@@ -428,6 +428,26 @@ bot.on('ready', () => {
 bot.on('guildMemberAdd', member => {
 var role = member.guild.roles.get("537701217879588878");
 member.addRole(role);
+
+connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) => {
+  let mutetime = rows[0].mute;
+  if(rows.length < 1) {
+    let onepodl = `INSERT INTO xp (id, xp, point, zvania, mute) VALUES ('${member.user.id}', 0, 0, 0, 0)`
+    connection.query(onepodl);
+   } else {
+    if (mutetime > 0) {  
+    let mutetime = message.guild.roles.find('name', 'muted');  
+    member.addRole(mutetime.id);
+
+    setTimeout(function(){
+      tomute.removeRole(mutetime.id);
+      let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${tomute.id}'`  
+      connection.query(mutesqlq);
+    },mutetime);
+    };
+  };
+});
+
 console.log('User ' + member.user.tag + ' зашёл на сервер!');
 member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
