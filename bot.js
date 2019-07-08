@@ -429,6 +429,14 @@ bot.on('guildMemberAdd', member => {
 var role = member.guild.roles.get("537701217879588878");
 member.addRole(role);
 console.log('User ' + member.user.tag + ' зашёл на сервер!');
+member.guild.fetchInvites().then(guildInvites => {
+  const ei = invites[member.guild.id];
+  invites[member.guild.id] = guildInvites;
+  const invite = guildInvites.find(i => !ei.get(i.code) || ei.get(i.code).uses < i.uses);
+  const inviter = client.users.get(invite.inviter.id);
+  console.log(`{member.user.tag} зашёл. Код: ${invite.code} Пригласил: ${inviter.tag} использовано: ${invite.uses}`);
+
+/*
 let channel = bot.channels.get("537720268446236682");
 let Vshde = new Discord.RichEmbed()
 .setTitle("Зашёл на сервер")
@@ -438,6 +446,7 @@ let Vshde = new Discord.RichEmbed()
 .setColor("#f80000")
 .addField("Зашёл:", `<@${member.user.id}>`, true);
 channel.send({embed:Vshde});
+*/
 });
 
 bot.on('guildMemberRemove', member => {
