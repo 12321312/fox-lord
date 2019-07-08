@@ -445,7 +445,8 @@ member.guild.fetchInvites().then(guildInvites => {
   if (invite.inviter) {
   Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
   Vshde.addField("Ссылка:", `https://discord.gg/${invite.code}`, true);
-  Vshde.addField("Инвайт использован:", `${invite.uses}/${invite.maxUses} раз`, true);
+  if (invite.maxUses > 0) Vshde.addField("Инвайт использован:", `${invite.uses}/${invite.maxUses} раз`, true); 
+  if (invite.maxUses == 0) Vshde.addField("Инвайт использован:", `${invite.uses}/∞ раз`, true); 
   };
   channel.send({embed:Vshde});
 });
