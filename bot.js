@@ -440,7 +440,7 @@ connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) 
     member.addRole(mutetimerole);
 
     setTimeout(function(){
-      tomute.removeRole(mutetime.id);
+      member.removeRole(mutetimerole);
       let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${member.user.id}'`  
       connection.query(mutesqlq);
     },mutetime);
