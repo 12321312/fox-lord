@@ -442,7 +442,7 @@ member.guild.fetchInvites().then(guildInvites => {
   .setColor("#54ff9f")
   .setTimestamp()
   .addField("Зашёл:", `<@${member.user.id}>`, true);
-  if (inviter) {
+  if (invite.inviter) {
   Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
   Vshde.addField("ID инвайта:", invite.code, true);
   Vshde.addField("Инвайт использован:", `${invite.uses} раз`, true);
