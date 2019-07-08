@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 const fs = require('fs');
+const ms = require("ms"); 
 bot.commands = new Discord.Collection();
 let config = require('./config.json');
 let prefix = config.prefix;
@@ -428,6 +429,7 @@ bot.on('ready', () => {
 bot.on('guildMemberAdd', member => {
 var role = member.guild.roles.get("537701217879588878");
 member.addRole(role);
+console.log('User ' + member.user.tag + ' зашёл на сервер!');
 
 connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) => {
   let mutetime = rows[0].mute;
@@ -438,6 +440,21 @@ connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) 
     if (mutetime > 0) {  
     let mutetimerole = member.guild.roles.get("592734106471628869");
     member.addRole(mutetimerole);
+    console.log('У ' + member.user.tag + ' был мут!');
+    let channellog = bot.channels.get("537720268446236682");
+    let pizdez = new Discord.RichEmbed()
+    .setTitle("Автомут")
+    .setTimestamp()
+    .setThumbnail("https://i.ibb.co/rydV8gN/chat-off-512.png")
+    .setFooter("Мут систем 2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+    .setColor("#54ff9f")
+    .setTimestamp()
+    .addField("Был замучен:", `<@${member.user.id}>`, true)
+    .addField("Был выдан:", `Автосистемой`, true)
+    .addField("Был выдан:", `Автосистемой`, true)
+    .addField("Время мута:", `${ms(ms(mutetime))}`, true)
+    .addField("Причина:", `Пользователь перезашёл с мутом`, false);
+    channellog.send({embed:pizdez});
 
     setTimeout(function(){
       member.removeRole(mutetimerole);
@@ -448,7 +465,6 @@ connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) 
   };
 });
 
-console.log('User ' + member.user.tag + ' зашёл на сервер!');
 member.guild.fetchInvites().then(guildInvites => {
   const ei = invites[member.guild.id];
   invites[member.guild.id] = guildInvites;
