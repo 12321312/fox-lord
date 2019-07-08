@@ -436,8 +436,8 @@ connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) 
     connection.query(onepodl);
    } else {
     if (mutetime > 0) {  
-    let mutetime = bot.channels.get("592734106471628869")
-    member.addRole(mutetime.id);
+    let mutetimerole = bot.channels.get("592734106471628869")
+    member.addRole(mutetimerole);
 
     setTimeout(function(){
       tomute.removeRole(mutetime.id);
