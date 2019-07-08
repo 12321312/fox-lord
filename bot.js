@@ -443,12 +443,14 @@ member.guild.fetchInvites().then(guildInvites => {
   .setColor("#54ff9f")
   .setTimestamp()
   .addField("Зашёл:", `<@${member.user.id}>`, true);
-  if (invite.inviter) {
+  if (invite.user) {
   Vshde.addField("Пригласил:", `<@${invite.inviter.id}>`, true);
+  } else {
+    Vshde.addField("Пригласил:", `Неизвестно`, true);  
+  }
   Vshde.addField("Ссылка:", `https://discord.gg/${invite.code}`, true);
   if (invite.maxUses > 0) Vshde.addField("Инвайт использован:", `${invite.uses}/${invite.maxUses} раз`, true); 
   if (invite.maxUses == 0) Vshde.addField("Инвайт использован:", `${invite.uses}/∞ раз`, true); 
-  };
   channel.send({embed:Vshde});
 
 
