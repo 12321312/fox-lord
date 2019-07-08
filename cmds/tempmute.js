@@ -3,6 +3,7 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args) => {
+connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
@@ -54,10 +55,18 @@ await(tomute.addRole(muterole.id));
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
 mutechannel.send({embed:muteEmbed}); 
 
+let mutesql = `UPDATE xp SET mute = ${ms(mutetime)} WHERE id = '${target.id}'`  
+connection.query(mutesql);
+
+
 setTimeout(function(){
     tomute.removeRole(muterole.id);
+    let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${target.id}'`  
+    connection.query(mutesqlq);
 },ms(mutetime));
-     
+});
+
+
 };
 module.exports.help = {
     name: "мут"
