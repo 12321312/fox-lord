@@ -3,11 +3,11 @@ const fs = require("fs");
 const ms = require("ms"); 
 
 module.exports.run = async (bot,message,args,connection) => {
-connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
+connection.query(`SELECT * FROM xp WHERE id = '${tomute.id}'`, async (err, rows) => {
 if(!tomute) return message.reply("такого участника нету");
 if (tomute.id == "294844223675564034") return message.reply('а пизды не дать?');
 if (tomute.roles.get('592734106471628869')) return message.reply('он уже писать не может...');
