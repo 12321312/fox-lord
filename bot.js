@@ -436,12 +436,12 @@ connection.query(`SELECT * FROM xp WHERE id = '${member.user.id}'`, (err, rows) 
     connection.query(onepodl);
    } else {
     if (mutetime > 0) {  
-    let mutetime = message.guild.roles.find('name', 'muted');  
+    let mutetime = bot.channels.get("592734106471628869")
     member.addRole(mutetime.id);
 
     setTimeout(function(){
       tomute.removeRole(mutetime.id);
-      let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${tomute.id}'`  
+      let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${member.user.id}'`  
       connection.query(mutesqlq);
     },mutetime);
     };
