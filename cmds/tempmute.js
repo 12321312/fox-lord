@@ -7,6 +7,7 @@ if(!message.member.roles.some(r=>["Лисий повелитель", "Курат
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!мут <юзер упоминание> <время> <причина>```");
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
+
 connection.query(`SELECT * FROM xp WHERE id = '${tomute.id}'`, async (err, rows) => {
 if(!tomute) return message.reply("такого участника нету");
 if (tomute.id == "294844223675564034") return message.reply('а пизды не дать?');
@@ -55,13 +56,13 @@ await(tomute.addRole(muterole.id));
 message.channel.send('Пользователь' + `<@${tomute.id}>` + ' был замучен на `'+ `${ms(ms(mutetime))}` + '` по причине: **' + `${mreason}` + '**');
 mutechannel.send({embed:muteEmbed}); 
 
-let mutesql = `UPDATE xp SET mute = ${ms(mutetime)} WHERE id = '${target.id}'`  
+let mutesql = `UPDATE xp SET mute = ${ms(mutetime)} WHERE id = '${tomute.id}'`  
 connection.query(mutesql);
 
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
-    let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${target.id}'`  
+    let mutesqlq = `UPDATE xp SET mute = 0 WHERE id = '${tomute.id}'`  
     connection.query(mutesqlq);
 },ms(mutetime));
 });
