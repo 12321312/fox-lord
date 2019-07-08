@@ -453,9 +453,8 @@ member.guild.fetchInvites().then(guildInvites => {
 
 bot.on('guildMemberRemove', member => {
   console.log('User ' + member.user.tag + ' вышел с сервера!');
-  let gggrole = member.roles.filter(r => r.name !=="@everyone" && r.name !== "Dota-key" || r.name !== "EVE-key" || r.name !== "Music-key" || r.name !== "Minecraft-key" || r.name !== "Gmod-key" || r.name !== "CS-key" || r.name !== "SI-key").map(r => r).join(', ')
-  if (!gggrole) gggrole = "не было";
-  //let gggrole = member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник" || r.name == "Божество" || r.name == "Знаток" || r.name == "Просвещенный" || r.name == "Шнурок" || r.name == "Штуцер" || r.name == "Искушенный" || r.name == "Прозелит" || r.name == "V.I.P").map(r => r).join(', ');
+  let gggrole = member.roles.filter(r => r.name !=="@everyone").map(r => r).join(', ')
+  if (!gggrole) gggrole = "не было ролей";
   let channel = bot.channels.get("537720268446236682");
   let nsyy = bot.emojis.get("554122783165251585");
   let Vshdex = new Discord.RichEmbed()
