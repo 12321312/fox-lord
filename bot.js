@@ -156,7 +156,6 @@ bot.on('message', async message => {
 
   if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { 
     message.delete()
-    message.reply('Хэй! Нельзя кидать тут инвайты!');
   }
  
 
