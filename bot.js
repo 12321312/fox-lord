@@ -375,7 +375,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
 });
 
 
-
+/*
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   let channelUpdate = bot.channels.get("537720268446236682");
   let embedUpdate = new Discord.RichEmbed()
@@ -405,6 +405,7 @@ bot.on('messageDelete', async message => {
    .addField('Содержание', message.content, false);
    await channelUpdate.send({embed:embedDelete})
 });
+*/
 
 
 // шапка
