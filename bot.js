@@ -19,38 +19,6 @@ const antispam = require('./antispam.js');
 let cooldown = new Set();
 let cdseconds = 7;
 
-
-bot.on('messageUpdate', async (oldMessage, newMessage) => {
-  let channelUpdate = bot.channels.get("537720268446236682");
-  let embedUpdate = new Discord.RichEmbed()
-   .setTitle("Сообщение изменено автором")
-   .setColor("#507d2a")
-   .setTimestamp()
-   .setThumbnail("http://cdn.onlinewebfonts.com/svg/img_167289.png")
-   .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-   .addField('Отправитель', oldMessage.member, true)
-   .addField('Канал', oldMessage.channel, true)
-   .addField('Раньше', oldMessage.content, false)
-   .addField('Сейчас', newMessage.content, false);
-   await channelUpdate.send({embed:embedUpdate})
-});
-
-bot.on('messageDelete', async message => {
-  let channelDelete = bot.channels.get("537720268446236682");
-  if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return;
-  let embedDelete = new Discord.RichEmbed()
-   .setTitle("Сообщение удалено автором")
-   .setColor("#9d9101")
-   .setTimestamp()
-   .setThumbnail("https://www.pngrepo.com/download/67177/delete-searching.png")
-   .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-   .addField('Отправитель', message.member, true)
-   .addField('Канал', message.channel, true)
-   .addField('Содержание', message.content, false);
-   await channelDelete.send({embed:embedDelete})
-});
-
-
 // бот реакции
 if (roles.length !== reactions.length) throw "Roles list and reactions list are not the same length!";
 
@@ -187,7 +155,7 @@ bot.on('message', async message => {
   };
 
   if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) message.delete();
-
+  
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
    let sql;
@@ -406,6 +374,38 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
   }, cdseconds * 1000)
 });
 
+
+/*
+bot.on('messageUpdate', async (oldmsg, newmsg) => {
+  let channelUpdate = bot.channels.get("537720268446236682");
+  let embedUpdate = new Discord.RichEmbed()
+   .setTitle("Сообщение изменено автором")
+   .setColor("#507d2a")
+   .setTimestamp()
+   .setThumbnail("http://cdn.onlinewebfonts.com/svg/img_167289.png")
+   .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
+   .addField('Отправитель', oldmsg.member, true)
+   .addField('Канал', oldmsg.channel, true)
+   .addField('Раньше', oldmsg.content, false)
+   .addField('Сейчас', newmsg.content, false)
+   await channelUpdate.send({embed:embedUpdate})
+});
+
+bot.on('messageDelete', async message => {
+  let channelUpdate = bot.channels.get("537720268446236682");
+  if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return;
+  let embedDelete = new Discord.RichEmbed()
+   .setTitle("Сообщение удалено автором")
+   .setColor("#9d9101")
+   .setTimestamp()
+   .setThumbnail("https://www.pngrepo.com/download/67177/delete-searching.png")
+   .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
+   .addField('Отправитель', message.member, true)
+   .addField('Канал', message.channel, true)
+   .addField('Содержание', message.content, false)
+   await channelUpdate.send({embed:embedDelete})
+});
+*/
 
 // шапка
 bot.on('ready', () => {
