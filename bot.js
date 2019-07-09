@@ -360,6 +360,12 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
     cooldown.add(message.author.id);
 } 
 
+   if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { 
+   message.delete()
+   message.channel.send('Хэй! Нельзя кидать тут инвайты!');
+   }
+
+
   await message.react(bot.emojis.get("554122910584012800"));
 
   let args = message.content.slice(prefix.length).trim().split(/ +/g);
