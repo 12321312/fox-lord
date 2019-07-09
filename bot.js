@@ -154,7 +154,10 @@ bot.on('message', async message => {
         message.channel.send(msg);
   };
   let inviteLink = /(https?:\/\/)?(www\.)?(discord\.(gg|io|me|li)|discordapp\.com\/invite)\/.+[a-zA-Z0-9]/gi;
-  if (message.content.match(inviteLink)) console.log(message.content).then(message.delete());
+  if (message.content.match(inviteLink)) {
+     console.log(`Удален инвайт ${message.content} пользователя ${message.author.name}`);
+     message.delete();
+  };
   
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
