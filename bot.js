@@ -153,6 +153,11 @@ bot.on('message', async message => {
   bot.send = function (msg){
         message.channel.send(msg);
   };
+
+  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { 
+    message.delete()
+    message.channel.send('Хэй! Нельзя кидать тут инвайты!');
+  }
  
 
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
@@ -359,11 +364,6 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
 } 
-
-   if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { 
-   message.delete()
-   message.channel.send('Хэй! Нельзя кидать тут инвайты!');
-   }
 
 
   await message.react(bot.emojis.get("554122910584012800"));
