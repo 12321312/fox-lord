@@ -154,10 +154,7 @@ bot.on('message', async message => {
         message.channel.send(msg);
   };
 
-  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) { 
-    message.delete()
-  }
- 
+  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) message.delete();
 
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
@@ -378,8 +375,8 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
 });
 
 
-/*
-bot.on('messageUpdate', async (oldmsg, newmsg) => {
+
+bot.on('messageUpdate', async (oldMessage, newMessage) => {
   let channelUpdate = bot.channels.get("537720268446236682");
   let embedUpdate = new Discord.RichEmbed()
    .setTitle("Сообщение изменено автором")
@@ -387,11 +384,11 @@ bot.on('messageUpdate', async (oldmsg, newmsg) => {
    .setTimestamp()
    .setThumbnail("http://cdn.onlinewebfonts.com/svg/img_167289.png")
    .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
-   .addField('Отправитель', oldmsg.member, true)
-   .addField('Канал', oldmsg.channel, true)
-   .addField('Раньше', oldmsg.content, false)
-   .addField('Сейчас', newmsg.content, false)
-   await channelUpdate.send({embed:embedUpdate})
+   .addField('Отправитель', oldMessage.member, true)
+   .addField('Канал', oldMessage.channel, true)
+   .addField('Раньше', oldMessage.content, false)
+   .addField('Сейчас', newMessage.content, false);
+   channelUpdate.send({embed:embedUpdate})
 });
 
 bot.on('messageDelete', async message => {
@@ -405,10 +402,10 @@ bot.on('messageDelete', async message => {
    .setFooter("Контроль за сообщениями 228", "https://cs4.pikabu.ru/post_img/big/2016/07/16/9/1468678258134342020.jpg")
    .addField('Отправитель', message.member, true)
    .addField('Канал', message.channel, true)
-   .addField('Содержание', message.content, false)
-   await channelUpdate.send({embed:embedDelete})
+   .addField('Содержание', message.content, false);
+   channelUpdate.send({embed:embedDelete})
 });
-*/
+
 
 // шапка
 bot.on('ready', () => {
