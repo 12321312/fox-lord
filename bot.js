@@ -388,7 +388,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
    .addField('Канал', oldMessage.channel, true)
    .addField('Раньше', oldMessage.content, false)
    .addField('Сейчас', newMessage.content, false);
-   channelUpdate.send({embed:embedUpdate})
+   await channelUpdate.send({embed:embedUpdate})
 });
 
 bot.on('messageDelete', async message => {
@@ -403,7 +403,7 @@ bot.on('messageDelete', async message => {
    .addField('Отправитель', message.member, true)
    .addField('Канал', message.channel, true)
    .addField('Содержание', message.content, false);
-   channelUpdate.send({embed:embedDelete})
+   await channelUpdate.send({embed:embedDelete})
 });
 
 
