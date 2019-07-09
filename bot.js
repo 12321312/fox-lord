@@ -153,8 +153,8 @@ bot.on('message', async message => {
   bot.send = function (msg){
         message.channel.send(msg);
   };
-
-  if (message.content.includes('discord.gg/'||'discordapp.com/invite/')) message.delete();
+  let inviteLink = /(https?:\/\/)?(www\.)?(discord\.(gg|io|me|li)|discordapp\.com\/invite)\/.+[a-zA-Z0-9]/gi;
+  if (message.content.match(inviteLink)) console.log(message.content).then(message.delete());
   
   connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, (err, rows) => {
    if(err) throw err;
