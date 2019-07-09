@@ -355,7 +355,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
   if(cooldown.has(message.author.id)){
     message.delete();
     return message.reply("хэй! Подожди 7 секунд и пиши команду...")
-}
+  }
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Music-key", "Nsfw-знаток", "Божество"].includes(r.name)) ){
     cooldown.add(message.author.id);
 } 
