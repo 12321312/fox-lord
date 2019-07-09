@@ -375,7 +375,7 @@ connection.query(`SELECT * FROM clien WHERE id = '${message.author.id}'`, (err, 
 });
 
 
-/*
+
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   let channelUpdate = bot.channels.get("537720268446236682");
   let embedUpdate = new Discord.RichEmbed()
@@ -392,7 +392,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
 });
 
 bot.on('messageDelete', async message => {
-  let channelUpdate = bot.channels.get("537720268446236682");
+  let channelDelete = bot.channels.get("537720268446236682");
   if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return;
   let embedDelete = new Discord.RichEmbed()
    .setTitle("Сообщение удалено автором")
@@ -403,9 +403,8 @@ bot.on('messageDelete', async message => {
    .addField('Отправитель', message.member, true)
    .addField('Канал', message.channel, true)
    .addField('Содержание', message.content, false);
-   await channelUpdate.send({embed:embedDelete})
+   await channelDelete.send({embed:embedDelete})
 });
-*/
 
 
 // шапка
