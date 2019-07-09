@@ -155,7 +155,7 @@ bot.on('message', async message => {
   };
   let inviteLink = /(https?:\/\/)?(www\.)?(discord\.(gg|io|me|li)|discordapp\.com\/invite)\/.+[a-zA-Z0-9]/gi;
   if (message.content.match(inviteLink)) {
-     console.log(`Удален инвайт ${message.content} пользователя ${message.author.name}`);
+     console.log(`Удален инвайт ${message.content} пользователя ${message.author.tag}`);
      message.delete();
   };
   
