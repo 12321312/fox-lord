@@ -5,10 +5,10 @@ if(!message.member.roles.some(r=>["Лисий повелитель", "Курат
 
 
 if ((args[0]) == "Россия" || (args[0]) == "россия" || (args[0]) == "рус" || (args[0]) == "rus" || (args[0]) == "russia") {
-bot.setRegion('Russia');
+setRegion('Russia');
 message.reply('Поставлен регион "Россия".');
 } else if ((args[0]) == "Европа" || (args[0]) == "европа" || (args[0]) == "евро" || (args[0]) == "Eur" || (args[0]) == "eur") {
-bot.setRegion('Central Europe');
+setRegion('Central Europe');
 message.reply('Поставлен регион "Центральная Европа".');
 } else return message.reply('сервер не правильно указан.');
 
