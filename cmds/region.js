@@ -4,10 +4,10 @@ module.exports.run = async (bot,message,args) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
 
 
-if ((args[1]) == "Россия" || (args[1]) == "россия" || (args[1]) == "рус" || (args[1]) == "rus" || (args[1]) == "russia") {
+if ((args[0]) == "Россия" || (args[0]) == "россия" || (args[0]) == "рус" || (args[0]) == "rus" || (args[0]) == "russia") {
 bot.setRegion('Russia');
 message.reply('Поставлен регион "Россия".');
-} else if ((args[1]) == "Европа" || (args[1]) == "европа" || (args[1]) == "евро" || (args[1]) == "Eur" || (args[1]) == "eur") {
+} else if ((args[0]) == "Европа" || (args[0]) == "европа" || (args[0]) == "евро" || (args[0]) == "Eur" || (args[0]) == "eur") {
 bot.setRegion('Central Europe');
 message.reply('Поставлен регион "Центральная Европа".');
 } else return message.reply('сервер не правильно указан.');
