@@ -11,7 +11,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
  if(err) throw err;
    let sql;
     if(rows.length < 1) {
-      if (!(args[1])) return message.reply(`у пользователя <@${target.id}> нет варнов.`);    
+      if (!(args[1])) return message.reply(`у пользователя <@${target.id}> нет варнов.`).then(async msg => await msg.delete(15000));    
       sql = `INSERT INTO warn (id, one, onea, two, twoa, tri, tria) VALUES ('${target.id}', '${wReason}', '${message.author.id}', NULL, NULL, NULL, NULL)`;
       bot.send(`Выдал варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
       connection.query(sql);
@@ -27,16 +27,17 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
 
      if (!(args[1])) {
         let WarnEmbed = new Discord.RichEmbed()
-        .setTitle("Варны пользователя")
+        .setTitle(`Варны пользователя <@${target.id}>`)
         .setTimestamp()
         .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B1%D0%B0%D0%BD-png-3-300x200.png")
         .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
         .setColor("#bc0000")
         .addField(`Первый варн от <@${warn1a}>`, `${warn1}`);
-        if (warn2) WarnEmbed.addField(`Второй варн от <@${warn2a}>`, `${warn2}`);
-        if (warn3) WarnEmbed.addField(`Третий варн от <@${warn2a}>`, `${warn2}`);
+        if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: ${warn2}`);
+        if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: ${warn3}`);
 
-         bot.send({embed:WarnEmbed});
+         bot.send({embed:WarnEmbed}).then(async msg => await msg.delete(15000));
+         message.delete(15000);
          return; 
      }                   
       if (!warn2) {
