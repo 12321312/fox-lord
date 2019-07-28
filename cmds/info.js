@@ -8,8 +8,8 @@ module.exports.run = async (bot,message,args) => {
   .setTimestamp()
   .setColor("#FFDF00")
   .addField("Создатель бота и сервера:", `<@${294844223675564034}>`)
-  .addField("Всего пользователей на сервере:", guild.memberCount, true)
-  .addField("Всего онлайн:", guild.members.filter(m => m.presence.status === 'online'), true);
+  .addField("Всего пользователей на сервере:", guild.members.size, true)
+  .addField("Всего онлайн:", guild.members.filter(m => m.presence.status === 'online').size, true);
 
 
     message.channel.send({embed:infore}).then(async msg => await msg.delete(15000));
