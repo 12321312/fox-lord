@@ -2,10 +2,13 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     let a = message.author;
-    connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
+    connection.query(`SELECT * FROM xp,warn WHERE id = '${a.id}'`, async (err, rows) => {
      if(err) throw err;
      let xpi = rows[0].xp;
      let point = rows[0].point; 
+     let warn1 = rows[0].one;
+     let warn2 = rows[0].two;  
+     let warn3 = rows[0].tri;
 
      let lvl;
      if (xpi && xpi >= 1000) {
@@ -44,6 +47,9 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
     if(keys) { ambed.addField("Ключи:", keys, true) };
+    if(warn1) { ambed.addField("Варны:", `1: ${warn1}`, true) };
+    if(warn2) { ambed.addField("Варны:", `1: ${warn1}\n2: ${warn2}`, true) };
+    if(warn3) { ambed.addField("Варны:", `1: ${warn1}\n2: ${warn2}\n2: ${warn3}`, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
      
      message.delete(15000);
