@@ -5,7 +5,6 @@ if(!message.member.roles.some(r=>["Лисий повелитель", "Курат
 
 let WarnES = new Discord.RichEmbed()
 .setTitle(`Подробнее о варнах:`)
-.setDescription(`${target}`)
 .setTimestamp()
 .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
 .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
