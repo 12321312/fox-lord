@@ -51,6 +51,5 @@ module.exports.run = async (bot,message,args,connection) => {
 });
 };
 module.exports.help = {
-    name: "юзеринфо",
-    name: "инфо"
+    name: "юзеринфо"
 };
