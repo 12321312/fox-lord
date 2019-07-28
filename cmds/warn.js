@@ -82,6 +82,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         if (target.roles.get('592772182543695882')) return message.reply('Он в муте, выдать варн нельзя.'); 
         message.channel.send(`За большое кол-во варнов, замутил пользователя <@${target.id}>, повторно.`);
         target.addRole(muterole.id) 
+        logEmbed.addField("Был замучен навсегда", "Набрано 3 варна.", false);
       }  
      }
      
@@ -97,7 +98,6 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      .addField("Администратор:", `${message.author}`, true)
      .addField("Канал:", message.channel, true)
      .addField("Причина:", wReason, false);
-     if (warn3) logEmbed.addField("Был замучен навсегда", "Набрано 3 варна.", false);
      logsss.send({embed:logEmbed});      
 });         
 };
