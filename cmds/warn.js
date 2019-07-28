@@ -14,6 +14,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
     if(rows.length < 1) {
       message.delete();  
       if (!(args[1])) return message.reply(`у пользователя <@${target.id}> нет варнов.`).then(async msg => await msg.delete(15000));    
+      if ((args[1]) == "снять") return message.reply(`у пользователя <@${target.id}> нет варнов.`).then(async msg => await msg.delete(15000));
       sql = `INSERT INTO warn (id, one, onea, two, twoa, tri, tria) VALUES ('${target.id}', '${wReason}', '${message.author.id}', NULL, NULL, NULL, NULL)`;
       bot.send(`Выдал варн <@${target.id}> с причиной **"${wReason}"**`);
       connection.query(sql);
@@ -25,6 +26,15 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      let warn3 = rows[0].tri;
      let warn3a = rows[0].tria;
      let muterole = message.guild.roles.find('name', "muted");
+     
+     if ((args[1]) == "снять") {
+     if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) return message.reply('Отказано в доступе.');    
+     sql = `DELETE warn WHERE id = '${target.id}'`
+     message.delete();    
+     message.channel.send(`Снял все варны с <@${target.id}>`);
+     connection.query(sql);
+     return; 
+     }
 
      if (!(args[1])) {
         let WarnEmbed = new Discord.RichEmbed()
