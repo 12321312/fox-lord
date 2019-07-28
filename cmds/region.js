@@ -16,7 +16,7 @@ return;
 message.guild.setRegion(args[0]);
 message.reply(`поставлен регион сервера: *"${args[0]}"*.`);
 } else if (!(args[0])) {
-message.reply("укажите нужный вам регион. \nСписок: 'japan', 'singapore', 'eu-central', 'india', 'us-central', 'london', 'eu-west', 'amsterdam', 'brazil', 'dubai', 'us-west', 'hongkong', 'us-south', 'southafrica', 'us-east', 'sydney', 'frankfurt', 'russia'.");
+message.reply("укажите нужный вам регион. \n```'japan', 'singapore', 'eu-central', 'india', 'us-central', 'london', 'eu-west', 'amsterdam', 'brazil', 'dubai', 'us-west', 'hongkong', 'us-south', 'southafrica', 'us-east', 'sydney', 'frankfurt', 'russia'```");
 return;
 } else return message.reply('сервер не правильно указан.');
 };
