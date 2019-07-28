@@ -14,7 +14,6 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      sql = `INSERT INTO warn (id, one, onea, two, twoa, tri, tria) VALUES ('${target.id}', '${wReason}', '${message.author.id}', NULL, NULL, NULL, NULL)`;
      message.reply(`Выдал варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
      connection.query(sql);
-     return;
      } else {
      let warn1 = rows[0].one;
      let warn1a = rows[0].onea;
@@ -26,12 +25,10 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
       sql = `UPDATE warn SET two = '${wReason}', twoa = ${message.author.id} WHERE id = '${target.id}'`
       message.reply(`Выдал второй варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
       connection.query(sql);
-      return;
       } else if (!warn3) {
         sql = `UPDATE warn SET tri = '${wReason}', tria = ${message.author.id} WHERE id = '${target.id}'`
         message.reply(`Выдал третий варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
         connection.query(sql);
-        return;
       }   
      }
 });         
