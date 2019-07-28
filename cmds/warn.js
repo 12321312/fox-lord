@@ -22,12 +22,12 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      let warn2a = rows[0].twoa;
      let warn3 = rows[0].tri;
      let warn3a = rows[0].tri;              
-      if (warn2 == NULL && warn3 == NULL) {
+      if (!warn2 && warn3) {
       sql = `UPDATE warn SET two = ${wReason}, twoa = ${message.author.id} WHERE id = '${target.id}'`
       message.reply(`Выдал второй варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
       connection.query(sql);
       return;
-      } else if (warn3 == NULL) {
+      } else if (!warn3) {
         sql = `UPDATE warn SET tri = ${wReason}, tria = ${message.author.id} WHERE id = '${target.id}'`
         message.reply(`Выдал третий варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
         connection.query(sql);
