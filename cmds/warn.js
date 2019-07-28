@@ -27,12 +27,13 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
 
      if (!(args[1])) {
         let WarnEmbed = new Discord.RichEmbed()
-        .setTitle(`Варны пользователя ${target}`)
+        .setTitle(`Варны пользователя:`)
+        .setDescription(`${target}`)
         .setTimestamp()
         .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B1%D0%B0%D0%BD-png-3-300x200.png")
         .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
         .setColor("#bc0000")
-        .addField(`Первый варн`, `От <@${warn2a}> с причиной: ${warn1}`);
+        .addField(`Первый варн`, `От <@${warn1a}> с причиной: ${warn1}`);
         if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: ${warn2}`);
         if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: ${warn3}`);
 
