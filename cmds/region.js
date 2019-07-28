@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
 message.delete(15000);
-
+let cooldownred = new Set();
 if(cooldownred.has(message.author.id)){
     message.delete();
     return message.reply("Нельзя регион менять чаще чем раз в 5 минут!").then(async msg => await msg.delete(15000));
