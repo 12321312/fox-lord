@@ -11,6 +11,7 @@ module.exports.run = async (bot,message,args) => {
   .addField("Создатель бота и сервера:", `<@!294844223675564034>`)
   .addField("Всего пользователей на сервере:", message.guild.members.size, true)
   .addField("Всего онлайн:", message.guild.members.filter(m => m.presence.status === 'online').size, true)
+  .addField("ID сервера:", message.guild.id, true)
   .addField("Регион сервера:", message.guild.region, true)
   .addField("Создан сервер:", message.guild.createdAt, true);
 
