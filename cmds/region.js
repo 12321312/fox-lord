@@ -4,6 +4,7 @@ module.exports.run = async (bot,message,args) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
 message.delete(15000);
 let cooldownred = new Set();
+let cdseconds = 300;
 if(cooldownred.has(message.author.id)){
     message.delete();
     return message.reply("Нельзя регион менять чаще чем раз в 5 минут!").then(async msg => await msg.delete(15000));
@@ -17,7 +18,7 @@ let regionEmbed = new Discord.RichEmbed()
 .setFooter("Регион систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .setTimestamp()
 .setColor("#FFDF00")
-.addField("Администратор:", `<@${message.author.id}>`, true)
+.addField("Администратор:", `<@${message.author.id}>`)
 .addField("Был регион:", message.guild.region, true);
 
 let logchannel = message.guild.channels.get("537720268446236682");
