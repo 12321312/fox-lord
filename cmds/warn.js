@@ -23,6 +23,16 @@ if(!target) return message.reply("такого участника нету");
  
 
 connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => {
+    let logEmbed = new Discord.RichEmbed()
+    .setTitle("Выдан варн.")
+    .setColor('#F5F5DC')
+    .setTimestamp()
+    .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
+    .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+    .addField("Был выдан:", `${target}`, true)
+    .addField("Администратор:", `${message.author}`, true)
+    .addField("Канал:", message.channel, true)
+    .addField("Причина:", wReason, false);    
  if(err) throw err;
    let sql;
     if(rows.length < 1) {
@@ -78,26 +88,16 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         connection.query(sql);
         message.delete();
         target.addRole(muterole.id)
+        logEmbed.addField("Был замучен навсегда", "Набрано 3 варна.", false);
       } else if (warn3) {
         if (target.roles.get('592772182543695882')) return message.reply('Он в муте, выдать варн нельзя.'); 
         message.channel.send(`За большое кол-во варнов, замутил пользователя <@${target.id}>, повторно.`);
         target.addRole(muterole.id) 
-        logEmbed.addField("Был замучен навсегда", "Набрано 3 варна.", false);
       }  
      }
      
      let logsss = message.guild.channels.get("537720268446236682");
      if(!logsss) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
-     let logEmbed = new Discord.RichEmbed()
-     .setTitle("Выдан варн.")
-     .setColor('#F5F5DC')
-     .setTimestamp()
-     .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
-     .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-     .addField("Был выдан:", `${target}`, true)
-     .addField("Администратор:", `${message.author}`, true)
-     .addField("Канал:", message.channel, true)
-     .addField("Причина:", wReason, false);
      logsss.send({embed:logEmbed});      
 });         
 };
