@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
 message.delete(15000);
-let regionew = "ошибка";
+var regionew = "ошибка";
 let regionEmbed = new Discord.RichEmbed()
 .setDescription("Регион изменен")
 .setThumbnail("http://pngimg.com/uploads/earth/earth_PNG39.png")
