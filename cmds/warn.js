@@ -62,7 +62,7 @@ let logsss = message.guild.channels.get("537720268446236682");
 if(!logsss) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
 let logEmbed = new Discord.RichEmbed()
 .setDescription("Выдан варн.")
-.setColor('#	F5F5DC')
+.setColor('#F5F5DC')
 .setTimestamp()
 .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
 .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
