@@ -27,7 +27,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
 
      if (!(args[1])) {
         let WarnEmbed = new Discord.RichEmbed()
-        .setTitle(`Варны пользователя <@${target.id}>`)
+        .setTitle(`Варны пользователя ${target}`)
         .setTimestamp()
         .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B1%D0%B0%D0%BD-png-3-300x200.png")
         .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
@@ -36,18 +36,18 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: ${warn2}`);
         if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: ${warn3}`);
 
-         bot.send({embed:WarnEmbed}).then(async msg => await msg.delete(15000));
+         message.channel.send({embed:WarnEmbed}).then(async msg => await msg.delete(15000));
          message.delete(15000);
          return; 
      }                   
       if (!warn2) {
       sql = `UPDATE warn SET two = '${wReason}', twoa = ${message.author.id} WHERE id = '${target.id}'`
-      bot.send(`Выдал второй варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
+      message.channel.send(`Выдал второй варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
       connection.query(sql);
       message.delete();
       } else if (!warn3) {
         sql = `UPDATE warn SET tri = '${wReason}', tria = ${message.author.id} WHERE id = '${target.id}'`
-        bot.send(`Выдал третий варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
+        message.channel.send(`Выдал третий варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
         connection.query(sql);
         message.delete();
       }   
