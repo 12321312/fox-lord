@@ -2,11 +2,8 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     let a = message.author;
-    connection.query(`SELECT * FROM xp,warn WHERE xp.id = '${message.author.id}' AND warn.id = '${message.author.id}'`, async (err, rows) => {
+    connection.query(`SELECT * FROM xp WHERE id = '${message.author.id}'`, async (err, rows) => {
      if(err) throw err;
-     let warn1 = rows[0].one || null;
-     let warn2 = rows[0].two || null;  
-     let warn3 = rows[0].tri || null;
      let xpi = rows[0].xp;
      let point = rows[0].point; 
 
@@ -47,9 +44,6 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
     if(keys) { ambed.addField("Ключи:", keys, true) };
-    if(warn1 && !warn2) { ambed.addField("Варны:", `**1:** ${warn1}`, true) };
-    if(warn2 && !warn3) { ambed.addField("Варны:", `**1:** ${warn1}\n**2:** ${warn2}`, true) };
-    if(warn3) { ambed.addField("Варны:", `**1:** ${warn1}\n**2:** ${warn2}\n**3:** ${warn3}`, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
      
      message.delete(15000);
