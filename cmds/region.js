@@ -18,14 +18,14 @@ if(!logchannel) return message.channel.send("Сбились настройки �
 
 if ((args[0]) == "Россия" || (args[0]) == "россия" || (args[0]) == "рус" || (args[0]) == "rus" || (args[0]) == "russia" || (args[0]) == "Russia") {
   if (message.guild.region == "russia") return message.reply('Сейчас и так этот регион.').then(async msg => await msg.delete(15000));
-  regionEmbed.addField("Изменен на:", "Россия", true);
+  regionEmbed.addField("Изменен на:", "russia", true);
   logchannel.send({embed:regionEmbed});
 message.guild.setRegion('russia');
 message.reply('поставлен регион сервера: *"Россия"*.').then(async msg => await msg.delete(15000));
 return;
 } else if ((args[0]) == "Европа" || (args[0]) == "европа" || (args[0]) == "евро" || (args[0]) == "Eur" || (args[0]) == "eur" || (args[0]) == "eu-central") {
  if (message.guild.region == "eu-central") return message.reply('Сейчас и так этот регион.').then(async msg => await msg.delete(15000));
- regionEmbed.addField("Изменен на:", "Центральная европа", true);
+ regionEmbed.addField("Изменен на:", "eu-central", true);
  logchannel.send({embed:regionEmbed});
 message.guild.setRegion('eu-central');
 message.reply('поставлен регион сервера: *"Центральная Европа"*.').then(async msg => await msg.delete(15000));
