@@ -5,12 +5,13 @@ if(!message.member.roles.some(r=>["Лисий повелитель", "Курат
 
 
 if ((args[0]) == "Россия" || "россия" || "рус" || "rus" || "russia") {
-Discord.setRegion('Russia');
+message.guild.setRegion('Russia');
 message.reply('Поставлен регион "Россия".');
-} else if ((args[0]) == "Европа" || (args[0]) == "европа" || (args[0]) == "евро" || (args[0]) == "Eur" || (args[0]) == "eur") {
-Discord.setRegion('Central Europe');
+} else if ((args[0]) == "Европа" || "европа" || "евро" || "Eur" || "eur") {
+message.guild.setRegion('Central Europe');
 message.reply('Поставлен регион "Центральная Европа".');
 } else return message.reply('сервер не правильно указан.');
+
 
 };
 
