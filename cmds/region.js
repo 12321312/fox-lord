@@ -4,7 +4,7 @@ module.exports.run = async (bot,message,args) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) return message.reply('Отказано в доступе.');
 
 
-if ((args[0]) == "Россия" || (args[0]) == "россия" || (args[0]) == "рус" || (args[0]) == "rus" || (args[0]) == "russia") {
+if ((args[0]) == "Россия" || "россия" || "рус" || "rus" || "russia") {
 Discord.setRegion('Russia');
 message.reply('Поставлен регион "Россия".');
 } else if ((args[0]) == "Европа" || (args[0]) == "европа" || (args[0]) == "евро" || (args[0]) == "Eur" || (args[0]) == "eur") {
