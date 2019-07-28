@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     let kReason = args.slice(1).join(" ") || "---";
     let banEmbed = new Discord.RichEmbed()
-    .setDescription("~Kick~")
+    .setTitle("~Kick~")
     .setThumbnail("https://cdn.pixabay.com/photo/2013/07/12/18/01/kickboxing-152817_960_720.png")
     .setFooter("Кик систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
     .setTimestamp()
