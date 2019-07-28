@@ -2,13 +2,14 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     let a = message.author;
+    var one = null;
+    var two = null;
+    var tri = null;
     connection.query(`SELECT * FROM xp,warn WHERE xp.id = '${message.author.id}' AND warn.id = '${message.author.id}'`, async (err, rows) => {
      if(err) throw err;
-     if (warn.id){
      let warn1 = rows[0].one;
      let warn2 = rows[0].two;  
      let warn3 = rows[0].tri;
-     }
      let xpi = rows[0].xp;
      let point = rows[0].point; 
 
