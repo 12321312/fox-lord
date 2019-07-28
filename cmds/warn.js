@@ -20,7 +20,8 @@ return;
 let wReason = args.slice(1).join(" ") || "---";
 let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!target) return message.reply("такого участника нету");
- 
+if(target.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply("админов варнить нельзя");
+  
 
 connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => {
     let logEmbed = new Discord.RichEmbed()
