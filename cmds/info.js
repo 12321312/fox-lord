@@ -24,5 +24,5 @@ module.exports.run = async (bot,message,args) => {
     message.delete(15000);
 };
 module.exports.help = {
-    name: "серверинфо"
+    name: ["серверинфо","сервер"]
 };
