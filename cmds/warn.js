@@ -30,9 +30,9 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         .setTitle(`Варны пользователя:`)
         .setDescription(`${target}`)
         .setTimestamp()
-        .setThumbnail("https://pngimage.net/wp-content/uploads/2018/06/%D0%B1%D0%B0%D0%BD-png-3-300x200.png")
+        .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
         .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
-        .setColor("#bc0000")
+        .setColor("#F5F5DC")
         .addField(`Первый варн`, `От <@${warn1a}> с причиной: ${warn1}`);
         if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: **${warn2}**`);
         if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: **${warn3}**`);
@@ -53,9 +53,25 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         message.delete();
         target.addRole(muterole.id)
       } else if (warn3) {
+        if (target.roles.get('592772182543695882')) return message.reply('Он в муте, выдать варн нельзя.'); 
         message.channel.send(`За большое кол-во варнов, замутил пользователя <@${target.id}>, повторно.`);
         target.addRole(muterole.id) 
       }  
+      
+let logsss = message.guild.channels.get("537720268446236682");
+if(!logsss) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
+let logEmbed = new Discord.RichEmbed()
+.setDescription("Выдан варн.")
+.setColor('#	F5F5DC')
+.setTimestamp()
+.setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
+.setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+.addField("Был выдан:", `${target}`, true)
+.addField("Администратор:", `${message.author}`, true)
+.addField("Канал:", message.channel, true)
+.addField("Причина:", wReason, false);
+logsss.send({embed:logEmbed}); 
+
      }
 });         
 };
