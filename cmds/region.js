@@ -5,7 +5,7 @@ if(!message.member.roles.some(r=>["Лисий повелитель", "Курат
 message.delete(15000);
 
 let regionEmbed = new Discord.RichEmbed()
-.setDescription("Регион сервера изменен")
+.setTitle("Регион сервера изменен")
 .setThumbnail("http://pngimg.com/uploads/earth/earth_PNG39.png")
 .setFooter("Регион систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .setTimestamp()
