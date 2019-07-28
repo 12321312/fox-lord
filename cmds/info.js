@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
   let infore = new Discord.RichEmbed()
   .setDescription("Информация о сервере ~Fox's Shelter~")
-  .setThumbnail(message.guild.avatarURL)
+  .setThumbnail(message.guild.iconURL)
   .setFooter("Твой милый бот", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
   .setTimestamp()
   .setColor("#FFDF00")
