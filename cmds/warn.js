@@ -21,7 +21,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      let warn2 = rows[0].two;  
      let warn2a = rows[0].twoa;
      let warn3 = rows[0].tri;
-     let warn3a = rows[0].tri;              
+     let warn3a = rows[0].tria;              
       if (!warn2 && warn3) {
       sql = `UPDATE warn SET two = ${wReason}, twoa = ${message.author.id} WHERE id = '${target.id}'`
       message.reply(`Выдал второй варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
