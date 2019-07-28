@@ -92,7 +92,8 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
       } else if (warn3) {
         if (target.roles.get(muterole.id)) return message.reply('Он в муте, выдать варн нельзя.'); 
         message.channel.send(`За большое кол-во варнов, замутил пользователя <@${target.id}>, повторно.`);
-        target.addRole(muterole.id) 
+        target.addRole(muterole.id); 
+        return;
       }  
      }
      
