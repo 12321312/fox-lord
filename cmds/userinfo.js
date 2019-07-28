@@ -47,9 +47,9 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
     if(keys) { ambed.addField("Ключи:", keys, true) };
-    if(warn1) { ambed.addField("Варны:", `1: ${warn1}`, true) };
-    if(warn2) { ambed.addField("Варны:", `1: ${warn1}\n2: ${warn2}`, true) };
-    if(warn3) { ambed.addField("Варны:", `1: ${warn1}\n2: ${warn2}\n2: ${warn3}`, true) };
+    if(warn1 && !warn2) { ambed.addField("Варны:", `**1:** ${warn1}`, true) };
+    if(warn2 && !warn3) { ambed.addField("Варны:", `**1:** ${warn1}\n**2:** ${warn2}`, true) };
+    if(warn3) { ambed.addField("Варны:", `**1:** ${warn1}\n**2:** ${warn2}\n**3:** ${warn3}`, true) };
     ambed.addField("Создание аккаунта:",a.createdAt, false);
      
      message.delete(15000);
