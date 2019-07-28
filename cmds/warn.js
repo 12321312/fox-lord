@@ -10,7 +10,7 @@ let WarnES = new Discord.RichEmbed()
 .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
 .setColor("#F5F5DC")
 .addField(`Узнать варны:`, `!варн *<юзер упоминание>*`)
-.addField(`Отправить варн:`, `!варн *<юзер упоминание> <причина>*`);
+.addField(`Отправить варны:`, `!варн *<юзер упоминание> <причина>*`);
 if (message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) WarnES.addField(`Снять варн:`, `!варн *<юзер упоминание> снять*`);
 if (!(args[0])) { 
 message.delete(15000)
@@ -97,6 +97,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      .addField("Администратор:", `${message.author}`, true)
      .addField("Канал:", message.channel, true)
      .addField("Причина:", wReason, false);
+     if (warn3) logEmbed.addField("Был замучен навсегда", "Набрано 3 варна.", false);
      logsss.send({embed:logEmbed});      
 });         
 };
