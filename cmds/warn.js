@@ -23,7 +23,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      let warn2a = rows[0].twoa;
      let warn3 = rows[0].tri;
      let warn3a = rows[0].tria;
-     
+     let muterole = message.guild.roles.find('name', "muted");
 
      if (!(args[1])) {
         let WarnEmbed = new Discord.RichEmbed()
@@ -34,8 +34,8 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
         .setColor("#bc0000")
         .addField(`Первый варн`, `От <@${warn1a}> с причиной: ${warn1}`);
-        if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: ${warn2}`);
-        if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: ${warn3}`);
+        if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: **${warn2}**`);
+        if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: **${warn3}**`);
 
          message.channel.send({embed:WarnEmbed}).then(async msg => await msg.delete(15000));
          message.delete(15000);
@@ -43,15 +43,19 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      }                   
       if (!warn2) {
       sql = `UPDATE warn SET two = '${wReason}', twoa = ${message.author.id} WHERE id = '${target.id}'`
-      message.channel.send(`Выдал второй варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
+      message.channel.send(`Выдал второй варн <@${target.id}> с причиной **"${wReason}"**`);
       connection.query(sql);
       message.delete();
       } else if (!warn3) {
         sql = `UPDATE warn SET tri = '${wReason}', tria = ${message.author.id} WHERE id = '${target.id}'`
-        message.channel.send(`Выдал третий варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
+        message.channel.send(`Выдал третий варн <@${target.id}> с причиной **"${wReason}"** и замутил **НАВСЕГДА**`);
         connection.query(sql);
         message.delete();
-      }   
+        target.addRole(muterole.id)
+      } else if (warn3) {
+        message.channel.send(`За большое кол-во варнов, замутил пользователя <@${target.id}>, повторно.`);
+        target.addRole(muterole.id) 
+      }  
      }
 });         
 };
