@@ -1,21 +1,22 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
+if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
 if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!варн <юзер упоминание> <+/-поинты>```");
 let wReason = args.slice(1).join(" ") || "---";
 let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!target) return message.reply("такого участника нету");
-if (message.author.id !== "294844223675564034") return message.reply('Хитрожопых наказываю');    
+ 
 
 connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => {
  if(err) throw err;
    let sql;
     if(rows.length < 1) {
+      message.delete();  
       if (!(args[1])) return message.reply(`у пользователя <@${target.id}> нет варнов.`).then(async msg => await msg.delete(15000));    
       sql = `INSERT INTO warn (id, one, onea, two, twoa, tri, tria) VALUES ('${target.id}', '${wReason}', '${message.author.id}', NULL, NULL, NULL, NULL)`;
-      bot.send(`Выдал варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
+      bot.send(`Выдал варн <@${target.id}> с причиной **"${wReason}"**`);
       connection.query(sql);
-      message.delete();
      } else {
      let warn1 = rows[0].one;
      let warn1a = rows[0].onea;
@@ -62,7 +63,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      let logsss = message.guild.channels.get("537720268446236682");
      if(!logsss) return message.channel.send("Сбились настройки логирования, проверьте пожалуйста их.");
      let logEmbed = new Discord.RichEmbed()
-     .setDescription("Выдан варн.")
+     .setTitle("Выдан варн.")
      .setColor('#F5F5DC')
      .setTimestamp()
      .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
