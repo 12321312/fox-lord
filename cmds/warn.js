@@ -11,9 +11,13 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
  if(err) throw err;
    let sql;
     if(rows.length < 1) {
-     sql = `INSERT INTO warn (id, one, onea, two, twoa, tri, tria) VALUES ('${target.id}', '${wReason}', '${message.author.id}', NULL, NULL, NULL, NULL)`;
-     message.reply(`Выдал варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
-     connection.query(sql);
+      if (!(args[1])) {
+      message.reply(`у пользователя <@${target.id}> нет варнов.`);    
+      } else {
+      sql = `INSERT INTO warn (id, one, onea, two, twoa, tri, tria) VALUES ('${target.id}', '${wReason}', '${message.author.id}', NULL, NULL, NULL, NULL)`;
+      message.reply(`Выдал варн <@${target.id}> с причиной "${wReason}" аминистратор <@${message.author.id}>`);
+      connection.query(sql);
+      };
      } else {
      let warn1 = rows[0].one;
      let warn1a = rows[0].onea;
