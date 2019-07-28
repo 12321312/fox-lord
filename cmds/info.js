@@ -15,6 +15,7 @@ module.exports.run = async (bot,message,args) => {
   .addField("Твой пинг:", message.createdTimestamp - Date.now(), true)
   .addField("ID сервера:", message.guild.id)
   .addField("Регион сервера:", message.guild.region)
+  .addField("Вы вошли на сервер:",message.member.joinedAt)
   .addField("Создан сервер:", message.guild.createdAt, true);
 
 
