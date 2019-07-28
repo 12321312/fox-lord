@@ -47,6 +47,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      message.delete();    
      message.channel.send(`Снял все варны с <@${target.id}>`);
      connection.query(sql);
+     if (target.roles.get('592772182543695882')) target.removeRole('592772182543695882');
      return; 
      }
 
