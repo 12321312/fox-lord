@@ -2,7 +2,22 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('Отказано в доступе.');
-if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!варн <юзер упоминание> <+/-поинты>```");
+
+let WarnES = new Discord.RichEmbed()
+.setTitle(`Подробнее о варнах:`)
+.setDescription(`${target}`)
+.setTimestamp()
+.setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
+.setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
+.setColor("#F5F5DC")
+.addField(`Узнать варны:`, `!варн *<юзер упоминание>*`)
+.addField(`Отправить варн:`, `!варн *<юзер упоминание> <причина>*`);
+if (message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) WarnES.addField(`Снять варн:`, `!варн *<юзер упоминание> снять*`);
+if (!(args[0])) { 
+message.delete(15000)
+message.channel.send({embed:WarnES}).then(async msg => await msg.delete(15000));
+return;
+}
 let wReason = args.slice(1).join(" ") || "---";
 let target = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
 if(!target) return message.reply("такого участника нету");
