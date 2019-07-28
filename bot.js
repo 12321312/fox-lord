@@ -134,7 +134,7 @@ function generateXp() {
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
-const loadCommands = module.exports.loadCommands = (dir = "./commands/") => {
+const loadCommands = module.exports.loadCommands = (dir = "./cmds/") => {
     fs.readdir(dir, (error, files) => {                 
         if (error) return console.log(error);                    
 
