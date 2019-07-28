@@ -29,7 +29,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
      
      if ((args[1]) == "снять") {
      if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) return message.reply('Отказано в доступе.');    
-     sql = `DELETE warn WHERE id = '${target.id}'`
+     sql = `DELETE FROM warn WHERE id = '${target.id}'`
      message.delete();    
      message.channel.send(`Снял все варны с <@${target.id}>`);
      connection.query(sql);
@@ -44,7 +44,7 @@ connection.query(`SELECT * FROM warn WHERE id = '${target.id}'`, (err, rows) => 
         .setThumbnail("https://png.pngtree.com/svg/20170421/4d1c159c9e.png")
         .setFooter("Варн систем v2000", "https://www.meme-arsenal.com/memes/5fb377d05d9593b7eb0344b79532afe0.jpg")
         .setColor("#F5F5DC")
-        .addField(`Первый варн`, `От <@${warn1a}> с причиной: ${warn1}`);
+        .addField(`Первый варн`, `От <@${warn1a}> с причиной: **${warn1}**`);
         if (warn2) WarnEmbed.addField(`Второй варн`, `От <@${warn2a}> с причиной: **${warn2}**`);
         if (warn3) WarnEmbed.addField(`Третий варн`, `От <@${warn3a}> с причиной: **${warn3}**`);
 
