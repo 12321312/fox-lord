@@ -45,5 +45,5 @@ module.exports.run = async (bot,message,args) => {
       message.delete(15000);
 };
 module.exports.help = {
-    name: "инфо"
+    name: "серверинфо"
 };
