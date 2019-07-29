@@ -5,9 +5,11 @@ module.exports.run = async (bot,message,args,connection) => {
     connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
       connection.query(`SELECT * FROM warn WHERE id = '${a.id}'`, async (err, rowstwo) => {
      if(err) throw err;
+     if(!rowstwo.length < 1) {
      let warn = rowstwo[0].one;
      let warn2 = rowstwo[0].two;
      let warn3 = rowstwo[0].tri;
+     }
      let xpi = rows[0].xp;
      let point = rows[0].point; 
 
