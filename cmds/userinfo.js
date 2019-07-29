@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     let a = message.author;
     connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
-      connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rowstwo) => {
+      connection.query(`SELECT * FROM warn WHERE id = '${a.id}'`, async (err, rowstwo) => {
      if(err) throw err;
      let warn = rowstwo[0].one;
      let warn2 = rowstwo[0].two;
