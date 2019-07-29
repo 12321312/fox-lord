@@ -3,7 +3,11 @@ const fs = require("fs");
 module.exports.run = async (bot,message,args,connection) => {
     let a = message.author;
     connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rows) => {
+      connection.query(`SELECT * FROM xp WHERE id = '${a.id}'`, async (err, rowstwo) => {
      if(err) throw err;
+     let warn = rowstwo[0].one;
+     let warn2 = rowstwo[0].two;
+     let warn3 = rowstwo[0].tri;
      let xpi = rows[0].xp;
      let point = rows[0].point; 
 
@@ -43,12 +47,15 @@ module.exports.run = async (bot,message,args,connection) => {
     .addField("Донат поинтов:",point, true)
     .addField("Звание:",zhanei, true)
     .addField("ID индификатор:",a.id, true);
-    if(keys) { ambed.addField("Ключи:", keys, true) };
+    if(keys) ambed.addField("Ключи:", keys, true);
+    if(warn && !warn2) ambed.addField("Варны:", `**1**: ${warn}`, true);
+    if(warn2 && !warn3) ambed.addField("Варны:", `**1**: ${warn}\n**2**: ${warn2}`, true);
+    if(warn3) ambed.addField("Варны:", `**1**: ${warn}\n**2**: ${warn2}\n**2**: ${warn3}`, true);
     ambed.addField("Создание аккаунта:",a.createdAt, false);
      
      message.delete(15000);
      message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000));
-});
+})});
 };
 module.exports.help = {
     name: "юзеринфо"
