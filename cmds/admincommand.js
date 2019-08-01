@@ -20,6 +20,7 @@ let zhanei = message.member.roles.filter(r => r.name !=="@everyone" && r.name ==
     if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) ambed.addField("!бан *<юзер> <причина>*","Банит юзера на сервере.");
     if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) ambed.addField("!кик *<юзер>*","Кикает юзера на сервере.");
     if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) ambed.addField("!регион *<регион>*","Меняет на нужный регион сервер.");
+    if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный"].includes(r.name))) ambed.addField("!баба *<юзер>*","Дает роль 'девушка'.");
     if(message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) ambed.addField("!админ *<юзер упоминание> <роль> <дать/забрать>*","Выдает или забирает админку пользователю.");
     if(message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) ambed.addField("!удалить *<юзер> <кол-во>*","Удаляет сообщение пользователя в указаном кол-ве, можно удалить все, указав только кол-во.");
 
