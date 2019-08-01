@@ -5,7 +5,7 @@ module.exports.run = async (bot,message,args) => {
  if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!баба *<юзер упоминание>*```");
  let tobaba = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
  if(!tobaba) return message.reply("такого участника нету");
- if(tobaba.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник", "Барышня"].includes(r.name))) return message.reply('ебанутый шоль?');
+ if(tobaba.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('админам сиськи не нужны');
  message.delete();
  let baba = message.guild.roles.find('name', "Барышня");
 
@@ -14,6 +14,7 @@ module.exports.run = async (bot,message,args) => {
     message.channel.send(`Пользователю <@${tobaba.id}> были урезаны сиськи.`);
     return;
  };
+ if(tobaba.roles.some(r=>["Барышня"].includes(r.name))) return message.reply('ебанутый шоль?');
  tobaba.addRole(baba.id);
  message.channel.send(`Пользователю <@${tobaba.id}> были дарованы сиськи.`);
 
