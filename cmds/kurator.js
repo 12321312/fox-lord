@@ -2,8 +2,8 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 module.exports.run = async (bot,message,args) => {
  if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор"].includes(r.name))) return message.reply('Отказано в доступе.');
- if (!(args[0])) {message.reply("Не верно указан пользователь, напиши так: ```!админ <юзер упоминание> <роль> <дать/забрать>```"); return; }
- if (!(args[1])) {message.reply("Не верно указано время, напиши так: ```!админ <юзер упоминание> <роль> <дать/забрать>```"); return; }
+ if (!(args[0])) return message.reply("Не верно указан пользователь, напиши так: ```!админ <юзер упоминание> <роль> <дать/забрать>```");
+ if (!(args[1])) return message.reply("Не верно указано время, напиши так: ```!админ <юзер упоминание> <роль> <дать/забрать>```");
  let toadmin = message.guild.member(message.mentions.users.first() || message.guild.member.get(args[0]));
  if(!toadmin) return message.reply("такого участника нету");
  if (toadmin.id == "294844223675564034")  return message.reply('фоксу нельзя дать роль и снять её.');
