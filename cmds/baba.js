@@ -8,7 +8,7 @@ module.exports.run = async (bot,message,args) => {
  if(tobaba.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('админам сиськи не нужны');
  let baba = message.guild.roles.find('name', "Барышня");
 
- if((args[1]) == "снять" || (args[0]) == "Снять" || (args[0]) == "-" || (args[0]) == "забрать" || (args[0]) == "Забрать") {
+ if((args[1]) == "снять" || (args[1]) == "Снять" || (args[1]) == "-" || (args[1]) == "забрать" || (args[1]) == "Забрать") {
     message.delete();
     tobaba.removeRole(baba.id);
     message.channel.send(`Пользователю <@${tobaba.id}> были урезаны сиськи.`);
