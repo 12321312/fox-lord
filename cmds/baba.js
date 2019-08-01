@@ -9,11 +9,12 @@ module.exports.run = async (bot,message,args) => {
  message.delete();
  let baba = message.guild.roles.find('name', "Барышня");
 
- if((args[0]) == "снять" || (args[0]) == "Снять" || (args[0]) == "-" || (args[0]) == "забрать" || (args[0]) == "Забрать") {
+ if((args[1]) == "снять" || (args[0]) == "Снять" || (args[0]) == "-" || (args[0]) == "забрать" || (args[0]) == "Забрать") {
     tobaba.removeRole(baba.id);
     message.channel.send(`Пользователю <@${tobaba.id}> были урезаны сиськи.`);
     return;
  };
+
  if(tobaba.roles.some(r=>["Барышня"].includes(r.name))) return message.reply('ебанутый шоль?');
  tobaba.addRole(baba.id);
  message.channel.send(`Пользователю <@${tobaba.id}> были дарованы сиськи.`);
