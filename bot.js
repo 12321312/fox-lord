@@ -149,8 +149,10 @@ bot.aliases = new Discord.Collection();
 
 const loadCommands = module.exports.loadCommands = (dir = "./cmds/") => {
     fs.readdir(dir, (error, files) => {                 
-        if (error) return console.log(error);                    
-
+        if (error) return console.log(error); 
+        if(jsfiles.length <=0) console.log("Нет комманд для загрузки!!");
+        console.log(`Загружено ${jsfiles.length} комманд`);                   
+        let jsfiles = files.filter(f => f.split(".").pop() === "js");
         files.forEach((file) => {   
             if (fs.lstatSync(dir + file).isDirectory()) {
                 loadCommands(dir + file + "/");
