@@ -2,7 +2,7 @@ const Discord = module.require("discord.js");
 const fs = require("fs");
 exports.run = async (bot, message, args) => { 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);  
-    let botmessage = args.slice(1).join(" ");
+    let botmessage = args[1];
     if (message.author.id !== "294844223675564034") return message.reply('Хитрожопых наказываю'); 
     message.delete(); 
     if (!(args[0]) && (args[1])) return message.reply('пусто везде бл...');
