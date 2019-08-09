@@ -1,6 +1,6 @@
 const Discord = module.require("discord.js");
 const fs = require("fs");
-module.exports.run = async (bot,message,args) => {
+exports.run = async (bot, message, args) => {
 if(!message.member.roles.some(r=>["Лисий повелитель", "Куратор", "Дозорный", "Прислужник"].includes(r.name))) return message.reply('У вас нет прав на вызов админ-меню.');
 let zhanei = message.member.roles.filter(r => r.name !=="@everyone" && r.name == "Лисий повелитель" || r.name == "Куратор" || r.name == "Дозорный" || r.name == "Прислужник").map(r => r).join(', ')
     let a = message.author;
@@ -28,7 +28,11 @@ let zhanei = message.member.roles.filter(r => r.name !=="@everyone" && r.name ==
     message.channel.send({embed:ambed}).then(async msg => await msg.delete(15000));
 
 };
-module.exports.help = {
-    name: "админка"
-};
- 
+module.exports.command = {
+    name: 'admincommand',
+    aliases: ["админка", "админкоманды", "админменю", "adminmenu"],
+    description: "обычная админка, чо доебался?",
+    usage: "admincommand",
+    category: "admin",
+    enabled: true
+}; 
