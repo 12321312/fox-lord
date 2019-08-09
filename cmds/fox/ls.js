@@ -5,7 +5,6 @@ exports.run = async (bot, message, args) => {
     let botmessage = args.join(" ");
     if (message.author.id !== "294844223675564034") { message.reply('Хитрожопых наказываю'); return; }
     if (!(args[0]) && (args[1])) { message.delete(); message.reply('пусто везде бл...'); return; }
-    if ((args[0])) { message.delete(); message.reply('Пустота в обращении...'); return; }
     if (!member) { message.delete(); message.reply('Такого нету...'); return; }
     if ((args[1])) { message.delete(); message.reply('Пустота в описании...'); return; }
 
