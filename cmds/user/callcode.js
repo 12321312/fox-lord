@@ -14,8 +14,8 @@ exports.run = async (bot, message, args) => {
     .then(($) => {
       let code = ($('#nuclearcodess').text());
       let alfa = code.slice(130, -79);
-      let brava = code.slice(138, -87);
-      let charli = code.slice(146, -95);
+      let brava = code.slice(138, -71);
+      let charli = code.slice(146, -64);
       
       message.channel.send(`Альфа: ${alfa} Браво: ${brava} Чарли: ${charli}`);
 
