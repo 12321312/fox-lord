@@ -12,7 +12,7 @@ const options = {
 exports.run = async (bot, message, args) => { 
     rp(options)
     .then(($) => {
-      console.log($);
+      console.log($('#nuclearcodess').find('.text-align: center;').text());
     })
     .catch((err) => {
       console.log(err);
