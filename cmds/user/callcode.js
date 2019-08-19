@@ -13,6 +13,8 @@ exports.run = async (bot, message, args) => {
     rp(options)
     .then(($) => {
       console.log($('#nuclearcodess').text().slice(130, -79));
+      console.log($('#nuclearcodess').text().slice(138, -87));
+      console.log($('#nuclearcodess').text().slice(146, -95));
     })
     .catch((err) => {
       console.log(err);
