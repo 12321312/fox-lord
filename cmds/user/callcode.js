@@ -8,7 +8,7 @@ exports.run = async (bot, message, args) => {
             if (err)
                     throw err;
             $ = cheerio.load(body);
-            $('#nuclearcodess').find('.text-align: center;').text()
+            lol = $('#nuclearcodess').find('.text-align: center;').text();
             console.log(body);
     });
 };
