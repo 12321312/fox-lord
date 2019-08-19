@@ -8,8 +8,10 @@ exports.run = async (bot, message, args) => {
             if (err)
                     throw err;
             $ = cheerio.load(body);
-            lol = $('#nuclearcodess').find('.text-align: center;').text();
+            $('a').each(function() { 
+            lol = ($('#nuclearcodess').find('.text-align: center;').text());
             console.log(lol);
+            } 
     });
 };
 
