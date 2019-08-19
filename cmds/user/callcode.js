@@ -12,7 +12,7 @@ const options = {
 exports.run = async (bot, message, args) => { 
     rp(options)
     .then(($) => {
-      console.log($('#nuclearcodess').text());
+      console.log($('#nuclearcodess').text().slice(24));
     })
     .catch((err) => {
       console.log(err);
