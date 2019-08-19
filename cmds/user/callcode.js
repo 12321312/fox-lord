@@ -9,7 +9,7 @@ exports.run = async (bot, message, args) => {
                     throw err;
             $ = cheerio.load(body);
             $('#nuclearcodess').find('.text-align: center;').text()
-            console.log($);
+            console.log(body);
     });
 };
 
