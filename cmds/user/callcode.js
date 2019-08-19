@@ -12,9 +12,11 @@ const options = {
 exports.run = async (bot, message, args) => { 
     rp(options)
     .then(($) => {
-      console.log($('#nuclearcodess').text().slice(130, -79));
-      console.log($('#nuclearcodess').text().slice(138, -87));
-      console.log($('#nuclearcodess').text().slice(146, -95));
+      let alfa = ($('#nuclearcodess').text().slice(130, -79));
+      let brava = ($('#nuclearcodess').text().slice(138, -87));
+      let charli = ($('#nuclearcodess').text().slice(146, -95));
+      
+      message.channel.send(`Альфа: ${alfa} Браво: ${brava} Чарли: ${charli}`)
     })
     .catch((err) => {
       console.log(err);
