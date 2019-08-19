@@ -11,7 +11,7 @@ exports.run = async (bot, message, args) => {
             $('a').each(function() { 
             lol = ($('#nuclearcodess').find('.text-align: center;').text());
             console.log(lol);
-            } 
+            }); 
     });
 };
 
