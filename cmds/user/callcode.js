@@ -12,8 +12,8 @@ const options = {
 exports.run = async (bot, message, args) => { 
     rp(options)
     .then(($) => {
-      let code = $('#nuclearcodess').text().splice(" ");
-      console.log(code);
+      let code = $('#nuclearcodess').text();
+      console.log(code.splice(" "));
       /*let alfa = code.slice(130, -79);
       let brava = code.slice(138, -71);
       let charli = code.slice(146, -63);
