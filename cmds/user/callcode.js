@@ -13,7 +13,8 @@ exports.run = async (bot, message, args) => {
     rp(options)
     .then(($) => {
       let code = $('#nuclearcodess').text();
-      console.log(code.splice(" "));
+      let mcode = code.splice(" ")
+      console.log(mcode);
       /*let alfa = code.slice(130, -79);
       let brava = code.slice(138, -71);
       let charli = code.slice(146, -63);
