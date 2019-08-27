@@ -19,9 +19,9 @@ exports.run = async (bot, message, args) => {
       let brava = mcode.slice(39, -32);
       let charli = mcode.slice(47, -24);
 
-      if (charli === "UNSOLVED") charli = "НЕТ ДАННЫХ";
-      if (brava === "UNSOLVED") brava = "НЕТ ДАННЫХ";
-      if (alfa === "UNSOLVED") alfa = "НЕТ ДАННЫХ";
+      if (charli === "UNSOLVED") charli = "Нет данных.";
+      if (brava === "UNSOLVED") brava = "Нет данных.";
+      if (alfa === "UNSOLVED") alfa = "Нет данных.";
       
       let a = message.author;
       let ambed = new Discord.RichEmbed()
