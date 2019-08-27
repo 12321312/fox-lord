@@ -14,10 +14,10 @@ exports.run = async (bot, message, args) => {
     .then(($) => {
       let code = $('#nuclearcodess').text();
       let mcode = code.replace(/\s+/g, '');
-      console.log(mcode);
-      /*let alfa = code.slice(130, -79);
-      let brava = code.slice(138, -71);
-      let charli = code.slice(146, -63);
+
+      let alfa = mcode.slice(31, -40);
+      let brava = mcode.slice(39, -32);
+      let charli = mcode.slice(47, -24);
       
       let a = message.author;
       let ambed = new Discord.RichEmbed()
@@ -30,8 +30,7 @@ exports.run = async (bot, message, args) => {
       .addField("Браво:", brava)
       .addField("Чарли:", charli);
 
-      message.channel.send({embed:ambed});
-      */
+      message.channel.send({embed:ambed});    
     })
     .catch((err) => {
       console.log(err);
