@@ -44,7 +44,7 @@ exports.run = async (bot, message, args) => {
 
 module.exports.command = {
     name: 'callcode',
-    aliases: ["тесткод", "кодт", "кооооод"],
+    aliases: ["код", "коды", "бункер", "запуск", "ракеты", "code", "cod"],
     description: "Показывает пинг, чо доебался?",
     usage: "usercommand",
     category: "user",
